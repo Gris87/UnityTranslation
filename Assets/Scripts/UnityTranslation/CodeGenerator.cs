@@ -1,8 +1,7 @@
 #if UNITY_EDITOR
 
-// Use this definition to generate Languages.cs and PluralsRules.cs from
+// Use this definition to generate Languages.cs and PluralsRules.cs from CLDR. Please become Unity Translation developer and commit your changes to https://github.com/Gris87/UnityTranslation
 #define I_AM_UNITY_TRANSLATION_DEVELOPER
-// TODO: GITHUB Link
 
 // Use this definition if you want to force code generation
 // #define FORCE_CODE_GENERATION
@@ -227,7 +226,7 @@ namespace UnityTranslation
 					   "    }\n" +
                        "}\n";
 
-				File.WriteAllText(targetFile, res);
+				File.WriteAllText(targetFile, res, Encoding.UTF8);
 			}
 			else
 			{
@@ -249,12 +248,75 @@ namespace UnityTranslation
 
 		private static void generateStringsXml()
 		{
-			Debug.Log("Generating res/values/strings.xml file"); // TODO: Full path
+			TextAsset xmlFile = Resources.Load("res/values/strings", typeof(TextAsset)) as TextAsset;
+
+			if (xmlFile == null)
+			{
+				Debug.Log("Generating Assets/Resources/res/values/strings.xml file"); // TODO: Full path
+
+				string valuesFolder = Application.dataPath + "/Resources/res/values";
+				Directory.CreateDirectory(valuesFolder);
+
+				File.WriteAllText(valuesFolder + "/strings.xml"
+				                  , "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + 
+                                    "<resources>\n" +
+				                    "\n" +
+				                    "    <!-- Application name -->\n" +
+				                    "    <string name=\"app_name\">Application name</string>\n" +
+				                    "\n" +
+				                    "</resources>"
+				                  , Encoding.UTF8);
+
+				Debug.LogWarning("Resource \"Assets/Resources/res/values/strings.xml\" generated. Please rebuild your application. You have to switch focus to another application to let Unity check that project structure was changed.");
+			}
 		}
 
 		private static void generateR()
 		{
-			Debug.Log("Generating R.cs file");
+			TextAsset xmlFile = Resources.Load("res/values/strings", typeof(TextAsset)) as TextAsset;
+			
+			if (xmlFile != null)
+            {
+				string rFilePath = null;
+
+				DirectoryInfo assetsFolder = new DirectoryInfo(Application.dataPath);
+				FileInfo[] foundFiles = assetsFolder.GetFiles("R.cs", SearchOption.AllDirectories);
+
+				if (foundFiles.Length > 0)
+				{
+					rFilePath = foundFiles[0].FullName;
+				}
+				else
+				{
+					DirectoryInfo[] foundDirs = assetsFolder.GetDirectories("UnityTranslation", SearchOption.AllDirectories);
+
+					for (int i = 0; i < foundDirs.Length; ++i)
+					{
+						if (File.Exists(foundDirs[i].FullName + "/Translator.cs"))
+						{
+							rFilePath = foundDirs[i].FullName + "/Generated/R.cs";
+
+							break;
+						}
+					}
+
+					if (rFilePath == null)
+					{
+						rFilePath = Application.dataPath + "/R.cs";
+
+						Debug.LogError("Unexpected behaviour for getting path to R.cs file");
+					}
+				}
+
+				rFilePath = rFilePath.Replace('\\', '/');
+
+
+				Debug.Log("Generating R.cs file");
+			}
+			else
+			{
+				Debug.LogError("Resource \"Assets/Resources/res/values/strings.xml\" not found. UnityTranslation is not available for now.");
+			}
 		}
 	}
 }
