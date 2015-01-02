@@ -9,10 +9,12 @@
 
 
 using UnityEngine;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml;
 
 
 
@@ -248,6 +250,7 @@ namespace UnityTranslation
 
 		private static void generateStringsXml()
 		{
+			// TODO: Check as file
 			TextAsset xmlFile = Resources.Load("res/values/strings", typeof(TextAsset)) as TextAsset;
 
 			if (xmlFile == null)
@@ -273,12 +276,14 @@ namespace UnityTranslation
 
 		private static void generateR()
 		{
+			// TODO: Read from file
 			TextAsset xmlFile = Resources.Load("res/values/strings", typeof(TextAsset)) as TextAsset;
 			
 			if (xmlFile != null)
             {
 				string rFilePath = null;
 
+				#region Search for R.cs file
 				DirectoryInfo assetsFolder = new DirectoryInfo(Application.dataPath);
 				FileInfo[] foundFiles = assetsFolder.GetFiles("R.cs", SearchOption.AllDirectories);
 
@@ -307,11 +312,192 @@ namespace UnityTranslation
 						Debug.LogError("Unexpected behaviour for getting path to R.cs file");
 					}
 				}
+				#endregion
 
-				rFilePath = rFilePath.Replace('\\', '/');
-
-
+				string tempStringsXmlFile = Application.temporaryCachePath + "/strings.xml";
+				
+				string targetFile = rFilePath.Replace('\\', '/');
+				
+				byte[] xmlFileBytes = xmlFile.bytes;
+				
+				#region Check that R.cs is up to date
+				#if !FORCE_CODE_GENERATION
+				if (
+					File.Exists(targetFile)
+					&&
+					File.Exists(tempStringsXmlFile)
+				   )
+				{
+					byte[] tempFileBytes = File.ReadAllBytes(tempStringsXmlFile);
+					
+					if (xmlFileBytes.SequenceEqual(tempFileBytes))
+					{
+						return;
+					}
+				}
+				#endif
+				#endregion
+				
+				#region Generating R.cs file
 				Debug.Log("Generating R.cs file");
+
+				List<string>                              stringNames       = new List<string>();
+				List<string>                              stringValues      = new List<string>();
+
+				List<string>                              stringArrayNames  = new List<string>();
+				List<List<string>>                        stringArrayValues = new List<List<string>>();
+
+				List<string>                              pluralsNames      = new List<string>();
+				List<Dictionary<PluralsQuantity, string>> pluralsValues     = new List<Dictionary<PluralsQuantity, string>>();
+
+				#region Parse strings.xml file
+				bool good = true;
+
+				XmlTextReader reader = null;
+
+				try
+				{
+					reader = new XmlTextReader(new MemoryStream(xmlFileBytes, false));
+					reader.WhitespaceHandling = WhitespaceHandling.None;
+
+					bool resourcesFound = false;
+
+					while (good && reader.Read())
+					{
+						if (reader.Name == "resources")
+						{
+							resourcesFound = true;
+
+							string lastComment = null;
+
+							while (reader.Read())
+							{
+								if (reader.NodeType == XmlNodeType.Comment)
+								{
+									lastComment = reader.Value.Trim();
+								}
+								else
+								if (reader.NodeType == XmlNodeType.Element)
+                                {
+									if (reader.Name == "string")
+									{
+										string tokenName = reader.GetAttribute("name");
+
+										// TODO: Function for checking token name
+
+										if (tokenName == null)
+										{
+											good = false;
+
+											Debug.LogError("Attribute \"name\" not found for tag <string> in Assets/Resources/res/values/strings.xml");
+
+											break;
+										}
+
+										if (tokenName == "")
+										{
+											good = false;
+											
+											Debug.LogError("Attribute \"name\" empty for tag <string> in Assets/Resources/res/values/strings.xml");
+                                            
+                                            break;
+										}
+
+										if (stringNames.Contains(tokenName))
+										{
+											good = false;
+											
+											Debug.LogError("Attribute \"name\" for tag <string> has duplicate value \"" + tokenName + "\" in Assets/Resources/res/values/strings.xml");
+                                            
+                                            break;
+                                        }
+                                        
+										stringNames.Add(tokenName);
+										stringValues.Add(reader.ReadString());
+
+										// TODO: Add comment
+                                        
+                                        lastComment = null;
+                                    }
+                                }
+							}
+						}
+					}
+
+					if (!resourcesFound)
+					{
+						good = false;
+
+						Debug.LogError("Tag <resources> not found in Assets/Resources/res/values/strings.xml");
+					}
+				}
+				catch (Exception /*e*/)
+				{
+					good = false;
+
+					Debug.LogError("Exception occured while parsing Assets/Resources/res/values/strings.xml");
+				}
+				finally
+				{
+					if (reader != null)
+					{
+						reader.Close();
+					}
+				}
+
+				good = false; // TODO: Remove it
+
+				if (!good)
+				{
+					return;
+				}
+				#endregion
+
+				string res = "// This file generated from Assets/Resources/res/values/strings.xml file.\n" +
+					         "\n" +
+						     "\n" +
+						     "\n" +
+						     "namespace UnityTranslation\n" +
+						     "{\n" +
+						     "    /// <summary>\n" +
+						     "    /// Container for all tokens specified in Assets/Resources/res/values/strings.xml\n" +
+						     "    /// </summary>\n" +
+						     "    public sealed class R\n" +
+						     "    {\n" +
+						     "        /// <summary>\n" +
+						     "        /// Enumeration of all string tags in Assets/Resources/res/values/strings.xml\n" +
+				             "        /// </summary>\n" +
+						     "        public enum strings\n" +
+						     "        {\n" +
+						     "            /// <summary>\n" +
+						     "            /// <para>Value: Hello</para>\n" +
+						     "            /// </summary>\n" +
+						     "            hello\n" +
+						     "        }\n" +
+						     "\n" +
+				             "        /// <summary>\n" +
+						     "        /// Enumeration of all string-array tags in Assets/Resources/res/values/strings.xml\n" +
+						     "        /// </summary>\n" +
+					         "        public enum array\n" +
+						     "        {\n" +
+						     "            Count\n" +
+						     "        }\n" +
+					 	     "\n" +
+						     "        /// <summary>\n" +
+						     "        /// Enumeration of all plurals tags in Assets/Resources/res/values/strings.xml\n" +
+						     "        /// </summary>\n" +
+						     "        public enum plurals\n" +
+						     "        {\n" +
+						     "           Count\n" +
+						     "        }\n" +
+						     "    }\n" +
+						     "}\n";
+
+				File.WriteAllText(targetFile, res, Encoding.UTF8);
+
+				Debug.Log("Caching strings.xml file in \"" + tempStringsXmlFile + "\"");
+				File.WriteAllBytes(tempStringsXmlFile, xmlFileBytes);
+				#endregion
 			}
 			else
 			{
