@@ -1,6 +1,6 @@
 #if UNITY_EDITOR
 
-// Use this definition to generate Languages.cs and PluralsRules.cs from CLDR. Please become Unity Translation developer and commit your changes to https://github.com/Gris87/UnityTranslation
+// Use this definition to generate "Languages.cs" and "PluralsRules.cs" from CLDR. Please become Unity Translation developer and commit your changes to https://github.com/Gris87/UnityTranslation
 #define I_AM_UNITY_TRANSLATION_DEVELOPER
 
 // Use this definition if you want to force code generation
@@ -20,490 +20,498 @@ using System.Xml;
 
 namespace UnityTranslation
 {
-	public static class CodeGenerator
-	{
-		public static void generate()
-		{
+    public static class CodeGenerator
+    {
+        public static void generate()
+        {
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
-			generateLanguages();
-			generatePluralsRules();
+            generateLanguages();
+            generatePluralsRules();
 #endif
 
-			generateStringsXml();
-			generateR();
-		}
+            generateStringsXml();
+            generateR();
+        }
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
-		private static void generateLanguages()
-		{
-			string cldrLanguagesFile = Application.dataPath           + "/../3rd_party/CLDR/json-full/main/en/languages.json";
-			string tempLanguagesFile = Application.temporaryCachePath + "/languages.json";
+        private static void generateLanguages()
+        {
+            string cldrLanguagesFile = Application.dataPath           + "/../3rd_party/CLDR/json-full/main/en/languages.json";
+            string tempLanguagesFile = Application.temporaryCachePath + "/languages.json";
 
-			string targetFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/Language.cs";
+            string targetFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/Language.cs";
 
-			byte[] cldrFileBytes = null;
+            byte[] cldrFileBytes = null;
 
-			#region Check that Languages.cs is up to date
-			if (!File.Exists(cldrLanguagesFile))
-			{
-				Debug.LogError("File \"" + cldrLanguagesFile + "\" not found");
+            #region Check that Languages.cs is up to date
+            if (!File.Exists(cldrLanguagesFile))
+            {
+                Debug.LogError("File \"" + cldrLanguagesFile + "\" not found");
 
-				return;
-			}
+                return;
+            }
 
-			cldrFileBytes = File.ReadAllBytes(cldrLanguagesFile);
+            cldrFileBytes = File.ReadAllBytes(cldrLanguagesFile);
 
 #if !FORCE_CODE_GENERATION
-			if (
-				File.Exists(targetFile)
-			    &&
-				File.Exists(tempLanguagesFile)
-			   )
-			{
-				byte[] tempFileBytes = File.ReadAllBytes(tempLanguagesFile);
-
-				if (cldrFileBytes.SequenceEqual(tempFileBytes))
-				{
-					return;
-				}
-			}
-#endif
-			#endregion
-
-			#region Generating Languages.cs file
-			Debug.Log("Generating Languages.cs file");
-
-			string cldrFileText = Encoding.UTF8.GetString(cldrFileBytes);
-			JSONObject json = new JSONObject(cldrFileText);
-
-			if (json.type == JSONObject.Type.OBJECT)
-			{
-				List<string> languageCodes = new List<string>();
-				List<string> languageEnums = new List<string>();
-				List<string> languageNames = new List<string>();
-
-				#region Parse JSON
-				bool good = true;
-
-				json.GetField("main", delegate(JSONObject mainJson)
-				{
-					mainJson.GetField("en", delegate(JSONObject enJson)
-					{
-						enJson.GetField("localeDisplayNames", delegate(JSONObject localeDisplayNamesJson)
-						{
-							localeDisplayNamesJson.GetField("languages", delegate(JSONObject languagesJson)
-							{
-								for (int i = 0; i < languagesJson.list.Count; ++i)
-								{
-									string temp = "";
-									
-									string[] tokens = languagesJson.list[i].str.Split(' ', '.', '-');
-									
-									for (int j = 0; j < tokens.Length; ++j)
-									{
-										if (tokens[j].Length > 0)
-										{
-											temp += tokens[j].Substring(0, 1).ToUpper() + tokens[j].Substring(1).ToLower();
-										}
-									}
-									
-									string languageEnum = "";
-									
-									for (int j = 0; j < temp.Length; ++j)
-									{
-										char ch = temp[j];
-										
-										if (
-											(ch >= 'a') && (ch <= 'z')
-											||
-											(ch >= 'A') && (ch <= 'Z')
-											)
-										{
-											languageEnum += ch;
-										}
-									}
-
-									languageCodes.Add(languagesJson.keys[i]);
-									languageEnums.Add(languageEnum);
-									languageNames.Add(languagesJson.list[i].str);
-								}
-							},
-							delegate(string name)
-							{
-								good = false;
-								
-								Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrLanguagesFile + "\"");
-							});
-						},
-						delegate(string name)
-						{
-							good = false;
-							
-							Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrLanguagesFile + "\"");
-						});
-					},
-					delegate(string name)
-					{
-						good = false;
-						
-						Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrLanguagesFile + "\"");
-					});
-				},
-				delegate(string name)
-				{
-					good = false;
-					
-					Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrLanguagesFile + "\"");
-				});
-
-				if (!good)
-				{
-					return;
-				}
-				#endregion
-
-				string res = "// This file generated from CLDR/json-full/main/en/languages.json file.\n" +
-					         "\n" +
-						     "\n" +
-						     "\n" +
-						     "namespace UnityTranslation\n" +
-						     "{\n" +
-						     "    /// <summary>\n" +
-						     "    /// Language. This enumeration contains list of supported languages.\n" +
-						     "    /// </summary>\n" +
-						     "    public enum Language\n" +
-						     "    {\n" +
-						     "        /// <summary>\n" +
-						     "        /// Default language. Equivalent for English.\n" +
-						     "        /// </summary>\n" +
-						     "        Default\n";
-				
-				for (int i = 0; i < languageNames.Count; ++i)
-				{					
-					res += "        , \n"+
-						   "        /// <summary>\n"+
-						   "        /// " + languageNames[i] + ".\n"+
-						   "        /// </summary>\n"+
-					 	   "        " + languageEnums[i] + "\n";
-				}
-				
-				res += "        ,\n" +
-					   "        Count // Should be last\n" +
-					   "    }\n" +
-				       "\n" + 
-					   "    public static class LanguageCode\n" + 
-				       "    {\n" + 
-					   "        private static string[] mCodes = null;\n" + 
-					   "\n" + 
-					   "        static LanguageCode()\n" + 
-					   "        {\n" + 
-				       "            mCodes = new string[(int)Language.Count];\n" + 
-				       "\n" + 
-					   "            mCodes[(int)Language.Default] = \"\";\n";
-
-				for (int i = 0; i < languageCodes.Count; ++i)
-				{
-					res += "            mCodes[(int)Language." + languageEnums[i] + "] = \"" + languageCodes[i] + "\";\n";
-				}
-				
-				res += "        }\n" +
-					   "\n" +
-					   "        public static string languageToCode(Language language)\n" +
-					   "        {\n" +
-					   "            return mCodes[(int)language];\n" +
-					   "        }\n" +
-					   "\n" +
-					   "        public static Language codeToLanguage(string code)\n" +
-				       "        {\n" +
-					   "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
-					   "            {\n" +
-					   "                if (mCodes[i] == code)\n" +
-					   "                {\n" +
-					   "                    return (Language)i;\n" +
-					   "                }\n" +
-					   "            }\n" +
-					   "\n" +
-					   "            return Language.Default;\n" +
-					   "        }\n" +
-					   "    }\n" +
-                       "}\n";
-
-				File.WriteAllText(targetFile, res, Encoding.UTF8);
-			}
-			else
-			{
-				Debug.LogError("Incorrect file format in \"" + cldrLanguagesFile + "\"");
-				
-				return;
-			}
-
-			Debug.Log("Caching CLDR languages file in \"" + tempLanguagesFile + "\"");
-			File.WriteAllBytes(tempLanguagesFile, cldrFileBytes);
-			#endregion
-		}
-
-		private static void generatePluralsRules()
-		{
-			Debug.Log("Generating PluralsRules.cs file");
-		}
-#endif
-
-		private static void generateStringsXml()
-		{
-			// TODO: Check as file
-			TextAsset xmlFile = Resources.Load("res/values/strings", typeof(TextAsset)) as TextAsset;
-
-			if (xmlFile == null)
-			{
-				Debug.Log("Generating Assets/Resources/res/values/strings.xml file"); // TODO: Full path
-
-				string valuesFolder = Application.dataPath + "/Resources/res/values";
-				Directory.CreateDirectory(valuesFolder);
-
-				File.WriteAllText(valuesFolder + "/strings.xml"
-				                  , "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + 
-                                    "<resources>\n" +
-				                    "\n" +
-				                    "    <!-- Application name -->\n" +
-				                    "    <string name=\"app_name\">Application name</string>\n" +
-				                    "\n" +
-				                    "</resources>"
-				                  , Encoding.UTF8);
-
-				Debug.LogWarning("Resource \"Assets/Resources/res/values/strings.xml\" generated. Please rebuild your application. You have to switch focus to another application to let Unity check that project structure was changed.");
-			}
-		}
-
-		private static void generateR()
-		{
-			// TODO: Read from file
-			TextAsset xmlFile = Resources.Load("res/values/strings", typeof(TextAsset)) as TextAsset;
-			
-			if (xmlFile != null)
+            if (
+                File.Exists(targetFile)
+                &&
+                File.Exists(tempLanguagesFile)
+               )
             {
-				string rFilePath = null;
+                byte[] tempFileBytes = File.ReadAllBytes(tempLanguagesFile);
 
-				#region Search for R.cs file
-				DirectoryInfo assetsFolder = new DirectoryInfo(Application.dataPath);
-				FileInfo[] foundFiles = assetsFolder.GetFiles("R.cs", SearchOption.AllDirectories);
+                if (cldrFileBytes.SequenceEqual(tempFileBytes))
+                {
+                    return;
+                }
+            }
+#endif
+            #endregion
 
-				if (foundFiles.Length > 0)
-				{
-					rFilePath = foundFiles[0].FullName;
-				}
-				else
-				{
-					DirectoryInfo[] foundDirs = assetsFolder.GetDirectories("UnityTranslation", SearchOption.AllDirectories);
+            #region Generating Languages.cs file
+            Debug.Log("Generating \"Languages.cs\" file");
 
-					for (int i = 0; i < foundDirs.Length; ++i)
-					{
-						if (File.Exists(foundDirs[i].FullName + "/Translator.cs"))
-						{
-							rFilePath = foundDirs[i].FullName + "/Generated/R.cs";
+            string cldrFileText = Encoding.UTF8.GetString(cldrFileBytes);
+            JSONObject json = new JSONObject(cldrFileText);
 
-							break;
-						}
-					}
+            if (json.type == JSONObject.Type.OBJECT)
+            {
+                List<string> languageCodes = new List<string>();
+                List<string> languageEnums = new List<string>();
+                List<string> languageNames = new List<string>();
 
-					if (rFilePath == null)
-					{
-						rFilePath = Application.dataPath + "/R.cs";
+                #region Parse JSON
+                bool good = true;
 
-						Debug.LogError("Unexpected behaviour for getting path to R.cs file");
-					}
-				}
-				#endregion
-
-				string tempStringsXmlFile = Application.temporaryCachePath + "/strings.xml";
-				
-				string targetFile = rFilePath.Replace('\\', '/');
-				
-				byte[] xmlFileBytes = xmlFile.bytes;
-				
-				#region Check that R.cs is up to date
-				#if !FORCE_CODE_GENERATION
-				if (
-					File.Exists(targetFile)
-					&&
-					File.Exists(tempStringsXmlFile)
-				   )
-				{
-					byte[] tempFileBytes = File.ReadAllBytes(tempStringsXmlFile);
-					
-					if (xmlFileBytes.SequenceEqual(tempFileBytes))
-					{
-						return;
-					}
-				}
-				#endif
-				#endregion
-				
-				#region Generating R.cs file
-				Debug.Log("Generating R.cs file");
-
-				List<string>                              stringNames       = new List<string>();
-				List<string>                              stringValues      = new List<string>();
-
-				List<string>                              stringArrayNames  = new List<string>();
-				List<List<string>>                        stringArrayValues = new List<List<string>>();
-
-				List<string>                              pluralsNames      = new List<string>();
-				List<Dictionary<PluralsQuantity, string>> pluralsValues     = new List<Dictionary<PluralsQuantity, string>>();
-
-				#region Parse strings.xml file
-				bool good = true;
-
-				XmlTextReader reader = null;
-
-				try
-				{
-					reader = new XmlTextReader(new MemoryStream(xmlFileBytes, false));
-					reader.WhitespaceHandling = WhitespaceHandling.None;
-
-					bool resourcesFound = false;
-
-					while (good && reader.Read())
-					{
-						if (reader.Name == "resources")
-						{
-							resourcesFound = true;
-
-							string lastComment = null;
-
-							while (reader.Read())
-							{
-								if (reader.NodeType == XmlNodeType.Comment)
-								{
-									lastComment = reader.Value.Trim();
-								}
-								else
-								if (reader.NodeType == XmlNodeType.Element)
+                json.GetField("main", delegate(JSONObject mainJson)
+                {
+                    mainJson.GetField("en", delegate(JSONObject enJson)
+                    {
+                        enJson.GetField("localeDisplayNames", delegate(JSONObject localeDisplayNamesJson)
+                        {
+                            localeDisplayNamesJson.GetField("languages", delegate(JSONObject languagesJson)
+                            {
+                                for (int i = 0; i < languagesJson.list.Count; ++i)
                                 {
-									if (reader.Name == "string")
-									{
-										string tokenName = reader.GetAttribute("name");
+                                    string temp = "";
 
-										// TODO: Function for checking token name
+                                    string[] tokens = languagesJson.list[i].str.Split(' ', '.', '-');
 
-										if (tokenName == null)
-										{
-											good = false;
+                                    for (int j = 0; j < tokens.Length; ++j)
+                                    {
+                                        if (tokens[j].Length > 0)
+                                        {
+                                            temp += tokens[j].Substring(0, 1).ToUpper() + tokens[j].Substring(1).ToLower();
+                                        }
+                                    }
 
-											Debug.LogError("Attribute \"name\" not found for tag <string> in Assets/Resources/res/values/strings.xml");
+                                    string languageEnum = "";
 
-											break;
-										}
+                                    for (int j = 0; j < temp.Length; ++j)
+                                    {
+                                        char ch = temp[j];
 
-										if (tokenName == "")
-										{
-											good = false;
-											
-											Debug.LogError("Attribute \"name\" empty for tag <string> in Assets/Resources/res/values/strings.xml");
-                                            
-                                            break;
-										}
+                                        if (
+                                            (ch >= 'a') && (ch <= 'z')
+                                            ||
+                                            (ch >= 'A') && (ch <= 'Z')
+                                            )
+                                        {
+                                            languageEnum += ch;
+                                        }
+                                        // TODO: Replace with similar char
+                                    }
 
-										if (stringNames.Contains(tokenName))
-										{
-											good = false;
-											
-											Debug.LogError("Attribute \"name\" for tag <string> has duplicate value \"" + tokenName + "\" in Assets/Resources/res/values/strings.xml");
-                                            
+                                    languageCodes.Add(languagesJson.keys[i]);
+                                    languageEnums.Add(languageEnum);
+                                    languageNames.Add(languagesJson.list[i].str);
+                                }
+                            },
+                            delegate(string name)
+                            {
+                                good = false;
+
+                                Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrLanguagesFile + "\"");
+                            });
+                        },
+                        delegate(string name)
+                        {
+                            good = false;
+
+                            Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrLanguagesFile + "\"");
+                        });
+                    },
+                    delegate(string name)
+                    {
+                        good = false;
+
+                        Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrLanguagesFile + "\"");
+                    });
+                },
+                delegate(string name)
+                {
+                    good = false;
+
+                    Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrLanguagesFile + "\"");
+                });
+
+                if (!good)
+                {
+                    return;
+                }
+                #endregion
+
+                string res = "// This file generated from \"CLDR/json-full/main/en/languages.json\" file.\n" +
+                             "\n" +
+                             "\n" +
+                             "\n" +
+                             "namespace UnityTranslation\n" +
+                             "{\n" +
+                             "    /// <summary>\n" +
+                             "    /// Language. This enumeration contains list of supported languages.\n" +
+                             "    /// </summary>\n" +
+                             "    public enum Language\n" +
+                             "    {\n" +
+                             "        /// <summary>\n" +
+                             "        /// Default language. Equivalent for English.\n" +
+                             "        /// </summary>\n" +
+                             "        Default\n";
+
+                for (int i = 0; i < languageNames.Count; ++i)
+                {
+                    res += "        , \n" +
+                           "        /// <summary>\n" +
+                           "        /// " + languageNames[i] + ".\n" + // TODO: Language code
+                           "        /// </summary>\n" +
+                            "        " + languageEnums[i] + "\n";
+                }
+
+                res += "        ,\n" +
+                       "        Count // Should be last\n" +
+                       "    }\n" +
+                       "\n" +
+                       "    public static class LanguageCode\n" +
+                       "    {\n" +
+                       "        private static string[] mCodes = null;\n" +
+                       "\n" +
+                       "        static LanguageCode()\n" +
+                       "        {\n" +
+                       "            mCodes = new string[(int)Language.Count];\n" +
+                       "\n" +
+                       "            mCodes[(int)Language.Default] = \"\";\n";
+
+                for (int i = 0; i < languageCodes.Count; ++i)
+                {
+                    res += "            mCodes[(int)Language." + languageEnums[i] + "] = \"" + languageCodes[i] + "\";\n";
+                }
+
+                res += "        }\n" +
+                       "\n" +
+                       "        public static string languageToCode(Language language)\n" +
+                       "        {\n" +
+                       "            return mCodes[(int)language];\n" +
+                       "        }\n" +
+                       "\n" +
+                       "        public static Language codeToLanguage(string code)\n" +
+                       "        {\n" +
+                       "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
+                       "            {\n" +
+                       "                if (mCodes[i] == code)\n" +
+                       "                {\n" +
+                       "                    return (Language)i;\n" +
+                       "                }\n" +
+                       "            }\n" +
+                       "\n" +
+                       "            return Language.Default;\n" +
+                       "        }\n" +
+                       "    }\n" +
+                       "}\n";
+                // TODO: LanguageName class
+
+                File.WriteAllText(targetFile, res, Encoding.UTF8);
+            }
+            else
+            {
+                Debug.LogError("Incorrect file format in \"" + cldrLanguagesFile + "\"");
+
+                return;
+            }
+
+            Debug.Log("Caching CLDR languages file in \"" + tempLanguagesFile + "\"");
+            File.WriteAllBytes(tempLanguagesFile, cldrFileBytes);
+            #endregion
+        }
+
+        private static void generatePluralsRules()
+        {
+            Debug.Log("Generating \"PluralsRules.cs\" file");
+        }
+#endif
+
+        private static void generateStringsXml()
+        {
+            string valuesFolder   = Application.dataPath + "/Resources/res/values";
+            string stringsXmlFile = valuesFolder + "/strings.xml";
+
+            if (!File.Exists(stringsXmlFile))
+            {
+                Debug.Log("Generating \"Assets/Resources/res/values/strings.xml\" file");
+
+                Directory.CreateDirectory(valuesFolder);
+
+                File.WriteAllText(stringsXmlFile
+                                  , "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
+                                    "<resources>\n" +
+                                    "\n" +
+                                    "    <!-- Application name -->\n" +
+                                    "    <string name=\"app_name\">Application name</string>\n" +
+                                    "\n" +
+                                    "</resources>"
+                                  , Encoding.UTF8);
+
+                Debug.LogWarning("Resource \"Assets/Resources/res/values/strings.xml\" generated. Please rebuild your application. You have to switch focus to another application to let Unity check that project structure was changed.");
+            }
+            // TODO: Check it
+        }
+
+        private static void generateR()
+        {
+            string stringsXmlFile = Application.dataPath + "/Resources/res/values/strings.xml";
+
+            if (File.Exists(stringsXmlFile))
+            {
+                string rFilePath = null;
+
+                #region Search for R.cs file
+                DirectoryInfo assetsFolder = new DirectoryInfo(Application.dataPath);
+                FileInfo[] foundFiles = assetsFolder.GetFiles("R.cs", SearchOption.AllDirectories);
+
+                if (foundFiles.Length > 0)
+                {
+                    rFilePath = foundFiles[0].FullName;
+                }
+                else
+                {
+                    DirectoryInfo[] foundDirs = assetsFolder.GetDirectories("UnityTranslation", SearchOption.AllDirectories);
+
+                    for (int i = 0; i < foundDirs.Length; ++i)
+                    {
+                        if (File.Exists(foundDirs[i].FullName + "/Translator.cs"))
+                        {
+                            rFilePath = foundDirs[i].FullName + "/Generated/R.cs";
+
+                            break;
+                        }
+                    }
+
+                    if (rFilePath == null)
+                    {
+                        rFilePath = Application.dataPath + "/R.cs";
+
+                        Debug.LogError("Unexpected behaviour for getting path to R.cs file");
+                    }
+                }
+                #endregion
+
+                string tempStringsXmlFile = Application.temporaryCachePath + "/strings.xml";
+
+                string targetFile = rFilePath.Replace('\\', '/');
+
+                byte[] xmlFileBytes = File.ReadAllBytes(stringsXmlFile);
+
+                #region Check that R.cs is up to date
+                #if !FORCE_CODE_GENERATION
+                if (
+                    File.Exists(targetFile)
+                    &&
+                    File.Exists(tempStringsXmlFile)
+                   )
+                {
+                    byte[] tempFileBytes = File.ReadAllBytes(tempStringsXmlFile);
+
+                    if (xmlFileBytes.SequenceEqual(tempFileBytes))
+                    {
+                        return;
+                    }
+                }
+                #endif
+                #endregion
+
+                #region Generating R.cs file
+                Debug.Log("Generating R.cs file");
+
+                List<string>                              stringNames         = new List<string>();
+                List<string>                              stringComments      = new List<string>();
+                List<string>                              stringValues        = new List<string>();
+
+                List<string>                              stringArrayNames    = new List<string>();
+                List<string>                              stringArrayComments = new List<string>();
+                List<List<string>>                        stringArrayValues   = new List<List<string>>();
+
+                List<string>                              pluralsNames        = new List<string>();
+                List<string>                              pluralsComments     = new List<string>();
+                List<Dictionary<PluralsQuantity, string>> pluralsValues       = new List<Dictionary<PluralsQuantity, string>>();
+
+                #region Parse strings.xml file
+                bool good = true;
+
+                XmlTextReader reader = null;
+
+                try
+                {
+                    reader = new XmlTextReader(new MemoryStream(xmlFileBytes, false));
+                    reader.WhitespaceHandling = WhitespaceHandling.None;
+
+                    bool resourcesFound = false;
+
+                    while (good && reader.Read())
+                    {
+                        if (reader.Name == "resources")
+                        {
+                            resourcesFound = true;
+
+                            string lastComment = null;
+
+                            while (reader.Read())
+                            {
+                                if (reader.NodeType == XmlNodeType.Comment)
+                                {
+                                    lastComment = reader.Value.Trim();
+                                }
+                                else
+                                if (reader.NodeType == XmlNodeType.Element)
+                                {
+                                    if (reader.Name == "string")
+                                    {
+                                        string tokenName = reader.GetAttribute("name");
+
+                                        if (!checkTokenName(tokenName, "string", stringNames))
+                                        {
+                                            good = false;
+
                                             break;
                                         }
-                                        
-										stringNames.Add(tokenName);
-										stringValues.Add(reader.ReadString());
 
-										// TODO: Add comment
-                                        
+                                        stringNames.Add(tokenName);
+                                        stringComments.Add(lastComment);
+                                        stringValues.Add(reader.ReadString());
+
                                         lastComment = null;
                                     }
                                 }
-							}
-						}
-					}
+                            }
+                        }
+                    }
 
-					if (!resourcesFound)
-					{
-						good = false;
+                    if (!resourcesFound)
+                    {
+                        good = false;
 
-						Debug.LogError("Tag <resources> not found in Assets/Resources/res/values/strings.xml");
-					}
-				}
-				catch (Exception /*e*/)
-				{
-					good = false;
+                        Debug.LogError("Tag <resources> not found in \"Assets/Resources/res/values/strings.xml\"");
+                    }
+                }
+                catch (Exception /*e*/)
+                {
+                    good = false;
 
-					Debug.LogError("Exception occured while parsing Assets/Resources/res/values/strings.xml");
-				}
-				finally
-				{
-					if (reader != null)
-					{
-						reader.Close();
-					}
-				}
+                    Debug.LogError("Exception occured while parsing \"Assets/Resources/res/values/strings.xml\"");
+                }
+                finally
+                {
+                    if (reader != null)
+                    {
+                        reader.Close();
+                    }
+                }
 
-				good = false; // TODO: Remove it
+                good = false; // TODO: Remove it
 
-				if (!good)
-				{
-					return;
-				}
-				#endregion
+                if (!good)
+                {
+                    return;
+                }
+                #endregion
 
-				string res = "// This file generated from Assets/Resources/res/values/strings.xml file.\n" +
-					         "\n" +
-						     "\n" +
-						     "\n" +
-						     "namespace UnityTranslation\n" +
-						     "{\n" +
-						     "    /// <summary>\n" +
-						     "    /// Container for all tokens specified in Assets/Resources/res/values/strings.xml\n" +
-						     "    /// </summary>\n" +
-						     "    public sealed class R\n" +
-						     "    {\n" +
-						     "        /// <summary>\n" +
-						     "        /// Enumeration of all string tags in Assets/Resources/res/values/strings.xml\n" +
-				             "        /// </summary>\n" +
-						     "        public enum strings\n" +
-						     "        {\n" +
-						     "            /// <summary>\n" +
-						     "            /// <para>Value: Hello</para>\n" +
-						     "            /// </summary>\n" +
-						     "            hello\n" +
-						     "        }\n" +
-						     "\n" +
-				             "        /// <summary>\n" +
-						     "        /// Enumeration of all string-array tags in Assets/Resources/res/values/strings.xml\n" +
-						     "        /// </summary>\n" +
-					         "        public enum array\n" +
-						     "        {\n" +
-						     "            Count\n" +
-						     "        }\n" +
-					 	     "\n" +
-						     "        /// <summary>\n" +
-						     "        /// Enumeration of all plurals tags in Assets/Resources/res/values/strings.xml\n" +
-						     "        /// </summary>\n" +
-						     "        public enum plurals\n" +
-						     "        {\n" +
-						     "           Count\n" +
-						     "        }\n" +
-						     "    }\n" +
-						     "}\n";
+                string res = "// This file generated from \"Assets/Resources/res/values/strings.xml\" file.\n" +
+                             "\n" +
+                             "\n" +
+                             "\n" +
+                             "namespace UnityTranslation\n" +
+                             "{\n" +
+                             "    /// <summary>\n" +
+                             "    /// Container for all tokens specified in Assets/Resources/res/values/strings.xml\n" +
+                             "    /// </summary>\n" +
+                             "    public sealed class R\n" +
+                             "    {\n" +
+                             "        /// <summary>\n" +
+                             "        /// Enumeration of all string tags in Assets/Resources/res/values/strings.xml\n" +
+                             "        /// </summary>\n" +
+                             "        public enum strings\n" +
+                             "        {\n" +
+                             "            /// <summary>\n" +
+                             "            /// <para>Value: Hello</para>\n" +
+                             "            /// </summary>\n" +
+                             "            hello\n" +
+                             "        }\n" +
+                             "\n" +
+                             "        /// <summary>\n" +
+                             "        /// Enumeration of all string-array tags in Assets/Resources/res/values/strings.xml\n" +
+                             "        /// </summary>\n" +
+                             "        public enum array\n" +
+                             "        {\n" +
+                             "            Count\n" +
+                             "        }\n" +
+                              "\n" +
+                             "        /// <summary>\n" +
+                             "        /// Enumeration of all plurals tags in Assets/Resources/res/values/strings.xml\n" +
+                             "        /// </summary>\n" +
+                             "        public enum plurals\n" +
+                             "        {\n" +
+                             "           Count\n" +
+                             "        }\n" +
+                             "    }\n" +
+                             "}\n";
+                // TODO: Fill with real data
 
-				File.WriteAllText(targetFile, res, Encoding.UTF8);
+                File.WriteAllText(targetFile, res, Encoding.UTF8);
 
-				Debug.Log("Caching strings.xml file in \"" + tempStringsXmlFile + "\"");
-				File.WriteAllBytes(tempStringsXmlFile, xmlFileBytes);
-				#endregion
-			}
-			else
-			{
-				Debug.LogError("Resource \"Assets/Resources/res/values/strings.xml\" not found. UnityTranslation is not available for now.");
-			}
-		}
-	}
+                Debug.Log("Caching strings.xml file in \"" + tempStringsXmlFile + "\"");
+                File.WriteAllBytes(tempStringsXmlFile, xmlFileBytes);
+                #endregion
+            }
+            else
+            {
+                Debug.LogError("Resource \"Assets/Resources/res/values/strings.xml\" not found. UnityTranslation is not available for now.");
+            }
+        }
+
+        private static bool checkTokenName(string tokenName, string tagName, List<string> tokenNames)
+        {
+            if (tokenName == null)
+            {
+                Debug.LogError("Attribute \"name\" not found for tag <" + tagName + "> in \"Assets/Resources/res/values/strings.xml\"");
+
+                return false;
+            }
+
+            if (tokenName == "")
+            {
+                Debug.LogError("Attribute \"name\" empty for tag <" + tagName + "> in \"Assets/Resources/res/values/strings.xml\"");
+
+                return false;
+            }
+
+            if (tokenNames.Contains(tokenName))
+            {
+                Debug.LogError("Attribute \"name\" for tag <" + tagName + "> has duplicate value \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
+
+                return false;
+            }
+
+            return true;
+        }
+    }
 }
 #endif

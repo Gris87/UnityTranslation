@@ -13,3072 +13,3072 @@ namespace UnityTranslation
         /// Default language. Equivalent for English.
         /// </summary>
         Default
-        , 
+        ,
         /// <summary>
         /// Afar.
         /// </summary>
         Afar
-        , 
+        ,
         /// <summary>
         /// Abkhazian.
         /// </summary>
         Abkhazian
-        , 
+        ,
         /// <summary>
         /// Achinese.
         /// </summary>
         Achinese
-        , 
+        ,
         /// <summary>
         /// Acoli.
         /// </summary>
         Acoli
-        , 
+        ,
         /// <summary>
         /// Adangme.
         /// </summary>
         Adangme
-        , 
+        ,
         /// <summary>
         /// Adyghe.
         /// </summary>
         Adyghe
-        , 
+        ,
         /// <summary>
         /// Avestan.
         /// </summary>
         Avestan
-        , 
+        ,
         /// <summary>
         /// Tunisian Arabic.
         /// </summary>
         TunisianArabic
-        , 
+        ,
         /// <summary>
         /// Afrikaans.
         /// </summary>
         Afrikaans
-        , 
+        ,
         /// <summary>
         /// Afrihili.
         /// </summary>
         Afrihili
-        , 
+        ,
         /// <summary>
         /// Aghem.
         /// </summary>
         Aghem
-        , 
+        ,
         /// <summary>
         /// Ainu.
         /// </summary>
         Ainu
-        , 
+        ,
         /// <summary>
         /// Akan.
         /// </summary>
         Akan
-        , 
+        ,
         /// <summary>
         /// Akkadian.
         /// </summary>
         Akkadian
-        , 
+        ,
         /// <summary>
         /// Alabama.
         /// </summary>
         Alabama
-        , 
+        ,
         /// <summary>
         /// Aleut.
         /// </summary>
         Aleut
-        , 
+        ,
         /// <summary>
         /// Gheg Albanian.
         /// </summary>
         GhegAlbanian
-        , 
+        ,
         /// <summary>
         /// Southern Altai.
         /// </summary>
         SouthernAltai
-        , 
+        ,
         /// <summary>
         /// Amharic.
         /// </summary>
         Amharic
-        , 
+        ,
         /// <summary>
         /// Aragonese.
         /// </summary>
         Aragonese
-        , 
+        ,
         /// <summary>
         /// Old English.
         /// </summary>
         OldEnglish
-        , 
+        ,
         /// <summary>
         /// Angika.
         /// </summary>
         Angika
-        , 
+        ,
         /// <summary>
         /// Arabic.
         /// </summary>
         Arabic
-        , 
+        ,
         /// <summary>
         /// Modern Standard Arabic.
         /// </summary>
         ModernStandardArabic
-        , 
+        ,
         /// <summary>
         /// Aramaic.
         /// </summary>
         Aramaic
-        , 
+        ,
         /// <summary>
         /// Mapuche.
         /// </summary>
         Mapuche
-        , 
+        ,
         /// <summary>
         /// Araona.
         /// </summary>
         Araona
-        , 
+        ,
         /// <summary>
         /// Arapaho.
         /// </summary>
         Arapaho
-        , 
+        ,
         /// <summary>
         /// Algerian Arabic.
         /// </summary>
         AlgerianArabic
-        , 
+        ,
         /// <summary>
         /// Arawak.
         /// </summary>
         Arawak
-        , 
+        ,
         /// <summary>
         /// Moroccan Arabic.
         /// </summary>
         MoroccanArabic
-        , 
+        ,
         /// <summary>
         /// Egyptian Arabic.
         /// </summary>
         EgyptianArabic
-        , 
+        ,
         /// <summary>
         /// Assamese.
         /// </summary>
         Assamese
-        , 
+        ,
         /// <summary>
         /// Asu.
         /// </summary>
         Asu
-        , 
+        ,
         /// <summary>
         /// American Sign Language.
         /// </summary>
         AmericanSignLanguage
-        , 
+        ,
         /// <summary>
         /// Asturian.
         /// </summary>
         Asturian
-        , 
+        ,
         /// <summary>
         /// Avaric.
         /// </summary>
         Avaric
-        , 
+        ,
         /// <summary>
         /// Kotava.
         /// </summary>
         Kotava
-        , 
+        ,
         /// <summary>
         /// Awadhi.
         /// </summary>
         Awadhi
-        , 
+        ,
         /// <summary>
         /// Aymara.
         /// </summary>
         Aymara
-        , 
+        ,
         /// <summary>
         /// Azerbaijani.
         /// </summary>
         Azerbaijani
-        , 
+        ,
         /// <summary>
         /// Azeri.
         /// </summary>
         Azeri
-        , 
+        ,
         /// <summary>
         /// South Azerbaijani.
         /// </summary>
         SouthAzerbaijani
-        , 
+        ,
         /// <summary>
         /// Bashkir.
         /// </summary>
         Bashkir
-        , 
+        ,
         /// <summary>
         /// Baluchi.
         /// </summary>
         Baluchi
-        , 
+        ,
         /// <summary>
         /// Balinese.
         /// </summary>
         Balinese
-        , 
+        ,
         /// <summary>
         /// Bavarian.
         /// </summary>
         Bavarian
-        , 
+        ,
         /// <summary>
         /// Basaa.
         /// </summary>
         Basaa
-        , 
+        ,
         /// <summary>
         /// Bamun.
         /// </summary>
         Bamun
-        , 
+        ,
         /// <summary>
         /// Batak Toba.
         /// </summary>
         BatakToba
-        , 
+        ,
         /// <summary>
         /// Ghomala.
         /// </summary>
         Ghomala
-        , 
+        ,
         /// <summary>
         /// Belarusian.
         /// </summary>
         Belarusian
-        , 
+        ,
         /// <summary>
         /// Beja.
         /// </summary>
         Beja
-        , 
+        ,
         /// <summary>
         /// Bemba.
         /// </summary>
         Bemba
-        , 
+        ,
         /// <summary>
         /// Betawi.
         /// </summary>
         Betawi
-        , 
+        ,
         /// <summary>
         /// Bena.
         /// </summary>
         Bena
-        , 
+        ,
         /// <summary>
         /// Bafut.
         /// </summary>
         Bafut
-        , 
+        ,
         /// <summary>
         /// Badaga.
         /// </summary>
         Badaga
-        , 
+        ,
         /// <summary>
         /// Bulgarian.
         /// </summary>
         Bulgarian
-        , 
+        ,
         /// <summary>
         /// Bhojpuri.
         /// </summary>
         Bhojpuri
-        , 
+        ,
         /// <summary>
         /// Bislama.
         /// </summary>
         Bislama
-        , 
+        ,
         /// <summary>
         /// Bikol.
         /// </summary>
         Bikol
-        , 
+        ,
         /// <summary>
         /// Bini.
         /// </summary>
         Bini
-        , 
+        ,
         /// <summary>
         /// Banjar.
         /// </summary>
         Banjar
-        , 
+        ,
         /// <summary>
         /// Kom.
         /// </summary>
         Kom
-        , 
+        ,
         /// <summary>
         /// Siksika.
         /// </summary>
         Siksika
-        , 
+        ,
         /// <summary>
         /// Bambara.
         /// </summary>
         Bambara
-        , 
+        ,
         /// <summary>
         /// Bengali.
         /// </summary>
         Bengali
-        , 
+        ,
         /// <summary>
         /// Tibetan.
         /// </summary>
         Tibetan
-        , 
+        ,
         /// <summary>
         /// Bishnupriya.
         /// </summary>
         Bishnupriya
-        , 
+        ,
         /// <summary>
         /// Bakhtiari.
         /// </summary>
         Bakhtiari
-        , 
+        ,
         /// <summary>
         /// Breton.
         /// </summary>
         Breton
-        , 
+        ,
         /// <summary>
         /// Braj.
         /// </summary>
         Braj
-        , 
+        ,
         /// <summary>
         /// Brahui.
         /// </summary>
         Brahui
-        , 
+        ,
         /// <summary>
         /// Bodo.
         /// </summary>
         Bodo
-        , 
+        ,
         /// <summary>
         /// Bosnian.
         /// </summary>
         Bosnian
-        , 
+        ,
         /// <summary>
         /// Akoose.
         /// </summary>
         Akoose
-        , 
+        ,
         /// <summary>
         /// Buriat.
         /// </summary>
         Buriat
-        , 
+        ,
         /// <summary>
         /// Buginese.
         /// </summary>
         Buginese
-        , 
+        ,
         /// <summary>
         /// Bulu.
         /// </summary>
         Bulu
-        , 
+        ,
         /// <summary>
         /// Blin.
         /// </summary>
         Blin
-        , 
+        ,
         /// <summary>
         /// Medumba.
         /// </summary>
         Medumba
-        , 
+        ,
         /// <summary>
         /// Catalan.
         /// </summary>
         Catalan
-        , 
+        ,
         /// <summary>
         /// Caddo.
         /// </summary>
         Caddo
-        , 
+        ,
         /// <summary>
         /// Carib.
         /// </summary>
         Carib
-        , 
+        ,
         /// <summary>
         /// Cayuga.
         /// </summary>
         Cayuga
-        , 
+        ,
         /// <summary>
         /// Atsam.
         /// </summary>
         Atsam
-        , 
+        ,
         /// <summary>
         /// Chechen.
         /// </summary>
         Chechen
-        , 
+        ,
         /// <summary>
         /// Cebuano.
         /// </summary>
         Cebuano
-        , 
+        ,
         /// <summary>
         /// Chiga.
         /// </summary>
         Chiga
-        , 
+        ,
         /// <summary>
         /// Chamorro.
         /// </summary>
         Chamorro
-        , 
+        ,
         /// <summary>
         /// Chibcha.
         /// </summary>
         Chibcha
-        , 
+        ,
         /// <summary>
         /// Chagatai.
         /// </summary>
         Chagatai
-        , 
+        ,
         /// <summary>
         /// Chuukese.
         /// </summary>
         Chuukese
-        , 
+        ,
         /// <summary>
         /// Mari.
         /// </summary>
         Mari
-        , 
+        ,
         /// <summary>
         /// Chinook Jargon.
         /// </summary>
         ChinookJargon
-        , 
+        ,
         /// <summary>
         /// Choctaw.
         /// </summary>
         Choctaw
-        , 
+        ,
         /// <summary>
         /// Chipewyan.
         /// </summary>
         Chipewyan
-        , 
+        ,
         /// <summary>
         /// Cherokee.
         /// </summary>
         Cherokee
-        , 
+        ,
         /// <summary>
         /// Cheyenne.
         /// </summary>
         Cheyenne
-        , 
+        ,
         /// <summary>
         /// Sorani Kurdish.
         /// </summary>
         SoraniKurdish
-        , 
+        ,
         /// <summary>
         /// Corsican.
         /// </summary>
         Corsican
-        , 
+        ,
         /// <summary>
         /// Coptic.
         /// </summary>
         Coptic
-        , 
+        ,
         /// <summary>
         /// Capiznon.
         /// </summary>
         Capiznon
-        , 
+        ,
         /// <summary>
         /// Cree.
         /// </summary>
         Cree
-        , 
+        ,
         /// <summary>
         /// Crimean Turkish.
         /// </summary>
         CrimeanTurkish
-        , 
+        ,
         /// <summary>
         /// Czech.
         /// </summary>
         Czech
-        , 
+        ,
         /// <summary>
         /// Kashubian.
         /// </summary>
         Kashubian
-        , 
+        ,
         /// <summary>
         /// Church Slavic.
         /// </summary>
         ChurchSlavic
-        , 
+        ,
         /// <summary>
         /// Chuvash.
         /// </summary>
         Chuvash
-        , 
+        ,
         /// <summary>
         /// Welsh.
         /// </summary>
         Welsh
-        , 
+        ,
         /// <summary>
         /// Danish.
         /// </summary>
         Danish
-        , 
+        ,
         /// <summary>
         /// Dakota.
         /// </summary>
         Dakota
-        , 
+        ,
         /// <summary>
         /// Dargwa.
         /// </summary>
         Dargwa
-        , 
+        ,
         /// <summary>
         /// Taita.
         /// </summary>
         Taita
-        , 
+        ,
         /// <summary>
         /// German.
         /// </summary>
         German
-        , 
+        ,
         /// <summary>
         /// Austrian German.
         /// </summary>
         AustrianGerman
-        , 
+        ,
         /// <summary>
         /// Swiss High German.
         /// </summary>
         SwissHighGerman
-        , 
+        ,
         /// <summary>
         /// Delaware.
         /// </summary>
         Delaware
-        , 
+        ,
         /// <summary>
         /// Slave.
         /// </summary>
         Slave
-        , 
+        ,
         /// <summary>
         /// Dogrib.
         /// </summary>
         Dogrib
-        , 
+        ,
         /// <summary>
         /// Dinka.
         /// </summary>
         Dinka
-        , 
+        ,
         /// <summary>
         /// Zarma.
         /// </summary>
         Zarma
-        , 
+        ,
         /// <summary>
         /// Dogri.
         /// </summary>
         Dogri
-        , 
+        ,
         /// <summary>
         /// Lower Sorbian.
         /// </summary>
         LowerSorbian
-        , 
+        ,
         /// <summary>
         /// Central Dusun.
         /// </summary>
         CentralDusun
-        , 
+        ,
         /// <summary>
         /// Duala.
         /// </summary>
         Duala
-        , 
+        ,
         /// <summary>
         /// Middle Dutch.
         /// </summary>
         MiddleDutch
-        , 
+        ,
         /// <summary>
         /// Divehi.
         /// </summary>
         Divehi
-        , 
+        ,
         /// <summary>
         /// Jola-Fonyi.
         /// </summary>
         JolaFonyi
-        , 
+        ,
         /// <summary>
         /// Dyula.
         /// </summary>
         Dyula
-        , 
+        ,
         /// <summary>
         /// Dzongkha.
         /// </summary>
         Dzongkha
-        , 
+        ,
         /// <summary>
         /// Dazaga.
         /// </summary>
         Dazaga
-        , 
+        ,
         /// <summary>
         /// Embu.
         /// </summary>
         Embu
-        , 
+        ,
         /// <summary>
         /// Ewe.
         /// </summary>
         Ewe
-        , 
+        ,
         /// <summary>
         /// Efik.
         /// </summary>
         Efik
-        , 
+        ,
         /// <summary>
         /// Emilian.
         /// </summary>
         Emilian
-        , 
+        ,
         /// <summary>
         /// Ancient Egyptian.
         /// </summary>
         AncientEgyptian
-        , 
+        ,
         /// <summary>
         /// Ekajuk.
         /// </summary>
         Ekajuk
-        , 
+        ,
         /// <summary>
         /// Greek.
         /// </summary>
         Greek
-        , 
+        ,
         /// <summary>
         /// Elamite.
         /// </summary>
         Elamite
-        , 
+        ,
         /// <summary>
         /// English.
         /// </summary>
         English
-        , 
+        ,
         /// <summary>
         /// Australian English.
         /// </summary>
         AustralianEnglish
-        , 
+        ,
         /// <summary>
         /// Canadian English.
         /// </summary>
         CanadianEnglish
-        , 
+        ,
         /// <summary>
         /// British English.
         /// </summary>
         BritishEnglish
-        , 
+        ,
         /// <summary>
         /// U.K. English.
         /// </summary>
         UKEnglish
-        , 
+        ,
         /// <summary>
         /// American English.
         /// </summary>
         AmericanEnglish
-        , 
+        ,
         /// <summary>
         /// U.S. English.
         /// </summary>
         USEnglish
-        , 
+        ,
         /// <summary>
         /// Middle English.
         /// </summary>
         MiddleEnglish
-        , 
+        ,
         /// <summary>
         /// Esperanto.
         /// </summary>
         Esperanto
-        , 
+        ,
         /// <summary>
         /// Spanish.
         /// </summary>
         Spanish
-        , 
+        ,
         /// <summary>
         /// Latin American Spanish.
         /// </summary>
         LatinAmericanSpanish
-        , 
+        ,
         /// <summary>
         /// European Spanish.
         /// </summary>
         EuropeanSpanish
-        , 
+        ,
         /// <summary>
         /// Mexican Spanish.
         /// </summary>
         MexicanSpanish
-        , 
+        ,
         /// <summary>
         /// Central Yupik.
         /// </summary>
         CentralYupik
-        , 
+        ,
         /// <summary>
         /// Estonian.
         /// </summary>
         Estonian
-        , 
+        ,
         /// <summary>
         /// Basque.
         /// </summary>
         Basque
-        , 
+        ,
         /// <summary>
         /// Ewondo.
         /// </summary>
         Ewondo
-        , 
+        ,
         /// <summary>
         /// Extremaduran.
         /// </summary>
         Extremaduran
-        , 
+        ,
         /// <summary>
         /// Persian.
         /// </summary>
         Persian
-        , 
+        ,
         /// <summary>
         /// Fang.
         /// </summary>
         Fang
-        , 
+        ,
         /// <summary>
         /// Fanti.
         /// </summary>
         Fanti
-        , 
+        ,
         /// <summary>
         /// Fulah.
         /// </summary>
         Fulah
-        , 
+        ,
         /// <summary>
         /// Finnish.
         /// </summary>
         Finnish
-        , 
+        ,
         /// <summary>
         /// Filipino.
         /// </summary>
         Filipino
-        , 
+        ,
         /// <summary>
         /// Tornedalen Finnish.
         /// </summary>
         TornedalenFinnish
-        , 
+        ,
         /// <summary>
         /// Fijian.
         /// </summary>
         Fijian
-        , 
+        ,
         /// <summary>
         /// Faroese.
         /// </summary>
         Faroese
-        , 
+        ,
         /// <summary>
         /// Fon.
         /// </summary>
         Fon
-        , 
+        ,
         /// <summary>
         /// French.
         /// </summary>
         French
-        , 
+        ,
         /// <summary>
         /// Canadian French.
         /// </summary>
         CanadianFrench
-        , 
+        ,
         /// <summary>
         /// Swiss French.
         /// </summary>
         SwissFrench
-        , 
+        ,
         /// <summary>
         /// Cajun French.
         /// </summary>
         CajunFrench
-        , 
+        ,
         /// <summary>
         /// Middle French.
         /// </summary>
         MiddleFrench
-        , 
+        ,
         /// <summary>
         /// Old French.
         /// </summary>
         OldFrench
-        , 
+        ,
         /// <summary>
         /// Arpitan.
         /// </summary>
         Arpitan
-        , 
+        ,
         /// <summary>
         /// Northern Frisian.
         /// </summary>
         NorthernFrisian
-        , 
+        ,
         /// <summary>
         /// Eastern Frisian.
         /// </summary>
         EasternFrisian
-        , 
+        ,
         /// <summary>
         /// Friulian.
         /// </summary>
         Friulian
-        , 
+        ,
         /// <summary>
         /// Western Frisian.
         /// </summary>
         WesternFrisian
-        , 
+        ,
         /// <summary>
         /// Irish.
         /// </summary>
         Irish
-        , 
+        ,
         /// <summary>
         /// Ga.
         /// </summary>
         Ga
-        , 
+        ,
         /// <summary>
         /// Gagauz.
         /// </summary>
         Gagauz
-        , 
+        ,
         /// <summary>
         /// Gan Chinese.
         /// </summary>
         GanChinese
-        , 
+        ,
         /// <summary>
         /// Gayo.
         /// </summary>
         Gayo
-        , 
+        ,
         /// <summary>
         /// Gbaya.
         /// </summary>
         Gbaya
-        , 
+        ,
         /// <summary>
         /// Zoroastrian Dari.
         /// </summary>
         ZoroastrianDari
-        , 
+        ,
         /// <summary>
         /// Scottish Gaelic.
         /// </summary>
         ScottishGaelic
-        , 
+        ,
         /// <summary>
         /// Geez.
         /// </summary>
         Geez
-        , 
+        ,
         /// <summary>
         /// Gilbertese.
         /// </summary>
         Gilbertese
-        , 
+        ,
         /// <summary>
         /// Galician.
         /// </summary>
         Galician
-        , 
+        ,
         /// <summary>
         /// Gilaki.
         /// </summary>
         Gilaki
-        , 
+        ,
         /// <summary>
         /// Middle High German.
         /// </summary>
         MiddleHighGerman
-        , 
+        ,
         /// <summary>
         /// Guarani.
         /// </summary>
         Guarani
-        , 
+        ,
         /// <summary>
         /// Old High German.
         /// </summary>
         OldHighGerman
-        , 
+        ,
         /// <summary>
         /// Goan Konkani.
         /// </summary>
         GoanKonkani
-        , 
+        ,
         /// <summary>
         /// Gondi.
         /// </summary>
         Gondi
-        , 
+        ,
         /// <summary>
         /// Gorontalo.
         /// </summary>
         Gorontalo
-        , 
+        ,
         /// <summary>
         /// Gothic.
         /// </summary>
         Gothic
-        , 
+        ,
         /// <summary>
         /// Grebo.
         /// </summary>
         Grebo
-        , 
+        ,
         /// <summary>
         /// Ancient Greek.
         /// </summary>
         AncientGreek
-        , 
+        ,
         /// <summary>
         /// Swiss German.
         /// </summary>
         SwissGerman
-        , 
+        ,
         /// <summary>
         /// Gujarati.
         /// </summary>
         Gujarati
-        , 
+        ,
         /// <summary>
         /// Wayuu.
         /// </summary>
         Wayuu
-        , 
+        ,
         /// <summary>
         /// Frafra.
         /// </summary>
         Frafra
-        , 
+        ,
         /// <summary>
         /// Gusii.
         /// </summary>
         Gusii
-        , 
+        ,
         /// <summary>
         /// Manx.
         /// </summary>
         Manx
-        , 
+        ,
         /// <summary>
         /// Gwichʼin.
         /// </summary>
         Gwichin
-        , 
+        ,
         /// <summary>
         /// Hausa.
         /// </summary>
         Hausa
-        , 
+        ,
         /// <summary>
         /// Haida.
         /// </summary>
         Haida
-        , 
+        ,
         /// <summary>
         /// Hakka Chinese.
         /// </summary>
         HakkaChinese
-        , 
+        ,
         /// <summary>
         /// Hawaiian.
         /// </summary>
         Hawaiian
-        , 
+        ,
         /// <summary>
         /// Hebrew.
         /// </summary>
         Hebrew
-        , 
+        ,
         /// <summary>
         /// Hindi.
         /// </summary>
         Hindi
-        , 
+        ,
         /// <summary>
         /// Fiji Hindi.
         /// </summary>
         FijiHindi
-        , 
+        ,
         /// <summary>
         /// Hiligaynon.
         /// </summary>
         Hiligaynon
-        , 
+        ,
         /// <summary>
         /// Hittite.
         /// </summary>
         Hittite
-        , 
+        ,
         /// <summary>
         /// Hmong.
         /// </summary>
         Hmong
-        , 
+        ,
         /// <summary>
         /// Hiri Motu.
         /// </summary>
         HiriMotu
-        , 
+        ,
         /// <summary>
         /// Croatian.
         /// </summary>
         Croatian
-        , 
+        ,
         /// <summary>
         /// Upper Sorbian.
         /// </summary>
         UpperSorbian
-        , 
+        ,
         /// <summary>
         /// Xiang Chinese.
         /// </summary>
         XiangChinese
-        , 
+        ,
         /// <summary>
         /// Haitian.
         /// </summary>
         Haitian
-        , 
+        ,
         /// <summary>
         /// Hungarian.
         /// </summary>
         Hungarian
-        , 
+        ,
         /// <summary>
         /// Hupa.
         /// </summary>
         Hupa
-        , 
+        ,
         /// <summary>
         /// Armenian.
         /// </summary>
         Armenian
-        , 
+        ,
         /// <summary>
         /// Herero.
         /// </summary>
         Herero
-        , 
+        ,
         /// <summary>
         /// Interlingua.
         /// </summary>
         Interlingua
-        , 
+        ,
         /// <summary>
         /// Iban.
         /// </summary>
         Iban
-        , 
+        ,
         /// <summary>
         /// Ibibio.
         /// </summary>
         Ibibio
-        , 
+        ,
         /// <summary>
         /// Indonesian.
         /// </summary>
         Indonesian
-        , 
+        ,
         /// <summary>
         /// Interlingue.
         /// </summary>
         Interlingue
-        , 
+        ,
         /// <summary>
         /// Igbo.
         /// </summary>
         Igbo
-        , 
+        ,
         /// <summary>
         /// Sichuan Yi.
         /// </summary>
         SichuanYi
-        , 
+        ,
         /// <summary>
         /// Inupiaq.
         /// </summary>
         Inupiaq
-        , 
+        ,
         /// <summary>
         /// Iloko.
         /// </summary>
         Iloko
-        , 
+        ,
         /// <summary>
         /// Ingush.
         /// </summary>
         Ingush
-        , 
+        ,
         /// <summary>
         /// Ido.
         /// </summary>
         Ido
-        , 
+        ,
         /// <summary>
         /// Icelandic.
         /// </summary>
         Icelandic
-        , 
+        ,
         /// <summary>
         /// Italian.
         /// </summary>
         Italian
-        , 
+        ,
         /// <summary>
         /// Inuktitut.
         /// </summary>
         Inuktitut
-        , 
+        ,
         /// <summary>
         /// Ingrian.
         /// </summary>
         Ingrian
-        , 
+        ,
         /// <summary>
         /// Japanese.
         /// </summary>
         Japanese
-        , 
+        ,
         /// <summary>
         /// Jamaican Creole English.
         /// </summary>
         JamaicanCreoleEnglish
-        , 
+        ,
         /// <summary>
         /// Lojban.
         /// </summary>
         Lojban
-        , 
+        ,
         /// <summary>
         /// Ngomba.
         /// </summary>
         Ngomba
-        , 
+        ,
         /// <summary>
         /// Machame.
         /// </summary>
         Machame
-        , 
+        ,
         /// <summary>
         /// Judeo-Persian.
         /// </summary>
         JudeoPersian
-        , 
+        ,
         /// <summary>
         /// Judeo-Arabic.
         /// </summary>
         JudeoArabic
-        , 
+        ,
         /// <summary>
         /// Jutish.
         /// </summary>
         Jutish
-        , 
+        ,
         /// <summary>
         /// Javanese.
         /// </summary>
         Javanese
-        , 
+        ,
         /// <summary>
         /// Georgian.
         /// </summary>
         Georgian
-        , 
+        ,
         /// <summary>
         /// Kara-Kalpak.
         /// </summary>
         KaraKalpak
-        , 
+        ,
         /// <summary>
         /// Kabyle.
         /// </summary>
         Kabyle
-        , 
+        ,
         /// <summary>
         /// Kachin.
         /// </summary>
         Kachin
-        , 
+        ,
         /// <summary>
         /// Jju.
         /// </summary>
         Jju
-        , 
+        ,
         /// <summary>
         /// Kamba.
         /// </summary>
         Kamba
-        , 
+        ,
         /// <summary>
         /// Kawi.
         /// </summary>
         Kawi
-        , 
+        ,
         /// <summary>
         /// Kabardian.
         /// </summary>
         Kabardian
-        , 
+        ,
         /// <summary>
         /// Kanembu.
         /// </summary>
         Kanembu
-        , 
+        ,
         /// <summary>
         /// Tyap.
         /// </summary>
         Tyap
-        , 
+        ,
         /// <summary>
         /// Makonde.
         /// </summary>
         Makonde
-        , 
+        ,
         /// <summary>
         /// Kabuverdianu.
         /// </summary>
         Kabuverdianu
-        , 
+        ,
         /// <summary>
         /// Kenyang.
         /// </summary>
         Kenyang
-        , 
+        ,
         /// <summary>
         /// Koro.
         /// </summary>
         Koro
-        , 
+        ,
         /// <summary>
         /// Kongo.
         /// </summary>
         Kongo
-        , 
+        ,
         /// <summary>
         /// Kaingang.
         /// </summary>
         Kaingang
-        , 
+        ,
         /// <summary>
         /// Khasi.
         /// </summary>
         Khasi
-        , 
+        ,
         /// <summary>
         /// Khotanese.
         /// </summary>
         Khotanese
-        , 
+        ,
         /// <summary>
         /// Koyra Chiini.
         /// </summary>
         KoyraChiini
-        , 
+        ,
         /// <summary>
         /// Khowar.
         /// </summary>
         Khowar
-        , 
+        ,
         /// <summary>
         /// Kikuyu.
         /// </summary>
         Kikuyu
-        , 
+        ,
         /// <summary>
         /// Kirmanjki.
         /// </summary>
         Kirmanjki
-        , 
+        ,
         /// <summary>
         /// Kuanyama.
         /// </summary>
         Kuanyama
-        , 
+        ,
         /// <summary>
         /// Kazakh.
         /// </summary>
         Kazakh
-        , 
+        ,
         /// <summary>
         /// Kako.
         /// </summary>
         Kako
-        , 
+        ,
         /// <summary>
         /// Kalaallisut.
         /// </summary>
         Kalaallisut
-        , 
+        ,
         /// <summary>
         /// Kalenjin.
         /// </summary>
         Kalenjin
-        , 
+        ,
         /// <summary>
         /// Khmer.
         /// </summary>
         Khmer
-        , 
+        ,
         /// <summary>
         /// Kimbundu.
         /// </summary>
         Kimbundu
-        , 
+        ,
         /// <summary>
         /// Kannada.
         /// </summary>
         Kannada
-        , 
+        ,
         /// <summary>
         /// Korean.
         /// </summary>
         Korean
-        , 
+        ,
         /// <summary>
         /// Komi-Permyak.
         /// </summary>
         KomiPermyak
-        , 
+        ,
         /// <summary>
         /// Konkani.
         /// </summary>
         Konkani
-        , 
+        ,
         /// <summary>
         /// Kosraean.
         /// </summary>
         Kosraean
-        , 
+        ,
         /// <summary>
         /// Kpelle.
         /// </summary>
         Kpelle
-        , 
+        ,
         /// <summary>
         /// Kanuri.
         /// </summary>
         Kanuri
-        , 
+        ,
         /// <summary>
         /// Karachay-Balkar.
         /// </summary>
         KarachayBalkar
-        , 
+        ,
         /// <summary>
         /// Krio.
         /// </summary>
         Krio
-        , 
+        ,
         /// <summary>
         /// Kinaray-a.
         /// </summary>
         KinarayA
-        , 
+        ,
         /// <summary>
         /// Karelian.
         /// </summary>
         Karelian
-        , 
+        ,
         /// <summary>
         /// Kurukh.
         /// </summary>
         Kurukh
-        , 
+        ,
         /// <summary>
         /// Kashmiri.
         /// </summary>
         Kashmiri
-        , 
+        ,
         /// <summary>
         /// Shambala.
         /// </summary>
         Shambala
-        , 
+        ,
         /// <summary>
         /// Bafia.
         /// </summary>
         Bafia
-        , 
+        ,
         /// <summary>
         /// Colognian.
         /// </summary>
         Colognian
-        , 
+        ,
         /// <summary>
         /// Kurdish.
         /// </summary>
         Kurdish
-        , 
+        ,
         /// <summary>
         /// Kumyk.
         /// </summary>
         Kumyk
-        , 
+        ,
         /// <summary>
         /// Kutenai.
         /// </summary>
         Kutenai
-        , 
+        ,
         /// <summary>
         /// Komi.
         /// </summary>
         Komi
-        , 
+        ,
         /// <summary>
         /// Cornish.
         /// </summary>
         Cornish
-        , 
+        ,
         /// <summary>
         /// Kyrgyz.
         /// </summary>
         Kyrgyz
-        , 
+        ,
         /// <summary>
         /// Kirghiz.
         /// </summary>
         Kirghiz
-        , 
+        ,
         /// <summary>
         /// Latin.
         /// </summary>
         Latin
-        , 
+        ,
         /// <summary>
         /// Ladino.
         /// </summary>
         Ladino
-        , 
+        ,
         /// <summary>
         /// Langi.
         /// </summary>
         Langi
-        , 
+        ,
         /// <summary>
         /// Lahnda.
         /// </summary>
         Lahnda
-        , 
+        ,
         /// <summary>
         /// Lamba.
         /// </summary>
         Lamba
-        , 
+        ,
         /// <summary>
         /// Luxembourgish.
         /// </summary>
         Luxembourgish
-        , 
+        ,
         /// <summary>
         /// Lezghian.
         /// </summary>
         Lezghian
-        , 
+        ,
         /// <summary>
         /// Lingua Franca Nova.
         /// </summary>
         LinguaFrancaNova
-        , 
+        ,
         /// <summary>
         /// Ganda.
         /// </summary>
         Ganda
-        , 
+        ,
         /// <summary>
         /// Limburgish.
         /// </summary>
         Limburgish
-        , 
+        ,
         /// <summary>
         /// Ligurian.
         /// </summary>
         Ligurian
-        , 
+        ,
         /// <summary>
         /// Livonian.
         /// </summary>
         Livonian
-        , 
+        ,
         /// <summary>
         /// Lakota.
         /// </summary>
         Lakota
-        , 
+        ,
         /// <summary>
         /// Lombard.
         /// </summary>
         Lombard
-        , 
+        ,
         /// <summary>
         /// Lingala.
         /// </summary>
         Lingala
-        , 
+        ,
         /// <summary>
         /// Lao.
         /// </summary>
         Lao
-        , 
+        ,
         /// <summary>
         /// Mongo.
         /// </summary>
         Mongo
-        , 
+        ,
         /// <summary>
         /// Lozi.
         /// </summary>
         Lozi
-        , 
+        ,
         /// <summary>
         /// Lithuanian.
         /// </summary>
         Lithuanian
-        , 
+        ,
         /// <summary>
         /// Latgalian.
         /// </summary>
         Latgalian
-        , 
+        ,
         /// <summary>
         /// Luba-Katanga.
         /// </summary>
         LubaKatanga
-        , 
+        ,
         /// <summary>
         /// Luba-Lulua.
         /// </summary>
         LubaLulua
-        , 
+        ,
         /// <summary>
         /// Luiseno.
         /// </summary>
         Luiseno
-        , 
+        ,
         /// <summary>
         /// Lunda.
         /// </summary>
         Lunda
-        , 
+        ,
         /// <summary>
         /// Luo.
         /// </summary>
         Luo
-        , 
+        ,
         /// <summary>
         /// Mizo.
         /// </summary>
         Mizo
-        , 
+        ,
         /// <summary>
         /// Luyia.
         /// </summary>
         Luyia
-        , 
+        ,
         /// <summary>
         /// Latvian.
         /// </summary>
         Latvian
-        , 
+        ,
         /// <summary>
         /// Literary Chinese.
         /// </summary>
         LiteraryChinese
-        , 
+        ,
         /// <summary>
         /// Laz.
         /// </summary>
         Laz
-        , 
+        ,
         /// <summary>
         /// Madurese.
         /// </summary>
         Madurese
-        , 
+        ,
         /// <summary>
         /// Mafa.
         /// </summary>
         Mafa
-        , 
+        ,
         /// <summary>
         /// Magahi.
         /// </summary>
         Magahi
-        , 
+        ,
         /// <summary>
         /// Maithili.
         /// </summary>
         Maithili
-        , 
+        ,
         /// <summary>
         /// Makasar.
         /// </summary>
         Makasar
-        , 
+        ,
         /// <summary>
         /// Mandingo.
         /// </summary>
         Mandingo
-        , 
+        ,
         /// <summary>
         /// Masai.
         /// </summary>
         Masai
-        , 
+        ,
         /// <summary>
         /// Maba.
         /// </summary>
         Maba
-        , 
+        ,
         /// <summary>
         /// Moksha.
         /// </summary>
         Moksha
-        , 
+        ,
         /// <summary>
         /// Mandar.
         /// </summary>
         Mandar
-        , 
+        ,
         /// <summary>
         /// Mende.
         /// </summary>
         Mende
-        , 
+        ,
         /// <summary>
         /// Meru.
         /// </summary>
         Meru
-        , 
+        ,
         /// <summary>
         /// Morisyen.
         /// </summary>
         Morisyen
-        , 
+        ,
         /// <summary>
         /// Malagasy.
         /// </summary>
         Malagasy
-        , 
+        ,
         /// <summary>
         /// Middle Irish.
         /// </summary>
         MiddleIrish
-        , 
+        ,
         /// <summary>
         /// Makhuwa-Meetto.
         /// </summary>
         MakhuwaMeetto
-        , 
+        ,
         /// <summary>
         /// Metaʼ.
         /// </summary>
         Meta
-        , 
+        ,
         /// <summary>
         /// Marshallese.
         /// </summary>
         Marshallese
-        , 
+        ,
         /// <summary>
         /// Maori.
         /// </summary>
         Maori
-        , 
+        ,
         /// <summary>
         /// Micmac.
         /// </summary>
         Micmac
-        , 
+        ,
         /// <summary>
         /// Minangkabau.
         /// </summary>
         Minangkabau
-        , 
+        ,
         /// <summary>
         /// Macedonian.
         /// </summary>
         Macedonian
-        , 
+        ,
         /// <summary>
         /// Malayalam.
         /// </summary>
         Malayalam
-        , 
+        ,
         /// <summary>
         /// Mongolian.
         /// </summary>
         Mongolian
-        , 
+        ,
         /// <summary>
         /// Manchu.
         /// </summary>
         Manchu
-        , 
+        ,
         /// <summary>
         /// Manipuri.
         /// </summary>
         Manipuri
-        , 
+        ,
         /// <summary>
         /// Mohawk.
         /// </summary>
         Mohawk
-        , 
+        ,
         /// <summary>
         /// Mossi.
         /// </summary>
         Mossi
-        , 
+        ,
         /// <summary>
         /// Marathi.
         /// </summary>
         Marathi
-        , 
+        ,
         /// <summary>
         /// Western Mari.
         /// </summary>
         WesternMari
-        , 
+        ,
         /// <summary>
         /// Malay.
         /// </summary>
         Malay
-        , 
+        ,
         /// <summary>
         /// Maltese.
         /// </summary>
         Maltese
-        , 
+        ,
         /// <summary>
         /// Mundang.
         /// </summary>
         Mundang
-        , 
+        ,
         /// <summary>
         /// Multiple Languages.
         /// </summary>
         MultipleLanguages
-        , 
+        ,
         /// <summary>
         /// Creek.
         /// </summary>
         Creek
-        , 
+        ,
         /// <summary>
         /// Mirandese.
         /// </summary>
         Mirandese
-        , 
+        ,
         /// <summary>
         /// Marwari.
         /// </summary>
         Marwari
-        , 
+        ,
         /// <summary>
         /// Mentawai.
         /// </summary>
         Mentawai
-        , 
+        ,
         /// <summary>
         /// Burmese.
         /// </summary>
         Burmese
-        , 
+        ,
         /// <summary>
         /// Myene.
         /// </summary>
         Myene
-        , 
+        ,
         /// <summary>
         /// Erzya.
         /// </summary>
         Erzya
-        , 
+        ,
         /// <summary>
         /// Mazanderani.
         /// </summary>
         Mazanderani
-        , 
+        ,
         /// <summary>
         /// Nauru.
         /// </summary>
         Nauru
-        , 
+        ,
         /// <summary>
         /// Min Nan Chinese.
         /// </summary>
         MinNanChinese
-        , 
+        ,
         /// <summary>
         /// Neapolitan.
         /// </summary>
         Neapolitan
-        , 
+        ,
         /// <summary>
         /// Nama.
         /// </summary>
         Nama
-        , 
+        ,
         /// <summary>
         /// Norwegian Bokmål.
         /// </summary>
         NorwegianBokml
-        , 
+        ,
         /// <summary>
         /// North Ndebele.
         /// </summary>
         NorthNdebele
-        , 
+        ,
         /// <summary>
         /// Low German.
         /// </summary>
         LowGerman
-        , 
+        ,
         /// <summary>
         /// Nepali.
         /// </summary>
         Nepali
-        , 
+        ,
         /// <summary>
         /// Newari.
         /// </summary>
         Newari
-        , 
+        ,
         /// <summary>
         /// Ndonga.
         /// </summary>
         Ndonga
-        , 
+        ,
         /// <summary>
         /// Nias.
         /// </summary>
         Nias
-        , 
+        ,
         /// <summary>
         /// Niuean.
         /// </summary>
         Niuean
-        , 
+        ,
         /// <summary>
         /// Ao Naga.
         /// </summary>
         AoNaga
-        , 
+        ,
         /// <summary>
         /// Dutch.
         /// </summary>
         Dutch
-        , 
+        ,
         /// <summary>
         /// Flemish.
         /// </summary>
         Flemish
-        , 
+        ,
         /// <summary>
         /// Kwasio.
         /// </summary>
         Kwasio
-        , 
+        ,
         /// <summary>
         /// Norwegian Nynorsk.
         /// </summary>
         NorwegianNynorsk
-        , 
+        ,
         /// <summary>
         /// Ngiemboon.
         /// </summary>
         Ngiemboon
-        , 
+        ,
         /// <summary>
         /// Norwegian.
         /// </summary>
         Norwegian
-        , 
+        ,
         /// <summary>
         /// Nogai.
         /// </summary>
         Nogai
-        , 
+        ,
         /// <summary>
         /// Old Norse.
         /// </summary>
         OldNorse
-        , 
+        ,
         /// <summary>
         /// Novial.
         /// </summary>
         Novial
-        , 
+        ,
         /// <summary>
         /// NʼKo.
         /// </summary>
         Nko
-        , 
+        ,
         /// <summary>
         /// South Ndebele.
         /// </summary>
         SouthNdebele
-        , 
+        ,
         /// <summary>
         /// Northern Sotho.
         /// </summary>
         NorthernSotho
-        , 
+        ,
         /// <summary>
         /// Nuer.
         /// </summary>
         Nuer
-        , 
+        ,
         /// <summary>
         /// Navajo.
         /// </summary>
         Navajo
-        , 
+        ,
         /// <summary>
         /// Classical Newari.
         /// </summary>
         ClassicalNewari
-        , 
+        ,
         /// <summary>
         /// Nyanja.
         /// </summary>
         Nyanja
-        , 
+        ,
         /// <summary>
         /// Nyamwezi.
         /// </summary>
         Nyamwezi
-        , 
+        ,
         /// <summary>
         /// Nyankole.
         /// </summary>
         Nyankole
-        , 
+        ,
         /// <summary>
         /// Nyoro.
         /// </summary>
         Nyoro
-        , 
+        ,
         /// <summary>
         /// Nzima.
         /// </summary>
         Nzima
-        , 
+        ,
         /// <summary>
         /// Occitan.
         /// </summary>
         Occitan
-        , 
+        ,
         /// <summary>
         /// Ojibwa.
         /// </summary>
         Ojibwa
-        , 
+        ,
         /// <summary>
         /// Oromo.
         /// </summary>
         Oromo
-        , 
+        ,
         /// <summary>
         /// Oriya.
         /// </summary>
         Oriya
-        , 
+        ,
         /// <summary>
         /// Ossetic.
         /// </summary>
         Ossetic
-        , 
+        ,
         /// <summary>
         /// Osage.
         /// </summary>
         Osage
-        , 
+        ,
         /// <summary>
         /// Ottoman Turkish.
         /// </summary>
         OttomanTurkish
-        , 
+        ,
         /// <summary>
         /// Punjabi.
         /// </summary>
         Punjabi
-        , 
+        ,
         /// <summary>
         /// Pangasinan.
         /// </summary>
         Pangasinan
-        , 
+        ,
         /// <summary>
         /// Pahlavi.
         /// </summary>
         Pahlavi
-        , 
+        ,
         /// <summary>
         /// Pampanga.
         /// </summary>
         Pampanga
-        , 
+        ,
         /// <summary>
         /// Papiamento.
         /// </summary>
         Papiamento
-        , 
+        ,
         /// <summary>
         /// Palauan.
         /// </summary>
         Palauan
-        , 
+        ,
         /// <summary>
         /// Picard.
         /// </summary>
         Picard
-        , 
+        ,
         /// <summary>
         /// Pennsylvania German.
         /// </summary>
         PennsylvaniaGerman
-        , 
+        ,
         /// <summary>
         /// Plautdietsch.
         /// </summary>
         Plautdietsch
-        , 
+        ,
         /// <summary>
         /// Old Persian.
         /// </summary>
         OldPersian
-        , 
+        ,
         /// <summary>
         /// Palatine German.
         /// </summary>
         PalatineGerman
-        , 
+        ,
         /// <summary>
         /// Phoenician.
         /// </summary>
         Phoenician
-        , 
+        ,
         /// <summary>
         /// Pali.
         /// </summary>
         Pali
-        , 
+        ,
         /// <summary>
         /// Polish.
         /// </summary>
         Polish
-        , 
+        ,
         /// <summary>
         /// Piedmontese.
         /// </summary>
         Piedmontese
-        , 
+        ,
         /// <summary>
         /// Pontic.
         /// </summary>
         Pontic
-        , 
+        ,
         /// <summary>
         /// Pohnpeian.
         /// </summary>
         Pohnpeian
-        , 
+        ,
         /// <summary>
         /// Prussian.
         /// </summary>
         Prussian
-        , 
+        ,
         /// <summary>
         /// Old Provençal.
         /// </summary>
         OldProvenal
-        , 
+        ,
         /// <summary>
         /// Pashto.
         /// </summary>
         Pashto
-        , 
+        ,
         /// <summary>
         /// Pushto.
         /// </summary>
         Pushto
-        , 
+        ,
         /// <summary>
         /// Portuguese.
         /// </summary>
         Portuguese
-        , 
+        ,
         /// <summary>
         /// Brazilian Portuguese.
         /// </summary>
         BrazilianPortuguese
-        , 
+        ,
         /// <summary>
         /// European Portuguese.
         /// </summary>
         EuropeanPortuguese
-        , 
+        ,
         /// <summary>
         /// Quechua.
         /// </summary>
         Quechua
-        , 
+        ,
         /// <summary>
         /// Kʼicheʼ.
         /// </summary>
         Kiche
-        , 
+        ,
         /// <summary>
         /// Chimborazo Highland Quichua.
         /// </summary>
         ChimborazoHighlandQuichua
-        , 
+        ,
         /// <summary>
         /// Rajasthani.
         /// </summary>
         Rajasthani
-        , 
+        ,
         /// <summary>
         /// Rapanui.
         /// </summary>
         Rapanui
-        , 
+        ,
         /// <summary>
         /// Rarotongan.
         /// </summary>
         Rarotongan
-        , 
+        ,
         /// <summary>
         /// Romagnol.
         /// </summary>
         Romagnol
-        , 
+        ,
         /// <summary>
         /// Riffian.
         /// </summary>
         Riffian
-        , 
+        ,
         /// <summary>
         /// Romansh.
         /// </summary>
         Romansh
-        , 
+        ,
         /// <summary>
         /// Rundi.
         /// </summary>
         Rundi
-        , 
+        ,
         /// <summary>
         /// Romanian.
         /// </summary>
         Romanian
-        , 
+        ,
         /// <summary>
         /// Moldavian.
         /// </summary>
         Moldavian
-        , 
+        ,
         /// <summary>
         /// Rombo.
         /// </summary>
         Rombo
-        , 
+        ,
         /// <summary>
         /// Romany.
         /// </summary>
         Romany
-        , 
+        ,
         /// <summary>
         /// Root.
         /// </summary>
         Root
-        , 
+        ,
         /// <summary>
         /// Rotuman.
         /// </summary>
         Rotuman
-        , 
+        ,
         /// <summary>
         /// Russian.
         /// </summary>
         Russian
-        , 
+        ,
         /// <summary>
         /// Rusyn.
         /// </summary>
         Rusyn
-        , 
+        ,
         /// <summary>
         /// Roviana.
         /// </summary>
         Roviana
-        , 
+        ,
         /// <summary>
         /// Aromanian.
         /// </summary>
         Aromanian
-        , 
+        ,
         /// <summary>
         /// Kinyarwanda.
         /// </summary>
         Kinyarwanda
-        , 
+        ,
         /// <summary>
         /// Rwa.
         /// </summary>
         Rwa
-        , 
+        ,
         /// <summary>
         /// Sanskrit.
         /// </summary>
         Sanskrit
-        , 
+        ,
         /// <summary>
         /// Sandawe.
         /// </summary>
         Sandawe
-        , 
+        ,
         /// <summary>
         /// Sakha.
         /// </summary>
         Sakha
-        , 
+        ,
         /// <summary>
         /// Samaritan Aramaic.
         /// </summary>
         SamaritanAramaic
-        , 
+        ,
         /// <summary>
         /// Samburu.
         /// </summary>
         Samburu
-        , 
+        ,
         /// <summary>
         /// Sasak.
         /// </summary>
         Sasak
-        , 
+        ,
         /// <summary>
         /// Santali.
         /// </summary>
         Santali
-        , 
+        ,
         /// <summary>
         /// Saurashtra.
         /// </summary>
         Saurashtra
-        , 
+        ,
         /// <summary>
         /// Ngambay.
         /// </summary>
         Ngambay
-        , 
+        ,
         /// <summary>
         /// Sangu.
         /// </summary>
         Sangu
-        , 
+        ,
         /// <summary>
         /// Sardinian.
         /// </summary>
         Sardinian
-        , 
+        ,
         /// <summary>
         /// Sicilian.
         /// </summary>
         Sicilian
-        , 
+        ,
         /// <summary>
         /// Scots.
         /// </summary>
         Scots
-        , 
+        ,
         /// <summary>
         /// Sindhi.
         /// </summary>
         Sindhi
-        , 
+        ,
         /// <summary>
         /// Sassarese Sardinian.
         /// </summary>
         SassareseSardinian
-        , 
+        ,
         /// <summary>
         /// Northern Sami.
         /// </summary>
         NorthernSami
-        , 
+        ,
         /// <summary>
         /// Seneca.
         /// </summary>
         Seneca
-        , 
+        ,
         /// <summary>
         /// Sena.
         /// </summary>
         Sena
-        , 
+        ,
         /// <summary>
         /// Seri.
         /// </summary>
         Seri
-        , 
+        ,
         /// <summary>
         /// Selkup.
         /// </summary>
         Selkup
-        , 
+        ,
         /// <summary>
         /// Koyraboro Senni.
         /// </summary>
         KoyraboroSenni
-        , 
+        ,
         /// <summary>
         /// Sango.
         /// </summary>
         Sango
-        , 
+        ,
         /// <summary>
         /// Old Irish.
         /// </summary>
         OldIrish
-        , 
+        ,
         /// <summary>
         /// Samogitian.
         /// </summary>
         Samogitian
-        , 
+        ,
         /// <summary>
         /// Serbo-Croatian.
         /// </summary>
         SerboCroatian
-        , 
+        ,
         /// <summary>
         /// Tachelhit.
         /// </summary>
         Tachelhit
-        , 
+        ,
         /// <summary>
         /// Shan.
         /// </summary>
         Shan
-        , 
+        ,
         /// <summary>
         /// Chadian Arabic.
         /// </summary>
         ChadianArabic
-        , 
+        ,
         /// <summary>
         /// Sinhala.
         /// </summary>
         Sinhala
-        , 
+        ,
         /// <summary>
         /// Sidamo.
         /// </summary>
         Sidamo
-        , 
+        ,
         /// <summary>
         /// Slovak.
         /// </summary>
         Slovak
-        , 
+        ,
         /// <summary>
         /// Slovenian.
         /// </summary>
         Slovenian
-        , 
+        ,
         /// <summary>
         /// Lower Silesian.
         /// </summary>
         LowerSilesian
-        , 
+        ,
         /// <summary>
         /// Selayar.
         /// </summary>
         Selayar
-        , 
+        ,
         /// <summary>
         /// Samoan.
         /// </summary>
         Samoan
-        , 
+        ,
         /// <summary>
         /// Southern Sami.
         /// </summary>
         SouthernSami
-        , 
+        ,
         /// <summary>
         /// Lule Sami.
         /// </summary>
         LuleSami
-        , 
+        ,
         /// <summary>
         /// Inari Sami.
         /// </summary>
         InariSami
-        , 
+        ,
         /// <summary>
         /// Skolt Sami.
         /// </summary>
         SkoltSami
-        , 
+        ,
         /// <summary>
         /// Shona.
         /// </summary>
         Shona
-        , 
+        ,
         /// <summary>
         /// Soninke.
         /// </summary>
         Soninke
-        , 
+        ,
         /// <summary>
         /// Somali.
         /// </summary>
         Somali
-        , 
+        ,
         /// <summary>
         /// Sogdien.
         /// </summary>
         Sogdien
-        , 
+        ,
         /// <summary>
         /// Albanian.
         /// </summary>
         Albanian
-        , 
+        ,
         /// <summary>
         /// Serbian.
         /// </summary>
         Serbian
-        , 
+        ,
         /// <summary>
         /// Sranan Tongo.
         /// </summary>
         SrananTongo
-        , 
+        ,
         /// <summary>
         /// Serer.
         /// </summary>
         Serer
-        , 
+        ,
         /// <summary>
         /// Swati.
         /// </summary>
         Swati
-        , 
+        ,
         /// <summary>
         /// Saho.
         /// </summary>
         Saho
-        , 
+        ,
         /// <summary>
         /// Southern Sotho.
         /// </summary>
         SouthernSotho
-        , 
+        ,
         /// <summary>
         /// Saterland Frisian.
         /// </summary>
         SaterlandFrisian
-        , 
+        ,
         /// <summary>
         /// Sundanese.
         /// </summary>
         Sundanese
-        , 
+        ,
         /// <summary>
         /// Sukuma.
         /// </summary>
         Sukuma
-        , 
+        ,
         /// <summary>
         /// Susu.
         /// </summary>
         Susu
-        , 
+        ,
         /// <summary>
         /// Sumerian.
         /// </summary>
         Sumerian
-        , 
+        ,
         /// <summary>
         /// Swedish.
         /// </summary>
         Swedish
-        , 
+        ,
         /// <summary>
         /// Swahili.
         /// </summary>
         Swahili
-        , 
+        ,
         /// <summary>
         /// Comorian.
         /// </summary>
         Comorian
-        , 
+        ,
         /// <summary>
         /// Congo Swahili.
         /// </summary>
         CongoSwahili
-        , 
+        ,
         /// <summary>
         /// Classical Syriac.
         /// </summary>
         ClassicalSyriac
-        , 
+        ,
         /// <summary>
         /// Syriac.
         /// </summary>
         Syriac
-        , 
+        ,
         /// <summary>
         /// Silesian.
         /// </summary>
         Silesian
-        , 
+        ,
         /// <summary>
         /// Tamil.
         /// </summary>
         Tamil
-        , 
+        ,
         /// <summary>
         /// Tulu.
         /// </summary>
         Tulu
-        , 
+        ,
         /// <summary>
         /// Telugu.
         /// </summary>
         Telugu
-        , 
+        ,
         /// <summary>
         /// Timne.
         /// </summary>
         Timne
-        , 
+        ,
         /// <summary>
         /// Teso.
         /// </summary>
         Teso
-        , 
+        ,
         /// <summary>
         /// Tereno.
         /// </summary>
         Tereno
-        , 
+        ,
         /// <summary>
         /// Tetum.
         /// </summary>
         Tetum
-        , 
+        ,
         /// <summary>
         /// Tajik.
         /// </summary>
         Tajik
-        , 
+        ,
         /// <summary>
         /// Thai.
         /// </summary>
         Thai
-        , 
+        ,
         /// <summary>
         /// Tigrinya.
         /// </summary>
         Tigrinya
-        , 
+        ,
         /// <summary>
         /// Tigre.
         /// </summary>
         Tigre
-        , 
+        ,
         /// <summary>
         /// Tiv.
         /// </summary>
         Tiv
-        , 
+        ,
         /// <summary>
         /// Turkmen.
         /// </summary>
         Turkmen
-        , 
+        ,
         /// <summary>
         /// Tokelau.
         /// </summary>
         Tokelau
-        , 
+        ,
         /// <summary>
         /// Tsakhur.
         /// </summary>
         Tsakhur
-        , 
+        ,
         /// <summary>
         /// Tagalog.
         /// </summary>
         Tagalog
-        , 
+        ,
         /// <summary>
         /// Klingon.
         /// </summary>
         Klingon
-        , 
+        ,
         /// <summary>
         /// Tlingit.
         /// </summary>
         Tlingit
-        , 
+        ,
         /// <summary>
         /// Talysh.
         /// </summary>
         Talysh
-        , 
+        ,
         /// <summary>
         /// Tamashek.
         /// </summary>
         Tamashek
-        , 
+        ,
         /// <summary>
         /// Tswana.
         /// </summary>
         Tswana
-        , 
+        ,
         /// <summary>
         /// Tongan.
         /// </summary>
         Tongan
-        , 
+        ,
         /// <summary>
         /// Nyasa Tonga.
         /// </summary>
         NyasaTonga
-        , 
+        ,
         /// <summary>
         /// Tok Pisin.
         /// </summary>
         TokPisin
-        , 
+        ,
         /// <summary>
         /// Turkish.
         /// </summary>
         Turkish
-        , 
+        ,
         /// <summary>
         /// Turoyo.
         /// </summary>
         Turoyo
-        , 
+        ,
         /// <summary>
         /// Taroko.
         /// </summary>
         Taroko
-        , 
+        ,
         /// <summary>
         /// Tsonga.
         /// </summary>
         Tsonga
-        , 
+        ,
         /// <summary>
         /// Tsakonian.
         /// </summary>
         Tsakonian
-        , 
+        ,
         /// <summary>
         /// Tsimshian.
         /// </summary>
         Tsimshian
-        , 
+        ,
         /// <summary>
         /// Tatar.
         /// </summary>
         Tatar
-        , 
+        ,
         /// <summary>
         /// Muslim Tat.
         /// </summary>
         MuslimTat
-        , 
+        ,
         /// <summary>
         /// Tumbuka.
         /// </summary>
         Tumbuka
-        , 
+        ,
         /// <summary>
         /// Tuvalu.
         /// </summary>
         Tuvalu
-        , 
+        ,
         /// <summary>
         /// Twi.
         /// </summary>
         Twi
-        , 
+        ,
         /// <summary>
         /// Tasawaq.
         /// </summary>
         Tasawaq
-        , 
+        ,
         /// <summary>
         /// Tahitian.
         /// </summary>
         Tahitian
-        , 
+        ,
         /// <summary>
         /// Tuvinian.
         /// </summary>
         Tuvinian
-        , 
+        ,
         /// <summary>
         /// Central Atlas Tamazight.
         /// </summary>
         CentralAtlasTamazight
-        , 
+        ,
         /// <summary>
         /// Udmurt.
         /// </summary>
         Udmurt
-        , 
+        ,
         /// <summary>
         /// Uyghur.
         /// </summary>
         Uyghur
-        , 
+        ,
         /// <summary>
         /// Uighur.
         /// </summary>
         Uighur
-        , 
+        ,
         /// <summary>
         /// Ugaritic.
         /// </summary>
         Ugaritic
-        , 
+        ,
         /// <summary>
         /// Ukrainian.
         /// </summary>
         Ukrainian
-        , 
+        ,
         /// <summary>
         /// Umbundu.
         /// </summary>
         Umbundu
-        , 
+        ,
         /// <summary>
         /// Unknown Language.
         /// </summary>
         UnknownLanguage
-        , 
+        ,
         /// <summary>
         /// Urdu.
         /// </summary>
         Urdu
-        , 
+        ,
         /// <summary>
         /// Uzbek.
         /// </summary>
         Uzbek
-        , 
+        ,
         /// <summary>
         /// Vai.
         /// </summary>
         Vai
-        , 
+        ,
         /// <summary>
         /// Venda.
         /// </summary>
         Venda
-        , 
+        ,
         /// <summary>
         /// Venetian.
         /// </summary>
         Venetian
-        , 
+        ,
         /// <summary>
         /// Veps.
         /// </summary>
         Veps
-        , 
+        ,
         /// <summary>
         /// Vietnamese.
         /// </summary>
         Vietnamese
-        , 
+        ,
         /// <summary>
         /// West Flemish.
         /// </summary>
         WestFlemish
-        , 
+        ,
         /// <summary>
         /// Main-Franconian.
         /// </summary>
         MainFranconian
-        , 
+        ,
         /// <summary>
         /// Volapük.
         /// </summary>
         Volapk
-        , 
+        ,
         /// <summary>
         /// Votic.
         /// </summary>
         Votic
-        , 
+        ,
         /// <summary>
         /// Võro.
         /// </summary>
         Vro
-        , 
+        ,
         /// <summary>
         /// Vunjo.
         /// </summary>
         Vunjo
-        , 
+        ,
         /// <summary>
         /// Walloon.
         /// </summary>
         Walloon
-        , 
+        ,
         /// <summary>
         /// Walser.
         /// </summary>
         Walser
-        , 
+        ,
         /// <summary>
         /// Wolaytta.
         /// </summary>
         Wolaytta
-        , 
+        ,
         /// <summary>
         /// Waray.
         /// </summary>
         Waray
-        , 
+        ,
         /// <summary>
         /// Washo.
         /// </summary>
         Washo
-        , 
+        ,
         /// <summary>
         /// Wolof.
         /// </summary>
         Wolof
-        , 
+        ,
         /// <summary>
         /// Wu Chinese.
         /// </summary>
         WuChinese
-        , 
+        ,
         /// <summary>
         /// Kalmyk.
         /// </summary>
         Kalmyk
-        , 
+        ,
         /// <summary>
         /// Xhosa.
         /// </summary>
         Xhosa
-        , 
+        ,
         /// <summary>
         /// Mingrelian.
         /// </summary>
         Mingrelian
-        , 
+        ,
         /// <summary>
         /// Soga.
         /// </summary>
         Soga
-        , 
+        ,
         /// <summary>
         /// Yao.
         /// </summary>
         Yao
-        , 
+        ,
         /// <summary>
         /// Yapese.
         /// </summary>
         Yapese
-        , 
+        ,
         /// <summary>
         /// Yangben.
         /// </summary>
         Yangben
-        , 
+        ,
         /// <summary>
         /// Yemba.
         /// </summary>
         Yemba
-        , 
+        ,
         /// <summary>
         /// Yiddish.
         /// </summary>
         Yiddish
-        , 
+        ,
         /// <summary>
         /// Yoruba.
         /// </summary>
         Yoruba
-        , 
+        ,
         /// <summary>
         /// Nheengatu.
         /// </summary>
         Nheengatu
-        , 
+        ,
         /// <summary>
         /// Cantonese.
         /// </summary>
         Cantonese
-        , 
+        ,
         /// <summary>
         /// Zhuang.
         /// </summary>
         Zhuang
-        , 
+        ,
         /// <summary>
         /// Zapotec.
         /// </summary>
         Zapotec
-        , 
+        ,
         /// <summary>
         /// Blissymbols.
         /// </summary>
         Blissymbols
-        , 
+        ,
         /// <summary>
         /// Zeelandic.
         /// </summary>
         Zeelandic
-        , 
+        ,
         /// <summary>
         /// Zenaga.
         /// </summary>
         Zenaga
-        , 
+        ,
         /// <summary>
         /// Standard Moroccan Tamazight.
         /// </summary>
         StandardMoroccanTamazight
-        , 
+        ,
         /// <summary>
         /// Chinese.
         /// </summary>
         Chinese
-        , 
+        ,
         /// <summary>
         /// Simplified Chinese.
         /// </summary>
         SimplifiedChinese
-        , 
+        ,
         /// <summary>
         /// Traditional Chinese.
         /// </summary>
         TraditionalChinese
-        , 
+        ,
         /// <summary>
         /// Zulu.
         /// </summary>
         Zulu
-        , 
+        ,
         /// <summary>
         /// Zuni.
         /// </summary>
         Zuni
-        , 
+        ,
         /// <summary>
         /// No linguistic content.
         /// </summary>
         NoLinguisticContent
-        , 
+        ,
         /// <summary>
         /// Zaza.
         /// </summary>

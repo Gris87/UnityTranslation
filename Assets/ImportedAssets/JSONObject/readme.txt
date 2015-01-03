@@ -57,15 +57,15 @@ string encodedString = j.print();
 NEW! The constructor, Add, and AddField functions now support a nested delegate structure.  This is useful if you need to create a nested JSONObject in a single line.  For example:
 <syntaxhighlight lang="csharp">
 DoRequest(URL, new JSONObject(delegate(JSONObject request) {
-	request.AddField("sort", delegate(JSONObject sort) {
-		sort.AddField("_timestamp", "desc");
-	});
-	request.AddField("query", new JSONObject(delegate(JSONObject query) {
-		query.AddField("match_all", JSONObject.obj);
-	}));
-	request.AddField("fields", delegate(JSONObject fields) {
-		fields.Add("_timestamp");
-	});
+    request.AddField("sort", delegate(JSONObject sort) {
+        sort.AddField("_timestamp", "desc");
+    });
+    request.AddField("query", new JSONObject(delegate(JSONObject query) {
+        query.AddField("match_all", JSONObject.obj);
+    }));
+    request.AddField("fields", delegate(JSONObject fields) {
+        fields.Add("_timestamp");
+    });
 }).ToString());
 </syntaxhighlight>
 
@@ -79,34 +79,34 @@ JSONObject j = new JSONObject(encodedString);
 accessData(j);
 //access data (and print it)
 void accessData(JSONObject obj){
-	switch(obj.type){
-		case JSONObject.Type.OBJECT:
-			for(int i = 0; i < obj.list.Count; i++){
-				string key = (string)obj.keys[i];
-				JSONObject j = (JSONObject)obj.list[i];
-				Debug.Log(key);
-				accessData(j);
-			}
-			break;
-		case JSONObject.Type.ARRAY:
-			foreach(JSONObject j in obj.list){
-				accessData(j);
-			}
-			break;
-		case JSONObject.Type.STRING:
-			Debug.Log(obj.str);
-			break;
-		case JSONObject.Type.NUMBER:
-			Debug.Log(obj.n);
-			break;
-		case JSONObject.Type.BOOL:
-			Debug.Log(obj.b);
-			break;
-		case JSONObject.Type.NULL:
-			Debug.Log("NULL");
-			break;
-		
-	}
+    switch(obj.type){
+        case JSONObject.Type.OBJECT:
+            for(int i = 0; i < obj.list.Count; i++){
+                string key = (string)obj.keys[i];
+                JSONObject j = (JSONObject)obj.list[i];
+                Debug.Log(key);
+                accessData(j);
+            }
+            break;
+        case JSONObject.Type.ARRAY:
+            foreach(JSONObject j in obj.list){
+                accessData(j);
+            }
+            break;
+        case JSONObject.Type.STRING:
+            Debug.Log(obj.str);
+            break;
+        case JSONObject.Type.NUMBER:
+            Debug.Log(obj.n);
+            break;
+        case JSONObject.Type.BOOL:
+            Debug.Log(obj.b);
+            break;
+        case JSONObject.Type.NULL:
+            Debug.Log("NULL");
+            break;
+
+    }
 }
 </syntaxhighlight>
 
@@ -114,13 +114,13 @@ NEW! Decoding now also supports a delegate format which will automatically check
 <syntaxhighlight lang="csharp">
 new JSONObject(data);
 list.GetField("hits", delegate(JSONObject hits) {
-	hits.GetField("hits", delegate(JSONObject hits2) {
-		foreach (JSONObject gameSession in hits2.list) {
-			Debug.Log(gameSession);
-		}
-	});
+    hits.GetField("hits", delegate(JSONObject hits2) {
+        foreach (JSONObject gameSession in hits2.list) {
+            Debug.Log(gameSession);
+        }
+    });
 }, delegate(string name) {	//"name" will be equal to the name of the missing field.  In this case, "hits"
-	Debug.LogWarning("no game sessions");
+    Debug.LogWarning("no game sessions");
 });
 </syntaxhighlight>
 

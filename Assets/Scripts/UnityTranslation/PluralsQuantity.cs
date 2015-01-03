@@ -1,13 +1,13 @@
 namespace UnityTranslation
 {
-	public enum PluralsQuantity
-	{
-		  Zero
-		, One
-		, Two
-		, Few
-		, Many
-		, Other
-	}
+    public enum PluralsQuantity
+    {
+          Zero
+        , One
+        , Two
+        , Few
+        , Many
+        , Other
+    }
 }
 

@@ -1,10 +1,10 @@
 namespace UnityTranslation
 {
-	public class PluralsRule
-	{
-		public PluralsRule()
-		{
-		}
-	}
+    public class PluralsRule
+    {
+        public PluralsRule()
+        {
+        }
+    }
 }
 
