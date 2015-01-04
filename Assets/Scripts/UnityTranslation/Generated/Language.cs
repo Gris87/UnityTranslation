@@ -1,4 +1,4 @@
-// This file generated from CLDR/json-full/main/en/languages.json file.
+﻿// This file generated from "CLDR/json-full/main/en/languages.json" file.
 
 
 
@@ -13,3074 +13,3074 @@ namespace UnityTranslation
         /// Default language. Equivalent for English.
         /// </summary>
         Default
-        ,
+        , 
         /// <summary>
-        /// Afar.
+        /// Afar. Code: aa
         /// </summary>
         Afar
-        ,
+        , 
         /// <summary>
-        /// Abkhazian.
+        /// Abkhazian. Code: ab
         /// </summary>
         Abkhazian
-        ,
+        , 
         /// <summary>
-        /// Achinese.
+        /// Achinese. Code: ace
         /// </summary>
         Achinese
-        ,
+        , 
         /// <summary>
-        /// Acoli.
+        /// Acoli. Code: ach
         /// </summary>
         Acoli
-        ,
+        , 
         /// <summary>
-        /// Adangme.
+        /// Adangme. Code: ada
         /// </summary>
         Adangme
-        ,
+        , 
         /// <summary>
-        /// Adyghe.
+        /// Adyghe. Code: ady
         /// </summary>
         Adyghe
-        ,
+        , 
         /// <summary>
-        /// Avestan.
+        /// Avestan. Code: ae
         /// </summary>
         Avestan
-        ,
+        , 
         /// <summary>
-        /// Tunisian Arabic.
+        /// Tunisian Arabic. Code: aeb
         /// </summary>
         TunisianArabic
-        ,
+        , 
         /// <summary>
-        /// Afrikaans.
+        /// Afrikaans. Code: af
         /// </summary>
         Afrikaans
-        ,
+        , 
         /// <summary>
-        /// Afrihili.
+        /// Afrihili. Code: afh
         /// </summary>
         Afrihili
-        ,
+        , 
         /// <summary>
-        /// Aghem.
+        /// Aghem. Code: agq
         /// </summary>
         Aghem
-        ,
+        , 
         /// <summary>
-        /// Ainu.
+        /// Ainu. Code: ain
         /// </summary>
         Ainu
-        ,
+        , 
         /// <summary>
-        /// Akan.
+        /// Akan. Code: ak
         /// </summary>
         Akan
-        ,
+        , 
         /// <summary>
-        /// Akkadian.
+        /// Akkadian. Code: akk
         /// </summary>
         Akkadian
-        ,
+        , 
         /// <summary>
-        /// Alabama.
+        /// Alabama. Code: akz
         /// </summary>
         Alabama
-        ,
+        , 
         /// <summary>
-        /// Aleut.
+        /// Aleut. Code: ale
         /// </summary>
         Aleut
-        ,
+        , 
         /// <summary>
-        /// Gheg Albanian.
+        /// Gheg Albanian. Code: aln
         /// </summary>
         GhegAlbanian
-        ,
+        , 
         /// <summary>
-        /// Southern Altai.
+        /// Southern Altai. Code: alt
         /// </summary>
         SouthernAltai
-        ,
+        , 
         /// <summary>
-        /// Amharic.
+        /// Amharic. Code: am
         /// </summary>
         Amharic
-        ,
+        , 
         /// <summary>
-        /// Aragonese.
+        /// Aragonese. Code: an
         /// </summary>
         Aragonese
-        ,
+        , 
         /// <summary>
-        /// Old English.
+        /// Old English. Code: ang
         /// </summary>
         OldEnglish
-        ,
+        , 
         /// <summary>
-        /// Angika.
+        /// Angika. Code: anp
         /// </summary>
         Angika
-        ,
+        , 
         /// <summary>
-        /// Arabic.
+        /// Arabic. Code: ar
         /// </summary>
         Arabic
-        ,
+        , 
         /// <summary>
-        /// Modern Standard Arabic.
+        /// Modern Standard Arabic. Code: ar-001
         /// </summary>
         ModernStandardArabic
-        ,
+        , 
         /// <summary>
-        /// Aramaic.
+        /// Aramaic. Code: arc
         /// </summary>
         Aramaic
-        ,
+        , 
         /// <summary>
-        /// Mapuche.
+        /// Mapuche. Code: arn
         /// </summary>
         Mapuche
-        ,
+        , 
         /// <summary>
-        /// Araona.
+        /// Araona. Code: aro
         /// </summary>
         Araona
-        ,
+        , 
         /// <summary>
-        /// Arapaho.
+        /// Arapaho. Code: arp
         /// </summary>
         Arapaho
-        ,
+        , 
         /// <summary>
-        /// Algerian Arabic.
+        /// Algerian Arabic. Code: arq
         /// </summary>
         AlgerianArabic
-        ,
+        , 
         /// <summary>
-        /// Arawak.
+        /// Arawak. Code: arw
         /// </summary>
         Arawak
-        ,
+        , 
         /// <summary>
-        /// Moroccan Arabic.
+        /// Moroccan Arabic. Code: ary
         /// </summary>
         MoroccanArabic
-        ,
+        , 
         /// <summary>
-        /// Egyptian Arabic.
+        /// Egyptian Arabic. Code: arz
         /// </summary>
         EgyptianArabic
-        ,
+        , 
         /// <summary>
-        /// Assamese.
+        /// Assamese. Code: as
         /// </summary>
         Assamese
-        ,
+        , 
         /// <summary>
-        /// Asu.
+        /// Asu. Code: asa
         /// </summary>
         Asu
-        ,
+        , 
         /// <summary>
-        /// American Sign Language.
+        /// American Sign Language. Code: ase
         /// </summary>
         AmericanSignLanguage
-        ,
+        , 
         /// <summary>
-        /// Asturian.
+        /// Asturian. Code: ast
         /// </summary>
         Asturian
-        ,
+        , 
         /// <summary>
-        /// Avaric.
+        /// Avaric. Code: av
         /// </summary>
         Avaric
-        ,
+        , 
         /// <summary>
-        /// Kotava.
+        /// Kotava. Code: avk
         /// </summary>
         Kotava
-        ,
+        , 
         /// <summary>
-        /// Awadhi.
+        /// Awadhi. Code: awa
         /// </summary>
         Awadhi
-        ,
+        , 
         /// <summary>
-        /// Aymara.
+        /// Aymara. Code: ay
         /// </summary>
         Aymara
-        ,
+        , 
         /// <summary>
-        /// Azerbaijani.
+        /// Azerbaijani. Code: az
         /// </summary>
         Azerbaijani
-        ,
+        , 
         /// <summary>
-        /// Azeri.
+        /// Azeri. Code: az-alt-short
         /// </summary>
         Azeri
-        ,
+        , 
         /// <summary>
-        /// South Azerbaijani.
+        /// South Azerbaijani. Code: azb
         /// </summary>
         SouthAzerbaijani
-        ,
+        , 
         /// <summary>
-        /// Bashkir.
+        /// Bashkir. Code: ba
         /// </summary>
         Bashkir
-        ,
+        , 
         /// <summary>
-        /// Baluchi.
+        /// Baluchi. Code: bal
         /// </summary>
         Baluchi
-        ,
+        , 
         /// <summary>
-        /// Balinese.
+        /// Balinese. Code: ban
         /// </summary>
         Balinese
-        ,
+        , 
         /// <summary>
-        /// Bavarian.
+        /// Bavarian. Code: bar
         /// </summary>
         Bavarian
-        ,
+        , 
         /// <summary>
-        /// Basaa.
+        /// Basaa. Code: bas
         /// </summary>
         Basaa
-        ,
+        , 
         /// <summary>
-        /// Bamun.
+        /// Bamun. Code: bax
         /// </summary>
         Bamun
-        ,
+        , 
         /// <summary>
-        /// Batak Toba.
+        /// Batak Toba. Code: bbc
         /// </summary>
         BatakToba
-        ,
+        , 
         /// <summary>
-        /// Ghomala.
+        /// Ghomala. Code: bbj
         /// </summary>
         Ghomala
-        ,
+        , 
         /// <summary>
-        /// Belarusian.
+        /// Belarusian. Code: be
         /// </summary>
         Belarusian
-        ,
+        , 
         /// <summary>
-        /// Beja.
+        /// Beja. Code: bej
         /// </summary>
         Beja
-        ,
+        , 
         /// <summary>
-        /// Bemba.
+        /// Bemba. Code: bem
         /// </summary>
         Bemba
-        ,
+        , 
         /// <summary>
-        /// Betawi.
+        /// Betawi. Code: bew
         /// </summary>
         Betawi
-        ,
+        , 
         /// <summary>
-        /// Bena.
+        /// Bena. Code: bez
         /// </summary>
         Bena
-        ,
+        , 
         /// <summary>
-        /// Bafut.
+        /// Bafut. Code: bfd
         /// </summary>
         Bafut
-        ,
+        , 
         /// <summary>
-        /// Badaga.
+        /// Badaga. Code: bfq
         /// </summary>
         Badaga
-        ,
+        , 
         /// <summary>
-        /// Bulgarian.
+        /// Bulgarian. Code: bg
         /// </summary>
         Bulgarian
-        ,
+        , 
         /// <summary>
-        /// Bhojpuri.
+        /// Bhojpuri. Code: bho
         /// </summary>
         Bhojpuri
-        ,
+        , 
         /// <summary>
-        /// Bislama.
+        /// Bislama. Code: bi
         /// </summary>
         Bislama
-        ,
+        , 
         /// <summary>
-        /// Bikol.
+        /// Bikol. Code: bik
         /// </summary>
         Bikol
-        ,
+        , 
         /// <summary>
-        /// Bini.
+        /// Bini. Code: bin
         /// </summary>
         Bini
-        ,
+        , 
         /// <summary>
-        /// Banjar.
+        /// Banjar. Code: bjn
         /// </summary>
         Banjar
-        ,
+        , 
         /// <summary>
-        /// Kom.
+        /// Kom. Code: bkm
         /// </summary>
         Kom
-        ,
+        , 
         /// <summary>
-        /// Siksika.
+        /// Siksika. Code: bla
         /// </summary>
         Siksika
-        ,
+        , 
         /// <summary>
-        /// Bambara.
+        /// Bambara. Code: bm
         /// </summary>
         Bambara
-        ,
+        , 
         /// <summary>
-        /// Bengali.
+        /// Bengali. Code: bn
         /// </summary>
         Bengali
-        ,
+        , 
         /// <summary>
-        /// Tibetan.
+        /// Tibetan. Code: bo
         /// </summary>
         Tibetan
-        ,
+        , 
         /// <summary>
-        /// Bishnupriya.
+        /// Bishnupriya. Code: bpy
         /// </summary>
         Bishnupriya
-        ,
+        , 
         /// <summary>
-        /// Bakhtiari.
+        /// Bakhtiari. Code: bqi
         /// </summary>
         Bakhtiari
-        ,
+        , 
         /// <summary>
-        /// Breton.
+        /// Breton. Code: br
         /// </summary>
         Breton
-        ,
+        , 
         /// <summary>
-        /// Braj.
+        /// Braj. Code: bra
         /// </summary>
         Braj
-        ,
+        , 
         /// <summary>
-        /// Brahui.
+        /// Brahui. Code: brh
         /// </summary>
         Brahui
-        ,
+        , 
         /// <summary>
-        /// Bodo.
+        /// Bodo. Code: brx
         /// </summary>
         Bodo
-        ,
+        , 
         /// <summary>
-        /// Bosnian.
+        /// Bosnian. Code: bs
         /// </summary>
         Bosnian
-        ,
+        , 
         /// <summary>
-        /// Akoose.
+        /// Akoose. Code: bss
         /// </summary>
         Akoose
-        ,
+        , 
         /// <summary>
-        /// Buriat.
+        /// Buriat. Code: bua
         /// </summary>
         Buriat
-        ,
+        , 
         /// <summary>
-        /// Buginese.
+        /// Buginese. Code: bug
         /// </summary>
         Buginese
-        ,
+        , 
         /// <summary>
-        /// Bulu.
+        /// Bulu. Code: bum
         /// </summary>
         Bulu
-        ,
+        , 
         /// <summary>
-        /// Blin.
+        /// Blin. Code: byn
         /// </summary>
         Blin
-        ,
+        , 
         /// <summary>
-        /// Medumba.
+        /// Medumba. Code: byv
         /// </summary>
         Medumba
-        ,
+        , 
         /// <summary>
-        /// Catalan.
+        /// Catalan. Code: ca
         /// </summary>
         Catalan
-        ,
+        , 
         /// <summary>
-        /// Caddo.
+        /// Caddo. Code: cad
         /// </summary>
         Caddo
-        ,
+        , 
         /// <summary>
-        /// Carib.
+        /// Carib. Code: car
         /// </summary>
         Carib
-        ,
+        , 
         /// <summary>
-        /// Cayuga.
+        /// Cayuga. Code: cay
         /// </summary>
         Cayuga
-        ,
+        , 
         /// <summary>
-        /// Atsam.
+        /// Atsam. Code: cch
         /// </summary>
         Atsam
-        ,
+        , 
         /// <summary>
-        /// Chechen.
+        /// Chechen. Code: ce
         /// </summary>
         Chechen
-        ,
+        , 
         /// <summary>
-        /// Cebuano.
+        /// Cebuano. Code: ceb
         /// </summary>
         Cebuano
-        ,
+        , 
         /// <summary>
-        /// Chiga.
+        /// Chiga. Code: cgg
         /// </summary>
         Chiga
-        ,
+        , 
         /// <summary>
-        /// Chamorro.
+        /// Chamorro. Code: ch
         /// </summary>
         Chamorro
-        ,
+        , 
         /// <summary>
-        /// Chibcha.
+        /// Chibcha. Code: chb
         /// </summary>
         Chibcha
-        ,
+        , 
         /// <summary>
-        /// Chagatai.
+        /// Chagatai. Code: chg
         /// </summary>
         Chagatai
-        ,
+        , 
         /// <summary>
-        /// Chuukese.
+        /// Chuukese. Code: chk
         /// </summary>
         Chuukese
-        ,
+        , 
         /// <summary>
-        /// Mari.
+        /// Mari. Code: chm
         /// </summary>
         Mari
-        ,
+        , 
         /// <summary>
-        /// Chinook Jargon.
+        /// Chinook Jargon. Code: chn
         /// </summary>
         ChinookJargon
-        ,
+        , 
         /// <summary>
-        /// Choctaw.
+        /// Choctaw. Code: cho
         /// </summary>
         Choctaw
-        ,
+        , 
         /// <summary>
-        /// Chipewyan.
+        /// Chipewyan. Code: chp
         /// </summary>
         Chipewyan
-        ,
+        , 
         /// <summary>
-        /// Cherokee.
+        /// Cherokee. Code: chr
         /// </summary>
         Cherokee
-        ,
+        , 
         /// <summary>
-        /// Cheyenne.
+        /// Cheyenne. Code: chy
         /// </summary>
         Cheyenne
-        ,
+        , 
         /// <summary>
-        /// Sorani Kurdish.
+        /// Sorani Kurdish. Code: ckb
         /// </summary>
         SoraniKurdish
-        ,
+        , 
         /// <summary>
-        /// Corsican.
+        /// Corsican. Code: co
         /// </summary>
         Corsican
-        ,
+        , 
         /// <summary>
-        /// Coptic.
+        /// Coptic. Code: cop
         /// </summary>
         Coptic
-        ,
+        , 
         /// <summary>
-        /// Capiznon.
+        /// Capiznon. Code: cps
         /// </summary>
         Capiznon
-        ,
+        , 
         /// <summary>
-        /// Cree.
+        /// Cree. Code: cr
         /// </summary>
         Cree
-        ,
+        , 
         /// <summary>
-        /// Crimean Turkish.
+        /// Crimean Turkish. Code: crh
         /// </summary>
         CrimeanTurkish
-        ,
+        , 
         /// <summary>
-        /// Czech.
+        /// Czech. Code: cs
         /// </summary>
         Czech
-        ,
+        , 
         /// <summary>
-        /// Kashubian.
+        /// Kashubian. Code: csb
         /// </summary>
         Kashubian
-        ,
+        , 
         /// <summary>
-        /// Church Slavic.
+        /// Church Slavic. Code: cu
         /// </summary>
         ChurchSlavic
-        ,
+        , 
         /// <summary>
-        /// Chuvash.
+        /// Chuvash. Code: cv
         /// </summary>
         Chuvash
-        ,
+        , 
         /// <summary>
-        /// Welsh.
+        /// Welsh. Code: cy
         /// </summary>
         Welsh
-        ,
+        , 
         /// <summary>
-        /// Danish.
+        /// Danish. Code: da
         /// </summary>
         Danish
-        ,
+        , 
         /// <summary>
-        /// Dakota.
+        /// Dakota. Code: dak
         /// </summary>
         Dakota
-        ,
+        , 
         /// <summary>
-        /// Dargwa.
+        /// Dargwa. Code: dar
         /// </summary>
         Dargwa
-        ,
+        , 
         /// <summary>
-        /// Taita.
+        /// Taita. Code: dav
         /// </summary>
         Taita
-        ,
+        , 
         /// <summary>
-        /// German.
+        /// German. Code: de
         /// </summary>
         German
-        ,
+        , 
         /// <summary>
-        /// Austrian German.
+        /// Austrian German. Code: de-AT
         /// </summary>
         AustrianGerman
-        ,
+        , 
         /// <summary>
-        /// Swiss High German.
+        /// Swiss High German. Code: de-CH
         /// </summary>
         SwissHighGerman
-        ,
+        , 
         /// <summary>
-        /// Delaware.
+        /// Delaware. Code: del
         /// </summary>
         Delaware
-        ,
+        , 
         /// <summary>
-        /// Slave.
+        /// Slave. Code: den
         /// </summary>
         Slave
-        ,
+        , 
         /// <summary>
-        /// Dogrib.
+        /// Dogrib. Code: dgr
         /// </summary>
         Dogrib
-        ,
+        , 
         /// <summary>
-        /// Dinka.
+        /// Dinka. Code: din
         /// </summary>
         Dinka
-        ,
+        , 
         /// <summary>
-        /// Zarma.
+        /// Zarma. Code: dje
         /// </summary>
         Zarma
-        ,
+        , 
         /// <summary>
-        /// Dogri.
+        /// Dogri. Code: doi
         /// </summary>
         Dogri
-        ,
+        , 
         /// <summary>
-        /// Lower Sorbian.
+        /// Lower Sorbian. Code: dsb
         /// </summary>
         LowerSorbian
-        ,
+        , 
         /// <summary>
-        /// Central Dusun.
+        /// Central Dusun. Code: dtp
         /// </summary>
         CentralDusun
-        ,
+        , 
         /// <summary>
-        /// Duala.
+        /// Duala. Code: dua
         /// </summary>
         Duala
-        ,
+        , 
         /// <summary>
-        /// Middle Dutch.
+        /// Middle Dutch. Code: dum
         /// </summary>
         MiddleDutch
-        ,
+        , 
         /// <summary>
-        /// Divehi.
+        /// Divehi. Code: dv
         /// </summary>
         Divehi
-        ,
+        , 
         /// <summary>
-        /// Jola-Fonyi.
+        /// Jola-Fonyi. Code: dyo
         /// </summary>
         JolaFonyi
-        ,
+        , 
         /// <summary>
-        /// Dyula.
+        /// Dyula. Code: dyu
         /// </summary>
         Dyula
-        ,
+        , 
         /// <summary>
-        /// Dzongkha.
+        /// Dzongkha. Code: dz
         /// </summary>
         Dzongkha
-        ,
+        , 
         /// <summary>
-        /// Dazaga.
+        /// Dazaga. Code: dzg
         /// </summary>
         Dazaga
-        ,
+        , 
         /// <summary>
-        /// Embu.
+        /// Embu. Code: ebu
         /// </summary>
         Embu
-        ,
+        , 
         /// <summary>
-        /// Ewe.
+        /// Ewe. Code: ee
         /// </summary>
         Ewe
-        ,
+        , 
         /// <summary>
-        /// Efik.
+        /// Efik. Code: efi
         /// </summary>
         Efik
-        ,
+        , 
         /// <summary>
-        /// Emilian.
+        /// Emilian. Code: egl
         /// </summary>
         Emilian
-        ,
+        , 
         /// <summary>
-        /// Ancient Egyptian.
+        /// Ancient Egyptian. Code: egy
         /// </summary>
         AncientEgyptian
-        ,
+        , 
         /// <summary>
-        /// Ekajuk.
+        /// Ekajuk. Code: eka
         /// </summary>
         Ekajuk
-        ,
+        , 
         /// <summary>
-        /// Greek.
+        /// Greek. Code: el
         /// </summary>
         Greek
-        ,
+        , 
         /// <summary>
-        /// Elamite.
+        /// Elamite. Code: elx
         /// </summary>
         Elamite
-        ,
+        , 
         /// <summary>
-        /// English.
+        /// English. Code: en
         /// </summary>
         English
-        ,
+        , 
         /// <summary>
-        /// Australian English.
+        /// Australian English. Code: en-AU
         /// </summary>
         AustralianEnglish
-        ,
+        , 
         /// <summary>
-        /// Canadian English.
+        /// Canadian English. Code: en-CA
         /// </summary>
         CanadianEnglish
-        ,
+        , 
         /// <summary>
-        /// British English.
+        /// British English. Code: en-GB
         /// </summary>
         BritishEnglish
-        ,
+        , 
         /// <summary>
-        /// U.K. English.
+        /// U.K. English. Code: en-GB-alt-short
         /// </summary>
         UKEnglish
-        ,
+        , 
         /// <summary>
-        /// American English.
+        /// American English. Code: en-US
         /// </summary>
         AmericanEnglish
-        ,
+        , 
         /// <summary>
-        /// U.S. English.
+        /// U.S. English. Code: en-US-alt-short
         /// </summary>
         USEnglish
-        ,
+        , 
         /// <summary>
-        /// Middle English.
+        /// Middle English. Code: enm
         /// </summary>
         MiddleEnglish
-        ,
+        , 
         /// <summary>
-        /// Esperanto.
+        /// Esperanto. Code: eo
         /// </summary>
         Esperanto
-        ,
+        , 
         /// <summary>
-        /// Spanish.
+        /// Spanish. Code: es
         /// </summary>
         Spanish
-        ,
+        , 
         /// <summary>
-        /// Latin American Spanish.
+        /// Latin American Spanish. Code: es-419
         /// </summary>
         LatinAmericanSpanish
-        ,
+        , 
         /// <summary>
-        /// European Spanish.
+        /// European Spanish. Code: es-ES
         /// </summary>
         EuropeanSpanish
-        ,
+        , 
         /// <summary>
-        /// Mexican Spanish.
+        /// Mexican Spanish. Code: es-MX
         /// </summary>
         MexicanSpanish
-        ,
+        , 
         /// <summary>
-        /// Central Yupik.
+        /// Central Yupik. Code: esu
         /// </summary>
         CentralYupik
-        ,
+        , 
         /// <summary>
-        /// Estonian.
+        /// Estonian. Code: et
         /// </summary>
         Estonian
-        ,
+        , 
         /// <summary>
-        /// Basque.
+        /// Basque. Code: eu
         /// </summary>
         Basque
-        ,
+        , 
         /// <summary>
-        /// Ewondo.
+        /// Ewondo. Code: ewo
         /// </summary>
         Ewondo
-        ,
+        , 
         /// <summary>
-        /// Extremaduran.
+        /// Extremaduran. Code: ext
         /// </summary>
         Extremaduran
-        ,
+        , 
         /// <summary>
-        /// Persian.
+        /// Persian. Code: fa
         /// </summary>
         Persian
-        ,
+        , 
         /// <summary>
-        /// Fang.
+        /// Fang. Code: fan
         /// </summary>
         Fang
-        ,
+        , 
         /// <summary>
-        /// Fanti.
+        /// Fanti. Code: fat
         /// </summary>
         Fanti
-        ,
+        , 
         /// <summary>
-        /// Fulah.
+        /// Fulah. Code: ff
         /// </summary>
         Fulah
-        ,
+        , 
         /// <summary>
-        /// Finnish.
+        /// Finnish. Code: fi
         /// </summary>
         Finnish
-        ,
+        , 
         /// <summary>
-        /// Filipino.
+        /// Filipino. Code: fil
         /// </summary>
         Filipino
-        ,
+        , 
         /// <summary>
-        /// Tornedalen Finnish.
+        /// Tornedalen Finnish. Code: fit
         /// </summary>
         TornedalenFinnish
-        ,
+        , 
         /// <summary>
-        /// Fijian.
+        /// Fijian. Code: fj
         /// </summary>
         Fijian
-        ,
+        , 
         /// <summary>
-        /// Faroese.
+        /// Faroese. Code: fo
         /// </summary>
         Faroese
-        ,
+        , 
         /// <summary>
-        /// Fon.
+        /// Fon. Code: fon
         /// </summary>
         Fon
-        ,
+        , 
         /// <summary>
-        /// French.
+        /// French. Code: fr
         /// </summary>
         French
-        ,
+        , 
         /// <summary>
-        /// Canadian French.
+        /// Canadian French. Code: fr-CA
         /// </summary>
         CanadianFrench
-        ,
+        , 
         /// <summary>
-        /// Swiss French.
+        /// Swiss French. Code: fr-CH
         /// </summary>
         SwissFrench
-        ,
+        , 
         /// <summary>
-        /// Cajun French.
+        /// Cajun French. Code: frc
         /// </summary>
         CajunFrench
-        ,
+        , 
         /// <summary>
-        /// Middle French.
+        /// Middle French. Code: frm
         /// </summary>
         MiddleFrench
-        ,
+        , 
         /// <summary>
-        /// Old French.
+        /// Old French. Code: fro
         /// </summary>
         OldFrench
-        ,
+        , 
         /// <summary>
-        /// Arpitan.
+        /// Arpitan. Code: frp
         /// </summary>
         Arpitan
-        ,
+        , 
         /// <summary>
-        /// Northern Frisian.
+        /// Northern Frisian. Code: frr
         /// </summary>
         NorthernFrisian
-        ,
+        , 
         /// <summary>
-        /// Eastern Frisian.
+        /// Eastern Frisian. Code: frs
         /// </summary>
         EasternFrisian
-        ,
+        , 
         /// <summary>
-        /// Friulian.
+        /// Friulian. Code: fur
         /// </summary>
         Friulian
-        ,
+        , 
         /// <summary>
-        /// Western Frisian.
+        /// Western Frisian. Code: fy
         /// </summary>
         WesternFrisian
-        ,
+        , 
         /// <summary>
-        /// Irish.
+        /// Irish. Code: ga
         /// </summary>
         Irish
-        ,
+        , 
         /// <summary>
-        /// Ga.
+        /// Ga. Code: gaa
         /// </summary>
         Ga
-        ,
+        , 
         /// <summary>
-        /// Gagauz.
+        /// Gagauz. Code: gag
         /// </summary>
         Gagauz
-        ,
+        , 
         /// <summary>
-        /// Gan Chinese.
+        /// Gan Chinese. Code: gan
         /// </summary>
         GanChinese
-        ,
+        , 
         /// <summary>
-        /// Gayo.
+        /// Gayo. Code: gay
         /// </summary>
         Gayo
-        ,
+        , 
         /// <summary>
-        /// Gbaya.
+        /// Gbaya. Code: gba
         /// </summary>
         Gbaya
-        ,
+        , 
         /// <summary>
-        /// Zoroastrian Dari.
+        /// Zoroastrian Dari. Code: gbz
         /// </summary>
         ZoroastrianDari
-        ,
+        , 
         /// <summary>
-        /// Scottish Gaelic.
+        /// Scottish Gaelic. Code: gd
         /// </summary>
         ScottishGaelic
-        ,
+        , 
         /// <summary>
-        /// Geez.
+        /// Geez. Code: gez
         /// </summary>
         Geez
-        ,
+        , 
         /// <summary>
-        /// Gilbertese.
+        /// Gilbertese. Code: gil
         /// </summary>
         Gilbertese
-        ,
+        , 
         /// <summary>
-        /// Galician.
+        /// Galician. Code: gl
         /// </summary>
         Galician
-        ,
+        , 
         /// <summary>
-        /// Gilaki.
+        /// Gilaki. Code: glk
         /// </summary>
         Gilaki
-        ,
+        , 
         /// <summary>
-        /// Middle High German.
+        /// Middle High German. Code: gmh
         /// </summary>
         MiddleHighGerman
-        ,
+        , 
         /// <summary>
-        /// Guarani.
+        /// Guarani. Code: gn
         /// </summary>
         Guarani
-        ,
+        , 
         /// <summary>
-        /// Old High German.
+        /// Old High German. Code: goh
         /// </summary>
         OldHighGerman
-        ,
+        , 
         /// <summary>
-        /// Goan Konkani.
+        /// Goan Konkani. Code: gom
         /// </summary>
         GoanKonkani
-        ,
+        , 
         /// <summary>
-        /// Gondi.
+        /// Gondi. Code: gon
         /// </summary>
         Gondi
-        ,
+        , 
         /// <summary>
-        /// Gorontalo.
+        /// Gorontalo. Code: gor
         /// </summary>
         Gorontalo
-        ,
+        , 
         /// <summary>
-        /// Gothic.
+        /// Gothic. Code: got
         /// </summary>
         Gothic
-        ,
+        , 
         /// <summary>
-        /// Grebo.
+        /// Grebo. Code: grb
         /// </summary>
         Grebo
-        ,
+        , 
         /// <summary>
-        /// Ancient Greek.
+        /// Ancient Greek. Code: grc
         /// </summary>
         AncientGreek
-        ,
+        , 
         /// <summary>
-        /// Swiss German.
+        /// Swiss German. Code: gsw
         /// </summary>
         SwissGerman
-        ,
+        , 
         /// <summary>
-        /// Gujarati.
+        /// Gujarati. Code: gu
         /// </summary>
         Gujarati
-        ,
+        , 
         /// <summary>
-        /// Wayuu.
+        /// Wayuu. Code: guc
         /// </summary>
         Wayuu
-        ,
+        , 
         /// <summary>
-        /// Frafra.
+        /// Frafra. Code: gur
         /// </summary>
         Frafra
-        ,
+        , 
         /// <summary>
-        /// Gusii.
+        /// Gusii. Code: guz
         /// </summary>
         Gusii
-        ,
+        , 
         /// <summary>
-        /// Manx.
+        /// Manx. Code: gv
         /// </summary>
         Manx
-        ,
+        , 
         /// <summary>
-        /// Gwichʼin.
+        /// Gwichʼin. Code: gwi
         /// </summary>
         Gwichin
-        ,
+        , 
         /// <summary>
-        /// Hausa.
+        /// Hausa. Code: ha
         /// </summary>
         Hausa
-        ,
+        , 
         /// <summary>
-        /// Haida.
+        /// Haida. Code: hai
         /// </summary>
         Haida
-        ,
+        , 
         /// <summary>
-        /// Hakka Chinese.
+        /// Hakka Chinese. Code: hak
         /// </summary>
         HakkaChinese
-        ,
+        , 
         /// <summary>
-        /// Hawaiian.
+        /// Hawaiian. Code: haw
         /// </summary>
         Hawaiian
-        ,
+        , 
         /// <summary>
-        /// Hebrew.
+        /// Hebrew. Code: he
         /// </summary>
         Hebrew
-        ,
+        , 
         /// <summary>
-        /// Hindi.
+        /// Hindi. Code: hi
         /// </summary>
         Hindi
-        ,
+        , 
         /// <summary>
-        /// Fiji Hindi.
+        /// Fiji Hindi. Code: hif
         /// </summary>
         FijiHindi
-        ,
+        , 
         /// <summary>
-        /// Hiligaynon.
+        /// Hiligaynon. Code: hil
         /// </summary>
         Hiligaynon
-        ,
+        , 
         /// <summary>
-        /// Hittite.
+        /// Hittite. Code: hit
         /// </summary>
         Hittite
-        ,
+        , 
         /// <summary>
-        /// Hmong.
+        /// Hmong. Code: hmn
         /// </summary>
         Hmong
-        ,
+        , 
         /// <summary>
-        /// Hiri Motu.
+        /// Hiri Motu. Code: ho
         /// </summary>
         HiriMotu
-        ,
+        , 
         /// <summary>
-        /// Croatian.
+        /// Croatian. Code: hr
         /// </summary>
         Croatian
-        ,
+        , 
         /// <summary>
-        /// Upper Sorbian.
+        /// Upper Sorbian. Code: hsb
         /// </summary>
         UpperSorbian
-        ,
+        , 
         /// <summary>
-        /// Xiang Chinese.
+        /// Xiang Chinese. Code: hsn
         /// </summary>
         XiangChinese
-        ,
+        , 
         /// <summary>
-        /// Haitian.
+        /// Haitian. Code: ht
         /// </summary>
         Haitian
-        ,
+        , 
         /// <summary>
-        /// Hungarian.
+        /// Hungarian. Code: hu
         /// </summary>
         Hungarian
-        ,
+        , 
         /// <summary>
-        /// Hupa.
+        /// Hupa. Code: hup
         /// </summary>
         Hupa
-        ,
+        , 
         /// <summary>
-        /// Armenian.
+        /// Armenian. Code: hy
         /// </summary>
         Armenian
-        ,
+        , 
         /// <summary>
-        /// Herero.
+        /// Herero. Code: hz
         /// </summary>
         Herero
-        ,
+        , 
         /// <summary>
-        /// Interlingua.
+        /// Interlingua. Code: ia
         /// </summary>
         Interlingua
-        ,
+        , 
         /// <summary>
-        /// Iban.
+        /// Iban. Code: iba
         /// </summary>
         Iban
-        ,
+        , 
         /// <summary>
-        /// Ibibio.
+        /// Ibibio. Code: ibb
         /// </summary>
         Ibibio
-        ,
+        , 
         /// <summary>
-        /// Indonesian.
+        /// Indonesian. Code: id
         /// </summary>
         Indonesian
-        ,
+        , 
         /// <summary>
-        /// Interlingue.
+        /// Interlingue. Code: ie
         /// </summary>
         Interlingue
-        ,
+        , 
         /// <summary>
-        /// Igbo.
+        /// Igbo. Code: ig
         /// </summary>
         Igbo
-        ,
+        , 
         /// <summary>
-        /// Sichuan Yi.
+        /// Sichuan Yi. Code: ii
         /// </summary>
         SichuanYi
-        ,
+        , 
         /// <summary>
-        /// Inupiaq.
+        /// Inupiaq. Code: ik
         /// </summary>
         Inupiaq
-        ,
+        , 
         /// <summary>
-        /// Iloko.
+        /// Iloko. Code: ilo
         /// </summary>
         Iloko
-        ,
+        , 
         /// <summary>
-        /// Ingush.
+        /// Ingush. Code: inh
         /// </summary>
         Ingush
-        ,
+        , 
         /// <summary>
-        /// Ido.
+        /// Ido. Code: io
         /// </summary>
         Ido
-        ,
+        , 
         /// <summary>
-        /// Icelandic.
+        /// Icelandic. Code: is
         /// </summary>
         Icelandic
-        ,
+        , 
         /// <summary>
-        /// Italian.
+        /// Italian. Code: it
         /// </summary>
         Italian
-        ,
+        , 
         /// <summary>
-        /// Inuktitut.
+        /// Inuktitut. Code: iu
         /// </summary>
         Inuktitut
-        ,
+        , 
         /// <summary>
-        /// Ingrian.
+        /// Ingrian. Code: izh
         /// </summary>
         Ingrian
-        ,
+        , 
         /// <summary>
-        /// Japanese.
+        /// Japanese. Code: ja
         /// </summary>
         Japanese
-        ,
+        , 
         /// <summary>
-        /// Jamaican Creole English.
+        /// Jamaican Creole English. Code: jam
         /// </summary>
         JamaicanCreoleEnglish
-        ,
+        , 
         /// <summary>
-        /// Lojban.
+        /// Lojban. Code: jbo
         /// </summary>
         Lojban
-        ,
+        , 
         /// <summary>
-        /// Ngomba.
+        /// Ngomba. Code: jgo
         /// </summary>
         Ngomba
-        ,
+        , 
         /// <summary>
-        /// Machame.
+        /// Machame. Code: jmc
         /// </summary>
         Machame
-        ,
+        , 
         /// <summary>
-        /// Judeo-Persian.
+        /// Judeo-Persian. Code: jpr
         /// </summary>
         JudeoPersian
-        ,
+        , 
         /// <summary>
-        /// Judeo-Arabic.
+        /// Judeo-Arabic. Code: jrb
         /// </summary>
         JudeoArabic
-        ,
+        , 
         /// <summary>
-        /// Jutish.
+        /// Jutish. Code: jut
         /// </summary>
         Jutish
-        ,
+        , 
         /// <summary>
-        /// Javanese.
+        /// Javanese. Code: jv
         /// </summary>
         Javanese
-        ,
+        , 
         /// <summary>
-        /// Georgian.
+        /// Georgian. Code: ka
         /// </summary>
         Georgian
-        ,
+        , 
         /// <summary>
-        /// Kara-Kalpak.
+        /// Kara-Kalpak. Code: kaa
         /// </summary>
         KaraKalpak
-        ,
+        , 
         /// <summary>
-        /// Kabyle.
+        /// Kabyle. Code: kab
         /// </summary>
         Kabyle
-        ,
+        , 
         /// <summary>
-        /// Kachin.
+        /// Kachin. Code: kac
         /// </summary>
         Kachin
-        ,
+        , 
         /// <summary>
-        /// Jju.
+        /// Jju. Code: kaj
         /// </summary>
         Jju
-        ,
+        , 
         /// <summary>
-        /// Kamba.
+        /// Kamba. Code: kam
         /// </summary>
         Kamba
-        ,
+        , 
         /// <summary>
-        /// Kawi.
+        /// Kawi. Code: kaw
         /// </summary>
         Kawi
-        ,
+        , 
         /// <summary>
-        /// Kabardian.
+        /// Kabardian. Code: kbd
         /// </summary>
         Kabardian
-        ,
+        , 
         /// <summary>
-        /// Kanembu.
+        /// Kanembu. Code: kbl
         /// </summary>
         Kanembu
-        ,
+        , 
         /// <summary>
-        /// Tyap.
+        /// Tyap. Code: kcg
         /// </summary>
         Tyap
-        ,
+        , 
         /// <summary>
-        /// Makonde.
+        /// Makonde. Code: kde
         /// </summary>
         Makonde
-        ,
+        , 
         /// <summary>
-        /// Kabuverdianu.
+        /// Kabuverdianu. Code: kea
         /// </summary>
         Kabuverdianu
-        ,
+        , 
         /// <summary>
-        /// Kenyang.
+        /// Kenyang. Code: ken
         /// </summary>
         Kenyang
-        ,
+        , 
         /// <summary>
-        /// Koro.
+        /// Koro. Code: kfo
         /// </summary>
         Koro
-        ,
+        , 
         /// <summary>
-        /// Kongo.
+        /// Kongo. Code: kg
         /// </summary>
         Kongo
-        ,
+        , 
         /// <summary>
-        /// Kaingang.
+        /// Kaingang. Code: kgp
         /// </summary>
         Kaingang
-        ,
+        , 
         /// <summary>
-        /// Khasi.
+        /// Khasi. Code: kha
         /// </summary>
         Khasi
-        ,
+        , 
         /// <summary>
-        /// Khotanese.
+        /// Khotanese. Code: kho
         /// </summary>
         Khotanese
-        ,
+        , 
         /// <summary>
-        /// Koyra Chiini.
+        /// Koyra Chiini. Code: khq
         /// </summary>
         KoyraChiini
-        ,
+        , 
         /// <summary>
-        /// Khowar.
+        /// Khowar. Code: khw
         /// </summary>
         Khowar
-        ,
+        , 
         /// <summary>
-        /// Kikuyu.
+        /// Kikuyu. Code: ki
         /// </summary>
         Kikuyu
-        ,
+        , 
         /// <summary>
-        /// Kirmanjki.
+        /// Kirmanjki. Code: kiu
         /// </summary>
         Kirmanjki
-        ,
+        , 
         /// <summary>
-        /// Kuanyama.
+        /// Kuanyama. Code: kj
         /// </summary>
         Kuanyama
-        ,
+        , 
         /// <summary>
-        /// Kazakh.
+        /// Kazakh. Code: kk
         /// </summary>
         Kazakh
-        ,
+        , 
         /// <summary>
-        /// Kako.
+        /// Kako. Code: kkj
         /// </summary>
         Kako
-        ,
+        , 
         /// <summary>
-        /// Kalaallisut.
+        /// Kalaallisut. Code: kl
         /// </summary>
         Kalaallisut
-        ,
+        , 
         /// <summary>
-        /// Kalenjin.
+        /// Kalenjin. Code: kln
         /// </summary>
         Kalenjin
-        ,
+        , 
         /// <summary>
-        /// Khmer.
+        /// Khmer. Code: km
         /// </summary>
         Khmer
-        ,
+        , 
         /// <summary>
-        /// Kimbundu.
+        /// Kimbundu. Code: kmb
         /// </summary>
         Kimbundu
-        ,
+        , 
         /// <summary>
-        /// Kannada.
+        /// Kannada. Code: kn
         /// </summary>
         Kannada
-        ,
+        , 
         /// <summary>
-        /// Korean.
+        /// Korean. Code: ko
         /// </summary>
         Korean
-        ,
+        , 
         /// <summary>
-        /// Komi-Permyak.
+        /// Komi-Permyak. Code: koi
         /// </summary>
         KomiPermyak
-        ,
+        , 
         /// <summary>
-        /// Konkani.
+        /// Konkani. Code: kok
         /// </summary>
         Konkani
-        ,
+        , 
         /// <summary>
-        /// Kosraean.
+        /// Kosraean. Code: kos
         /// </summary>
         Kosraean
-        ,
+        , 
         /// <summary>
-        /// Kpelle.
+        /// Kpelle. Code: kpe
         /// </summary>
         Kpelle
-        ,
+        , 
         /// <summary>
-        /// Kanuri.
+        /// Kanuri. Code: kr
         /// </summary>
         Kanuri
-        ,
+        , 
         /// <summary>
-        /// Karachay-Balkar.
+        /// Karachay-Balkar. Code: krc
         /// </summary>
         KarachayBalkar
-        ,
+        , 
         /// <summary>
-        /// Krio.
+        /// Krio. Code: kri
         /// </summary>
         Krio
-        ,
+        , 
         /// <summary>
-        /// Kinaray-a.
+        /// Kinaray-a. Code: krj
         /// </summary>
         KinarayA
-        ,
+        , 
         /// <summary>
-        /// Karelian.
+        /// Karelian. Code: krl
         /// </summary>
         Karelian
-        ,
+        , 
         /// <summary>
-        /// Kurukh.
+        /// Kurukh. Code: kru
         /// </summary>
         Kurukh
-        ,
+        , 
         /// <summary>
-        /// Kashmiri.
+        /// Kashmiri. Code: ks
         /// </summary>
         Kashmiri
-        ,
+        , 
         /// <summary>
-        /// Shambala.
+        /// Shambala. Code: ksb
         /// </summary>
         Shambala
-        ,
+        , 
         /// <summary>
-        /// Bafia.
+        /// Bafia. Code: ksf
         /// </summary>
         Bafia
-        ,
+        , 
         /// <summary>
-        /// Colognian.
+        /// Colognian. Code: ksh
         /// </summary>
         Colognian
-        ,
+        , 
         /// <summary>
-        /// Kurdish.
+        /// Kurdish. Code: ku
         /// </summary>
         Kurdish
-        ,
+        , 
         /// <summary>
-        /// Kumyk.
+        /// Kumyk. Code: kum
         /// </summary>
         Kumyk
-        ,
+        , 
         /// <summary>
-        /// Kutenai.
+        /// Kutenai. Code: kut
         /// </summary>
         Kutenai
-        ,
+        , 
         /// <summary>
-        /// Komi.
+        /// Komi. Code: kv
         /// </summary>
         Komi
-        ,
+        , 
         /// <summary>
-        /// Cornish.
+        /// Cornish. Code: kw
         /// </summary>
         Cornish
-        ,
+        , 
         /// <summary>
-        /// Kyrgyz.
+        /// Kyrgyz. Code: ky
         /// </summary>
         Kyrgyz
-        ,
+        , 
         /// <summary>
-        /// Kirghiz.
+        /// Kirghiz. Code: ky-alt-variant
         /// </summary>
         Kirghiz
-        ,
+        , 
         /// <summary>
-        /// Latin.
+        /// Latin. Code: la
         /// </summary>
         Latin
-        ,
+        , 
         /// <summary>
-        /// Ladino.
+        /// Ladino. Code: lad
         /// </summary>
         Ladino
-        ,
+        , 
         /// <summary>
-        /// Langi.
+        /// Langi. Code: lag
         /// </summary>
         Langi
-        ,
+        , 
         /// <summary>
-        /// Lahnda.
+        /// Lahnda. Code: lah
         /// </summary>
         Lahnda
-        ,
+        , 
         /// <summary>
-        /// Lamba.
+        /// Lamba. Code: lam
         /// </summary>
         Lamba
-        ,
+        , 
         /// <summary>
-        /// Luxembourgish.
+        /// Luxembourgish. Code: lb
         /// </summary>
         Luxembourgish
-        ,
+        , 
         /// <summary>
-        /// Lezghian.
+        /// Lezghian. Code: lez
         /// </summary>
         Lezghian
-        ,
+        , 
         /// <summary>
-        /// Lingua Franca Nova.
+        /// Lingua Franca Nova. Code: lfn
         /// </summary>
         LinguaFrancaNova
-        ,
+        , 
         /// <summary>
-        /// Ganda.
+        /// Ganda. Code: lg
         /// </summary>
         Ganda
-        ,
+        , 
         /// <summary>
-        /// Limburgish.
+        /// Limburgish. Code: li
         /// </summary>
         Limburgish
-        ,
+        , 
         /// <summary>
-        /// Ligurian.
+        /// Ligurian. Code: lij
         /// </summary>
         Ligurian
-        ,
+        , 
         /// <summary>
-        /// Livonian.
+        /// Livonian. Code: liv
         /// </summary>
         Livonian
-        ,
+        , 
         /// <summary>
-        /// Lakota.
+        /// Lakota. Code: lkt
         /// </summary>
         Lakota
-        ,
+        , 
         /// <summary>
-        /// Lombard.
+        /// Lombard. Code: lmo
         /// </summary>
         Lombard
-        ,
+        , 
         /// <summary>
-        /// Lingala.
+        /// Lingala. Code: ln
         /// </summary>
         Lingala
-        ,
+        , 
         /// <summary>
-        /// Lao.
+        /// Lao. Code: lo
         /// </summary>
         Lao
-        ,
+        , 
         /// <summary>
-        /// Mongo.
+        /// Mongo. Code: lol
         /// </summary>
         Mongo
-        ,
+        , 
         /// <summary>
-        /// Lozi.
+        /// Lozi. Code: loz
         /// </summary>
         Lozi
-        ,
+        , 
         /// <summary>
-        /// Lithuanian.
+        /// Lithuanian. Code: lt
         /// </summary>
         Lithuanian
-        ,
+        , 
         /// <summary>
-        /// Latgalian.
+        /// Latgalian. Code: ltg
         /// </summary>
         Latgalian
-        ,
+        , 
         /// <summary>
-        /// Luba-Katanga.
+        /// Luba-Katanga. Code: lu
         /// </summary>
         LubaKatanga
-        ,
+        , 
         /// <summary>
-        /// Luba-Lulua.
+        /// Luba-Lulua. Code: lua
         /// </summary>
         LubaLulua
-        ,
+        , 
         /// <summary>
-        /// Luiseno.
+        /// Luiseno. Code: lui
         /// </summary>
         Luiseno
-        ,
+        , 
         /// <summary>
-        /// Lunda.
+        /// Lunda. Code: lun
         /// </summary>
         Lunda
-        ,
+        , 
         /// <summary>
-        /// Luo.
+        /// Luo. Code: luo
         /// </summary>
         Luo
-        ,
+        , 
         /// <summary>
-        /// Mizo.
+        /// Mizo. Code: lus
         /// </summary>
         Mizo
-        ,
+        , 
         /// <summary>
-        /// Luyia.
+        /// Luyia. Code: luy
         /// </summary>
         Luyia
-        ,
+        , 
         /// <summary>
-        /// Latvian.
+        /// Latvian. Code: lv
         /// </summary>
         Latvian
-        ,
+        , 
         /// <summary>
-        /// Literary Chinese.
+        /// Literary Chinese. Code: lzh
         /// </summary>
         LiteraryChinese
-        ,
+        , 
         /// <summary>
-        /// Laz.
+        /// Laz. Code: lzz
         /// </summary>
         Laz
-        ,
+        , 
         /// <summary>
-        /// Madurese.
+        /// Madurese. Code: mad
         /// </summary>
         Madurese
-        ,
+        , 
         /// <summary>
-        /// Mafa.
+        /// Mafa. Code: maf
         /// </summary>
         Mafa
-        ,
+        , 
         /// <summary>
-        /// Magahi.
+        /// Magahi. Code: mag
         /// </summary>
         Magahi
-        ,
+        , 
         /// <summary>
-        /// Maithili.
+        /// Maithili. Code: mai
         /// </summary>
         Maithili
-        ,
+        , 
         /// <summary>
-        /// Makasar.
+        /// Makasar. Code: mak
         /// </summary>
         Makasar
-        ,
+        , 
         /// <summary>
-        /// Mandingo.
+        /// Mandingo. Code: man
         /// </summary>
         Mandingo
-        ,
+        , 
         /// <summary>
-        /// Masai.
+        /// Masai. Code: mas
         /// </summary>
         Masai
-        ,
+        , 
         /// <summary>
-        /// Maba.
+        /// Maba. Code: mde
         /// </summary>
         Maba
-        ,
+        , 
         /// <summary>
-        /// Moksha.
+        /// Moksha. Code: mdf
         /// </summary>
         Moksha
-        ,
+        , 
         /// <summary>
-        /// Mandar.
+        /// Mandar. Code: mdr
         /// </summary>
         Mandar
-        ,
+        , 
         /// <summary>
-        /// Mende.
+        /// Mende. Code: men
         /// </summary>
         Mende
-        ,
+        , 
         /// <summary>
-        /// Meru.
+        /// Meru. Code: mer
         /// </summary>
         Meru
-        ,
+        , 
         /// <summary>
-        /// Morisyen.
+        /// Morisyen. Code: mfe
         /// </summary>
         Morisyen
-        ,
+        , 
         /// <summary>
-        /// Malagasy.
+        /// Malagasy. Code: mg
         /// </summary>
         Malagasy
-        ,
+        , 
         /// <summary>
-        /// Middle Irish.
+        /// Middle Irish. Code: mga
         /// </summary>
         MiddleIrish
-        ,
+        , 
         /// <summary>
-        /// Makhuwa-Meetto.
+        /// Makhuwa-Meetto. Code: mgh
         /// </summary>
         MakhuwaMeetto
-        ,
+        , 
         /// <summary>
-        /// Metaʼ.
+        /// Metaʼ. Code: mgo
         /// </summary>
         Meta
-        ,
+        , 
         /// <summary>
-        /// Marshallese.
+        /// Marshallese. Code: mh
         /// </summary>
         Marshallese
-        ,
+        , 
         /// <summary>
-        /// Maori.
+        /// Maori. Code: mi
         /// </summary>
         Maori
-        ,
+        , 
         /// <summary>
-        /// Micmac.
+        /// Micmac. Code: mic
         /// </summary>
         Micmac
-        ,
+        , 
         /// <summary>
-        /// Minangkabau.
+        /// Minangkabau. Code: min
         /// </summary>
         Minangkabau
-        ,
+        , 
         /// <summary>
-        /// Macedonian.
+        /// Macedonian. Code: mk
         /// </summary>
         Macedonian
-        ,
+        , 
         /// <summary>
-        /// Malayalam.
+        /// Malayalam. Code: ml
         /// </summary>
         Malayalam
-        ,
+        , 
         /// <summary>
-        /// Mongolian.
+        /// Mongolian. Code: mn
         /// </summary>
         Mongolian
-        ,
+        , 
         /// <summary>
-        /// Manchu.
+        /// Manchu. Code: mnc
         /// </summary>
         Manchu
-        ,
+        , 
         /// <summary>
-        /// Manipuri.
+        /// Manipuri. Code: mni
         /// </summary>
         Manipuri
-        ,
+        , 
         /// <summary>
-        /// Mohawk.
+        /// Mohawk. Code: moh
         /// </summary>
         Mohawk
-        ,
+        , 
         /// <summary>
-        /// Mossi.
+        /// Mossi. Code: mos
         /// </summary>
         Mossi
-        ,
+        , 
         /// <summary>
-        /// Marathi.
+        /// Marathi. Code: mr
         /// </summary>
         Marathi
-        ,
+        , 
         /// <summary>
-        /// Western Mari.
+        /// Western Mari. Code: mrj
         /// </summary>
         WesternMari
-        ,
+        , 
         /// <summary>
-        /// Malay.
+        /// Malay. Code: ms
         /// </summary>
         Malay
-        ,
+        , 
         /// <summary>
-        /// Maltese.
+        /// Maltese. Code: mt
         /// </summary>
         Maltese
-        ,
+        , 
         /// <summary>
-        /// Mundang.
+        /// Mundang. Code: mua
         /// </summary>
         Mundang
-        ,
+        , 
         /// <summary>
-        /// Multiple Languages.
+        /// Multiple Languages. Code: mul
         /// </summary>
         MultipleLanguages
-        ,
+        , 
         /// <summary>
-        /// Creek.
+        /// Creek. Code: mus
         /// </summary>
         Creek
-        ,
+        , 
         /// <summary>
-        /// Mirandese.
+        /// Mirandese. Code: mwl
         /// </summary>
         Mirandese
-        ,
+        , 
         /// <summary>
-        /// Marwari.
+        /// Marwari. Code: mwr
         /// </summary>
         Marwari
-        ,
+        , 
         /// <summary>
-        /// Mentawai.
+        /// Mentawai. Code: mwv
         /// </summary>
         Mentawai
-        ,
+        , 
         /// <summary>
-        /// Burmese.
+        /// Burmese. Code: my
         /// </summary>
         Burmese
-        ,
+        , 
         /// <summary>
-        /// Myene.
+        /// Myene. Code: mye
         /// </summary>
         Myene
-        ,
+        , 
         /// <summary>
-        /// Erzya.
+        /// Erzya. Code: myv
         /// </summary>
         Erzya
-        ,
+        , 
         /// <summary>
-        /// Mazanderani.
+        /// Mazanderani. Code: mzn
         /// </summary>
         Mazanderani
-        ,
+        , 
         /// <summary>
-        /// Nauru.
+        /// Nauru. Code: na
         /// </summary>
         Nauru
-        ,
+        , 
         /// <summary>
-        /// Min Nan Chinese.
+        /// Min Nan Chinese. Code: nan
         /// </summary>
         MinNanChinese
-        ,
+        , 
         /// <summary>
-        /// Neapolitan.
+        /// Neapolitan. Code: nap
         /// </summary>
         Neapolitan
-        ,
+        , 
         /// <summary>
-        /// Nama.
+        /// Nama. Code: naq
         /// </summary>
         Nama
-        ,
+        , 
         /// <summary>
-        /// Norwegian Bokmål.
+        /// Norwegian Bokmål. Code: nb
         /// </summary>
-        NorwegianBokml
-        ,
+        NorwegianBokmal
+        , 
         /// <summary>
-        /// North Ndebele.
+        /// North Ndebele. Code: nd
         /// </summary>
         NorthNdebele
-        ,
+        , 
         /// <summary>
-        /// Low German.
+        /// Low German. Code: nds
         /// </summary>
         LowGerman
-        ,
+        , 
         /// <summary>
-        /// Nepali.
+        /// Nepali. Code: ne
         /// </summary>
         Nepali
-        ,
+        , 
         /// <summary>
-        /// Newari.
+        /// Newari. Code: new
         /// </summary>
         Newari
-        ,
+        , 
         /// <summary>
-        /// Ndonga.
+        /// Ndonga. Code: ng
         /// </summary>
         Ndonga
-        ,
+        , 
         /// <summary>
-        /// Nias.
+        /// Nias. Code: nia
         /// </summary>
         Nias
-        ,
+        , 
         /// <summary>
-        /// Niuean.
+        /// Niuean. Code: niu
         /// </summary>
         Niuean
-        ,
+        , 
         /// <summary>
-        /// Ao Naga.
+        /// Ao Naga. Code: njo
         /// </summary>
         AoNaga
-        ,
+        , 
         /// <summary>
-        /// Dutch.
+        /// Dutch. Code: nl
         /// </summary>
         Dutch
-        ,
+        , 
         /// <summary>
-        /// Flemish.
+        /// Flemish. Code: nl-BE
         /// </summary>
         Flemish
-        ,
+        , 
         /// <summary>
-        /// Kwasio.
+        /// Kwasio. Code: nmg
         /// </summary>
         Kwasio
-        ,
+        , 
         /// <summary>
-        /// Norwegian Nynorsk.
+        /// Norwegian Nynorsk. Code: nn
         /// </summary>
         NorwegianNynorsk
-        ,
+        , 
         /// <summary>
-        /// Ngiemboon.
+        /// Ngiemboon. Code: nnh
         /// </summary>
         Ngiemboon
-        ,
+        , 
         /// <summary>
-        /// Norwegian.
+        /// Norwegian. Code: no
         /// </summary>
         Norwegian
-        ,
+        , 
         /// <summary>
-        /// Nogai.
+        /// Nogai. Code: nog
         /// </summary>
         Nogai
-        ,
+        , 
         /// <summary>
-        /// Old Norse.
+        /// Old Norse. Code: non
         /// </summary>
         OldNorse
-        ,
+        , 
         /// <summary>
-        /// Novial.
+        /// Novial. Code: nov
         /// </summary>
         Novial
-        ,
+        , 
         /// <summary>
-        /// NʼKo.
+        /// NʼKo. Code: nqo
         /// </summary>
         Nko
-        ,
+        , 
         /// <summary>
-        /// South Ndebele.
+        /// South Ndebele. Code: nr
         /// </summary>
         SouthNdebele
-        ,
+        , 
         /// <summary>
-        /// Northern Sotho.
+        /// Northern Sotho. Code: nso
         /// </summary>
         NorthernSotho
-        ,
+        , 
         /// <summary>
-        /// Nuer.
+        /// Nuer. Code: nus
         /// </summary>
         Nuer
-        ,
+        , 
         /// <summary>
-        /// Navajo.
+        /// Navajo. Code: nv
         /// </summary>
         Navajo
-        ,
+        , 
         /// <summary>
-        /// Classical Newari.
+        /// Classical Newari. Code: nwc
         /// </summary>
         ClassicalNewari
-        ,
+        , 
         /// <summary>
-        /// Nyanja.
+        /// Nyanja. Code: ny
         /// </summary>
         Nyanja
-        ,
+        , 
         /// <summary>
-        /// Nyamwezi.
+        /// Nyamwezi. Code: nym
         /// </summary>
         Nyamwezi
-        ,
+        , 
         /// <summary>
-        /// Nyankole.
+        /// Nyankole. Code: nyn
         /// </summary>
         Nyankole
-        ,
+        , 
         /// <summary>
-        /// Nyoro.
+        /// Nyoro. Code: nyo
         /// </summary>
         Nyoro
-        ,
+        , 
         /// <summary>
-        /// Nzima.
+        /// Nzima. Code: nzi
         /// </summary>
         Nzima
-        ,
+        , 
         /// <summary>
-        /// Occitan.
+        /// Occitan. Code: oc
         /// </summary>
         Occitan
-        ,
+        , 
         /// <summary>
-        /// Ojibwa.
+        /// Ojibwa. Code: oj
         /// </summary>
         Ojibwa
-        ,
+        , 
         /// <summary>
-        /// Oromo.
+        /// Oromo. Code: om
         /// </summary>
         Oromo
-        ,
+        , 
         /// <summary>
-        /// Oriya.
+        /// Oriya. Code: or
         /// </summary>
         Oriya
-        ,
+        , 
         /// <summary>
-        /// Ossetic.
+        /// Ossetic. Code: os
         /// </summary>
         Ossetic
-        ,
+        , 
         /// <summary>
-        /// Osage.
+        /// Osage. Code: osa
         /// </summary>
         Osage
-        ,
+        , 
         /// <summary>
-        /// Ottoman Turkish.
+        /// Ottoman Turkish. Code: ota
         /// </summary>
         OttomanTurkish
-        ,
+        , 
         /// <summary>
-        /// Punjabi.
+        /// Punjabi. Code: pa
         /// </summary>
         Punjabi
-        ,
+        , 
         /// <summary>
-        /// Pangasinan.
+        /// Pangasinan. Code: pag
         /// </summary>
         Pangasinan
-        ,
+        , 
         /// <summary>
-        /// Pahlavi.
+        /// Pahlavi. Code: pal
         /// </summary>
         Pahlavi
-        ,
+        , 
         /// <summary>
-        /// Pampanga.
+        /// Pampanga. Code: pam
         /// </summary>
         Pampanga
-        ,
+        , 
         /// <summary>
-        /// Papiamento.
+        /// Papiamento. Code: pap
         /// </summary>
         Papiamento
-        ,
+        , 
         /// <summary>
-        /// Palauan.
+        /// Palauan. Code: pau
         /// </summary>
         Palauan
-        ,
+        , 
         /// <summary>
-        /// Picard.
+        /// Picard. Code: pcd
         /// </summary>
         Picard
-        ,
+        , 
         /// <summary>
-        /// Pennsylvania German.
+        /// Pennsylvania German. Code: pdc
         /// </summary>
         PennsylvaniaGerman
-        ,
+        , 
         /// <summary>
-        /// Plautdietsch.
+        /// Plautdietsch. Code: pdt
         /// </summary>
         Plautdietsch
-        ,
+        , 
         /// <summary>
-        /// Old Persian.
+        /// Old Persian. Code: peo
         /// </summary>
         OldPersian
-        ,
+        , 
         /// <summary>
-        /// Palatine German.
+        /// Palatine German. Code: pfl
         /// </summary>
         PalatineGerman
-        ,
+        , 
         /// <summary>
-        /// Phoenician.
+        /// Phoenician. Code: phn
         /// </summary>
         Phoenician
-        ,
+        , 
         /// <summary>
-        /// Pali.
+        /// Pali. Code: pi
         /// </summary>
         Pali
-        ,
+        , 
         /// <summary>
-        /// Polish.
+        /// Polish. Code: pl
         /// </summary>
         Polish
-        ,
+        , 
         /// <summary>
-        /// Piedmontese.
+        /// Piedmontese. Code: pms
         /// </summary>
         Piedmontese
-        ,
+        , 
         /// <summary>
-        /// Pontic.
+        /// Pontic. Code: pnt
         /// </summary>
         Pontic
-        ,
+        , 
         /// <summary>
-        /// Pohnpeian.
+        /// Pohnpeian. Code: pon
         /// </summary>
         Pohnpeian
-        ,
+        , 
         /// <summary>
-        /// Prussian.
+        /// Prussian. Code: prg
         /// </summary>
         Prussian
-        ,
+        , 
         /// <summary>
-        /// Old Provençal.
+        /// Old Provençal. Code: pro
         /// </summary>
-        OldProvenal
-        ,
+        OldProvencal
+        , 
         /// <summary>
-        /// Pashto.
+        /// Pashto. Code: ps
         /// </summary>
         Pashto
-        ,
+        , 
         /// <summary>
-        /// Pushto.
+        /// Pushto. Code: ps-alt-variant
         /// </summary>
         Pushto
-        ,
+        , 
         /// <summary>
-        /// Portuguese.
+        /// Portuguese. Code: pt
         /// </summary>
         Portuguese
-        ,
+        , 
         /// <summary>
-        /// Brazilian Portuguese.
+        /// Brazilian Portuguese. Code: pt-BR
         /// </summary>
         BrazilianPortuguese
-        ,
+        , 
         /// <summary>
-        /// European Portuguese.
+        /// European Portuguese. Code: pt-PT
         /// </summary>
         EuropeanPortuguese
-        ,
+        , 
         /// <summary>
-        /// Quechua.
+        /// Quechua. Code: qu
         /// </summary>
         Quechua
-        ,
+        , 
         /// <summary>
-        /// Kʼicheʼ.
+        /// Kʼicheʼ. Code: quc
         /// </summary>
         Kiche
-        ,
+        , 
         /// <summary>
-        /// Chimborazo Highland Quichua.
+        /// Chimborazo Highland Quichua. Code: qug
         /// </summary>
         ChimborazoHighlandQuichua
-        ,
+        , 
         /// <summary>
-        /// Rajasthani.
+        /// Rajasthani. Code: raj
         /// </summary>
         Rajasthani
-        ,
+        , 
         /// <summary>
-        /// Rapanui.
+        /// Rapanui. Code: rap
         /// </summary>
         Rapanui
-        ,
+        , 
         /// <summary>
-        /// Rarotongan.
+        /// Rarotongan. Code: rar
         /// </summary>
         Rarotongan
-        ,
+        , 
         /// <summary>
-        /// Romagnol.
+        /// Romagnol. Code: rgn
         /// </summary>
         Romagnol
-        ,
+        , 
         /// <summary>
-        /// Riffian.
+        /// Riffian. Code: rif
         /// </summary>
         Riffian
-        ,
+        , 
         /// <summary>
-        /// Romansh.
+        /// Romansh. Code: rm
         /// </summary>
         Romansh
-        ,
+        , 
         /// <summary>
-        /// Rundi.
+        /// Rundi. Code: rn
         /// </summary>
         Rundi
-        ,
+        , 
         /// <summary>
-        /// Romanian.
+        /// Romanian. Code: ro
         /// </summary>
         Romanian
-        ,
+        , 
         /// <summary>
-        /// Moldavian.
+        /// Moldavian. Code: ro-MD
         /// </summary>
         Moldavian
-        ,
+        , 
         /// <summary>
-        /// Rombo.
+        /// Rombo. Code: rof
         /// </summary>
         Rombo
-        ,
+        , 
         /// <summary>
-        /// Romany.
+        /// Romany. Code: rom
         /// </summary>
         Romany
-        ,
+        , 
         /// <summary>
-        /// Root.
+        /// Root. Code: root
         /// </summary>
         Root
-        ,
+        , 
         /// <summary>
-        /// Rotuman.
+        /// Rotuman. Code: rtm
         /// </summary>
         Rotuman
-        ,
+        , 
         /// <summary>
-        /// Russian.
+        /// Russian. Code: ru
         /// </summary>
         Russian
-        ,
+        , 
         /// <summary>
-        /// Rusyn.
+        /// Rusyn. Code: rue
         /// </summary>
         Rusyn
-        ,
+        , 
         /// <summary>
-        /// Roviana.
+        /// Roviana. Code: rug
         /// </summary>
         Roviana
-        ,
+        , 
         /// <summary>
-        /// Aromanian.
+        /// Aromanian. Code: rup
         /// </summary>
         Aromanian
-        ,
+        , 
         /// <summary>
-        /// Kinyarwanda.
+        /// Kinyarwanda. Code: rw
         /// </summary>
         Kinyarwanda
-        ,
+        , 
         /// <summary>
-        /// Rwa.
+        /// Rwa. Code: rwk
         /// </summary>
         Rwa
-        ,
+        , 
         /// <summary>
-        /// Sanskrit.
+        /// Sanskrit. Code: sa
         /// </summary>
         Sanskrit
-        ,
+        , 
         /// <summary>
-        /// Sandawe.
+        /// Sandawe. Code: sad
         /// </summary>
         Sandawe
-        ,
+        , 
         /// <summary>
-        /// Sakha.
+        /// Sakha. Code: sah
         /// </summary>
         Sakha
-        ,
+        , 
         /// <summary>
-        /// Samaritan Aramaic.
+        /// Samaritan Aramaic. Code: sam
         /// </summary>
         SamaritanAramaic
-        ,
+        , 
         /// <summary>
-        /// Samburu.
+        /// Samburu. Code: saq
         /// </summary>
         Samburu
-        ,
+        , 
         /// <summary>
-        /// Sasak.
+        /// Sasak. Code: sas
         /// </summary>
         Sasak
-        ,
+        , 
         /// <summary>
-        /// Santali.
+        /// Santali. Code: sat
         /// </summary>
         Santali
-        ,
+        , 
         /// <summary>
-        /// Saurashtra.
+        /// Saurashtra. Code: saz
         /// </summary>
         Saurashtra
-        ,
+        , 
         /// <summary>
-        /// Ngambay.
+        /// Ngambay. Code: sba
         /// </summary>
         Ngambay
-        ,
+        , 
         /// <summary>
-        /// Sangu.
+        /// Sangu. Code: sbp
         /// </summary>
         Sangu
-        ,
+        , 
         /// <summary>
-        /// Sardinian.
+        /// Sardinian. Code: sc
         /// </summary>
         Sardinian
-        ,
+        , 
         /// <summary>
-        /// Sicilian.
+        /// Sicilian. Code: scn
         /// </summary>
         Sicilian
-        ,
+        , 
         /// <summary>
-        /// Scots.
+        /// Scots. Code: sco
         /// </summary>
         Scots
-        ,
+        , 
         /// <summary>
-        /// Sindhi.
+        /// Sindhi. Code: sd
         /// </summary>
         Sindhi
-        ,
+        , 
         /// <summary>
-        /// Sassarese Sardinian.
+        /// Sassarese Sardinian. Code: sdc
         /// </summary>
         SassareseSardinian
-        ,
+        , 
         /// <summary>
-        /// Northern Sami.
+        /// Northern Sami. Code: se
         /// </summary>
         NorthernSami
-        ,
+        , 
         /// <summary>
-        /// Seneca.
+        /// Seneca. Code: see
         /// </summary>
         Seneca
-        ,
+        , 
         /// <summary>
-        /// Sena.
+        /// Sena. Code: seh
         /// </summary>
         Sena
-        ,
+        , 
         /// <summary>
-        /// Seri.
+        /// Seri. Code: sei
         /// </summary>
         Seri
-        ,
+        , 
         /// <summary>
-        /// Selkup.
+        /// Selkup. Code: sel
         /// </summary>
         Selkup
-        ,
+        , 
         /// <summary>
-        /// Koyraboro Senni.
+        /// Koyraboro Senni. Code: ses
         /// </summary>
         KoyraboroSenni
-        ,
+        , 
         /// <summary>
-        /// Sango.
+        /// Sango. Code: sg
         /// </summary>
         Sango
-        ,
+        , 
         /// <summary>
-        /// Old Irish.
+        /// Old Irish. Code: sga
         /// </summary>
         OldIrish
-        ,
+        , 
         /// <summary>
-        /// Samogitian.
+        /// Samogitian. Code: sgs
         /// </summary>
         Samogitian
-        ,
+        , 
         /// <summary>
-        /// Serbo-Croatian.
+        /// Serbo-Croatian. Code: sh
         /// </summary>
         SerboCroatian
-        ,
+        , 
         /// <summary>
-        /// Tachelhit.
+        /// Tachelhit. Code: shi
         /// </summary>
         Tachelhit
-        ,
+        , 
         /// <summary>
-        /// Shan.
+        /// Shan. Code: shn
         /// </summary>
         Shan
-        ,
+        , 
         /// <summary>
-        /// Chadian Arabic.
+        /// Chadian Arabic. Code: shu
         /// </summary>
         ChadianArabic
-        ,
+        , 
         /// <summary>
-        /// Sinhala.
+        /// Sinhala. Code: si
         /// </summary>
         Sinhala
-        ,
+        , 
         /// <summary>
-        /// Sidamo.
+        /// Sidamo. Code: sid
         /// </summary>
         Sidamo
-        ,
+        , 
         /// <summary>
-        /// Slovak.
+        /// Slovak. Code: sk
         /// </summary>
         Slovak
-        ,
+        , 
         /// <summary>
-        /// Slovenian.
+        /// Slovenian. Code: sl
         /// </summary>
         Slovenian
-        ,
+        , 
         /// <summary>
-        /// Lower Silesian.
+        /// Lower Silesian. Code: sli
         /// </summary>
         LowerSilesian
-        ,
+        , 
         /// <summary>
-        /// Selayar.
+        /// Selayar. Code: sly
         /// </summary>
         Selayar
-        ,
+        , 
         /// <summary>
-        /// Samoan.
+        /// Samoan. Code: sm
         /// </summary>
         Samoan
-        ,
+        , 
         /// <summary>
-        /// Southern Sami.
+        /// Southern Sami. Code: sma
         /// </summary>
         SouthernSami
-        ,
+        , 
         /// <summary>
-        /// Lule Sami.
+        /// Lule Sami. Code: smj
         /// </summary>
         LuleSami
-        ,
+        , 
         /// <summary>
-        /// Inari Sami.
+        /// Inari Sami. Code: smn
         /// </summary>
         InariSami
-        ,
+        , 
         /// <summary>
-        /// Skolt Sami.
+        /// Skolt Sami. Code: sms
         /// </summary>
         SkoltSami
-        ,
+        , 
         /// <summary>
-        /// Shona.
+        /// Shona. Code: sn
         /// </summary>
         Shona
-        ,
+        , 
         /// <summary>
-        /// Soninke.
+        /// Soninke. Code: snk
         /// </summary>
         Soninke
-        ,
+        , 
         /// <summary>
-        /// Somali.
+        /// Somali. Code: so
         /// </summary>
         Somali
-        ,
+        , 
         /// <summary>
-        /// Sogdien.
+        /// Sogdien. Code: sog
         /// </summary>
         Sogdien
-        ,
+        , 
         /// <summary>
-        /// Albanian.
+        /// Albanian. Code: sq
         /// </summary>
         Albanian
-        ,
+        , 
         /// <summary>
-        /// Serbian.
+        /// Serbian. Code: sr
         /// </summary>
         Serbian
-        ,
+        , 
         /// <summary>
-        /// Sranan Tongo.
+        /// Sranan Tongo. Code: srn
         /// </summary>
         SrananTongo
-        ,
+        , 
         /// <summary>
-        /// Serer.
+        /// Serer. Code: srr
         /// </summary>
         Serer
-        ,
+        , 
         /// <summary>
-        /// Swati.
+        /// Swati. Code: ss
         /// </summary>
         Swati
-        ,
+        , 
         /// <summary>
-        /// Saho.
+        /// Saho. Code: ssy
         /// </summary>
         Saho
-        ,
+        , 
         /// <summary>
-        /// Southern Sotho.
+        /// Southern Sotho. Code: st
         /// </summary>
         SouthernSotho
-        ,
+        , 
         /// <summary>
-        /// Saterland Frisian.
+        /// Saterland Frisian. Code: stq
         /// </summary>
         SaterlandFrisian
-        ,
+        , 
         /// <summary>
-        /// Sundanese.
+        /// Sundanese. Code: su
         /// </summary>
         Sundanese
-        ,
+        , 
         /// <summary>
-        /// Sukuma.
+        /// Sukuma. Code: suk
         /// </summary>
         Sukuma
-        ,
+        , 
         /// <summary>
-        /// Susu.
+        /// Susu. Code: sus
         /// </summary>
         Susu
-        ,
+        , 
         /// <summary>
-        /// Sumerian.
+        /// Sumerian. Code: sux
         /// </summary>
         Sumerian
-        ,
+        , 
         /// <summary>
-        /// Swedish.
+        /// Swedish. Code: sv
         /// </summary>
         Swedish
-        ,
+        , 
         /// <summary>
-        /// Swahili.
+        /// Swahili. Code: sw
         /// </summary>
         Swahili
-        ,
+        , 
         /// <summary>
-        /// Comorian.
+        /// Comorian. Code: swb
         /// </summary>
         Comorian
-        ,
+        , 
         /// <summary>
-        /// Congo Swahili.
+        /// Congo Swahili. Code: swc
         /// </summary>
         CongoSwahili
-        ,
+        , 
         /// <summary>
-        /// Classical Syriac.
+        /// Classical Syriac. Code: syc
         /// </summary>
         ClassicalSyriac
-        ,
+        , 
         /// <summary>
-        /// Syriac.
+        /// Syriac. Code: syr
         /// </summary>
         Syriac
-        ,
+        , 
         /// <summary>
-        /// Silesian.
+        /// Silesian. Code: szl
         /// </summary>
         Silesian
-        ,
+        , 
         /// <summary>
-        /// Tamil.
+        /// Tamil. Code: ta
         /// </summary>
         Tamil
-        ,
+        , 
         /// <summary>
-        /// Tulu.
+        /// Tulu. Code: tcy
         /// </summary>
         Tulu
-        ,
+        , 
         /// <summary>
-        /// Telugu.
+        /// Telugu. Code: te
         /// </summary>
         Telugu
-        ,
+        , 
         /// <summary>
-        /// Timne.
+        /// Timne. Code: tem
         /// </summary>
         Timne
-        ,
+        , 
         /// <summary>
-        /// Teso.
+        /// Teso. Code: teo
         /// </summary>
         Teso
-        ,
+        , 
         /// <summary>
-        /// Tereno.
+        /// Tereno. Code: ter
         /// </summary>
         Tereno
-        ,
+        , 
         /// <summary>
-        /// Tetum.
+        /// Tetum. Code: tet
         /// </summary>
         Tetum
-        ,
+        , 
         /// <summary>
-        /// Tajik.
+        /// Tajik. Code: tg
         /// </summary>
         Tajik
-        ,
+        , 
         /// <summary>
-        /// Thai.
+        /// Thai. Code: th
         /// </summary>
         Thai
-        ,
+        , 
         /// <summary>
-        /// Tigrinya.
+        /// Tigrinya. Code: ti
         /// </summary>
         Tigrinya
-        ,
+        , 
         /// <summary>
-        /// Tigre.
+        /// Tigre. Code: tig
         /// </summary>
         Tigre
-        ,
+        , 
         /// <summary>
-        /// Tiv.
+        /// Tiv. Code: tiv
         /// </summary>
         Tiv
-        ,
+        , 
         /// <summary>
-        /// Turkmen.
+        /// Turkmen. Code: tk
         /// </summary>
         Turkmen
-        ,
+        , 
         /// <summary>
-        /// Tokelau.
+        /// Tokelau. Code: tkl
         /// </summary>
         Tokelau
-        ,
+        , 
         /// <summary>
-        /// Tsakhur.
+        /// Tsakhur. Code: tkr
         /// </summary>
         Tsakhur
-        ,
+        , 
         /// <summary>
-        /// Tagalog.
+        /// Tagalog. Code: tl
         /// </summary>
         Tagalog
-        ,
+        , 
         /// <summary>
-        /// Klingon.
+        /// Klingon. Code: tlh
         /// </summary>
         Klingon
-        ,
+        , 
         /// <summary>
-        /// Tlingit.
+        /// Tlingit. Code: tli
         /// </summary>
         Tlingit
-        ,
+        , 
         /// <summary>
-        /// Talysh.
+        /// Talysh. Code: tly
         /// </summary>
         Talysh
-        ,
+        , 
         /// <summary>
-        /// Tamashek.
+        /// Tamashek. Code: tmh
         /// </summary>
         Tamashek
-        ,
+        , 
         /// <summary>
-        /// Tswana.
+        /// Tswana. Code: tn
         /// </summary>
         Tswana
-        ,
+        , 
         /// <summary>
-        /// Tongan.
+        /// Tongan. Code: to
         /// </summary>
         Tongan
-        ,
+        , 
         /// <summary>
-        /// Nyasa Tonga.
+        /// Nyasa Tonga. Code: tog
         /// </summary>
         NyasaTonga
-        ,
+        , 
         /// <summary>
-        /// Tok Pisin.
+        /// Tok Pisin. Code: tpi
         /// </summary>
         TokPisin
-        ,
+        , 
         /// <summary>
-        /// Turkish.
+        /// Turkish. Code: tr
         /// </summary>
         Turkish
-        ,
+        , 
         /// <summary>
-        /// Turoyo.
+        /// Turoyo. Code: tru
         /// </summary>
         Turoyo
-        ,
+        , 
         /// <summary>
-        /// Taroko.
+        /// Taroko. Code: trv
         /// </summary>
         Taroko
-        ,
+        , 
         /// <summary>
-        /// Tsonga.
+        /// Tsonga. Code: ts
         /// </summary>
         Tsonga
-        ,
+        , 
         /// <summary>
-        /// Tsakonian.
+        /// Tsakonian. Code: tsd
         /// </summary>
         Tsakonian
-        ,
+        , 
         /// <summary>
-        /// Tsimshian.
+        /// Tsimshian. Code: tsi
         /// </summary>
         Tsimshian
-        ,
+        , 
         /// <summary>
-        /// Tatar.
+        /// Tatar. Code: tt
         /// </summary>
         Tatar
-        ,
+        , 
         /// <summary>
-        /// Muslim Tat.
+        /// Muslim Tat. Code: ttt
         /// </summary>
         MuslimTat
-        ,
+        , 
         /// <summary>
-        /// Tumbuka.
+        /// Tumbuka. Code: tum
         /// </summary>
         Tumbuka
-        ,
+        , 
         /// <summary>
-        /// Tuvalu.
+        /// Tuvalu. Code: tvl
         /// </summary>
         Tuvalu
-        ,
+        , 
         /// <summary>
-        /// Twi.
+        /// Twi. Code: tw
         /// </summary>
         Twi
-        ,
+        , 
         /// <summary>
-        /// Tasawaq.
+        /// Tasawaq. Code: twq
         /// </summary>
         Tasawaq
-        ,
+        , 
         /// <summary>
-        /// Tahitian.
+        /// Tahitian. Code: ty
         /// </summary>
         Tahitian
-        ,
+        , 
         /// <summary>
-        /// Tuvinian.
+        /// Tuvinian. Code: tyv
         /// </summary>
         Tuvinian
-        ,
+        , 
         /// <summary>
-        /// Central Atlas Tamazight.
+        /// Central Atlas Tamazight. Code: tzm
         /// </summary>
         CentralAtlasTamazight
-        ,
+        , 
         /// <summary>
-        /// Udmurt.
+        /// Udmurt. Code: udm
         /// </summary>
         Udmurt
-        ,
+        , 
         /// <summary>
-        /// Uyghur.
+        /// Uyghur. Code: ug
         /// </summary>
         Uyghur
-        ,
+        , 
         /// <summary>
-        /// Uighur.
+        /// Uighur. Code: ug-alt-variant
         /// </summary>
         Uighur
-        ,
+        , 
         /// <summary>
-        /// Ugaritic.
+        /// Ugaritic. Code: uga
         /// </summary>
         Ugaritic
-        ,
+        , 
         /// <summary>
-        /// Ukrainian.
+        /// Ukrainian. Code: uk
         /// </summary>
         Ukrainian
-        ,
+        , 
         /// <summary>
-        /// Umbundu.
+        /// Umbundu. Code: umb
         /// </summary>
         Umbundu
-        ,
+        , 
         /// <summary>
-        /// Unknown Language.
+        /// Unknown Language. Code: und
         /// </summary>
         UnknownLanguage
-        ,
+        , 
         /// <summary>
-        /// Urdu.
+        /// Urdu. Code: ur
         /// </summary>
         Urdu
-        ,
+        , 
         /// <summary>
-        /// Uzbek.
+        /// Uzbek. Code: uz
         /// </summary>
         Uzbek
-        ,
+        , 
         /// <summary>
-        /// Vai.
+        /// Vai. Code: vai
         /// </summary>
         Vai
-        ,
+        , 
         /// <summary>
-        /// Venda.
+        /// Venda. Code: ve
         /// </summary>
         Venda
-        ,
+        , 
         /// <summary>
-        /// Venetian.
+        /// Venetian. Code: vec
         /// </summary>
         Venetian
-        ,
+        , 
         /// <summary>
-        /// Veps.
+        /// Veps. Code: vep
         /// </summary>
         Veps
-        ,
+        , 
         /// <summary>
-        /// Vietnamese.
+        /// Vietnamese. Code: vi
         /// </summary>
         Vietnamese
-        ,
+        , 
         /// <summary>
-        /// West Flemish.
+        /// West Flemish. Code: vls
         /// </summary>
         WestFlemish
-        ,
+        , 
         /// <summary>
-        /// Main-Franconian.
+        /// Main-Franconian. Code: vmf
         /// </summary>
         MainFranconian
-        ,
+        , 
         /// <summary>
-        /// Volapük.
+        /// Volapük. Code: vo
         /// </summary>
-        Volapk
-        ,
+        Volapuk
+        , 
         /// <summary>
-        /// Votic.
+        /// Votic. Code: vot
         /// </summary>
         Votic
-        ,
+        , 
         /// <summary>
-        /// Võro.
+        /// Võro. Code: vro
         /// </summary>
-        Vro
-        ,
+        Voro
+        , 
         /// <summary>
-        /// Vunjo.
+        /// Vunjo. Code: vun
         /// </summary>
         Vunjo
-        ,
+        , 
         /// <summary>
-        /// Walloon.
+        /// Walloon. Code: wa
         /// </summary>
         Walloon
-        ,
+        , 
         /// <summary>
-        /// Walser.
+        /// Walser. Code: wae
         /// </summary>
         Walser
-        ,
+        , 
         /// <summary>
-        /// Wolaytta.
+        /// Wolaytta. Code: wal
         /// </summary>
         Wolaytta
-        ,
+        , 
         /// <summary>
-        /// Waray.
+        /// Waray. Code: war
         /// </summary>
         Waray
-        ,
+        , 
         /// <summary>
-        /// Washo.
+        /// Washo. Code: was
         /// </summary>
         Washo
-        ,
+        , 
         /// <summary>
-        /// Wolof.
+        /// Wolof. Code: wo
         /// </summary>
         Wolof
-        ,
+        , 
         /// <summary>
-        /// Wu Chinese.
+        /// Wu Chinese. Code: wuu
         /// </summary>
         WuChinese
-        ,
+        , 
         /// <summary>
-        /// Kalmyk.
+        /// Kalmyk. Code: xal
         /// </summary>
         Kalmyk
-        ,
+        , 
         /// <summary>
-        /// Xhosa.
+        /// Xhosa. Code: xh
         /// </summary>
         Xhosa
-        ,
+        , 
         /// <summary>
-        /// Mingrelian.
+        /// Mingrelian. Code: xmf
         /// </summary>
         Mingrelian
-        ,
+        , 
         /// <summary>
-        /// Soga.
+        /// Soga. Code: xog
         /// </summary>
         Soga
-        ,
+        , 
         /// <summary>
-        /// Yao.
+        /// Yao. Code: yao
         /// </summary>
         Yao
-        ,
+        , 
         /// <summary>
-        /// Yapese.
+        /// Yapese. Code: yap
         /// </summary>
         Yapese
-        ,
+        , 
         /// <summary>
-        /// Yangben.
+        /// Yangben. Code: yav
         /// </summary>
         Yangben
-        ,
+        , 
         /// <summary>
-        /// Yemba.
+        /// Yemba. Code: ybb
         /// </summary>
         Yemba
-        ,
+        , 
         /// <summary>
-        /// Yiddish.
+        /// Yiddish. Code: yi
         /// </summary>
         Yiddish
-        ,
+        , 
         /// <summary>
-        /// Yoruba.
+        /// Yoruba. Code: yo
         /// </summary>
         Yoruba
-        ,
+        , 
         /// <summary>
-        /// Nheengatu.
+        /// Nheengatu. Code: yrl
         /// </summary>
         Nheengatu
-        ,
+        , 
         /// <summary>
-        /// Cantonese.
+        /// Cantonese. Code: yue
         /// </summary>
         Cantonese
-        ,
+        , 
         /// <summary>
-        /// Zhuang.
+        /// Zhuang. Code: za
         /// </summary>
         Zhuang
-        ,
+        , 
         /// <summary>
-        /// Zapotec.
+        /// Zapotec. Code: zap
         /// </summary>
         Zapotec
-        ,
+        , 
         /// <summary>
-        /// Blissymbols.
+        /// Blissymbols. Code: zbl
         /// </summary>
         Blissymbols
-        ,
+        , 
         /// <summary>
-        /// Zeelandic.
+        /// Zeelandic. Code: zea
         /// </summary>
         Zeelandic
-        ,
+        , 
         /// <summary>
-        /// Zenaga.
+        /// Zenaga. Code: zen
         /// </summary>
         Zenaga
-        ,
+        , 
         /// <summary>
-        /// Standard Moroccan Tamazight.
+        /// Standard Moroccan Tamazight. Code: zgh
         /// </summary>
         StandardMoroccanTamazight
-        ,
+        , 
         /// <summary>
-        /// Chinese.
+        /// Chinese. Code: zh
         /// </summary>
         Chinese
-        ,
+        , 
         /// <summary>
-        /// Simplified Chinese.
+        /// Simplified Chinese. Code: zh-Hans
         /// </summary>
         SimplifiedChinese
-        ,
+        , 
         /// <summary>
-        /// Traditional Chinese.
+        /// Traditional Chinese. Code: zh-Hant
         /// </summary>
         TraditionalChinese
-        ,
+        , 
         /// <summary>
-        /// Zulu.
+        /// Zulu. Code: zu
         /// </summary>
         Zulu
-        ,
+        , 
         /// <summary>
-        /// Zuni.
+        /// Zuni. Code: zun
         /// </summary>
         Zuni
-        ,
+        , 
         /// <summary>
-        /// No linguistic content.
+        /// No linguistic content. Code: zxx
         /// </summary>
         NoLinguisticContent
-        ,
+        , 
         /// <summary>
-        /// Zaza.
+        /// Zaza. Code: zza
         /// </summary>
         Zaza
         ,
@@ -3475,7 +3475,7 @@ namespace UnityTranslation
             mCodes[(int)Language.MinNanChinese] = "nan";
             mCodes[(int)Language.Neapolitan] = "nap";
             mCodes[(int)Language.Nama] = "naq";
-            mCodes[(int)Language.NorwegianBokml] = "nb";
+            mCodes[(int)Language.NorwegianBokmal] = "nb";
             mCodes[(int)Language.NorthNdebele] = "nd";
             mCodes[(int)Language.LowGerman] = "nds";
             mCodes[(int)Language.Nepali] = "ne";
@@ -3529,7 +3529,7 @@ namespace UnityTranslation
             mCodes[(int)Language.Pontic] = "pnt";
             mCodes[(int)Language.Pohnpeian] = "pon";
             mCodes[(int)Language.Prussian] = "prg";
-            mCodes[(int)Language.OldProvenal] = "pro";
+            mCodes[(int)Language.OldProvencal] = "pro";
             mCodes[(int)Language.Pashto] = "ps";
             mCodes[(int)Language.Pushto] = "ps-alt-variant";
             mCodes[(int)Language.Portuguese] = "pt";
@@ -3674,9 +3674,9 @@ namespace UnityTranslation
             mCodes[(int)Language.Vietnamese] = "vi";
             mCodes[(int)Language.WestFlemish] = "vls";
             mCodes[(int)Language.MainFranconian] = "vmf";
-            mCodes[(int)Language.Volapk] = "vo";
+            mCodes[(int)Language.Volapuk] = "vo";
             mCodes[(int)Language.Votic] = "vot";
-            mCodes[(int)Language.Vro] = "vro";
+            mCodes[(int)Language.Voro] = "vro";
             mCodes[(int)Language.Vunjo] = "vun";
             mCodes[(int)Language.Walloon] = "wa";
             mCodes[(int)Language.Walser] = "wae";
@@ -3722,6 +3722,650 @@ namespace UnityTranslation
             for (int i = 0; i < (int)Language.Count; ++i)
             {
                 if (mCodes[i] == code)
+                {
+                    return (Language)i;
+                }
+            }
+
+            return Language.Default;
+        }
+    }
+
+    public static class LanguageName
+    {
+        private static string[] mNames = null;
+
+        static LanguageName()
+        {
+            mNames = new string[(int)Language.Count];
+
+            mNames[(int)Language.Default] = "";
+            mNames[(int)Language.Afar] = "Afar";
+            mNames[(int)Language.Abkhazian] = "Abkhazian";
+            mNames[(int)Language.Achinese] = "Achinese";
+            mNames[(int)Language.Acoli] = "Acoli";
+            mNames[(int)Language.Adangme] = "Adangme";
+            mNames[(int)Language.Adyghe] = "Adyghe";
+            mNames[(int)Language.Avestan] = "Avestan";
+            mNames[(int)Language.TunisianArabic] = "Tunisian Arabic";
+            mNames[(int)Language.Afrikaans] = "Afrikaans";
+            mNames[(int)Language.Afrihili] = "Afrihili";
+            mNames[(int)Language.Aghem] = "Aghem";
+            mNames[(int)Language.Ainu] = "Ainu";
+            mNames[(int)Language.Akan] = "Akan";
+            mNames[(int)Language.Akkadian] = "Akkadian";
+            mNames[(int)Language.Alabama] = "Alabama";
+            mNames[(int)Language.Aleut] = "Aleut";
+            mNames[(int)Language.GhegAlbanian] = "Gheg Albanian";
+            mNames[(int)Language.SouthernAltai] = "Southern Altai";
+            mNames[(int)Language.Amharic] = "Amharic";
+            mNames[(int)Language.Aragonese] = "Aragonese";
+            mNames[(int)Language.OldEnglish] = "Old English";
+            mNames[(int)Language.Angika] = "Angika";
+            mNames[(int)Language.Arabic] = "Arabic";
+            mNames[(int)Language.ModernStandardArabic] = "Modern Standard Arabic";
+            mNames[(int)Language.Aramaic] = "Aramaic";
+            mNames[(int)Language.Mapuche] = "Mapuche";
+            mNames[(int)Language.Araona] = "Araona";
+            mNames[(int)Language.Arapaho] = "Arapaho";
+            mNames[(int)Language.AlgerianArabic] = "Algerian Arabic";
+            mNames[(int)Language.Arawak] = "Arawak";
+            mNames[(int)Language.MoroccanArabic] = "Moroccan Arabic";
+            mNames[(int)Language.EgyptianArabic] = "Egyptian Arabic";
+            mNames[(int)Language.Assamese] = "Assamese";
+            mNames[(int)Language.Asu] = "Asu";
+            mNames[(int)Language.AmericanSignLanguage] = "American Sign Language";
+            mNames[(int)Language.Asturian] = "Asturian";
+            mNames[(int)Language.Avaric] = "Avaric";
+            mNames[(int)Language.Kotava] = "Kotava";
+            mNames[(int)Language.Awadhi] = "Awadhi";
+            mNames[(int)Language.Aymara] = "Aymara";
+            mNames[(int)Language.Azerbaijani] = "Azerbaijani";
+            mNames[(int)Language.Azeri] = "Azeri";
+            mNames[(int)Language.SouthAzerbaijani] = "South Azerbaijani";
+            mNames[(int)Language.Bashkir] = "Bashkir";
+            mNames[(int)Language.Baluchi] = "Baluchi";
+            mNames[(int)Language.Balinese] = "Balinese";
+            mNames[(int)Language.Bavarian] = "Bavarian";
+            mNames[(int)Language.Basaa] = "Basaa";
+            mNames[(int)Language.Bamun] = "Bamun";
+            mNames[(int)Language.BatakToba] = "Batak Toba";
+            mNames[(int)Language.Ghomala] = "Ghomala";
+            mNames[(int)Language.Belarusian] = "Belarusian";
+            mNames[(int)Language.Beja] = "Beja";
+            mNames[(int)Language.Bemba] = "Bemba";
+            mNames[(int)Language.Betawi] = "Betawi";
+            mNames[(int)Language.Bena] = "Bena";
+            mNames[(int)Language.Bafut] = "Bafut";
+            mNames[(int)Language.Badaga] = "Badaga";
+            mNames[(int)Language.Bulgarian] = "Bulgarian";
+            mNames[(int)Language.Bhojpuri] = "Bhojpuri";
+            mNames[(int)Language.Bislama] = "Bislama";
+            mNames[(int)Language.Bikol] = "Bikol";
+            mNames[(int)Language.Bini] = "Bini";
+            mNames[(int)Language.Banjar] = "Banjar";
+            mNames[(int)Language.Kom] = "Kom";
+            mNames[(int)Language.Siksika] = "Siksika";
+            mNames[(int)Language.Bambara] = "Bambara";
+            mNames[(int)Language.Bengali] = "Bengali";
+            mNames[(int)Language.Tibetan] = "Tibetan";
+            mNames[(int)Language.Bishnupriya] = "Bishnupriya";
+            mNames[(int)Language.Bakhtiari] = "Bakhtiari";
+            mNames[(int)Language.Breton] = "Breton";
+            mNames[(int)Language.Braj] = "Braj";
+            mNames[(int)Language.Brahui] = "Brahui";
+            mNames[(int)Language.Bodo] = "Bodo";
+            mNames[(int)Language.Bosnian] = "Bosnian";
+            mNames[(int)Language.Akoose] = "Akoose";
+            mNames[(int)Language.Buriat] = "Buriat";
+            mNames[(int)Language.Buginese] = "Buginese";
+            mNames[(int)Language.Bulu] = "Bulu";
+            mNames[(int)Language.Blin] = "Blin";
+            mNames[(int)Language.Medumba] = "Medumba";
+            mNames[(int)Language.Catalan] = "Catalan";
+            mNames[(int)Language.Caddo] = "Caddo";
+            mNames[(int)Language.Carib] = "Carib";
+            mNames[(int)Language.Cayuga] = "Cayuga";
+            mNames[(int)Language.Atsam] = "Atsam";
+            mNames[(int)Language.Chechen] = "Chechen";
+            mNames[(int)Language.Cebuano] = "Cebuano";
+            mNames[(int)Language.Chiga] = "Chiga";
+            mNames[(int)Language.Chamorro] = "Chamorro";
+            mNames[(int)Language.Chibcha] = "Chibcha";
+            mNames[(int)Language.Chagatai] = "Chagatai";
+            mNames[(int)Language.Chuukese] = "Chuukese";
+            mNames[(int)Language.Mari] = "Mari";
+            mNames[(int)Language.ChinookJargon] = "Chinook Jargon";
+            mNames[(int)Language.Choctaw] = "Choctaw";
+            mNames[(int)Language.Chipewyan] = "Chipewyan";
+            mNames[(int)Language.Cherokee] = "Cherokee";
+            mNames[(int)Language.Cheyenne] = "Cheyenne";
+            mNames[(int)Language.SoraniKurdish] = "Sorani Kurdish";
+            mNames[(int)Language.Corsican] = "Corsican";
+            mNames[(int)Language.Coptic] = "Coptic";
+            mNames[(int)Language.Capiznon] = "Capiznon";
+            mNames[(int)Language.Cree] = "Cree";
+            mNames[(int)Language.CrimeanTurkish] = "Crimean Turkish";
+            mNames[(int)Language.Czech] = "Czech";
+            mNames[(int)Language.Kashubian] = "Kashubian";
+            mNames[(int)Language.ChurchSlavic] = "Church Slavic";
+            mNames[(int)Language.Chuvash] = "Chuvash";
+            mNames[(int)Language.Welsh] = "Welsh";
+            mNames[(int)Language.Danish] = "Danish";
+            mNames[(int)Language.Dakota] = "Dakota";
+            mNames[(int)Language.Dargwa] = "Dargwa";
+            mNames[(int)Language.Taita] = "Taita";
+            mNames[(int)Language.German] = "German";
+            mNames[(int)Language.AustrianGerman] = "Austrian German";
+            mNames[(int)Language.SwissHighGerman] = "Swiss High German";
+            mNames[(int)Language.Delaware] = "Delaware";
+            mNames[(int)Language.Slave] = "Slave";
+            mNames[(int)Language.Dogrib] = "Dogrib";
+            mNames[(int)Language.Dinka] = "Dinka";
+            mNames[(int)Language.Zarma] = "Zarma";
+            mNames[(int)Language.Dogri] = "Dogri";
+            mNames[(int)Language.LowerSorbian] = "Lower Sorbian";
+            mNames[(int)Language.CentralDusun] = "Central Dusun";
+            mNames[(int)Language.Duala] = "Duala";
+            mNames[(int)Language.MiddleDutch] = "Middle Dutch";
+            mNames[(int)Language.Divehi] = "Divehi";
+            mNames[(int)Language.JolaFonyi] = "Jola-Fonyi";
+            mNames[(int)Language.Dyula] = "Dyula";
+            mNames[(int)Language.Dzongkha] = "Dzongkha";
+            mNames[(int)Language.Dazaga] = "Dazaga";
+            mNames[(int)Language.Embu] = "Embu";
+            mNames[(int)Language.Ewe] = "Ewe";
+            mNames[(int)Language.Efik] = "Efik";
+            mNames[(int)Language.Emilian] = "Emilian";
+            mNames[(int)Language.AncientEgyptian] = "Ancient Egyptian";
+            mNames[(int)Language.Ekajuk] = "Ekajuk";
+            mNames[(int)Language.Greek] = "Greek";
+            mNames[(int)Language.Elamite] = "Elamite";
+            mNames[(int)Language.English] = "English";
+            mNames[(int)Language.AustralianEnglish] = "Australian English";
+            mNames[(int)Language.CanadianEnglish] = "Canadian English";
+            mNames[(int)Language.BritishEnglish] = "British English";
+            mNames[(int)Language.UKEnglish] = "U.K. English";
+            mNames[(int)Language.AmericanEnglish] = "American English";
+            mNames[(int)Language.USEnglish] = "U.S. English";
+            mNames[(int)Language.MiddleEnglish] = "Middle English";
+            mNames[(int)Language.Esperanto] = "Esperanto";
+            mNames[(int)Language.Spanish] = "Spanish";
+            mNames[(int)Language.LatinAmericanSpanish] = "Latin American Spanish";
+            mNames[(int)Language.EuropeanSpanish] = "European Spanish";
+            mNames[(int)Language.MexicanSpanish] = "Mexican Spanish";
+            mNames[(int)Language.CentralYupik] = "Central Yupik";
+            mNames[(int)Language.Estonian] = "Estonian";
+            mNames[(int)Language.Basque] = "Basque";
+            mNames[(int)Language.Ewondo] = "Ewondo";
+            mNames[(int)Language.Extremaduran] = "Extremaduran";
+            mNames[(int)Language.Persian] = "Persian";
+            mNames[(int)Language.Fang] = "Fang";
+            mNames[(int)Language.Fanti] = "Fanti";
+            mNames[(int)Language.Fulah] = "Fulah";
+            mNames[(int)Language.Finnish] = "Finnish";
+            mNames[(int)Language.Filipino] = "Filipino";
+            mNames[(int)Language.TornedalenFinnish] = "Tornedalen Finnish";
+            mNames[(int)Language.Fijian] = "Fijian";
+            mNames[(int)Language.Faroese] = "Faroese";
+            mNames[(int)Language.Fon] = "Fon";
+            mNames[(int)Language.French] = "French";
+            mNames[(int)Language.CanadianFrench] = "Canadian French";
+            mNames[(int)Language.SwissFrench] = "Swiss French";
+            mNames[(int)Language.CajunFrench] = "Cajun French";
+            mNames[(int)Language.MiddleFrench] = "Middle French";
+            mNames[(int)Language.OldFrench] = "Old French";
+            mNames[(int)Language.Arpitan] = "Arpitan";
+            mNames[(int)Language.NorthernFrisian] = "Northern Frisian";
+            mNames[(int)Language.EasternFrisian] = "Eastern Frisian";
+            mNames[(int)Language.Friulian] = "Friulian";
+            mNames[(int)Language.WesternFrisian] = "Western Frisian";
+            mNames[(int)Language.Irish] = "Irish";
+            mNames[(int)Language.Ga] = "Ga";
+            mNames[(int)Language.Gagauz] = "Gagauz";
+            mNames[(int)Language.GanChinese] = "Gan Chinese";
+            mNames[(int)Language.Gayo] = "Gayo";
+            mNames[(int)Language.Gbaya] = "Gbaya";
+            mNames[(int)Language.ZoroastrianDari] = "Zoroastrian Dari";
+            mNames[(int)Language.ScottishGaelic] = "Scottish Gaelic";
+            mNames[(int)Language.Geez] = "Geez";
+            mNames[(int)Language.Gilbertese] = "Gilbertese";
+            mNames[(int)Language.Galician] = "Galician";
+            mNames[(int)Language.Gilaki] = "Gilaki";
+            mNames[(int)Language.MiddleHighGerman] = "Middle High German";
+            mNames[(int)Language.Guarani] = "Guarani";
+            mNames[(int)Language.OldHighGerman] = "Old High German";
+            mNames[(int)Language.GoanKonkani] = "Goan Konkani";
+            mNames[(int)Language.Gondi] = "Gondi";
+            mNames[(int)Language.Gorontalo] = "Gorontalo";
+            mNames[(int)Language.Gothic] = "Gothic";
+            mNames[(int)Language.Grebo] = "Grebo";
+            mNames[(int)Language.AncientGreek] = "Ancient Greek";
+            mNames[(int)Language.SwissGerman] = "Swiss German";
+            mNames[(int)Language.Gujarati] = "Gujarati";
+            mNames[(int)Language.Wayuu] = "Wayuu";
+            mNames[(int)Language.Frafra] = "Frafra";
+            mNames[(int)Language.Gusii] = "Gusii";
+            mNames[(int)Language.Manx] = "Manx";
+            mNames[(int)Language.Gwichin] = "Gwichʼin";
+            mNames[(int)Language.Hausa] = "Hausa";
+            mNames[(int)Language.Haida] = "Haida";
+            mNames[(int)Language.HakkaChinese] = "Hakka Chinese";
+            mNames[(int)Language.Hawaiian] = "Hawaiian";
+            mNames[(int)Language.Hebrew] = "Hebrew";
+            mNames[(int)Language.Hindi] = "Hindi";
+            mNames[(int)Language.FijiHindi] = "Fiji Hindi";
+            mNames[(int)Language.Hiligaynon] = "Hiligaynon";
+            mNames[(int)Language.Hittite] = "Hittite";
+            mNames[(int)Language.Hmong] = "Hmong";
+            mNames[(int)Language.HiriMotu] = "Hiri Motu";
+            mNames[(int)Language.Croatian] = "Croatian";
+            mNames[(int)Language.UpperSorbian] = "Upper Sorbian";
+            mNames[(int)Language.XiangChinese] = "Xiang Chinese";
+            mNames[(int)Language.Haitian] = "Haitian";
+            mNames[(int)Language.Hungarian] = "Hungarian";
+            mNames[(int)Language.Hupa] = "Hupa";
+            mNames[(int)Language.Armenian] = "Armenian";
+            mNames[(int)Language.Herero] = "Herero";
+            mNames[(int)Language.Interlingua] = "Interlingua";
+            mNames[(int)Language.Iban] = "Iban";
+            mNames[(int)Language.Ibibio] = "Ibibio";
+            mNames[(int)Language.Indonesian] = "Indonesian";
+            mNames[(int)Language.Interlingue] = "Interlingue";
+            mNames[(int)Language.Igbo] = "Igbo";
+            mNames[(int)Language.SichuanYi] = "Sichuan Yi";
+            mNames[(int)Language.Inupiaq] = "Inupiaq";
+            mNames[(int)Language.Iloko] = "Iloko";
+            mNames[(int)Language.Ingush] = "Ingush";
+            mNames[(int)Language.Ido] = "Ido";
+            mNames[(int)Language.Icelandic] = "Icelandic";
+            mNames[(int)Language.Italian] = "Italian";
+            mNames[(int)Language.Inuktitut] = "Inuktitut";
+            mNames[(int)Language.Ingrian] = "Ingrian";
+            mNames[(int)Language.Japanese] = "Japanese";
+            mNames[(int)Language.JamaicanCreoleEnglish] = "Jamaican Creole English";
+            mNames[(int)Language.Lojban] = "Lojban";
+            mNames[(int)Language.Ngomba] = "Ngomba";
+            mNames[(int)Language.Machame] = "Machame";
+            mNames[(int)Language.JudeoPersian] = "Judeo-Persian";
+            mNames[(int)Language.JudeoArabic] = "Judeo-Arabic";
+            mNames[(int)Language.Jutish] = "Jutish";
+            mNames[(int)Language.Javanese] = "Javanese";
+            mNames[(int)Language.Georgian] = "Georgian";
+            mNames[(int)Language.KaraKalpak] = "Kara-Kalpak";
+            mNames[(int)Language.Kabyle] = "Kabyle";
+            mNames[(int)Language.Kachin] = "Kachin";
+            mNames[(int)Language.Jju] = "Jju";
+            mNames[(int)Language.Kamba] = "Kamba";
+            mNames[(int)Language.Kawi] = "Kawi";
+            mNames[(int)Language.Kabardian] = "Kabardian";
+            mNames[(int)Language.Kanembu] = "Kanembu";
+            mNames[(int)Language.Tyap] = "Tyap";
+            mNames[(int)Language.Makonde] = "Makonde";
+            mNames[(int)Language.Kabuverdianu] = "Kabuverdianu";
+            mNames[(int)Language.Kenyang] = "Kenyang";
+            mNames[(int)Language.Koro] = "Koro";
+            mNames[(int)Language.Kongo] = "Kongo";
+            mNames[(int)Language.Kaingang] = "Kaingang";
+            mNames[(int)Language.Khasi] = "Khasi";
+            mNames[(int)Language.Khotanese] = "Khotanese";
+            mNames[(int)Language.KoyraChiini] = "Koyra Chiini";
+            mNames[(int)Language.Khowar] = "Khowar";
+            mNames[(int)Language.Kikuyu] = "Kikuyu";
+            mNames[(int)Language.Kirmanjki] = "Kirmanjki";
+            mNames[(int)Language.Kuanyama] = "Kuanyama";
+            mNames[(int)Language.Kazakh] = "Kazakh";
+            mNames[(int)Language.Kako] = "Kako";
+            mNames[(int)Language.Kalaallisut] = "Kalaallisut";
+            mNames[(int)Language.Kalenjin] = "Kalenjin";
+            mNames[(int)Language.Khmer] = "Khmer";
+            mNames[(int)Language.Kimbundu] = "Kimbundu";
+            mNames[(int)Language.Kannada] = "Kannada";
+            mNames[(int)Language.Korean] = "Korean";
+            mNames[(int)Language.KomiPermyak] = "Komi-Permyak";
+            mNames[(int)Language.Konkani] = "Konkani";
+            mNames[(int)Language.Kosraean] = "Kosraean";
+            mNames[(int)Language.Kpelle] = "Kpelle";
+            mNames[(int)Language.Kanuri] = "Kanuri";
+            mNames[(int)Language.KarachayBalkar] = "Karachay-Balkar";
+            mNames[(int)Language.Krio] = "Krio";
+            mNames[(int)Language.KinarayA] = "Kinaray-a";
+            mNames[(int)Language.Karelian] = "Karelian";
+            mNames[(int)Language.Kurukh] = "Kurukh";
+            mNames[(int)Language.Kashmiri] = "Kashmiri";
+            mNames[(int)Language.Shambala] = "Shambala";
+            mNames[(int)Language.Bafia] = "Bafia";
+            mNames[(int)Language.Colognian] = "Colognian";
+            mNames[(int)Language.Kurdish] = "Kurdish";
+            mNames[(int)Language.Kumyk] = "Kumyk";
+            mNames[(int)Language.Kutenai] = "Kutenai";
+            mNames[(int)Language.Komi] = "Komi";
+            mNames[(int)Language.Cornish] = "Cornish";
+            mNames[(int)Language.Kyrgyz] = "Kyrgyz";
+            mNames[(int)Language.Kirghiz] = "Kirghiz";
+            mNames[(int)Language.Latin] = "Latin";
+            mNames[(int)Language.Ladino] = "Ladino";
+            mNames[(int)Language.Langi] = "Langi";
+            mNames[(int)Language.Lahnda] = "Lahnda";
+            mNames[(int)Language.Lamba] = "Lamba";
+            mNames[(int)Language.Luxembourgish] = "Luxembourgish";
+            mNames[(int)Language.Lezghian] = "Lezghian";
+            mNames[(int)Language.LinguaFrancaNova] = "Lingua Franca Nova";
+            mNames[(int)Language.Ganda] = "Ganda";
+            mNames[(int)Language.Limburgish] = "Limburgish";
+            mNames[(int)Language.Ligurian] = "Ligurian";
+            mNames[(int)Language.Livonian] = "Livonian";
+            mNames[(int)Language.Lakota] = "Lakota";
+            mNames[(int)Language.Lombard] = "Lombard";
+            mNames[(int)Language.Lingala] = "Lingala";
+            mNames[(int)Language.Lao] = "Lao";
+            mNames[(int)Language.Mongo] = "Mongo";
+            mNames[(int)Language.Lozi] = "Lozi";
+            mNames[(int)Language.Lithuanian] = "Lithuanian";
+            mNames[(int)Language.Latgalian] = "Latgalian";
+            mNames[(int)Language.LubaKatanga] = "Luba-Katanga";
+            mNames[(int)Language.LubaLulua] = "Luba-Lulua";
+            mNames[(int)Language.Luiseno] = "Luiseno";
+            mNames[(int)Language.Lunda] = "Lunda";
+            mNames[(int)Language.Luo] = "Luo";
+            mNames[(int)Language.Mizo] = "Mizo";
+            mNames[(int)Language.Luyia] = "Luyia";
+            mNames[(int)Language.Latvian] = "Latvian";
+            mNames[(int)Language.LiteraryChinese] = "Literary Chinese";
+            mNames[(int)Language.Laz] = "Laz";
+            mNames[(int)Language.Madurese] = "Madurese";
+            mNames[(int)Language.Mafa] = "Mafa";
+            mNames[(int)Language.Magahi] = "Magahi";
+            mNames[(int)Language.Maithili] = "Maithili";
+            mNames[(int)Language.Makasar] = "Makasar";
+            mNames[(int)Language.Mandingo] = "Mandingo";
+            mNames[(int)Language.Masai] = "Masai";
+            mNames[(int)Language.Maba] = "Maba";
+            mNames[(int)Language.Moksha] = "Moksha";
+            mNames[(int)Language.Mandar] = "Mandar";
+            mNames[(int)Language.Mende] = "Mende";
+            mNames[(int)Language.Meru] = "Meru";
+            mNames[(int)Language.Morisyen] = "Morisyen";
+            mNames[(int)Language.Malagasy] = "Malagasy";
+            mNames[(int)Language.MiddleIrish] = "Middle Irish";
+            mNames[(int)Language.MakhuwaMeetto] = "Makhuwa-Meetto";
+            mNames[(int)Language.Meta] = "Metaʼ";
+            mNames[(int)Language.Marshallese] = "Marshallese";
+            mNames[(int)Language.Maori] = "Maori";
+            mNames[(int)Language.Micmac] = "Micmac";
+            mNames[(int)Language.Minangkabau] = "Minangkabau";
+            mNames[(int)Language.Macedonian] = "Macedonian";
+            mNames[(int)Language.Malayalam] = "Malayalam";
+            mNames[(int)Language.Mongolian] = "Mongolian";
+            mNames[(int)Language.Manchu] = "Manchu";
+            mNames[(int)Language.Manipuri] = "Manipuri";
+            mNames[(int)Language.Mohawk] = "Mohawk";
+            mNames[(int)Language.Mossi] = "Mossi";
+            mNames[(int)Language.Marathi] = "Marathi";
+            mNames[(int)Language.WesternMari] = "Western Mari";
+            mNames[(int)Language.Malay] = "Malay";
+            mNames[(int)Language.Maltese] = "Maltese";
+            mNames[(int)Language.Mundang] = "Mundang";
+            mNames[(int)Language.MultipleLanguages] = "Multiple Languages";
+            mNames[(int)Language.Creek] = "Creek";
+            mNames[(int)Language.Mirandese] = "Mirandese";
+            mNames[(int)Language.Marwari] = "Marwari";
+            mNames[(int)Language.Mentawai] = "Mentawai";
+            mNames[(int)Language.Burmese] = "Burmese";
+            mNames[(int)Language.Myene] = "Myene";
+            mNames[(int)Language.Erzya] = "Erzya";
+            mNames[(int)Language.Mazanderani] = "Mazanderani";
+            mNames[(int)Language.Nauru] = "Nauru";
+            mNames[(int)Language.MinNanChinese] = "Min Nan Chinese";
+            mNames[(int)Language.Neapolitan] = "Neapolitan";
+            mNames[(int)Language.Nama] = "Nama";
+            mNames[(int)Language.NorwegianBokmal] = "Norwegian Bokmål";
+            mNames[(int)Language.NorthNdebele] = "North Ndebele";
+            mNames[(int)Language.LowGerman] = "Low German";
+            mNames[(int)Language.Nepali] = "Nepali";
+            mNames[(int)Language.Newari] = "Newari";
+            mNames[(int)Language.Ndonga] = "Ndonga";
+            mNames[(int)Language.Nias] = "Nias";
+            mNames[(int)Language.Niuean] = "Niuean";
+            mNames[(int)Language.AoNaga] = "Ao Naga";
+            mNames[(int)Language.Dutch] = "Dutch";
+            mNames[(int)Language.Flemish] = "Flemish";
+            mNames[(int)Language.Kwasio] = "Kwasio";
+            mNames[(int)Language.NorwegianNynorsk] = "Norwegian Nynorsk";
+            mNames[(int)Language.Ngiemboon] = "Ngiemboon";
+            mNames[(int)Language.Norwegian] = "Norwegian";
+            mNames[(int)Language.Nogai] = "Nogai";
+            mNames[(int)Language.OldNorse] = "Old Norse";
+            mNames[(int)Language.Novial] = "Novial";
+            mNames[(int)Language.Nko] = "NʼKo";
+            mNames[(int)Language.SouthNdebele] = "South Ndebele";
+            mNames[(int)Language.NorthernSotho] = "Northern Sotho";
+            mNames[(int)Language.Nuer] = "Nuer";
+            mNames[(int)Language.Navajo] = "Navajo";
+            mNames[(int)Language.ClassicalNewari] = "Classical Newari";
+            mNames[(int)Language.Nyanja] = "Nyanja";
+            mNames[(int)Language.Nyamwezi] = "Nyamwezi";
+            mNames[(int)Language.Nyankole] = "Nyankole";
+            mNames[(int)Language.Nyoro] = "Nyoro";
+            mNames[(int)Language.Nzima] = "Nzima";
+            mNames[(int)Language.Occitan] = "Occitan";
+            mNames[(int)Language.Ojibwa] = "Ojibwa";
+            mNames[(int)Language.Oromo] = "Oromo";
+            mNames[(int)Language.Oriya] = "Oriya";
+            mNames[(int)Language.Ossetic] = "Ossetic";
+            mNames[(int)Language.Osage] = "Osage";
+            mNames[(int)Language.OttomanTurkish] = "Ottoman Turkish";
+            mNames[(int)Language.Punjabi] = "Punjabi";
+            mNames[(int)Language.Pangasinan] = "Pangasinan";
+            mNames[(int)Language.Pahlavi] = "Pahlavi";
+            mNames[(int)Language.Pampanga] = "Pampanga";
+            mNames[(int)Language.Papiamento] = "Papiamento";
+            mNames[(int)Language.Palauan] = "Palauan";
+            mNames[(int)Language.Picard] = "Picard";
+            mNames[(int)Language.PennsylvaniaGerman] = "Pennsylvania German";
+            mNames[(int)Language.Plautdietsch] = "Plautdietsch";
+            mNames[(int)Language.OldPersian] = "Old Persian";
+            mNames[(int)Language.PalatineGerman] = "Palatine German";
+            mNames[(int)Language.Phoenician] = "Phoenician";
+            mNames[(int)Language.Pali] = "Pali";
+            mNames[(int)Language.Polish] = "Polish";
+            mNames[(int)Language.Piedmontese] = "Piedmontese";
+            mNames[(int)Language.Pontic] = "Pontic";
+            mNames[(int)Language.Pohnpeian] = "Pohnpeian";
+            mNames[(int)Language.Prussian] = "Prussian";
+            mNames[(int)Language.OldProvencal] = "Old Provençal";
+            mNames[(int)Language.Pashto] = "Pashto";
+            mNames[(int)Language.Pushto] = "Pushto";
+            mNames[(int)Language.Portuguese] = "Portuguese";
+            mNames[(int)Language.BrazilianPortuguese] = "Brazilian Portuguese";
+            mNames[(int)Language.EuropeanPortuguese] = "European Portuguese";
+            mNames[(int)Language.Quechua] = "Quechua";
+            mNames[(int)Language.Kiche] = "Kʼicheʼ";
+            mNames[(int)Language.ChimborazoHighlandQuichua] = "Chimborazo Highland Quichua";
+            mNames[(int)Language.Rajasthani] = "Rajasthani";
+            mNames[(int)Language.Rapanui] = "Rapanui";
+            mNames[(int)Language.Rarotongan] = "Rarotongan";
+            mNames[(int)Language.Romagnol] = "Romagnol";
+            mNames[(int)Language.Riffian] = "Riffian";
+            mNames[(int)Language.Romansh] = "Romansh";
+            mNames[(int)Language.Rundi] = "Rundi";
+            mNames[(int)Language.Romanian] = "Romanian";
+            mNames[(int)Language.Moldavian] = "Moldavian";
+            mNames[(int)Language.Rombo] = "Rombo";
+            mNames[(int)Language.Romany] = "Romany";
+            mNames[(int)Language.Root] = "Root";
+            mNames[(int)Language.Rotuman] = "Rotuman";
+            mNames[(int)Language.Russian] = "Russian";
+            mNames[(int)Language.Rusyn] = "Rusyn";
+            mNames[(int)Language.Roviana] = "Roviana";
+            mNames[(int)Language.Aromanian] = "Aromanian";
+            mNames[(int)Language.Kinyarwanda] = "Kinyarwanda";
+            mNames[(int)Language.Rwa] = "Rwa";
+            mNames[(int)Language.Sanskrit] = "Sanskrit";
+            mNames[(int)Language.Sandawe] = "Sandawe";
+            mNames[(int)Language.Sakha] = "Sakha";
+            mNames[(int)Language.SamaritanAramaic] = "Samaritan Aramaic";
+            mNames[(int)Language.Samburu] = "Samburu";
+            mNames[(int)Language.Sasak] = "Sasak";
+            mNames[(int)Language.Santali] = "Santali";
+            mNames[(int)Language.Saurashtra] = "Saurashtra";
+            mNames[(int)Language.Ngambay] = "Ngambay";
+            mNames[(int)Language.Sangu] = "Sangu";
+            mNames[(int)Language.Sardinian] = "Sardinian";
+            mNames[(int)Language.Sicilian] = "Sicilian";
+            mNames[(int)Language.Scots] = "Scots";
+            mNames[(int)Language.Sindhi] = "Sindhi";
+            mNames[(int)Language.SassareseSardinian] = "Sassarese Sardinian";
+            mNames[(int)Language.NorthernSami] = "Northern Sami";
+            mNames[(int)Language.Seneca] = "Seneca";
+            mNames[(int)Language.Sena] = "Sena";
+            mNames[(int)Language.Seri] = "Seri";
+            mNames[(int)Language.Selkup] = "Selkup";
+            mNames[(int)Language.KoyraboroSenni] = "Koyraboro Senni";
+            mNames[(int)Language.Sango] = "Sango";
+            mNames[(int)Language.OldIrish] = "Old Irish";
+            mNames[(int)Language.Samogitian] = "Samogitian";
+            mNames[(int)Language.SerboCroatian] = "Serbo-Croatian";
+            mNames[(int)Language.Tachelhit] = "Tachelhit";
+            mNames[(int)Language.Shan] = "Shan";
+            mNames[(int)Language.ChadianArabic] = "Chadian Arabic";
+            mNames[(int)Language.Sinhala] = "Sinhala";
+            mNames[(int)Language.Sidamo] = "Sidamo";
+            mNames[(int)Language.Slovak] = "Slovak";
+            mNames[(int)Language.Slovenian] = "Slovenian";
+            mNames[(int)Language.LowerSilesian] = "Lower Silesian";
+            mNames[(int)Language.Selayar] = "Selayar";
+            mNames[(int)Language.Samoan] = "Samoan";
+            mNames[(int)Language.SouthernSami] = "Southern Sami";
+            mNames[(int)Language.LuleSami] = "Lule Sami";
+            mNames[(int)Language.InariSami] = "Inari Sami";
+            mNames[(int)Language.SkoltSami] = "Skolt Sami";
+            mNames[(int)Language.Shona] = "Shona";
+            mNames[(int)Language.Soninke] = "Soninke";
+            mNames[(int)Language.Somali] = "Somali";
+            mNames[(int)Language.Sogdien] = "Sogdien";
+            mNames[(int)Language.Albanian] = "Albanian";
+            mNames[(int)Language.Serbian] = "Serbian";
+            mNames[(int)Language.SrananTongo] = "Sranan Tongo";
+            mNames[(int)Language.Serer] = "Serer";
+            mNames[(int)Language.Swati] = "Swati";
+            mNames[(int)Language.Saho] = "Saho";
+            mNames[(int)Language.SouthernSotho] = "Southern Sotho";
+            mNames[(int)Language.SaterlandFrisian] = "Saterland Frisian";
+            mNames[(int)Language.Sundanese] = "Sundanese";
+            mNames[(int)Language.Sukuma] = "Sukuma";
+            mNames[(int)Language.Susu] = "Susu";
+            mNames[(int)Language.Sumerian] = "Sumerian";
+            mNames[(int)Language.Swedish] = "Swedish";
+            mNames[(int)Language.Swahili] = "Swahili";
+            mNames[(int)Language.Comorian] = "Comorian";
+            mNames[(int)Language.CongoSwahili] = "Congo Swahili";
+            mNames[(int)Language.ClassicalSyriac] = "Classical Syriac";
+            mNames[(int)Language.Syriac] = "Syriac";
+            mNames[(int)Language.Silesian] = "Silesian";
+            mNames[(int)Language.Tamil] = "Tamil";
+            mNames[(int)Language.Tulu] = "Tulu";
+            mNames[(int)Language.Telugu] = "Telugu";
+            mNames[(int)Language.Timne] = "Timne";
+            mNames[(int)Language.Teso] = "Teso";
+            mNames[(int)Language.Tereno] = "Tereno";
+            mNames[(int)Language.Tetum] = "Tetum";
+            mNames[(int)Language.Tajik] = "Tajik";
+            mNames[(int)Language.Thai] = "Thai";
+            mNames[(int)Language.Tigrinya] = "Tigrinya";
+            mNames[(int)Language.Tigre] = "Tigre";
+            mNames[(int)Language.Tiv] = "Tiv";
+            mNames[(int)Language.Turkmen] = "Turkmen";
+            mNames[(int)Language.Tokelau] = "Tokelau";
+            mNames[(int)Language.Tsakhur] = "Tsakhur";
+            mNames[(int)Language.Tagalog] = "Tagalog";
+            mNames[(int)Language.Klingon] = "Klingon";
+            mNames[(int)Language.Tlingit] = "Tlingit";
+            mNames[(int)Language.Talysh] = "Talysh";
+            mNames[(int)Language.Tamashek] = "Tamashek";
+            mNames[(int)Language.Tswana] = "Tswana";
+            mNames[(int)Language.Tongan] = "Tongan";
+            mNames[(int)Language.NyasaTonga] = "Nyasa Tonga";
+            mNames[(int)Language.TokPisin] = "Tok Pisin";
+            mNames[(int)Language.Turkish] = "Turkish";
+            mNames[(int)Language.Turoyo] = "Turoyo";
+            mNames[(int)Language.Taroko] = "Taroko";
+            mNames[(int)Language.Tsonga] = "Tsonga";
+            mNames[(int)Language.Tsakonian] = "Tsakonian";
+            mNames[(int)Language.Tsimshian] = "Tsimshian";
+            mNames[(int)Language.Tatar] = "Tatar";
+            mNames[(int)Language.MuslimTat] = "Muslim Tat";
+            mNames[(int)Language.Tumbuka] = "Tumbuka";
+            mNames[(int)Language.Tuvalu] = "Tuvalu";
+            mNames[(int)Language.Twi] = "Twi";
+            mNames[(int)Language.Tasawaq] = "Tasawaq";
+            mNames[(int)Language.Tahitian] = "Tahitian";
+            mNames[(int)Language.Tuvinian] = "Tuvinian";
+            mNames[(int)Language.CentralAtlasTamazight] = "Central Atlas Tamazight";
+            mNames[(int)Language.Udmurt] = "Udmurt";
+            mNames[(int)Language.Uyghur] = "Uyghur";
+            mNames[(int)Language.Uighur] = "Uighur";
+            mNames[(int)Language.Ugaritic] = "Ugaritic";
+            mNames[(int)Language.Ukrainian] = "Ukrainian";
+            mNames[(int)Language.Umbundu] = "Umbundu";
+            mNames[(int)Language.UnknownLanguage] = "Unknown Language";
+            mNames[(int)Language.Urdu] = "Urdu";
+            mNames[(int)Language.Uzbek] = "Uzbek";
+            mNames[(int)Language.Vai] = "Vai";
+            mNames[(int)Language.Venda] = "Venda";
+            mNames[(int)Language.Venetian] = "Venetian";
+            mNames[(int)Language.Veps] = "Veps";
+            mNames[(int)Language.Vietnamese] = "Vietnamese";
+            mNames[(int)Language.WestFlemish] = "West Flemish";
+            mNames[(int)Language.MainFranconian] = "Main-Franconian";
+            mNames[(int)Language.Volapuk] = "Volapük";
+            mNames[(int)Language.Votic] = "Votic";
+            mNames[(int)Language.Voro] = "Võro";
+            mNames[(int)Language.Vunjo] = "Vunjo";
+            mNames[(int)Language.Walloon] = "Walloon";
+            mNames[(int)Language.Walser] = "Walser";
+            mNames[(int)Language.Wolaytta] = "Wolaytta";
+            mNames[(int)Language.Waray] = "Waray";
+            mNames[(int)Language.Washo] = "Washo";
+            mNames[(int)Language.Wolof] = "Wolof";
+            mNames[(int)Language.WuChinese] = "Wu Chinese";
+            mNames[(int)Language.Kalmyk] = "Kalmyk";
+            mNames[(int)Language.Xhosa] = "Xhosa";
+            mNames[(int)Language.Mingrelian] = "Mingrelian";
+            mNames[(int)Language.Soga] = "Soga";
+            mNames[(int)Language.Yao] = "Yao";
+            mNames[(int)Language.Yapese] = "Yapese";
+            mNames[(int)Language.Yangben] = "Yangben";
+            mNames[(int)Language.Yemba] = "Yemba";
+            mNames[(int)Language.Yiddish] = "Yiddish";
+            mNames[(int)Language.Yoruba] = "Yoruba";
+            mNames[(int)Language.Nheengatu] = "Nheengatu";
+            mNames[(int)Language.Cantonese] = "Cantonese";
+            mNames[(int)Language.Zhuang] = "Zhuang";
+            mNames[(int)Language.Zapotec] = "Zapotec";
+            mNames[(int)Language.Blissymbols] = "Blissymbols";
+            mNames[(int)Language.Zeelandic] = "Zeelandic";
+            mNames[(int)Language.Zenaga] = "Zenaga";
+            mNames[(int)Language.StandardMoroccanTamazight] = "Standard Moroccan Tamazight";
+            mNames[(int)Language.Chinese] = "Chinese";
+            mNames[(int)Language.SimplifiedChinese] = "Simplified Chinese";
+            mNames[(int)Language.TraditionalChinese] = "Traditional Chinese";
+            mNames[(int)Language.Zulu] = "Zulu";
+            mNames[(int)Language.Zuni] = "Zuni";
+            mNames[(int)Language.NoLinguisticContent] = "No linguistic content";
+            mNames[(int)Language.Zaza] = "Zaza";
+        }
+
+        public static string languageToName(Language language)
+        {
+            return mNames[(int)language];
+        }
+
+        public static Language nameToLanguage(string name)
+        {
+            for (int i = 0; i < (int)Language.Count; ++i)
+            {
+                if (mNames[i] == name)
                 {
                     return (Language)i;
                 }

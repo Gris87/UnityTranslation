@@ -4,7 +4,7 @@
 #define I_AM_UNITY_TRANSLATION_DEVELOPER
 
 // Use this definition if you want to force code generation
-// #define FORCE_CODE_GENERATION
+#define FORCE_CODE_GENERATION
 
 
 
@@ -121,7 +121,35 @@ namespace UnityTranslation
                                         {
                                             languageEnum += ch;
                                         }
-                                        // TODO: Replace with similar char
+										else
+									    if (ch == 700) // if (ch == 'ʼ')
+										{
+											// Nothing
+										}
+										else
+										if (ch == 229) // if (ch == 'å')
+										{
+											languageEnum += 'a';
+										}
+										else
+										if (ch == 231) // if (ch == 'ç')
+										{
+											languageEnum += 'c';
+										}
+										else
+										if (ch == 252) // if (ch == 'ü')
+										{
+											languageEnum += 'u';
+										}
+										else
+										if (ch == 245) // if (ch == 'õ')
+										{
+											languageEnum += 'o';
+										}
+										else
+										{
+											Debug.LogError("Unhandled character \"" + ch + "\" (" + (int)ch + ") in \"" + temp + "\" while parsing \"CLDR/json-full/main/en/languages.json\" file");
+										}
                                     }
 
                                     languageCodes.Add(languagesJson.keys[i]);
@@ -183,9 +211,9 @@ namespace UnityTranslation
                 {
                     res += "        , \n" +
                            "        /// <summary>\n" +
-                           "        /// " + languageNames[i] + ".\n" + // TODO: Language code
+						   "        /// " + languageNames[i] + ". Code: " + languageCodes[i] + "\n" +
                            "        /// </summary>\n" +
-                            "        " + languageEnums[i] + "\n";
+                           "        " + languageEnums[i] + "\n";
                 }
 
                 res += "        ,\n" +
@@ -227,8 +255,43 @@ namespace UnityTranslation
                        "            return Language.Default;\n" +
                        "        }\n" +
                        "    }\n" +
-                       "}\n";
-                // TODO: LanguageName class
+					   "\n" +
+					   "    public static class LanguageName\n" +
+					   "    {\n" +
+					   "        private static string[] mNames = null;\n" +
+					   "\n" +
+					   "        static LanguageName()\n" +
+					   "        {\n" +
+					   "            mNames = new string[(int)Language.Count];\n" +
+					   "\n" +
+					   "            mNames[(int)Language.Default] = \"\";\n";
+				
+				for (int i = 0; i < languageNames.Count; ++i)
+				{
+					res += "            mNames[(int)Language." + languageEnums[i] + "] = \"" + languageNames[i] + "\";\n";
+				}
+				
+				res += "        }\n" +
+					   "\n" +
+					   "        public static string languageToName(Language language)\n" +
+					   "        {\n" +
+					   "            return mNames[(int)language];\n" +
+					   "        }\n" +
+					   "\n" +
+					   "        public static Language nameToLanguage(string name)\n" +
+					   "        {\n" +
+					   "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
+					   "            {\n" +
+					   "                if (mNames[i] == name)\n" +
+					   "                {\n" +
+					   "                    return (Language)i;\n" +
+					   "                }\n" +
+					   "            }\n" +
+					   "\n" +
+					   "            return Language.Default;\n" +
+					   "        }\n" +
+					   "    }\n" +
+					   "}\n";
 
                 File.WriteAllText(targetFile, res, Encoding.UTF8);
             }
@@ -273,7 +336,6 @@ namespace UnityTranslation
 
                 Debug.LogWarning("Resource \"Assets/Resources/res/values/strings.xml\" generated. Please rebuild your application. You have to switch focus to another application to let Unity check that project structure was changed.");
             }
-            // TODO: Check it
         }
 
         private static void generateR()
@@ -310,7 +372,7 @@ namespace UnityTranslation
                     {
                         rFilePath = Application.dataPath + "/R.cs";
 
-                        Debug.LogError("Unexpected behaviour for getting path to R.cs file");
+                        Debug.LogError("Unexpected behaviour for getting path to \"R.cs\" file");
                     }
                 }
                 #endregion
@@ -340,19 +402,21 @@ namespace UnityTranslation
                 #endregion
 
                 #region Generating R.cs file
-                Debug.Log("Generating R.cs file");
+                Debug.Log("Generating \"R.cs\" file");
 
-                List<string>                              stringNames         = new List<string>();
-                List<string>                              stringComments      = new List<string>();
-                List<string>                              stringValues        = new List<string>();
+                List<string>                              stringNames               = new List<string>();
+                List<string>                              stringComments            = new List<string>();
+                List<string>                              stringValues              = new List<string>();
 
-                List<string>                              stringArrayNames    = new List<string>();
-                List<string>                              stringArrayComments = new List<string>();
-                List<List<string>>                        stringArrayValues   = new List<List<string>>();
+                List<string>                              stringArrayNames          = new List<string>();
+                List<string>                              stringArrayComments       = new List<string>();
+				List<List<string>>                        stringArrayValuesComments = new List<List<string>>();
+                List<List<string>>                        stringArrayValues         = new List<List<string>>();
 
-                List<string>                              pluralsNames        = new List<string>();
-                List<string>                              pluralsComments     = new List<string>();
-                List<Dictionary<PluralsQuantity, string>> pluralsValues       = new List<Dictionary<PluralsQuantity, string>>();
+                List<string>                              pluralsNames              = new List<string>();
+                List<string>                              pluralsComments           = new List<string>();
+				List<Dictionary<PluralsQuantity, string>> pluralsValuesComments     = new List<Dictionary<PluralsQuantity, string>>();
+                List<Dictionary<PluralsQuantity, string>> pluralsValues             = new List<Dictionary<PluralsQuantity, string>>();
 
                 #region Parse strings.xml file
                 bool good = true;
@@ -366,7 +430,7 @@ namespace UnityTranslation
 
                     bool resourcesFound = false;
 
-                    while (good && reader.Read())
+                    while (reader.Read())
                     {
                         if (reader.Name == "resources")
                         {
@@ -387,7 +451,7 @@ namespace UnityTranslation
                                     {
                                         string tokenName = reader.GetAttribute("name");
 
-                                        if (!checkTokenName(tokenName, "string", stringNames))
+										if (!checkTokenName(tokenName, reader.Name, stringNames))
                                         {
                                             good = false;
 
@@ -400,8 +464,206 @@ namespace UnityTranslation
 
                                         lastComment = null;
                                     }
+									else
+									if (reader.Name == "string-array")
+									{
+										string tokenName = reader.GetAttribute("name");
+										
+										if (!checkTokenName(tokenName, reader.Name, stringArrayNames))
+										{
+											good = false;
+											
+											break;
+										}
+
+										List<string> values         = new List<string>();
+										List<string> valuesComments = new List<string>();
+
+										string lastValueComment = null;
+
+										while (reader.Read())
+										{
+											if (reader.NodeType == XmlNodeType.Comment)
+											{
+												lastValueComment = reader.Value.Trim();
+											}
+											else
+											if (reader.NodeType == XmlNodeType.Element)
+											{
+												if (reader.Name == "item")
+												{
+													valuesComments.Add(lastValueComment);
+													values.Add(reader.ReadString());
+
+													lastValueComment = null;
+												}
+												else
+												{
+													good = false;
+													
+													Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <string-array>");
+													
+													break;
+												}
+											}
+											else
+											if (reader.NodeType == XmlNodeType.EndElement)
+											{
+												if (reader.Name == "string-array")
+												{
+													break;
+												}
+											}
+										}
+
+										if (!good)
+										{
+											break;
+										}
+										
+										stringArrayNames.Add(tokenName);
+										stringArrayComments.Add(lastComment);
+										stringArrayValues.Add(values);
+										stringArrayValuesComments.Add(valuesComments);
+										
+										lastComment = null;
+									}
+									else
+									if (reader.Name == "plurals")
+									{
+										string tokenName = reader.GetAttribute("name");
+										
+										if (!checkTokenName(tokenName, reader.Name, pluralsNames))
+										{
+											good = false;
+											
+											break;
+										}
+
+										Dictionary<PluralsQuantity, string> values         = new Dictionary<PluralsQuantity, string>();
+										Dictionary<PluralsQuantity, string> valuesComments = new Dictionary<PluralsQuantity, string>();
+
+										string lastValueComment = null;
+										
+										while (reader.Read())
+										{
+											if (reader.NodeType == XmlNodeType.Comment)
+											{
+												lastValueComment = reader.Value.Trim();
+											}
+											else
+											if (reader.NodeType == XmlNodeType.Element)
+											{
+												if (reader.Name == "item")
+												{
+													PluralsQuantity quantity = PluralsQuantity.Count; // Nothing
+
+													string quantityValue = reader.GetAttribute("quantity");
+
+													if (quantityValue == null)
+													{
+														good = false;
+
+														Debug.LogError("Attribute \"quantity\" not found for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
+
+														break;
+													}
+
+													if (quantityValue == "")
+													{
+														good = false;
+														
+														Debug.LogError("Attribute \"quantity\" empty for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
+														
+														break;
+													}
+
+													if (quantityValue == "zero")
+													{
+														quantity = PluralsQuantity.Zero;
+													}
+													else
+													if (quantityValue == "one")
+													{
+														quantity = PluralsQuantity.One;
+													}
+													else
+													if (quantityValue == "two")
+													{
+														quantity = PluralsQuantity.Two;
+													}
+													else
+													if (quantityValue == "few")
+													{
+														quantity = PluralsQuantity.Few;
+													}
+													else
+													if (quantityValue == "many")
+													{
+														quantity = PluralsQuantity.Many;
+													}
+													else
+													if (quantityValue == "other")
+													{
+														quantity = PluralsQuantity.Other;
+													}
+													else
+													{
+														good = false;
+														
+														Debug.LogError("Unknown attribute \"quantity\" value \"" + quantityValue + "\" for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
+														
+														break;
+													}
+
+													valuesComments[quantity] = lastValueComment;
+													values[quantity]         = reader.ReadString();
+													
+													lastValueComment = null;
+												}
+												else
+												{
+													good = false;
+													
+													Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <plurals>");
+													
+													break;
+												}
+											}
+											else
+											if (reader.NodeType == XmlNodeType.EndElement)
+											{
+												if (reader.Name == "plurals")
+												{
+													break;
+												}
+											}
+										}
+										
+										if (!good)
+										{
+											break;
+										}
+										
+										pluralsNames.Add(tokenName);
+										pluralsComments.Add(lastComment);
+										pluralsValues.Add(values);
+										pluralsValuesComments.Add(valuesComments);
+										
+										lastComment = null;
+									}
+									else
+									{
+										good = false;
+
+										Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <resources>");
+
+										break;
+									}
                                 }
                             }
+
+							break;
                         }
                     }
 
@@ -463,7 +725,7 @@ namespace UnityTranslation
                              "        {\n" +
                              "            Count\n" +
                              "        }\n" +
-                              "\n" +
+                             "\n" +
                              "        /// <summary>\n" +
                              "        /// Enumeration of all plurals tags in Assets/Resources/res/values/strings.xml\n" +
                              "        /// </summary>\n" +

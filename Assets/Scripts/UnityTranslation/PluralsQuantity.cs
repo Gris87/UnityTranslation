@@ -8,6 +8,7 @@ namespace UnityTranslation
         , Few
         , Many
         , Other
+		, Count
     }
 }
 

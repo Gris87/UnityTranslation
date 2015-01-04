@@ -3,5 +3,20 @@
 
     <!-- Hello -->
     <string name="hello">Hello</string>
+    
+    <string-array name="fruits">
+    	<item>Apple</item>
+    	<item>Orange</item>
+    	<item>Banana</item>
+    </string-array>
+    
+    <plurals name="files">
+    	<item quantity="zero">No files</item>
+    	<item quantity="one">%d file</item>
+    	<item quantity="two">%d files</item>
+    	<item quantity="few">%d files</item>
+    	<item quantity="many">%d files</item>
+    	<item quantity="other">%d files</item>
+    </plurals>
 
 </resources>
