@@ -688,8 +688,6 @@ namespace UnityTranslation
                     }
                 }
 
-                good = false; // TODO: Remove it
-
                 if (!good)
                 {
                     return;
@@ -703,35 +701,131 @@ namespace UnityTranslation
                              "namespace UnityTranslation\n" +
                              "{\n" +
                              "    /// <summary>\n" +
-                             "    /// Container for all tokens specified in Assets/Resources/res/values/strings.xml\n" +
+						     "    /// Container for all tokens specified in \"Assets/Resources/res/values/strings.xml\"\n" +
                              "    /// </summary>\n" +
                              "    public sealed class R\n" +
                              "    {\n" +
                              "        /// <summary>\n" +
-                             "        /// Enumeration of all string tags in Assets/Resources/res/values/strings.xml\n" +
+						     "        /// Enumeration of all string tags in \"Assets/Resources/res/values/strings.xml\"\n" +
                              "        /// </summary>\n" +
                              "        public enum strings\n" +
-                             "        {\n" +
-                             "            /// <summary>\n" +
-                             "            /// <para>Value: Hello</para>\n" +
-                             "            /// </summary>\n" +
-                             "            hello\n" +
-                             "        }\n" +
-                             "\n" +
-                             "        /// <summary>\n" +
-                             "        /// Enumeration of all string-array tags in Assets/Resources/res/values/strings.xml\n" +
-                             "        /// </summary>\n" +
-                             "        public enum array\n" +
-                             "        {\n" +
-                             "            Count\n" +
-                             "        }\n" +
-                             "\n" +
-                             "        /// <summary>\n" +
-                             "        /// Enumeration of all plurals tags in Assets/Resources/res/values/strings.xml\n" +
-                             "        /// </summary>\n" +
-                             "        public enum plurals\n" +
-                             "        {\n" +
-                             "           Count\n" +
+						     "        {\n";
+
+				for (int i = 0; i < stringNames.Count; ++i)
+				{
+					string[] separators = new string[] {"\n", "\\n"};
+
+					string[] commentLines = stringComments[i] == null ? null : stringComments[i].Split(separators, StringSplitOptions.None);
+					string[] valueLines   = stringValues[i]   == null ? null : stringValues[i].Split(separators, StringSplitOptions.None);
+
+					res +=   "            /// <summary>\n";
+
+					if (commentLines != null)
+					{
+						for (int j = 0; j < commentLines.Length; ++j)
+						{
+							res +=   "            /// <para>" + commentLines[j] + "</para>\n";
+						}
+					}
+
+					res +=   "            /// <para>Value:</para>\n";
+
+					if (valueLines != null)
+					{
+						for (int j = 0; j < valueLines.Length; ++j)
+						{
+							res +=   "            /// <para>" + valueLines[j] + "</para>\n";
+						}
+					}
+
+					res += "            /// </summary>\n" +
+					       "            " + stringNames[i] + "\n" +
+						   "            ,\n";
+				}
+
+				res +=       "            Count // Should be last\n" +
+					         "        }\n" +
+						     "\n" +
+						     "        /// <summary>\n" +
+						     "        /// Enumeration of all string-array tags in \"Assets/Resources/res/values/strings.xml\"\n" +
+						     "        /// </summary>\n" +
+						     "        public enum array\n" +
+						     "        {\n";
+
+				for (int i = 0; i < stringNames.Count; ++i)
+				{
+					string[] separators = new string[] {"\n", "\\n"};
+					
+					string[] commentLines = stringComments[i] == null ? null : stringComments[i].Split(separators, StringSplitOptions.None);
+					string[] valueLines   = stringValues[i]   == null ? null : stringValues[i].Split(separators, StringSplitOptions.None);
+					
+					res +=   "            /// <summary>\n";
+					
+					if (commentLines != null)
+					{
+						for (int j = 0; j < commentLines.Length; ++j)
+						{
+							res +=   "            /// <para>" + commentLines[j] + "</para>\n";
+						}
+					}
+					
+					res +=   "            /// <para>Value:</para>\n";
+					
+					if (valueLines != null)
+					{
+						for (int j = 0; j < valueLines.Length; ++j)
+						{
+							res +=   "            /// <para>" + valueLines[j] + "</para>\n";
+						}
+					}
+					
+					res += "            /// </summary>\n" +
+						   "            " + stringNames[i] + "\n" +
+						   "            ,\n";
+				}
+
+				res +=       "            Count // Should be last\n" +
+					         "        }\n" +
+						     "\n" +
+						     "        /// <summary>\n" +
+						     "        /// Enumeration of all plurals tags in \"Assets/Resources/res/values/strings.xml\"\n" +
+						     "        /// </summary>\n" +
+						     "        public enum plurals\n" +
+						     "        {\n";
+
+				for (int i = 0; i < stringNames.Count; ++i)
+				{
+					string[] separators = new string[] {"\n", "\\n"};
+					
+					string[] commentLines = stringComments[i] == null ? null : stringComments[i].Split(separators, StringSplitOptions.None);
+					string[] valueLines   = stringValues[i]   == null ? null : stringValues[i].Split(separators, StringSplitOptions.None);
+					
+					res +=   "            /// <summary>\n";
+					
+					if (commentLines != null)
+					{
+						for (int j = 0; j < commentLines.Length; ++j)
+						{
+							res +=   "            /// <para>" + commentLines[j] + "</para>\n";
+						}
+					}
+					
+					res +=   "            /// <para>Value:</para>\n";
+					
+					if (valueLines != null)
+					{
+						for (int j = 0; j < valueLines.Length; ++j)
+						{
+							res +=   "            /// <para>" + valueLines[j] + "</para>\n";
+						}
+					}
+					
+					res +=   "            /// </summary>\n" +
+						"            " + stringNames[i] + "\n" +
+							"            ,\n";
+				}
+
+				res +=       "            Count // Should be last\n" +
                              "        }\n" +
                              "    }\n" +
                              "}\n";
