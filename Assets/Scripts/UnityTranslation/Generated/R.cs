@@ -15,8 +15,9 @@ namespace UnityTranslation
         public enum strings
         {
             /// <summary>
+            /// <para>Greeting</para>
             /// <para>Value:</para>
-            /// <para>Hello</para>
+            ///   <para>Hello</para>
             /// </summary>
             hello
             ,
@@ -29,10 +30,19 @@ namespace UnityTranslation
         public enum array
         {
             /// <summary>
+            /// <para>List of fruits</para>
             /// <para>Value:</para>
-            /// <para>Hello</para>
+            ///   <para>- Item 1:</para>
+            ///     <para>// This fruit is red</para>
+            ///     <para>Apple</para>
+            ///   <para>- Item 2:</para>
+            ///     <para>// This fruit is orange</para>
+            ///     <para>Orange</para>
+            ///   <para>- Item 3:</para>
+            ///     <para>// This fruit is yellow</para>
+            ///     <para>Banana</para>
             /// </summary>
-            hello
+            fruits
             ,
             Count // Should be last
         }
@@ -43,10 +53,28 @@ namespace UnityTranslation
         public enum plurals
         {
             /// <summary>
+            /// <para>Plurals for files</para>
             /// <para>Value:</para>
-            /// <para>Hello</para>
+            ///   <para>- Zero:</para>
+            ///     <para>// 0 files</para>
+            ///     <para>no files</para>
+            ///   <para>- One:</para>
+            ///     <para>// 1 file</para>
+            ///     <para>%d file</para>
+            ///   <para>- Two:</para>
+            ///     <para>// 2 files</para>
+            ///     <para>%d files</para>
+            ///   <para>- Few:</para>
+            ///     <para>// 5 files</para>
+            ///     <para>%d files</para>
+            ///   <para>- Many:</para>
+            ///     <para>// 26 files</para>
+            ///     <para>%d files</para>
+            ///   <para>- Other:</para>
+            ///     <para>// 3219 files</para>
+            ///     <para>%d files</para>
             /// </summary>
-            hello
+            files
             ,
             Count // Should be last
         }

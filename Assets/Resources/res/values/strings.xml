@@ -1,24 +1,33 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <!-- Greeting -->
     <string name="hello">Hello</string>
-    
+
     <!-- List of fruits -->
     <string-array name="fruits">
-    	<item>Apple</item>
-    	<item>Orange</item>
-    	<item>Banana</item>
+        <!-- This fruit is red -->
+        <item>Apple</item>
+        <!-- This fruit is orange -->
+        <item>Orange</item>
+        <!-- This fruit is yellow -->
+        <item>Banana</item>
     </string-array>
-    
+
     <!-- Plurals for files -->
     <plurals name="files">
-    	<item quantity="zero">no files</item>
-    	<item quantity="one">%d file</item>
-    	<item quantity="two">%d files</item>
-    	<item quantity="few">%d files</item>
-    	<item quantity="many">%d files</item>
-    	<item quantity="other">%d files</item>
+        <!-- 0 files -->
+        <item quantity="zero">no files</item>
+        <!-- 1 file -->
+        <item quantity="one">%d file</item>
+        <!-- 2 files -->
+        <item quantity="two">%d files</item>
+        <!-- 5 files -->
+        <item quantity="few">%d files</item>
+        <!-- 26 files -->
+        <item quantity="many">%d files</item>
+        <!-- 3219 files -->
+        <item quantity="other">%d files</item>
     </plurals>
 
 </resources>

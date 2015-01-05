@@ -4,7 +4,7 @@
 #define I_AM_UNITY_TRANSLATION_DEVELOPER
 
 // Use this definition if you want to force code generation
-#define FORCE_CODE_GENERATION
+// #define FORCE_CODE_GENERATION
 
 
 
@@ -121,35 +121,35 @@ namespace UnityTranslation
                                         {
                                             languageEnum += ch;
                                         }
-										else
-									    if (ch == 700) // if (ch == 'ʼ')
-										{
-											// Nothing
-										}
-										else
-										if (ch == 229) // if (ch == 'å')
-										{
-											languageEnum += 'a';
-										}
-										else
-										if (ch == 231) // if (ch == 'ç')
-										{
-											languageEnum += 'c';
-										}
-										else
-										if (ch == 252) // if (ch == 'ü')
-										{
-											languageEnum += 'u';
-										}
-										else
-										if (ch == 245) // if (ch == 'õ')
-										{
-											languageEnum += 'o';
-										}
-										else
-										{
-											Debug.LogError("Unhandled character \"" + ch + "\" (" + (int)ch + ") in \"" + temp + "\" while parsing \"CLDR/json-full/main/en/languages.json\" file");
-										}
+                                        else
+                                        if (ch == 700) // if (ch == 'ʼ')
+                                        {
+                                            // Nothing
+                                        }
+                                        else
+                                        if (ch == 229) // if (ch == 'å')
+                                        {
+                                            languageEnum += 'a';
+                                        }
+                                        else
+                                        if (ch == 231) // if (ch == 'ç')
+                                        {
+                                            languageEnum += 'c';
+                                        }
+                                        else
+                                        if (ch == 252) // if (ch == 'ü')
+                                        {
+                                            languageEnum += 'u';
+                                        }
+                                        else
+                                        if (ch == 245) // if (ch == 'õ')
+                                        {
+                                            languageEnum += 'o';
+                                        }
+                                        else
+                                        {
+                                            Debug.LogError("Unhandled character \"" + ch + "\" (" + (int)ch + ") in \"" + temp + "\" while parsing \"CLDR/json-full/main/en/languages.json\" file");
+                                        }
                                     }
 
                                     languageCodes.Add(languagesJson.keys[i]);
@@ -211,7 +211,7 @@ namespace UnityTranslation
                 {
                     res += "        , \n" +
                            "        /// <summary>\n" +
-						   "        /// " + languageNames[i] + ". Code: " + languageCodes[i] + "\n" +
+                           "        /// " + languageNames[i] + ". Code: " + languageCodes[i] + "\n" +
                            "        /// </summary>\n" +
                            "        " + languageEnums[i] + "\n";
                 }
@@ -255,43 +255,43 @@ namespace UnityTranslation
                        "            return Language.Default;\n" +
                        "        }\n" +
                        "    }\n" +
-					   "\n" +
-					   "    public static class LanguageName\n" +
-					   "    {\n" +
-					   "        private static string[] mNames = null;\n" +
-					   "\n" +
-					   "        static LanguageName()\n" +
-					   "        {\n" +
-					   "            mNames = new string[(int)Language.Count];\n" +
-					   "\n" +
-					   "            mNames[(int)Language.Default] = \"\";\n";
-				
-				for (int i = 0; i < languageNames.Count; ++i)
-				{
-					res += "            mNames[(int)Language." + languageEnums[i] + "] = \"" + languageNames[i] + "\";\n";
-				}
-				
-				res += "        }\n" +
-					   "\n" +
-					   "        public static string languageToName(Language language)\n" +
-					   "        {\n" +
-					   "            return mNames[(int)language];\n" +
-					   "        }\n" +
-					   "\n" +
-					   "        public static Language nameToLanguage(string name)\n" +
-					   "        {\n" +
-					   "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
-					   "            {\n" +
-					   "                if (mNames[i] == name)\n" +
-					   "                {\n" +
-					   "                    return (Language)i;\n" +
-					   "                }\n" +
-					   "            }\n" +
-					   "\n" +
-					   "            return Language.Default;\n" +
-					   "        }\n" +
-					   "    }\n" +
-					   "}\n";
+                       "\n" +
+                       "    public static class LanguageName\n" +
+                       "    {\n" +
+                       "        private static string[] mNames = null;\n" +
+                       "\n" +
+                       "        static LanguageName()\n" +
+                       "        {\n" +
+                       "            mNames = new string[(int)Language.Count];\n" +
+                       "\n" +
+                       "            mNames[(int)Language.Default] = \"\";\n";
+
+                for (int i = 0; i < languageNames.Count; ++i)
+                {
+                    res += "            mNames[(int)Language." + languageEnums[i] + "] = \"" + languageNames[i] + "\";\n";
+                }
+
+                res += "        }\n" +
+                       "\n" +
+                       "        public static string languageToName(Language language)\n" +
+                       "        {\n" +
+                       "            return mNames[(int)language];\n" +
+                       "        }\n" +
+                       "\n" +
+                       "        public static Language nameToLanguage(string name)\n" +
+                       "        {\n" +
+                       "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
+                       "            {\n" +
+                       "                if (mNames[i] == name)\n" +
+                       "                {\n" +
+                       "                    return (Language)i;\n" +
+                       "                }\n" +
+                       "            }\n" +
+                       "\n" +
+                       "            return Language.Default;\n" +
+                       "        }\n" +
+                       "    }\n" +
+                       "}\n";
 
                 File.WriteAllText(targetFile, res, Encoding.UTF8);
             }
@@ -310,6 +310,8 @@ namespace UnityTranslation
         private static void generatePluralsRules()
         {
             Debug.Log("Generating \"PluralsRules.cs\" file");
+
+            // TODO: Implement CodeGenerator.generatePluralsRules
         }
 #endif
 
@@ -410,12 +412,12 @@ namespace UnityTranslation
 
                 List<string>                              stringArrayNames          = new List<string>();
                 List<string>                              stringArrayComments       = new List<string>();
-				List<List<string>>                        stringArrayValuesComments = new List<List<string>>();
+                List<List<string>>                        stringArrayValuesComments = new List<List<string>>();
                 List<List<string>>                        stringArrayValues         = new List<List<string>>();
 
                 List<string>                              pluralsNames              = new List<string>();
                 List<string>                              pluralsComments           = new List<string>();
-				List<Dictionary<PluralsQuantity, string>> pluralsValuesComments     = new List<Dictionary<PluralsQuantity, string>>();
+                List<Dictionary<PluralsQuantity, string>> pluralsValuesComments     = new List<Dictionary<PluralsQuantity, string>>();
                 List<Dictionary<PluralsQuantity, string>> pluralsValues             = new List<Dictionary<PluralsQuantity, string>>();
 
                 #region Parse strings.xml file
@@ -451,7 +453,7 @@ namespace UnityTranslation
                                     {
                                         string tokenName = reader.GetAttribute("name");
 
-										if (!checkTokenName(tokenName, reader.Name, stringNames))
+                                        if (!checkTokenName(tokenName, reader.Name, stringNames))
                                         {
                                             good = false;
 
@@ -464,206 +466,206 @@ namespace UnityTranslation
 
                                         lastComment = null;
                                     }
-									else
-									if (reader.Name == "string-array")
-									{
-										string tokenName = reader.GetAttribute("name");
-										
-										if (!checkTokenName(tokenName, reader.Name, stringArrayNames))
-										{
-											good = false;
-											
-											break;
-										}
+                                    else
+                                    if (reader.Name == "string-array")
+                                    {
+                                        string tokenName = reader.GetAttribute("name");
 
-										List<string> values         = new List<string>();
-										List<string> valuesComments = new List<string>();
+                                        if (!checkTokenName(tokenName, reader.Name, stringArrayNames))
+                                        {
+                                            good = false;
 
-										string lastValueComment = null;
+                                            break;
+                                        }
 
-										while (reader.Read())
-										{
-											if (reader.NodeType == XmlNodeType.Comment)
-											{
-												lastValueComment = reader.Value.Trim();
-											}
-											else
-											if (reader.NodeType == XmlNodeType.Element)
-											{
-												if (reader.Name == "item")
-												{
-													valuesComments.Add(lastValueComment);
-													values.Add(reader.ReadString());
+                                        List<string> values         = new List<string>();
+                                        List<string> valuesComments = new List<string>();
 
-													lastValueComment = null;
-												}
-												else
-												{
-													good = false;
-													
-													Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <string-array>");
-													
-													break;
-												}
-											}
-											else
-											if (reader.NodeType == XmlNodeType.EndElement)
-											{
-												if (reader.Name == "string-array")
-												{
-													break;
-												}
-											}
-										}
+                                        string lastValueComment = null;
 
-										if (!good)
-										{
-											break;
-										}
-										
-										stringArrayNames.Add(tokenName);
-										stringArrayComments.Add(lastComment);
-										stringArrayValues.Add(values);
-										stringArrayValuesComments.Add(valuesComments);
-										
-										lastComment = null;
-									}
-									else
-									if (reader.Name == "plurals")
-									{
-										string tokenName = reader.GetAttribute("name");
-										
-										if (!checkTokenName(tokenName, reader.Name, pluralsNames))
-										{
-											good = false;
-											
-											break;
-										}
+                                        while (reader.Read())
+                                        {
+                                            if (reader.NodeType == XmlNodeType.Comment)
+                                            {
+                                                lastValueComment = reader.Value.Trim();
+                                            }
+                                            else
+                                            if (reader.NodeType == XmlNodeType.Element)
+                                            {
+                                                if (reader.Name == "item")
+                                                {
+                                                    valuesComments.Add(lastValueComment);
+                                                    values.Add(reader.ReadString());
 
-										Dictionary<PluralsQuantity, string> values         = new Dictionary<PluralsQuantity, string>();
-										Dictionary<PluralsQuantity, string> valuesComments = new Dictionary<PluralsQuantity, string>();
+                                                    lastValueComment = null;
+                                                }
+                                                else
+                                                {
+                                                    good = false;
 
-										string lastValueComment = null;
-										
-										while (reader.Read())
-										{
-											if (reader.NodeType == XmlNodeType.Comment)
-											{
-												lastValueComment = reader.Value.Trim();
-											}
-											else
-											if (reader.NodeType == XmlNodeType.Element)
-											{
-												if (reader.Name == "item")
-												{
-													PluralsQuantity quantity = PluralsQuantity.Count; // Nothing
+                                                    Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <string-array>");
 
-													string quantityValue = reader.GetAttribute("quantity");
+                                                    break;
+                                                }
+                                            }
+                                            else
+                                            if (reader.NodeType == XmlNodeType.EndElement)
+                                            {
+                                                if (reader.Name == "string-array")
+                                                {
+                                                    break;
+                                                }
+                                            }
+                                        }
 
-													if (quantityValue == null)
-													{
-														good = false;
+                                        if (!good)
+                                        {
+                                            break;
+                                        }
 
-														Debug.LogError("Attribute \"quantity\" not found for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
+                                        stringArrayNames.Add(tokenName);
+                                        stringArrayComments.Add(lastComment);
+                                        stringArrayValues.Add(values);
+                                        stringArrayValuesComments.Add(valuesComments);
 
-														break;
-													}
+                                        lastComment = null;
+                                    }
+                                    else
+                                    if (reader.Name == "plurals")
+                                    {
+                                        string tokenName = reader.GetAttribute("name");
 
-													if (quantityValue == "")
-													{
-														good = false;
-														
-														Debug.LogError("Attribute \"quantity\" empty for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
-														
-														break;
-													}
+                                        if (!checkTokenName(tokenName, reader.Name, pluralsNames))
+                                        {
+                                            good = false;
 
-													if (quantityValue == "zero")
-													{
-														quantity = PluralsQuantity.Zero;
-													}
-													else
-													if (quantityValue == "one")
-													{
-														quantity = PluralsQuantity.One;
-													}
-													else
-													if (quantityValue == "two")
-													{
-														quantity = PluralsQuantity.Two;
-													}
-													else
-													if (quantityValue == "few")
-													{
-														quantity = PluralsQuantity.Few;
-													}
-													else
-													if (quantityValue == "many")
-													{
-														quantity = PluralsQuantity.Many;
-													}
-													else
-													if (quantityValue == "other")
-													{
-														quantity = PluralsQuantity.Other;
-													}
-													else
-													{
-														good = false;
-														
-														Debug.LogError("Unknown attribute \"quantity\" value \"" + quantityValue + "\" for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
-														
-														break;
-													}
+                                            break;
+                                        }
 
-													valuesComments[quantity] = lastValueComment;
-													values[quantity]         = reader.ReadString();
-													
-													lastValueComment = null;
-												}
-												else
-												{
-													good = false;
-													
-													Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <plurals>");
-													
-													break;
-												}
-											}
-											else
-											if (reader.NodeType == XmlNodeType.EndElement)
-											{
-												if (reader.Name == "plurals")
-												{
-													break;
-												}
-											}
-										}
-										
-										if (!good)
-										{
-											break;
-										}
-										
-										pluralsNames.Add(tokenName);
-										pluralsComments.Add(lastComment);
-										pluralsValues.Add(values);
-										pluralsValuesComments.Add(valuesComments);
-										
-										lastComment = null;
-									}
-									else
-									{
-										good = false;
+                                        Dictionary<PluralsQuantity, string> values         = new Dictionary<PluralsQuantity, string>();
+                                        Dictionary<PluralsQuantity, string> valuesComments = new Dictionary<PluralsQuantity, string>();
 
-										Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <resources>");
+                                        string lastValueComment = null;
 
-										break;
-									}
+                                        while (reader.Read())
+                                        {
+                                            if (reader.NodeType == XmlNodeType.Comment)
+                                            {
+                                                lastValueComment = reader.Value.Trim();
+                                            }
+                                            else
+                                            if (reader.NodeType == XmlNodeType.Element)
+                                            {
+                                                if (reader.Name == "item")
+                                                {
+                                                    PluralsQuantity quantity = PluralsQuantity.Count; // Nothing
+
+                                                    string quantityValue = reader.GetAttribute("quantity");
+
+                                                    if (quantityValue == null)
+                                                    {
+                                                        good = false;
+
+                                                        Debug.LogError("Attribute \"quantity\" not found for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
+
+                                                        break;
+                                                    }
+
+                                                    if (quantityValue == "")
+                                                    {
+                                                        good = false;
+
+                                                        Debug.LogError("Attribute \"quantity\" empty for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
+
+                                                        break;
+                                                    }
+
+                                                    if (quantityValue == "zero")
+                                                    {
+                                                        quantity = PluralsQuantity.Zero;
+                                                    }
+                                                    else
+                                                    if (quantityValue == "one")
+                                                    {
+                                                        quantity = PluralsQuantity.One;
+                                                    }
+                                                    else
+                                                    if (quantityValue == "two")
+                                                    {
+                                                        quantity = PluralsQuantity.Two;
+                                                    }
+                                                    else
+                                                    if (quantityValue == "few")
+                                                    {
+                                                        quantity = PluralsQuantity.Few;
+                                                    }
+                                                    else
+                                                    if (quantityValue == "many")
+                                                    {
+                                                        quantity = PluralsQuantity.Many;
+                                                    }
+                                                    else
+                                                    if (quantityValue == "other")
+                                                    {
+                                                        quantity = PluralsQuantity.Other;
+                                                    }
+                                                    else
+                                                    {
+                                                        good = false;
+
+                                                        Debug.LogError("Unknown attribute \"quantity\" value \"" + quantityValue + "\" for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
+
+                                                        break;
+                                                    }
+
+                                                    valuesComments[quantity] = lastValueComment;
+                                                    values[quantity]         = reader.ReadString();
+
+                                                    lastValueComment = null;
+                                                }
+                                                else
+                                                {
+                                                    good = false;
+
+                                                    Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <plurals>");
+
+                                                    break;
+                                                }
+                                            }
+                                            else
+                                            if (reader.NodeType == XmlNodeType.EndElement)
+                                            {
+                                                if (reader.Name == "plurals")
+                                                {
+                                                    break;
+                                                }
+                                            }
+                                        }
+
+                                        if (!good)
+                                        {
+                                            break;
+                                        }
+
+                                        pluralsNames.Add(tokenName);
+                                        pluralsComments.Add(lastComment);
+                                        pluralsValues.Add(values);
+                                        pluralsValuesComments.Add(valuesComments);
+
+                                        lastComment = null;
+                                    }
+                                    else
+                                    {
+                                        good = false;
+
+                                        Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <resources>");
+
+                                        break;
+                                    }
                                 }
                             }
 
-							break;
+                            break;
                         }
                     }
 
@@ -701,135 +703,169 @@ namespace UnityTranslation
                              "namespace UnityTranslation\n" +
                              "{\n" +
                              "    /// <summary>\n" +
-						     "    /// Container for all tokens specified in \"Assets/Resources/res/values/strings.xml\"\n" +
+                             "    /// Container for all tokens specified in \"Assets/Resources/res/values/strings.xml\"\n" +
                              "    /// </summary>\n" +
                              "    public sealed class R\n" +
                              "    {\n" +
                              "        /// <summary>\n" +
-						     "        /// Enumeration of all string tags in \"Assets/Resources/res/values/strings.xml\"\n" +
+                             "        /// Enumeration of all string tags in \"Assets/Resources/res/values/strings.xml\"\n" +
                              "        /// </summary>\n" +
                              "        public enum strings\n" +
-						     "        {\n";
+                             "        {\n";
 
-				for (int i = 0; i < stringNames.Count; ++i)
-				{
-					string[] separators = new string[] {"\n", "\\n"};
+                for (int i = 0; i < stringNames.Count; ++i)
+                {
+                    string[] separators = new string[] {"\n", "\\n"};
 
-					string[] commentLines = stringComments[i] == null ? null : stringComments[i].Split(separators, StringSplitOptions.None);
-					string[] valueLines   = stringValues[i]   == null ? null : stringValues[i].Split(separators, StringSplitOptions.None);
+                    string[] commentLines = stringComments[i] == null ? null : stringComments[i].Split(separators, StringSplitOptions.None);
+                    string[] valueLines   =                                    stringValues[i].Split(separators, StringSplitOptions.None);
 
-					res +=   "            /// <summary>\n";
+                    res += "            /// <summary>\n";
 
-					if (commentLines != null)
-					{
-						for (int j = 0; j < commentLines.Length; ++j)
-						{
-							res +=   "            /// <para>" + commentLines[j] + "</para>\n";
-						}
-					}
+                    if (commentLines != null)
+                    {
+                        for (int j = 0; j < commentLines.Length; ++j)
+                        {
+                            res += "            /// <para>" + commentLines[j] + "</para>\n";
+                        }
+                    }
 
-					res +=   "            /// <para>Value:</para>\n";
+                    res += "            /// <para>Value:</para>\n";
 
-					if (valueLines != null)
-					{
-						for (int j = 0; j < valueLines.Length; ++j)
-						{
-							res +=   "            /// <para>" + valueLines[j] + "</para>\n";
-						}
-					}
+                    if (valueLines != null)
+                    {
+                        for (int j = 0; j < valueLines.Length; ++j)
+                        {
+                            res += "            ///   <para>" + valueLines[j] + "</para>\n";
+                        }
+                    }
 
-					res += "            /// </summary>\n" +
-					       "            " + stringNames[i] + "\n" +
-						   "            ,\n";
-				}
+                    res += "            /// </summary>\n" +
+                           "            " + stringNames[i] + "\n" +
+                           "            ,\n";
+                }
 
-				res +=       "            Count // Should be last\n" +
-					         "        }\n" +
-						     "\n" +
-						     "        /// <summary>\n" +
-						     "        /// Enumeration of all string-array tags in \"Assets/Resources/res/values/strings.xml\"\n" +
-						     "        /// </summary>\n" +
-						     "        public enum array\n" +
-						     "        {\n";
+                res += "            Count // Should be last\n" +
+                       "        }\n" +
+                       "\n" +
+                       "        /// <summary>\n" +
+                       "        /// Enumeration of all string-array tags in \"Assets/Resources/res/values/strings.xml\"\n" +
+                       "        /// </summary>\n" +
+                       "        public enum array\n" +
+                       "        {\n";
 
-				for (int i = 0; i < stringNames.Count; ++i)
-				{
-					string[] separators = new string[] {"\n", "\\n"};
-					
-					string[] commentLines = stringComments[i] == null ? null : stringComments[i].Split(separators, StringSplitOptions.None);
-					string[] valueLines   = stringValues[i]   == null ? null : stringValues[i].Split(separators, StringSplitOptions.None);
-					
-					res +=   "            /// <summary>\n";
-					
-					if (commentLines != null)
-					{
-						for (int j = 0; j < commentLines.Length; ++j)
-						{
-							res +=   "            /// <para>" + commentLines[j] + "</para>\n";
-						}
-					}
-					
-					res +=   "            /// <para>Value:</para>\n";
-					
-					if (valueLines != null)
-					{
-						for (int j = 0; j < valueLines.Length; ++j)
-						{
-							res +=   "            /// <para>" + valueLines[j] + "</para>\n";
-						}
-					}
-					
-					res += "            /// </summary>\n" +
-						   "            " + stringNames[i] + "\n" +
-						   "            ,\n";
-				}
+                for (int i = 0; i < stringArrayNames.Count; ++i)
+                {
+                    string[] separators = new string[] {"\n", "\\n"};
 
-				res +=       "            Count // Should be last\n" +
-					         "        }\n" +
-						     "\n" +
-						     "        /// <summary>\n" +
-						     "        /// Enumeration of all plurals tags in \"Assets/Resources/res/values/strings.xml\"\n" +
-						     "        /// </summary>\n" +
-						     "        public enum plurals\n" +
-						     "        {\n";
+                    string[] commentLines = stringArrayComments[i] == null ? null : stringArrayComments[i].Split(separators, StringSplitOptions.None);
 
-				for (int i = 0; i < stringNames.Count; ++i)
-				{
-					string[] separators = new string[] {"\n", "\\n"};
-					
-					string[] commentLines = stringComments[i] == null ? null : stringComments[i].Split(separators, StringSplitOptions.None);
-					string[] valueLines   = stringValues[i]   == null ? null : stringValues[i].Split(separators, StringSplitOptions.None);
-					
-					res +=   "            /// <summary>\n";
-					
-					if (commentLines != null)
-					{
-						for (int j = 0; j < commentLines.Length; ++j)
-						{
-							res +=   "            /// <para>" + commentLines[j] + "</para>\n";
-						}
-					}
-					
-					res +=   "            /// <para>Value:</para>\n";
-					
-					if (valueLines != null)
-					{
-						for (int j = 0; j < valueLines.Length; ++j)
-						{
-							res +=   "            /// <para>" + valueLines[j] + "</para>\n";
-						}
-					}
-					
-					res +=   "            /// </summary>\n" +
-						"            " + stringNames[i] + "\n" +
-							"            ,\n";
-				}
+                    res += "            /// <summary>\n";
 
-				res +=       "            Count // Should be last\n" +
-                             "        }\n" +
-                             "    }\n" +
-                             "}\n";
-                // TODO: Fill with real data
+                    if (commentLines != null)
+                    {
+                        for (int j = 0; j < commentLines.Length; ++j)
+                        {
+                            res += "            /// <para>" + commentLines[j] + "</para>\n";
+                        }
+                    }
+
+                    res += "            /// <para>Value:</para>\n";
+
+                    for (int j = 0; j < stringArrayValues[i].Count; ++j)
+                    {
+                        string[] valueCommentLines = stringArrayValuesComments[i][j] == null ? null : stringArrayValuesComments[i][j].Split(separators, StringSplitOptions.None);
+                        string[] valueLines        =                                                  stringArrayValues[i][j].Split(separators, StringSplitOptions.None);
+
+                        res += "            ///   <para>- Item " + (j + 1) + ":</para>\n";
+
+                        if (valueCommentLines != null)
+                        {
+                            for (int k = 0; k < valueCommentLines.Length; ++k)
+                            {
+                                res += "            ///     <para>// " + valueCommentLines[k] + "</para>\n";
+                            }
+                        }
+
+                        for (int k = 0; k < valueLines.Length; ++k)
+                        {
+                            res += "            ///     <para>" + valueLines[k] + "</para>\n";
+                        }
+                    }
+
+                    res += "            /// </summary>\n" +
+                           "            " + stringArrayNames[i] + "\n" +
+                           "            ,\n";
+                }
+
+                res += "            Count // Should be last\n" +
+                       "        }\n" +
+                       "\n" +
+                       "        /// <summary>\n" +
+                       "        /// Enumeration of all plurals tags in \"Assets/Resources/res/values/strings.xml\"\n" +
+                       "        /// </summary>\n" +
+                       "        public enum plurals\n" +
+                       "        {\n";
+
+                for (int i = 0; i < pluralsNames.Count; ++i)
+                {
+                    string[] separators = new string[] {"\n", "\\n"};
+
+                    string[] commentLines = pluralsComments[i] == null ? null : pluralsComments[i].Split(separators, StringSplitOptions.None);
+
+                    res += "            /// <summary>\n";
+
+                    if (commentLines != null)
+                    {
+                        for (int j = 0; j < commentLines.Length; ++j)
+                        {
+                            res += "            /// <para>" + commentLines[j] + "</para>\n";
+                        }
+                    }
+
+                    res += "            /// <para>Value:</para>\n";
+
+                    for (int j = 0; j < (int)PluralsQuantity.Count; ++j)
+                    {
+                        PluralsQuantity quantity = (PluralsQuantity)j;
+                        string valueComment;
+                        string value;
+
+                        if (
+                            pluralsValuesComments[i].TryGetValue(quantity, out valueComment)
+                            &&
+                            pluralsValues[i].TryGetValue(quantity, out value)
+                           )
+                        {
+                            string[] valueCommentLines = valueComment == null ? null : valueComment.Split(separators, StringSplitOptions.None);
+                            string[] valueLines        =                               value.Split(separators, StringSplitOptions.None);
+
+                            res += "            ///   <para>- " + quantity + ":</para>\n";
+
+                            if (valueCommentLines != null)
+                            {
+                                for (int k = 0; k < valueCommentLines.Length; ++k)
+                                {
+                                    res += "            ///     <para>// " + valueCommentLines[k] + "</para>\n";
+                                }
+                            }
+
+                            for (int k = 0; k < valueLines.Length; ++k)
+                            {
+                                res += "            ///     <para>" + valueLines[k] + "</para>\n";
+                            }
+                        }
+                    }
+
+                    res += "            /// </summary>\n" +
+                           "            " + pluralsNames[i] + "\n" +
+                           "            ,\n";
+                }
+
+                res += "            Count // Should be last\n" +
+                       "        }\n" +
+                       "    }\n" +
+                       "}\n";
 
                 File.WriteAllText(targetFile, res, Encoding.UTF8);
 
