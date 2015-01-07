@@ -1,4 +1,5 @@
 ﻿// This file generated accroding to the list of "Assets/Resources/res/values-*" folders.
+using System.Collections.Generic;
 
 
 
@@ -9,9 +10,13 @@ namespace UnityTranslation
     /// </summary>
     public static class AvailableLanguages
     {
-        public static Language[] list = new Language[] {
-              Language.Default
-            , Language.Russian
+        /// <summary>
+        /// List of all languages specified in "Assets/Resources/res"
+        /// </summary>
+        public static readonly Dictionary<Language, string> list = new Dictionary<Language, string>
+        {
+              { Language.Default, "" }
+            , { Language.Russian, "ru" } 
         };
     }
 }

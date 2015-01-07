@@ -4,7 +4,7 @@
 #define I_AM_UNITY_TRANSLATION_DEVELOPER
 
 // Use this definition if you want to force code generation
-// #define FORCE_CODE_GENERATION
+#define FORCE_CODE_GENERATION
 
 
 
@@ -22,6 +22,7 @@ namespace UnityTranslation
 {
     public static class CodeGenerator
     {
+		// TODO: Summary
         public static void generate()
         {
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
@@ -35,6 +36,7 @@ namespace UnityTranslation
         }
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
+		// TODO: Summary
         private static void generateLanguages()
         {
             string cldrLanguagesFile = Application.dataPath           + "/../3rd_party/CLDR/json-full/main/en/languages.json";
@@ -153,7 +155,7 @@ namespace UnityTranslation
                                         }
                                     }
 
-                                    languageCodes.Add(languagesJson.keys[i]);
+                                    languageCodes.Add(languagesJson.keys[i]); // TODO: ru-rRU
                                     languageEnums.Add(languageEnum);
                                     languageNames.Add(languagesJson.list[i].str);
                                 }
@@ -223,7 +225,7 @@ namespace UnityTranslation
                        "\n" +
                        "    public static class LanguageCode\n" +
                        "    {\n" +
-                       "        private static string[] mCodes = null;\n" +
+                       "        private static string[] mCodes = null;\n" + // TODO: Init here. Should be readonly
                        "\n" +
 					   "        public static string[] codes\n" +
 					   "        {\n" +
@@ -233,7 +235,7 @@ namespace UnityTranslation
 					   "            }\n" +
 					   "        }\n" +
 				   	   "\n" +
-                       "        static LanguageCode()\n" +
+                       "        static LanguageCode()\n" + // TODO: Remove it
                        "        {\n" +
                        "            mCodes = new string[(int)Language.Count];\n" +
                        "\n" +
@@ -246,12 +248,12 @@ namespace UnityTranslation
 
                 res += "        }\n" +
                        "\n" +
-                       "        public static string languageToCode(Language language)\n" +
+                       "        public static string languageToCode(Language language)\n" + // TODO: Summary
                        "        {\n" +
                        "            return mCodes[(int)language];\n" +
                        "        }\n" +
                        "\n" +
-                       "        public static Language codeToLanguage(string code)\n" +
+					   "        public static Language codeToLanguage(string code)\n" + // TODO: Summary
                        "        {\n" +
                        "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
                        "            {\n" +
@@ -267,7 +269,7 @@ namespace UnityTranslation
                        "\n" +
                        "    public static class LanguageName\n" +
                        "    {\n" +
-                       "        private static string[] mNames = null;\n" +
+					   "        private static string[] mNames = null;\n" + // TODO: Init here. Should be readonly
 					   "\n" +
 					   "        public static string[] names\n" +
 					   "        {\n" +
@@ -277,7 +279,7 @@ namespace UnityTranslation
 					   "            }\n" +
 					   "        }\n" +
 					   "\n" +
-                       "        static LanguageName()\n" +
+					   "        static LanguageName()\n" + // TODO: Remove it
                        "        {\n" +
                        "            mNames = new string[(int)Language.Count];\n" +
 					   "\n" +
@@ -290,12 +292,12 @@ namespace UnityTranslation
 
                 res += "        }\n" +
                        "\n" +
-                       "        public static string languageToName(Language language)\n" +
+					   "        public static string languageToName(Language language)\n" + // TODO: Summary
                        "        {\n" +
                        "            return mNames[(int)language];\n" +
                        "        }\n" +
                        "\n" +
-                       "        public static Language nameToLanguage(string name)\n" +
+					   "        public static Language nameToLanguage(string name)\n" + // TODO: Summary
                        "        {\n" +
                        "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
                        "            {\n" +
@@ -324,6 +326,7 @@ namespace UnityTranslation
             #endregion
         }
 
+		// TODO: Summary
         private static void generatePluralsRules()
         {
             Debug.Log("Generating \"PluralsRules.cs\" file");
@@ -332,6 +335,7 @@ namespace UnityTranslation
         }
 #endif
 
+		// TODO: Summary
         private static void generateStringsXml()
         {
             string valuesFolder   = Application.dataPath + "/Resources/res/values";
@@ -357,6 +361,7 @@ namespace UnityTranslation
             }
         }
 
+		// TODO: Summary
         private static void generateR()
         {
             string stringsXmlFile = Application.dataPath + "/Resources/res/values/strings.xml";
@@ -896,6 +901,7 @@ namespace UnityTranslation
             }
         }
 
+		// TODO: Summary
         private static bool checkTokenName(string tokenName, string tagName, List<string> tokenNames)
         {
             if (tokenName == null)
@@ -949,6 +955,7 @@ namespace UnityTranslation
             return true;
         }
 
+		// TODO: Summary
 		private static void generateAvailableLanguages()
 		{
 			List<string> valuesFolders       = new List<string>();
@@ -1006,9 +1013,8 @@ namespace UnityTranslation
 			#region Generating AvailableLanguages.cs file
 			Debug.Log("Generating \"AvailableLanguages.cs\" file");
 
-			List<Language> languages         = new List<Language>();
-			string[]       languageCodes     = LanguageCode.codes;
-			string[]       languageRealCodes = new string[(int)Language.Count];
+			string[]                     languageCodes     = LanguageCode.codes;
+			Dictionary<Language, string> languageRealCodes = new Dictionary<Language, string>();
 
 			for (int i = 0; i < valuesFolders.Count; ++i)
 			{
@@ -1036,11 +1042,11 @@ namespace UnityTranslation
 					return;
 				}
 
-				languages.Add((Language)index);
-				languageRealCodes[index] = valuesFolders[i];
+				languageRealCodes[(Language)index] = valuesFolders[i];
 			}
 
 			string res = "// This file generated accroding to the list of \"Assets/Resources/res/values-*\" folders.\n" +
+				         "using System.Collections.Generic;\n" +
 				         "\n" +
 					     "\n" +
 					     "\n" +
@@ -1051,19 +1057,21 @@ namespace UnityTranslation
 					     "    /// </summary>\n" +
 					     "    public static class AvailableLanguages\n" +
 					     "    {\n" +
-					     "        public static Language[] list = new Language[] {\n" +
-					     "              Language.Default\n";
+					     "        /// <summary>\n" +
+					     "        /// List of all languages specified in \"Assets/Resources/res\"\n" +
+					     "        /// </summary>\n" +
+					     "        public static readonly Dictionary<Language, string> list = new Dictionary<Language, string>\n" +
+			             "        {\n" +
+					     "              { Language.Default, \"\" }\n";
 
-			for (int i = 0; i < languages.Count; ++i)
+			foreach (Language language in languageRealCodes.Keys)
 			{
-				res += "            , Language." + languages[i] + "\n";
+				res += "            , { Language." + language + ", \"" + languageRealCodes[language] + "\" } \n";
 			}
 
 			res += "        };\n" +
 				   "    }\n" +
 				   "}\n";
-			
-			// TODO: Implement CodeGenerator.generateAvailableLanguages
 
 			File.WriteAllText(targetFile, res, Encoding.UTF8);
 

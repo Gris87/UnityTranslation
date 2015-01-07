@@ -1,5 +1,6 @@
 namespace UnityTranslation
 {
+	// TODO: Summary
     public enum PluralsQuantity
     {
           Zero
