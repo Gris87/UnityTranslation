@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 namespace UnityTranslation
 {
+	// TODO: Summary
     public static class Translator
     {
         private static Language   mLanguage              = Language.Default;

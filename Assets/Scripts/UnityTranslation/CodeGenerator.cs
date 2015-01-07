@@ -1045,7 +1045,7 @@ namespace UnityTranslation
 				languageRealCodes[(Language)index] = valuesFolders[i];
 			}
 
-			string res = "// This file generated accroding to the list of \"Assets/Resources/res/values-*\" folders.\n" +
+			string res = "// This file generated according to the list of \"Assets/Resources/res/values-*\" folders.\n" +
 				         "using System.Collections.Generic;\n" +
 				         "\n" +
 					     "\n" +
