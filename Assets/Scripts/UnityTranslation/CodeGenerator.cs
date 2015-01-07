@@ -31,6 +31,7 @@ namespace UnityTranslation
 
             generateStringsXml();
             generateR();
+			generateAvailableLanguages();
         }
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
@@ -224,6 +225,14 @@ namespace UnityTranslation
                        "    {\n" +
                        "        private static string[] mCodes = null;\n" +
                        "\n" +
+					   "        public static string[] codes\n" +
+					   "        {\n" +
+					   "            get\n" +
+					   "            {\n" +
+					   "                return mCodes;\n" +
+					   "            }\n" +
+					   "        }\n" +
+				   	   "\n" +
                        "        static LanguageCode()\n" +
                        "        {\n" +
                        "            mCodes = new string[(int)Language.Count];\n" +
@@ -259,11 +268,19 @@ namespace UnityTranslation
                        "    public static class LanguageName\n" +
                        "    {\n" +
                        "        private static string[] mNames = null;\n" +
-                       "\n" +
+					   "\n" +
+					   "        public static string[] names\n" +
+					   "        {\n" +
+					   "            get\n" +
+					   "            {\n" +
+					   "                return mNames;\n" +
+					   "            }\n" +
+					   "        }\n" +
+					   "\n" +
                        "        static LanguageName()\n" +
                        "        {\n" +
                        "            mNames = new string[(int)Language.Count];\n" +
-                       "\n" +
+					   "\n" +
                        "            mNames[(int)Language.Default] = \"\";\n";
 
                 for (int i = 0; i < languageNames.Count; ++i)
@@ -895,6 +912,33 @@ namespace UnityTranslation
                 return false;
             }
 
+			if (tokenName[0] >= '0' && tokenName[0] <= '9')
+			{
+				Debug.LogError("Attribute \"name\" for tag <" + tagName + "> starts with a digit (\"" + tokenName + "\") in \"Assets/Resources/res/values/strings.xml\"");
+				
+				return false;
+			}
+
+			for (int i = 0; i < tokenName.Length; ++i)
+			{
+				char ch = tokenName[i];
+
+				if (
+					(ch < 'a' || ch > 'z')
+					&&
+					(ch < 'A' || ch > 'Z')
+					&&
+					(ch < '0' || ch > '9')
+					&&
+					ch != '_'
+				   )
+				{
+					Debug.LogError("Attribute \"name\" for tag <" + tagName + "> has unsupported character \"" + ch + "\" in value \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
+					
+					return false;
+				}
+			}
+
             if (tokenNames.Contains(tokenName))
             {
                 Debug.LogError("Attribute \"name\" for tag <" + tagName + "> has duplicate value \"" + tokenName + "\" in \"Assets/Resources/res/values/strings.xml\"");
@@ -904,6 +948,129 @@ namespace UnityTranslation
 
             return true;
         }
+
+		private static void generateAvailableLanguages()
+		{
+			List<string> valuesFolders       = new List<string>();
+			string       valuesFoldersString = "";
+
+			#region Getting list of languages in Assets/Resources/res
+			string resFolder = Application.dataPath + "/Resources/res";
+
+			DirectoryInfo   resDir = new DirectoryInfo(resFolder);
+			DirectoryInfo[] dirs   = resDir.GetDirectories();
+
+			for (int i = 0; i < dirs.Length; ++i)
+			{
+				string dirName = dirs[i].Name;
+
+				if (dirName.StartsWith("values-"))
+				{
+					string locale = dirName.Substring(7);
+
+					valuesFolders.Add(locale);
+					valuesFoldersString += locale + "\n";
+				}
+				else
+				if (dirName != "values")
+				{
+					Debug.LogError("Unexpected folder name \"" + dirName + "\" in \"Assets/Resources/res\"");
+
+					return;
+				}
+			}
+			#endregion
+
+			string tempValuesFolderFile = Application.temporaryCachePath + "/valuesFolders.txt";
+			
+			string targetFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/AvailableLanguages.cs";
+						
+			#region Check that AvailableLanguages.cs is up to date
+			#if !FORCE_CODE_GENERATION
+			if (
+				File.Exists(targetFile)
+				&&
+				File.Exists(tempValuesFolderFile)
+			   )
+			{
+				string tempFileText = File.ReadAllText(tempValuesFolderFile);
+				
+				if (valuesFoldersString == tempFileText)
+				{
+					return;
+				}
+			}
+			#endif
+			#endregion
+			
+			#region Generating AvailableLanguages.cs file
+			Debug.Log("Generating \"AvailableLanguages.cs\" file");
+
+			List<Language> languages         = new List<Language>();
+			string[]       languageCodes     = LanguageCode.codes;
+			string[]       languageRealCodes = new string[(int)Language.Count];
+
+			for (int i = 0; i < valuesFolders.Count; ++i)
+			{
+				int index = -1;
+
+				for (int j = 1; j < languageCodes.Length; ++j)
+				{
+					if (valuesFolders[i].StartsWith(languageCodes[j]))
+					{
+						if (
+							index < 0
+							||
+							languageCodes[j].Length < languageCodes[index].Length
+						   )
+						{
+							index = j;
+						}
+					}
+				}
+
+				if (index < 0)
+				{
+					Debug.LogError("Unknown language code \"" + valuesFolders[i] + "\" found in \"Assets/Resources/res\"");
+
+					return;
+				}
+
+				languages.Add((Language)index);
+				languageRealCodes[index] = valuesFolders[i];
+			}
+
+			string res = "// This file generated accroding to the list of \"Assets/Resources/res/values-*\" folders.\n" +
+				         "\n" +
+					     "\n" +
+					     "\n" +
+					     "namespace UnityTranslation\n" +
+					     "{\n" +
+					     "    /// <summary>\n" +
+					     "    /// Container for all languages specified in \"Assets/Resources/res\"\n" +
+					     "    /// </summary>\n" +
+					     "    public static class AvailableLanguages\n" +
+					     "    {\n" +
+					     "        public static Language[] list = new Language[] {\n" +
+					     "              Language.Default\n";
+
+			for (int i = 0; i < languages.Count; ++i)
+			{
+				res += "            , Language." + languages[i] + "\n";
+			}
+
+			res += "        };\n" +
+				   "    }\n" +
+				   "}\n";
+			
+			// TODO: Implement CodeGenerator.generateAvailableLanguages
+
+			File.WriteAllText(targetFile, res, Encoding.UTF8);
+
+			Debug.Log("Caching valuesFolders.txt file in \"" + tempValuesFolderFile + "\"");
+			File.WriteAllText(tempValuesFolderFile, valuesFoldersString);
+			#endregion
+		}
     }
 }
 #endif

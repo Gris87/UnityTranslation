@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Greeting -->
+    <string name="hello">Привет</string>
+
+    <!-- List of fruits -->
+    <string-array name="fruits">
+        <!-- This fruit is red -->
+        <item>Яблоко</item>
+        <!-- This fruit is orange -->
+        <item>Апельсин</item>
+        <!-- This fruit is yellow -->
+        <item>Банан</item>
+    </string-array>
+
+    <!-- Plurals for files -->
+    <plurals name="files">
+        <!-- 0 files -->
+        <item quantity="zero">нет файлов</item>
+        <!-- 1 file -->
+        <item quantity="one">%d файл</item>
+        <!-- 2 files -->
+        <item quantity="two">%d файла</item>
+        <!-- 5 files -->
+        <item quantity="few">%d файлов</item>
+        <!-- 26 files -->
+        <item quantity="many">%d файлов</item>
+        <!-- 3219 files -->
+        <item quantity="other">%d файлов</item>
+    </plurals>
+
+</resources>
