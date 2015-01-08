@@ -1,4 +1,4 @@
-﻿// This file generated according to the list of "Assets/Resources/res/values-*" folders.
+// This file generated according to the list of "Assets/Resources/res/values-*" folders.
 using System.Collections.Generic;
 
 
@@ -16,7 +16,7 @@ namespace UnityTranslation
         public static readonly Dictionary<Language, string> list = new Dictionary<Language, string>
         {
               { Language.Default, "" }
-            , { Language.Russian, "ru" } 
+            , { Language.Russian, "ru" }
         };
     }
 }

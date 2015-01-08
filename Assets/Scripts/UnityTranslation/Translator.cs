@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace UnityTranslation
 {
-	// TODO: Summary
+    // TODO: Summary
     public static class Translator
     {
         private static Language   mLanguage              = Language.Default;
@@ -16,7 +16,7 @@ namespace UnityTranslation
         #region Properties
 
         #region language
-		// TODO: Summary
+        // TODO: Summary
         public static Language language
         {
             get
@@ -28,18 +28,18 @@ namespace UnityTranslation
             {
                 if (mLanguage != value)
                 {
-					if (AvailableLanguages.list.ContainsKey(value))
-					{
-						mLanguage = value;
+                    if (AvailableLanguages.list.ContainsKey(value))
+                    {
+                        mLanguage = value;
 
-						// TODO: Reload tokens
+                        // TODO: Reload tokens
 
-						mLanguageChangedAction.Invoke();
-					}
-					else
-					{
-						Debug.LogError("Impossible to change language to " + value + " because it's not specified in \"Assets/Resources/res\" folder");
-					}
+                        mLanguageChangedAction.Invoke();
+                    }
+                    else
+                    {
+                        Debug.LogError("Impossible to change language to " + value + " because it's not specified in \"Assets/Resources/res\" folder");
+                    }
                 }
             }
         }
@@ -58,20 +58,20 @@ namespace UnityTranslation
             mLanguageChangedAction = new UnityEvent();
         }
 
-		// TODO: Summary
+        // TODO: Summary
         public static void addLanguageChangedListener(UnityAction listener)
         {
             mLanguageChangedAction.AddListener(listener);
             listener.Invoke();
         }
 
-		// TODO: Summary
+        // TODO: Summary
         public static void removeLanguageChangedListener(UnityAction listener)
         {
             mLanguageChangedAction.RemoveListener(listener);
         }
 
-		// TODO: Summary
+        // TODO: Summary
         public static string getString(R.strings id)
         {
             // TODO: Implement UnityTranslation.getString()
@@ -79,7 +79,7 @@ namespace UnityTranslation
             return "";
         }
 
-		// TODO: Summary
+        // TODO: Summary
         public static string[] getStringArray(R.array id)
         {
             // TODO: Implement UnityTranslation.getStringArray()
@@ -87,7 +87,7 @@ namespace UnityTranslation
             return null;
         }
 
-		// TODO: Summary
+        // TODO: Summary
         public static string getQuantityString(R.plurals id, int quantity)
         {
             // TODO: Implement UnityTranslation.getQuantityString()

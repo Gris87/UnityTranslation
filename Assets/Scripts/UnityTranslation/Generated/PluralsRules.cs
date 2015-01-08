@@ -1,6 +1,6 @@
 namespace UnityTranslation
 {
-	// TODO: Summary
+    // TODO: Summary
     public static class PluralsRules
     {
         static PluralsRules()
