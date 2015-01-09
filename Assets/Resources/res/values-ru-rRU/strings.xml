@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Greeting -->
+    <string name="hello">Здравствуйте</string>
+
+    <!-- List of fruits -->
+    <string-array name="fruits">
+        <!-- This fruit is red -->
+        <item>Яблоко</item>
+        <!-- This fruit is orange -->
+        <item>Апельсин</item>
+        <!-- This fruit is yellow -->
+        <item>Банан</item>
+    </string-array>
+
+</resources>

@@ -4,30 +4,20 @@
     <!-- Greeting -->
     <string name="hello">Привет</string>
 
-    <!-- List of fruits -->
-    <string-array name="fruits">
-        <!-- This fruit is red -->
-        <item>Яблоко</item>
-        <!-- This fruit is orange -->
-        <item>Апельсин</item>
-        <!-- This fruit is yellow -->
-        <item>Банан</item>
-    </string-array>
-
     <!-- Plurals for files -->
     <plurals name="files">
         <!-- 0 files -->
         <item quantity="zero">нет файлов</item>
         <!-- 1 file -->
-        <item quantity="one">%d файл</item>
+        <item quantity="one">{0} файл</item>
         <!-- 2 files -->
-        <item quantity="two">%d файла</item>
+        <item quantity="two">{0} файла</item>
         <!-- 5 files -->
-        <item quantity="few">%d файлов</item>
+        <item quantity="few">{0} файлов</item>
         <!-- 26 files -->
-        <item quantity="many">%d файлов</item>
+        <item quantity="many">{0} файлов</item>
         <!-- 3219 files -->
-        <item quantity="other">%d файлов</item>
+        <item quantity="other">{0} файлов</item>
     </plurals>
 
 </resources>

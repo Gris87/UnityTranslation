@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 
-// Use this definition to generate "Languages.cs" and "PluralsRules.cs" from CLDR. Please become Unity Translation developer and commit your changes to https://github.com/Gris87/UnityTranslation
+// Use this definition to generate "Languages.cs" and "PluralsRules.cs" from CLDR.
+// Please become Unity Translation developer and commit your changes to https://github.com/Gris87/UnityTranslation
 #define I_AM_UNITY_TRANSLATION_DEVELOPER
 
 // Use this definition if you want to force code generation
@@ -23,7 +24,7 @@ namespace UnityTranslation
     public static class CodeGenerator
     {
         /// <summary>
-        /// Generates code required for UnityTranslation
+        /// Generates source code required for UnityTranslation
         /// </summary>
         public static void generate()
         {
@@ -227,11 +228,17 @@ namespace UnityTranslation
                        "        Count // Should be last\n" +
                        "    }\n" +
                        "\n" +
+                       "    /// <summary>\n" +
+                       "    /// This class provides methods for converting language code to Language enum and Language enum to language code\n" +
+                       "    /// </summary>\n" +
                        "    public static class LanguageCode\n" +
                        "    {\n" +
+                       "        /// <summary>\n" +
+                       "        /// Array of language codes for each Language enum value.\n" +
+                       "        /// </summary>\n" +
                        "        public static readonly string[] codes = new string[]\n" +
                        "        {\n" +
-                       "              \"\" // Default\n";
+                       "              \"\" // Default\n"; // TODO: Align
 
                 for (int i = 0; i < languageCodes.Count; ++i)
                 {
@@ -243,6 +250,7 @@ namespace UnityTranslation
                        "        /// <summary>\n" +
                        "        /// Converts Language enum value to language code\n" +
                        "        /// </summary>\n" +
+                       "        /// <returns>Language code.</returns>\n" +
                        "        /// <param name=\"language\">Language enum value</param>\n" +
                        "        public static string languageToCode(Language language)\n" +
                        "        {\n" +
@@ -252,6 +260,7 @@ namespace UnityTranslation
                        "        /// <summary>\n" +
                        "        /// Converts language code to Language enum value\n" +
                        "        /// </summary>\n" +
+                       "        /// <returns>Language enum value.</returns>\n" +
                        "        /// <param name=\"code\">Language code</param>\n" +
                        "        public static Language codeToLanguage(string code)\n" +
                        "        {\n" +
@@ -267,11 +276,17 @@ namespace UnityTranslation
                        "        }\n" +
                        "    }\n" +
                        "\n" +
+                       "    /// <summary>\n" +
+                       "    /// This class provides methods for converting language name to Language enum and Language enum to language name\n" +
+                       "    /// </summary>\n" +
                        "    public static class LanguageName\n" +
                        "    {\n" +
+                       "        /// <summary>\n" +
+                       "        /// Array of language names for each Language enum value.\n" +
+                       "        /// </summary>\n" +
                        "        public static readonly string[] names = new string[]\n" +
                        "        {\n" +
-                       "              \"\" // Default\n";
+                       "              \"\" // Default\n"; // TODO: Align
 
                 for (int i = 0; i < languageNames.Count; ++i)
                 {
@@ -283,6 +298,7 @@ namespace UnityTranslation
                        "        /// <summary>\n" +
                        "        /// Converts Language enum value to language name\n" +
                        "        /// </summary>\n" +
+                       "        /// <returns>Language name.</returns>\n" +
                        "        /// <param name=\"language\">Language enum value</param>\n" +
                        "        public static string languageToName(Language language)\n" +
                        "        {\n" +
@@ -292,6 +308,7 @@ namespace UnityTranslation
                        "        /// <summary>\n" +
                        "        /// Converts language name to Language enum value\n" +
                        "        /// </summary>\n" +
+                       "        /// <returns>Language enum value.</returns>\n" +
                        "        /// <param name=\"name\">Language name</param>\n" +
                        "        public static Language nameToLanguage(string name)\n" +
                        "        {\n" +
@@ -904,11 +921,12 @@ namespace UnityTranslation
         }
 
         /// <summary>
-        /// Verifies token name
+        /// Checks the name of the token.
         /// </summary>
-        /// <param name="tokenName">Token name</param>
-        /// <param name="tagName">Tag name</param>
-        /// <param name="tokenNames">List of token names</param>
+        /// <returns><c>true</c>, if token name is correct, <c>false</c> otherwise.</returns>
+        /// <param name="tokenName">Token name.</param>
+        /// <param name="tagName">Tag name.</param>
+        /// <param name="tokenNames">List of token names.</param>
         private static bool checkTokenName(string tokenName, string tagName, List<string> tokenNames)
         {
             if (tokenName == null)
@@ -1071,11 +1089,11 @@ namespace UnityTranslation
                          "        /// </summary>\n" +
                          "        public static readonly Dictionary<Language, string> list = new Dictionary<Language, string>\n" +
                          "        {\n" +
-                         "              { Language.Default, \"\" }\n";
+                         "              { Language.Default, \"\" }\n"; // TODO: Align
 
             foreach (Language language in languageRealCodes.Keys)
             {
-                res += "            , { Language." + language + ", \"" + languageRealCodes[language] + "\" } \n";
+                res += "            , { Language." + language + ", \"" + languageRealCodes[language] + "\" } \n"; // TODO: Align
             }
 
             res += "        };\n" +

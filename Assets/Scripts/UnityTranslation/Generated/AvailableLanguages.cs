@@ -16,7 +16,8 @@ namespace UnityTranslation
         public static readonly Dictionary<Language, string> list = new Dictionary<Language, string>
         {
               { Language.Default, "" }
-            , { Language.Russian, "ru" }
+            , { Language.French, "fr-rCH" }
+            , { Language.Russian, "ru-rRU" }
         };
     }
 }

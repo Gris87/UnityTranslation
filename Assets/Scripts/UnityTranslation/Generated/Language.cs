@@ -3087,8 +3087,14 @@ namespace UnityTranslation
         Count // Should be last
     }
 
+    /// <summary>
+    /// This class provides methods for converting language code to Language enum and Language enum to language code
+    /// </summary>
     public static class LanguageCode
     {
+        /// <summary>
+        /// Array of language codes for each Language enum value.
+        /// </summary>
         public static readonly string[] codes = new string[]
         {
               "" // Default
@@ -3708,11 +3714,21 @@ namespace UnityTranslation
             , "zza" // Zaza
         };
 
+        /// <summary>
+        /// Converts Language enum value to language code
+        /// </summary>
+        /// <returns>Language code.</returns>
+        /// <param name="language">Language enum value</param>
         public static string languageToCode(Language language)
         {
             return codes[(int)language];
         }
 
+        /// <summary>
+        /// Converts language code to Language enum value
+        /// </summary>
+        /// <returns>Language enum value.</returns>
+        /// <param name="code">Language code</param>
         public static Language codeToLanguage(string code)
         {
             for (int i = 0; i < (int)Language.Count; ++i)
@@ -3727,8 +3743,14 @@ namespace UnityTranslation
         }
     }
 
+    /// <summary>
+    /// This class provides methods for converting language name to Language enum and Language enum to language name
+    /// </summary>
     public static class LanguageName
     {
+        /// <summary>
+        /// Array of language names for each Language enum value.
+        /// </summary>
         public static readonly string[] names = new string[]
         {
               "" // Default
@@ -4348,11 +4370,21 @@ namespace UnityTranslation
             , "Zaza" // Zaza
         };
 
+        /// <summary>
+        /// Converts Language enum value to language name
+        /// </summary>
+        /// <returns>Language name.</returns>
+        /// <param name="language">Language enum value</param>
         public static string languageToName(Language language)
         {
             return names[(int)language];
         }
 
+        /// <summary>
+        /// Converts language name to Language enum value
+        /// </summary>
+        /// <returns>Language enum value.</returns>
+        /// <param name="name">Language name</param>
         public static Language nameToLanguage(string name)
         {
             for (int i = 0; i < (int)Language.Count; ++i)
