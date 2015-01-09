@@ -60,19 +60,19 @@ namespace UnityTranslation
             ///     <para>no files</para>
             ///   <para>- One:</para>
             ///     <para>// 1 file</para>
-            ///     <para>%d file</para>
+            ///     <para>{0} file</para>
             ///   <para>- Two:</para>
             ///     <para>// 2 files</para>
-            ///     <para>%d files</para>
+            ///     <para>{0} files</para>
             ///   <para>- Few:</para>
             ///     <para>// 5 files</para>
-            ///     <para>%d files</para>
+            ///     <para>{0} files</para>
             ///   <para>- Many:</para>
             ///     <para>// 26 files</para>
-            ///     <para>%d files</para>
+            ///     <para>{0} files</para>
             ///   <para>- Other:</para>
             ///     <para>// 3219 files</para>
-            ///     <para>%d files</para>
+            ///     <para>{0} files</para>
             /// </summary>
             files
             ,

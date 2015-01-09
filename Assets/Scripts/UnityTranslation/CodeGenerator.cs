@@ -86,6 +86,9 @@ namespace UnityTranslation
 
             if (json.type == JSONObject.Type.OBJECT)
             {
+                int maxCodeLength = 0;
+                int maxNameLength = 0;
+
                 List<string> languageCodes = new List<string>();
                 List<string> languageEnums = new List<string>();
                 List<string> languageNames = new List<string>();
@@ -160,9 +163,22 @@ namespace UnityTranslation
                                         }
                                     }
 
-                                    languageCodes.Add(languagesJson.keys[i]); // TODO: ru-rRU
+                                    string languageCode = languagesJson.keys[i];
+                                    string languageName = languagesJson.list[i].str;
+
+                                    if (languageCode.Length > maxCodeLength)
+                                    {
+                                        maxCodeLength = languageCode.Length;
+                                    }
+
+                                    if (languageName.Length > maxNameLength)
+                                    {
+                                        maxNameLength = languageName.Length;
+                                    }
+
+                                    languageCodes.Add(languageCode); // TODO: ru-rRU
                                     languageEnums.Add(languageEnum);
-                                    languageNames.Add(languagesJson.list[i].str);
+                                    languageNames.Add(languageName);
                                 }
                             },
                             delegate(string name)
@@ -238,11 +254,11 @@ namespace UnityTranslation
                        "        /// </summary>\n" +
                        "        public static readonly string[] codes = new string[]\n" +
                        "        {\n" +
-                       "              \"\" // Default\n"; // TODO: Align
+                       string.Format("              {0,-" + (maxCodeLength + 2) + "} // Default\n", "\"\"");
 
                 for (int i = 0; i < languageCodes.Count; ++i)
                 {
-                    res += "            , \"" + languageCodes[i] + "\" // " + languageEnums[i] + "\n"; // TODO: Align
+                    res += string.Format("            , {0,-" + (maxCodeLength + 2) + "} // {1}\n", "\"" + languageCodes[i] + "\"", languageEnums[i]);
                 }
 
                 res += "        };\n" +
@@ -286,11 +302,11 @@ namespace UnityTranslation
                        "        /// </summary>\n" +
                        "        public static readonly string[] names = new string[]\n" +
                        "        {\n" +
-                       "              \"\" // Default\n"; // TODO: Align
+                        string.Format("              {0,-" + (maxNameLength + 2) + "} // Default\n", "\"\"");
 
                 for (int i = 0; i < languageNames.Count; ++i)
                 {
-                    res += "            , \"" + languageNames[i] + "\" // " + languageEnums[i] + "\n"; // TODO: Align
+                    res += string.Format("            , {0,-" + (maxNameLength + 2) + "} // {1}\n", "\"" + languageNames[i] + "\"", languageEnums[i]);
                 }
 
                 res += "        };\n" +
@@ -1072,6 +1088,25 @@ namespace UnityTranslation
                 languageRealCodes[(Language)index] = valuesFolders[i];
             }
 
+            int maxCodeLength     = 0;
+            int maxRealCodeLength = 0;
+
+            foreach (Language language in languageRealCodes.Keys)
+            {
+                string languageCode     = language.ToString();
+                string languageRealCode = languageRealCodes[language];
+
+                if (languageCode.Length > maxCodeLength)
+                {
+                    maxCodeLength = languageCode.Length;
+                }
+
+                if (languageRealCode.Length > maxRealCodeLength)
+                {
+                    maxRealCodeLength = languageRealCode.Length;
+                }
+            }
+
             string res = "// This file generated according to the list of \"Assets/Resources/res/values-*\" folders.\n" +
                          "using System.Collections.Generic;\n" +
                          "\n" +
@@ -1089,11 +1124,11 @@ namespace UnityTranslation
                          "        /// </summary>\n" +
                          "        public static readonly Dictionary<Language, string> list = new Dictionary<Language, string>\n" +
                          "        {\n" +
-                         "              { Language.Default, \"\" }\n"; // TODO: Align
+                         string.Format("              {{ Language.{0,-" + (maxCodeLength + 1) + "} {1,-" + (maxRealCodeLength + 2) + "} }} \n", "Default,", "\"\"");
 
             foreach (Language language in languageRealCodes.Keys)
             {
-                res += "            , { Language." + language + ", \"" + languageRealCodes[language] + "\" } \n"; // TODO: Align
+                res += string.Format("            , {{ Language.{0,-" + (maxCodeLength + 1) + "} {1,-" + (maxRealCodeLength + 2) + "} }} \n", language.ToString() + ",", "\"" + languageRealCodes[language] + "\"");
             }
 
             res += "        };\n" +
