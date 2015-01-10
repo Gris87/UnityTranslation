@@ -25,7 +25,7 @@ namespace UnityTranslation
         /// Please note that if you want to add new language you have to create values folder in Assets/Resources/res folder.
         /// Language code should be one of specified language codes in Language.cs
         /// </summary>
-        /// <value>Language.</value>
+        /// <value>Current language.</value>
         public static Language language
         {
             get

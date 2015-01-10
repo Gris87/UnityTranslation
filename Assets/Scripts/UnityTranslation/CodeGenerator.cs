@@ -176,7 +176,7 @@ namespace UnityTranslation
                                         maxNameLength = languageName.Length;
                                     }
 
-                                    languageCodes.Add(languageCode); // TODO: ru-rRU
+                                    languageCodes.Add(languageCode);
                                     languageEnums.Add(languageEnum);
                                     languageNames.Add(languageName);
                                 }
@@ -1065,12 +1065,26 @@ namespace UnityTranslation
 
                 for (int j = 1; j < languageCodes.Length; ++j)
                 {
-                    if (valuesFolders[i].StartsWith(languageCodes[j]))
+                    string originalLanguageCode = languageCodes[j];
+                    string languageCode         = originalLanguageCode;
+
+                    int dashIndex = languageCode.IndexOf('-');
+
+                    if (dashIndex >= 0)
+                    {
+                        languageCode = languageCode.Insert(dashIndex + 1, "r");
+                    }
+
+                    if (
+                        valuesFolders[i].StartsWith(originalLanguageCode)
+                        ||
+                        valuesFolders[i].StartsWith(languageCode)
+                       )
                     {
                         if (
                             index < 0
                             ||
-                            languageCodes[j].Length < languageCodes[index].Length
+                            languageCodes[j].Length > languageCodes[index].Length
                            )
                         {
                             index = j;
