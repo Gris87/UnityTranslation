@@ -360,9 +360,79 @@ namespace UnityTranslation
         /// </summary>
         private static void generatePluralsRules()
         {
+            string cldrPluralsFile = Application.dataPath           + "/../3rd_party/CLDR/json-full/supplemental/plurals.json";
+            string tempPluralsFile = Application.temporaryCachePath + "/plurals.json";
+
+            string targetFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/PluralsRules.cs";
+
+            byte[] cldrFileBytes = null;
+
+            #region Check that PluralsRules.cs is up to date
+            if (!File.Exists(cldrPluralsFile))
+            {
+                Debug.LogError("File \"" + cldrPluralsFile + "\" not found");
+
+                return;
+            }
+
+            cldrFileBytes = File.ReadAllBytes(cldrPluralsFile);
+
+            #if !FORCE_CODE_GENERATION
+            if (
+                File.Exists(targetFile)
+                &&
+                File.Exists(tempPluralsFile)
+               )
+            {
+                byte[] tempFileBytes = File.ReadAllBytes(tempPluralsFile);
+
+                if (cldrFileBytes.SequenceEqual(tempFileBytes))
+                {
+                    return;
+                }
+            }
+            #endif
+            #endregion
+
+            #region Generating PluralsRules.cs file
             Debug.Log("Generating \"PluralsRules.cs\" file");
 
-            // TODO: Implement CodeGenerator.generatePluralsRules
+            string cldrFileText = Encoding.UTF8.GetString(cldrFileBytes);
+            JSONObject json = new JSONObject(cldrFileText);
+
+            if (json.type == JSONObject.Type.OBJECT)
+            {
+                // TODO: Implement CodeGenerator.generatePluralsRules
+
+                string res = "// This file generated from \"CLDR/json-full/supplemental/plurals.json\" file.\n" +
+                             "\n" +
+                             "\n" +
+                             "\n" +
+                             "namespace UnityTranslation\n" +
+                             "{\n" +
+                             "    /// <summary>\n" +
+                             "    /// Container for all plurals rules for each language.\n" +
+                             "    /// </summary>\n" +
+                             "    public static class PluralsRules\n" +
+                             "    {\n" +
+                             "        static PluralsRules()\n" +
+                             "        {\n" +
+                             "        }\n" +
+                             "    }\n" +
+                             "}\n";
+
+                File.WriteAllText(targetFile, res, Encoding.UTF8);
+            }
+            else
+            {
+                Debug.LogError("Incorrect file format in \"" + cldrPluralsFile + "\"");
+
+                return;
+            }
+
+            Debug.Log("Caching CLDR plurals file in \"" + tempPluralsFile + "\"");
+            File.WriteAllBytes(tempPluralsFile, cldrFileBytes);
+            #endregion
         }
 #endif
 
