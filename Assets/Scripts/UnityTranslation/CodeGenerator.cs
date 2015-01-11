@@ -106,6 +106,11 @@ namespace UnityTranslation
                             {
                                 for (int i = 0; i < languagesJson.list.Count; ++i)
                                 {
+									if (languagesJson.keys[i] == "root")
+									{
+										continue;
+									}
+
                                     string temp = "";
 
                                     string[] tokens = languagesJson.list[i].str.Split(' ', '.', '-');
@@ -288,7 +293,7 @@ namespace UnityTranslation
                        "                }\n" +
                        "            }\n" +
                        "\n" +
-                       "            return Language.Default;\n" +
+                       "            return Language.Count;\n" +
                        "        }\n" +
                        "    }\n" +
                        "\n" +
@@ -336,7 +341,7 @@ namespace UnityTranslation
                        "                }\n" +
                        "            }\n" +
                        "\n" +
-                       "            return Language.Default;\n" +
+                       "            return Language.Count;\n" +
                        "        }\n" +
                        "    }\n" +
                        "}\n";
@@ -402,6 +407,180 @@ namespace UnityTranslation
 
             if (json.type == JSONObject.Type.OBJECT)
             {
+				List<List<Language>>                      languages = new List<List<Language>>();
+				List<Dictionary<PluralsQuantity, string>> plurals   = new List<Dictionary<PluralsQuantity, string>>();
+				
+				#region Parse JSON
+				bool good = true;
+				
+				json.GetField("supplemental", delegate(JSONObject supplementalJson)
+				{
+					supplementalJson.GetField("plurals-type-cardinal", delegate(JSONObject pluralsJson)
+					{
+						for (int i = 0; i < pluralsJson.list.Count; ++i)
+						{
+							JSONObject languageJson = pluralsJson.list[i];
+
+							Language language = LanguageCode.codeToLanguage(pluralsJson.keys[i]);
+
+							if (language == Language.Count)
+							{
+								if (pluralsJson.keys[i] == "root")
+								{
+									language = Language.Default;
+								}
+								else
+								{
+									Debug.LogWarning("Unexpected language code \"" + pluralsJson.keys[i] + "\" in \"" + cldrPluralsFile + "\". Skipped");
+
+									continue;
+								}
+							}
+
+							Dictionary<PluralsQuantity, string> languagePlurals = new Dictionary<PluralsQuantity, string>();
+
+							for (int j = 0; j < languageJson.list.Count; ++j)
+							{
+								PluralsQuantity quantity;
+
+								if (languageJson.keys[j] == "pluralRule-count-zero")
+								{
+									quantity = PluralsQuantity.Zero;
+								}
+								else
+								if (languageJson.keys[j] == "pluralRule-count-one")
+								{
+									quantity = PluralsQuantity.One;
+								}
+								else
+								if (languageJson.keys[j] == "pluralRule-count-two")
+								{
+									quantity = PluralsQuantity.Two;
+								}
+								else
+								if (languageJson.keys[j] == "pluralRule-count-few")
+								{
+									quantity = PluralsQuantity.Few;
+								}
+								else
+								if (languageJson.keys[j] == "pluralRule-count-many")
+								{
+									quantity = PluralsQuantity.Many;
+								}
+								else
+								if (languageJson.keys[j] == "pluralRule-count-other")
+								{
+									quantity = PluralsQuantity.Other;
+								}
+								else
+								{
+									good = false;
+
+									Debug.LogError("Unexpected plurals \"" + languageJson.keys[j] + "\" found for language code \"" + pluralsJson.keys[i] + "\" in \"" + cldrPluralsFile + "\"");
+
+									break;
+								}
+
+								languagePlurals[quantity] = languageJson.list[j].str;
+							}
+
+							if (!good)
+							{
+								break;
+							}
+
+							int index = -1;
+
+							for (int j = 0; j < plurals.Count; ++j)
+							{
+								index = j;
+
+								for (int k = (int)PluralsQuantity.Zero; k < (int)PluralsQuantity.Count; ++k)
+								{
+									string leftString  = plurals[j][(PluralsQuantity)k];
+									string rightString = languagePlurals[(PluralsQuantity)k];
+
+									if (leftString == null && rightString == null)
+									{
+										continue;
+									}
+
+									if (
+										leftString != null && rightString == null
+										||
+										leftString == null && rightString != null
+									   )
+									{
+										index = -1;
+										break;
+									}
+
+									int charIndex = leftString.IndexOf('@');
+
+									if (charIndex >= 0)
+									{
+										leftString = leftString.Substring(0, charIndex).Trim();
+									}
+
+									charIndex = rightString.IndexOf('@');
+									
+									if (charIndex >= 0)
+									{
+										rightString = rightString.Substring(0, charIndex).Trim();
+									}
+
+									if (leftString != rightString)
+									{
+										index = -1;
+										break;
+									}
+								}
+
+								if (index >= 0)
+								{
+									break;
+								}
+							}
+
+							if (index >= 0)
+							{
+								languages[index].Add(language);
+							}
+							else
+							{
+								List<Language> languagesList = new List<Language>();
+								languagesList.Add(language);
+
+								languages.Add(languagesList);
+								plurals.Add(languagePlurals);
+							}
+						}
+					},
+					delegate(string name)
+					{
+						good = false;
+						
+						Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrPluralsFile + "\"");
+					});
+				},
+				delegate(string name)
+				{
+					good = false;
+					
+					Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrPluralsFile + "\"");
+				});
+
+				Debug.LogError(good);
+				Debug.LogError(languages.Count);
+				Debug.LogError(plurals.Count);
+
+				
+				if (!good)
+				{
+					return;
+				}
+				#endregion
+
                 // TODO: Implement CodeGenerator.generatePluralsRules
 
                 string res = "// This file generated from \"CLDR/json-full/supplemental/plurals.json\" file.\n" +
