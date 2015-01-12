@@ -49,7 +49,7 @@ namespace UnityTranslation
         private static void generateLanguages()
         {
             string cldrLanguagesFile = Application.dataPath           + "/../3rd_party/CLDR/json-full/main/en/languages.json";
-            string tempLanguagesFile = Application.temporaryCachePath + "/languages.json";
+			string tempLanguagesFile = Application.temporaryCachePath + "/UnityTranslation/languages.json";
 
             string targetFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/Language.cs";
 
@@ -362,6 +362,7 @@ namespace UnityTranslation
             }
 
             Debug.Log("Caching CLDR languages file in \"" + tempLanguagesFile + "\"");
+			Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
             File.WriteAllBytes(tempLanguagesFile, cldrFileBytes);
             #endregion
         }
@@ -372,7 +373,7 @@ namespace UnityTranslation
         private static void generatePluralsRules()
         {
             string cldrPluralsFile = Application.dataPath           + "/../3rd_party/CLDR/json-full/supplemental/plurals.json";
-            string tempPluralsFile = Application.temporaryCachePath + "/plurals.json";
+			string tempPluralsFile = Application.temporaryCachePath + "/UnityTranslation/plurals.json";
 
             string targetFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/PluralsRules.cs";
 
@@ -755,6 +756,7 @@ namespace UnityTranslation
             }
 
             Debug.Log("Caching CLDR plurals file in \"" + tempPluralsFile + "\"");
+			Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
             File.WriteAllBytes(tempPluralsFile, cldrFileBytes);
             #endregion
         }
@@ -1202,7 +1204,7 @@ namespace UnityTranslation
 
                 // TODO: Sections
 
-                string tempStringsXmlFile = Application.temporaryCachePath + "/strings.xml";
+				string tempStringsXmlFile = Application.temporaryCachePath + "/UnityTranslation/values/strings.xml";
 
                 string targetFile = rFilePath.Replace('\\', '/');
 
@@ -1693,6 +1695,7 @@ namespace UnityTranslation
                 File.WriteAllText(targetFile, res, Encoding.UTF8);
 
                 Debug.Log("Caching strings.xml file in \"" + tempStringsXmlFile + "\"");
+				Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation/values");
                 File.WriteAllBytes(tempStringsXmlFile, xmlFileBytes);
                 #endregion
             }
@@ -1797,7 +1800,7 @@ namespace UnityTranslation
             }
             #endregion
 
-            string tempValuesFolderFile = Application.temporaryCachePath + "/valuesFolders.txt";
+			string tempValuesFolderFile = Application.temporaryCachePath + "/UnityTranslation/valuesFolders.txt";
 
             string targetFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/AvailableLanguages.cs";
 
@@ -1918,6 +1921,7 @@ namespace UnityTranslation
             File.WriteAllText(targetFile, res, Encoding.UTF8);
 
             Debug.Log("Caching valuesFolders.txt file in \"" + tempValuesFolderFile + "\"");
+			Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
             File.WriteAllText(tempValuesFolderFile, valuesFoldersString);
             #endregion
         }

@@ -1,4 +1,4 @@
-// This file generated from "CLDR/json-full/supplemental/plurals.json" file.
+﻿// This file generated from "CLDR/json-full/supplemental/plurals.json" file.
 using System;
 
 
@@ -678,7 +678,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1024,7 +1024,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1069,7 +1069,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1153,7 +1153,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1166,7 +1166,7 @@ namespace UnityTranslation
                     --v;
                 }
             }
-
+            
             int    t = f;                        // visible fractional digits in n, without trailing zeros
 
             if (n == 1 || t != 0 && (i == 0 || i == 1)) // n = 1 or t != 0 and i = 0,1 @integer 1 @decimal 0.1~1.6
@@ -1191,7 +1191,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1264,7 +1264,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1364,7 +1364,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1416,7 +1416,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1462,7 +1462,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1475,7 +1475,7 @@ namespace UnityTranslation
                     --v;
                 }
             }
-
+            
             int    t = f;                        // visible fractional digits in n, without trailing zeros
             int i_mod_100 = i % 100;
             int i_mod_10 = i % 10;
@@ -1582,7 +1582,7 @@ namespace UnityTranslation
             double n_mod_10 = n % 10;
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1627,7 +1627,7 @@ namespace UnityTranslation
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1671,7 +1671,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1738,7 +1738,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1805,7 +1805,7 @@ namespace UnityTranslation
             double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1841,7 +1841,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1883,7 +1883,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1955,7 +1955,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
@@ -1990,7 +1990,7 @@ namespace UnityTranslation
             int    i = (int)Math.Floor(n);       // integer digits of n
             int    v = 3;                        // number of visible fraction digits in n, with trailing zeros
             int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros
-
+            
             if (f == 0)
             {
                 v = 0;
