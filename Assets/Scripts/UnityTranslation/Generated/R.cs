@@ -1,4 +1,4 @@
-﻿// This file generated from "Assets/Resources/res/values/strings.xml" file.
+// This file generated from "Assets/Resources/res/values/strings.xml" file.
 
 
 

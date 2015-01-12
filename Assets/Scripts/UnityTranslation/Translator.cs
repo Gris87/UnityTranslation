@@ -37,11 +37,12 @@ namespace UnityTranslation
             {
                 if (mLanguage != value)
                 {
+                    // TODO: TryGetValue
                     if (AvailableLanguages.list.ContainsKey(value))
                     {
                         mLanguage = value;
 
-                        // TODO: Reload tokens
+                        // TODO: Reload custom tokens
 
                         mLanguageChangedAction.Invoke();
                     }
@@ -65,6 +66,8 @@ namespace UnityTranslation
 #endif
 
             mLanguageChangedAction = new UnityEvent();
+
+            // TODO: Load default tokens
         }
 
         /// <summary>
@@ -122,7 +125,7 @@ namespace UnityTranslation
         }
 
         /// <summary>
-        /// Returns the string necessary for grammatically correct pluralization of the given resource ID for the given quantity.
+        /// Return the string necessary for grammatically correct pluralization of the given resource ID for the given quantity.
         /// </summary>
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>

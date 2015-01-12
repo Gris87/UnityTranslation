@@ -28,6 +28,8 @@ namespace UnityTranslation
         /// </summary>
         public static void generate()
         {
+            // TODO: Check previously generated files
+
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
             generateLanguages();
             generatePluralsRules();
@@ -36,6 +38,8 @@ namespace UnityTranslation
             generateStringsXml();
             generateR();
             generateAvailableLanguages();
+
+            // TODO: Generate Translator
         }
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
@@ -106,14 +110,16 @@ namespace UnityTranslation
                             {
                                 for (int i = 0; i < languagesJson.list.Count; ++i)
                                 {
-									if (languagesJson.keys[i] == "root")
-									{
-										continue;
-									}
+                                    if (languagesJson.keys[i] == "root")
+                                    {
+                                        continue;
+                                    }
+
+                                    JSONObject languageJson = languagesJson.list[i];
 
                                     string temp = "";
 
-                                    string[] tokens = languagesJson.list[i].str.Split(' ', '.', '-');
+                                    string[] tokens = languageJson.str.Split(' ', '.', '-');
 
                                     for (int j = 0; j < tokens.Length; ++j)
                                     {
@@ -169,7 +175,7 @@ namespace UnityTranslation
                                     }
 
                                     string languageCode = languagesJson.keys[i];
-                                    string languageName = languagesJson.list[i].str;
+                                    string languageName = languageJson.str;
 
                                     if (languageCode.Length > maxCodeLength)
                                     {
@@ -407,183 +413,207 @@ namespace UnityTranslation
 
             if (json.type == JSONObject.Type.OBJECT)
             {
-				List<List<Language>>                      languages = new List<List<Language>>();
-				List<Dictionary<PluralsQuantity, string>> plurals   = new List<Dictionary<PluralsQuantity, string>>();
-				
-				#region Parse JSON
-				bool good = true;
-				
-				json.GetField("supplemental", delegate(JSONObject supplementalJson)
-				{
-					supplementalJson.GetField("plurals-type-cardinal", delegate(JSONObject pluralsJson)
-					{
-						for (int i = 0; i < pluralsJson.list.Count; ++i)
-						{
-							JSONObject languageJson = pluralsJson.list[i];
+                List<List<Language>>                      languages = new List<List<Language>>();
+                List<Dictionary<PluralsQuantity, string>> plurals   = new List<Dictionary<PluralsQuantity, string>>();
 
-							Language language = LanguageCode.codeToLanguage(pluralsJson.keys[i]);
+                #region Parse JSON
+                bool good = true;
 
-							if (language == Language.Count)
-							{
-								if (pluralsJson.keys[i] == "root")
-								{
-									language = Language.Default;
-								}
-								else
-								{
-									Debug.LogWarning("Unexpected language code \"" + pluralsJson.keys[i] + "\" in \"" + cldrPluralsFile + "\". Skipped");
+                json.GetField("supplemental", delegate(JSONObject supplementalJson)
+                {
+                    supplementalJson.GetField("plurals-type-cardinal", delegate(JSONObject pluralsJson)
+                    {
+                        for (int i = 0; i < pluralsJson.list.Count; ++i)
+                        {
+                            if (pluralsJson.keys[i] == "root")
+                            {
+                                continue;
+                            }
 
-									continue;
-								}
-							}
+                            JSONObject languageJson = pluralsJson.list[i];
 
-							Dictionary<PluralsQuantity, string> languagePlurals = new Dictionary<PluralsQuantity, string>();
+                            List<Language> languagesList = new List<Language>();
 
-							for (int j = 0; j < languageJson.list.Count; ++j)
-							{
-								PluralsQuantity quantity;
+                            for (int j = 0; j < LanguageCode.codes.Length; ++j)
+                            {
+                                if (
+                                    LanguageCode.codes[j] == pluralsJson.keys[i]
+                                    ||
+                                    LanguageCode.codes[j].StartsWith(pluralsJson.keys[i] + "-")
+                                   )
+                                {
+                                    languagesList.Add((Language)j);
+                                }
+                            }
 
-								if (languageJson.keys[j] == "pluralRule-count-zero")
-								{
-									quantity = PluralsQuantity.Zero;
-								}
-								else
-								if (languageJson.keys[j] == "pluralRule-count-one")
-								{
-									quantity = PluralsQuantity.One;
-								}
-								else
-								if (languageJson.keys[j] == "pluralRule-count-two")
-								{
-									quantity = PluralsQuantity.Two;
-								}
-								else
-								if (languageJson.keys[j] == "pluralRule-count-few")
-								{
-									quantity = PluralsQuantity.Few;
-								}
-								else
-								if (languageJson.keys[j] == "pluralRule-count-many")
-								{
-									quantity = PluralsQuantity.Many;
-								}
-								else
-								if (languageJson.keys[j] == "pluralRule-count-other")
-								{
-									quantity = PluralsQuantity.Other;
-								}
-								else
-								{
-									good = false;
+                            if (languagesList.Count == 0)
+                            {
+                                Debug.LogWarning("Unexpected language code \"" + pluralsJson.keys[i] + "\" in \"" + cldrPluralsFile + "\". Skipped");
 
-									Debug.LogError("Unexpected plurals \"" + languageJson.keys[j] + "\" found for language code \"" + pluralsJson.keys[i] + "\" in \"" + cldrPluralsFile + "\"");
+                                continue;
+                            }
 
-									break;
-								}
+                            Dictionary<PluralsQuantity, string> languagePlurals = new Dictionary<PluralsQuantity, string>();
 
-								languagePlurals[quantity] = languageJson.list[j].str;
-							}
+                            for (int j = 0; j < languageJson.list.Count; ++j)
+                            {
+                                PluralsQuantity quantity;
 
-							if (!good)
-							{
-								break;
-							}
+                                if (languageJson.keys[j] == "pluralRule-count-zero")
+                                {
+                                    quantity = PluralsQuantity.Zero;
+                                }
+                                else
+                                if (languageJson.keys[j] == "pluralRule-count-one")
+                                {
+                                    quantity = PluralsQuantity.One;
+                                }
+                                else
+                                if (languageJson.keys[j] == "pluralRule-count-two")
+                                {
+                                    quantity = PluralsQuantity.Two;
+                                }
+                                else
+                                if (languageJson.keys[j] == "pluralRule-count-few")
+                                {
+                                    quantity = PluralsQuantity.Few;
+                                }
+                                else
+                                if (languageJson.keys[j] == "pluralRule-count-many")
+                                {
+                                    quantity = PluralsQuantity.Many;
+                                }
+                                else
+                                if (languageJson.keys[j] == "pluralRule-count-other")
+                                {
+                                    quantity = PluralsQuantity.Other;
+                                }
+                                else
+                                {
+                                    good = false;
 
-							int index = -1;
+                                    Debug.LogError("Unexpected plurals \"" + languageJson.keys[j] + "\" found for language code \"" + pluralsJson.keys[i] + "\" in \"" + cldrPluralsFile + "\"");
 
-							for (int j = 0; j < plurals.Count; ++j)
-							{
-								index = j;
+                                    break;
+                                }
 
-								for (int k = (int)PluralsQuantity.Zero; k < (int)PluralsQuantity.Count; ++k)
-								{
-									string leftString  = plurals[j][(PluralsQuantity)k];
-									string rightString = languagePlurals[(PluralsQuantity)k];
+                                languagePlurals[quantity] = languageJson.list[j].str;
+                            }
 
-									if (leftString == null && rightString == null)
-									{
-										continue;
-									}
+                            if (!good)
+                            {
+                                break;
+                            }
 
-									if (
-										leftString != null && rightString == null
-										||
-										leftString == null && rightString != null
-									   )
-									{
-										index = -1;
-										break;
-									}
+                            int index = -1;
 
-									int charIndex = leftString.IndexOf('@');
+                            for (int j = 0; j < plurals.Count; ++j)
+                            {
+                                index = j;
 
-									if (charIndex >= 0)
-									{
-										leftString = leftString.Substring(0, charIndex).Trim();
-									}
+                                for (int k = 0; k < (int)PluralsQuantity.Count; ++k)
+                                {
+                                    string leftString;
+                                    string rightString;
 
-									charIndex = rightString.IndexOf('@');
-									
-									if (charIndex >= 0)
-									{
-										rightString = rightString.Substring(0, charIndex).Trim();
-									}
+                                    plurals[j].TryGetValue(     (PluralsQuantity)k, out leftString);
+                                    languagePlurals.TryGetValue((PluralsQuantity)k, out rightString);
 
-									if (leftString != rightString)
-									{
-										index = -1;
-										break;
-									}
-								}
+                                    if (leftString == null && rightString == null)
+                                    {
+                                        continue;
+                                    }
 
-								if (index >= 0)
-								{
-									break;
-								}
-							}
+                                    if (
+                                        leftString != null && rightString == null
+                                        ||
+                                        leftString == null && rightString != null
+                                       )
+                                    {
+                                        index = -1;
+                                        break;
+                                    }
 
-							if (index >= 0)
-							{
-								languages[index].Add(language);
-							}
-							else
-							{
-								List<Language> languagesList = new List<Language>();
-								languagesList.Add(language);
+                                    int charIndex = leftString.IndexOf('@');
 
-								languages.Add(languagesList);
-								plurals.Add(languagePlurals);
-							}
-						}
-					},
-					delegate(string name)
-					{
-						good = false;
-						
-						Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrPluralsFile + "\"");
-					});
-				},
-				delegate(string name)
-				{
-					good = false;
-					
-					Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrPluralsFile + "\"");
-				});
+                                    if (charIndex >= 0)
+                                    {
+                                        leftString = leftString.Substring(0, charIndex).Trim();
+                                    }
 
-				Debug.LogError(good);
-				Debug.LogError(languages.Count);
-				Debug.LogError(plurals.Count);
+                                    charIndex = rightString.IndexOf('@');
 
-				
-				if (!good)
-				{
-					return;
-				}
-				#endregion
+                                    if (charIndex >= 0)
+                                    {
+                                        rightString = rightString.Substring(0, charIndex).Trim();
+                                    }
 
-                // TODO: Implement CodeGenerator.generatePluralsRules
+                                    if (leftString != rightString)
+                                    {
+                                        index = -1;
+                                        break;
+                                    }
+                                }
+
+                                if (index >= 0)
+                                {
+                                    break;
+                                }
+                            }
+
+                            if (index >= 0)
+                            {
+                                languages[index].AddRange(languagesList);
+                            }
+                            else
+                            {
+                                languages.Add(languagesList);
+                                plurals.Add(languagePlurals);
+                            }
+                        }
+                    },
+                    delegate(string name)
+                    {
+                        good = false;
+
+                        Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrPluralsFile + "\"");
+                    });
+                },
+                delegate(string name)
+                {
+                    good = false;
+
+                    Debug.LogError("Entry \"" + name + "\" not found in \"" + cldrPluralsFile + "\"");
+                });
+
+                if (!good)
+                {
+                    return;
+                }
+
+                #region Move English plurals to the beginning
+                for (int i = 0; i < languages.Count; ++i)
+                {
+                    if (languages[i].Contains(Language.English))
+                    {
+                        List<Language>                      englishLanguages = languages[i];
+                        Dictionary<PluralsQuantity, string> englishPlurals   = plurals[i];
+
+                        languages.RemoveAt(i);
+                        plurals.RemoveAt(i);
+
+                        languages.Insert(0, englishLanguages);
+                        plurals.Insert(0, englishPlurals);
+
+                        break;
+                    }
+                }
+                #endregion
+
+                #endregion
 
                 string res = "// This file generated from \"CLDR/json-full/supplemental/plurals.json\" file.\n" +
+                             "using System;\n" +
                              "\n" +
                              "\n" +
                              "\n" +
@@ -594,11 +624,126 @@ namespace UnityTranslation
                              "    /// </summary>\n" +
                              "    public static class PluralsRules\n" +
                              "    {\n" +
-                             "        static PluralsRules()\n" +
+                             "        public delegate PluralsQuantity PluralsFunction(double quantity);\n" +
+                             "\n" +
+                             "        /// <summary>\n" +
+                             "        /// Array of functions for getting PluralsQuantity.\n" +
+                             "        /// </summary>\n" +
+                             "        public static readonly PluralsFunction[] pluralsFunctions = new PluralsFunction[]\n" +
                              "        {\n" +
-                             "        }\n" +
-                             "    }\n" +
-                             "}\n";
+                             "              pluralsDefaultFunction  // Default\n";
+
+                for (int i = 1; i < (int)Language.Count; ++i)
+                {
+                    Language language = (Language)i;
+
+                    int index = -1;
+
+                    for (int j = 0; j < languages.Count; ++j)
+                    {
+                        if (languages[j].Contains(language))
+                        {
+                            index = j;
+                            break;
+                        }
+                    }
+
+                    if (index >= 0)
+                    {
+                        if (index == 0)
+                        {
+                            res += "            , pluralsDefaultFunction  // " + language + "\n";
+                        }
+                        else
+                        {
+                            res += string.Format("            , {0,-23} // {1}\n", "pluralsFunction" + index, language);
+                        }
+                    }
+                    else
+                    {
+                        res += "            , pluralsFallbackFunction // " + language + "\n";
+                    }
+                }
+
+                res += "        };\n" +
+                       "\n" +
+                       "        /// <summary>\n" +
+                       "        /// Fallback function for any language without plurals rules that just return PluralsQuantity.Other.\n" +
+                       "        /// </summary>\n" +
+                       "        /// <returns>PluralsQuantity.Other.</returns>\n" +
+                       "        /// <param name=\"quantity\">Quantity.</param>\n" +
+                       "        private static PluralsQuantity pluralsFallbackFunction(double quantity)\n" +
+                       "        {\n" +
+                       "            return PluralsQuantity.Other;\n" +
+                       "        }\n";
+
+                for (int i = 0; i < languages.Count; ++i)
+                {
+                    string functionName = (i == 0)? "pluralsDefaultFunction" : ("pluralsFunction" + i);
+
+                    res += "\n" +
+                           "        /// <summary>\n";
+
+                    if (i == 0)
+                    {
+                        res += "        /// <para>Default function for languages that has the same plurals rules as for English</para>\n";
+                    }
+                    else
+                    {
+                        res += "        /// <para>Some function for getting PluralsQuantity</para>\n";
+                    }
+
+                    res += "        /// <para>Used in languages:</para>\n";
+
+                    for (int j = 0; j < languages[i].Count; ++j)
+                    {
+                        res += "        /// <para>" + languages[i][j] + "</para>\n";
+                    }
+
+                    res += "        /// </summary>\n" +
+                           "        /// <returns>PluralsQuantity related to provided quantity.</returns>\n" +
+                           "        /// <param name=\"quantity\">Quantity.</param>\n" +
+                           "        private static PluralsQuantity " + functionName + "(double quantity)\n" +
+                           "        {\n";
+
+                    List<string> additionalLines = new List<string>();
+                    List<string> conditions      = new List<string>();
+
+                    for (int j = 0; j < (int)PluralsQuantity.Other; ++j)
+                    {
+                        string pluralsCondition;
+
+                        if (plurals[i].TryGetValue((PluralsQuantity)j, out pluralsCondition))
+                        {
+                            conditions.Add("            if (" + transformPluralsCondition(pluralsCondition, ref additionalLines) + ") // " + pluralsCondition + "\n" +
+                                           "            {\n" +
+                                           "                return PluralsQuantity." + (PluralsQuantity)j + ";\n" +
+                                           "            }");
+                        }
+                    }
+
+                    if (additionalLines.Count > 0)
+                    {
+                        for (int j = 0; j < additionalLines.Count; ++j)
+                        {
+                            res += "            " + additionalLines[j] + "\n";
+                        }
+
+                        res += "\n";
+                    }
+
+                    for (int j = 0; j < conditions.Count; ++j)
+                    {
+                        res += conditions[j] + "\n" +
+                               "\n";
+                    }
+
+                    res += "            return PluralsQuantity.Other;\n" +
+                           "        }\n";
+                }
+
+                res += "    }\n" +
+                       "}\n";
 
                 File.WriteAllText(targetFile, res, Encoding.UTF8);
             }
@@ -612,6 +757,376 @@ namespace UnityTranslation
             Debug.Log("Caching CLDR plurals file in \"" + tempPluralsFile + "\"");
             File.WriteAllBytes(tempPluralsFile, cldrFileBytes);
             #endregion
+        }
+
+
+
+        /// <summary>
+        /// Transforms the plurals condition in C# syntax.
+        /// </summary>
+        /// <returns>Plurals condition in C# syntax.</returns>
+        /// <param name="condition">Plurals condition.</param>
+        /// <param name="additionalLines">Additional lines if needed.</param>
+        private static string transformPluralsCondition(string condition, ref List<string> additionalLines)
+        {
+            int index = condition.IndexOf('@');
+
+            if (index >= 0)
+            {
+                condition = condition.Substring(0, index).Trim();
+            }
+
+            condition = condition.Replace("or",  " || ").Replace("and", " && ");
+            condition = condition.Replace("%",   " % " ).Replace("=",   " == ").Replace("! ==",   " != ");
+            condition = condition.Replace(", ",  ","   ).Replace(" ,",  ",");
+            condition = condition.Replace(".. ", ".."  ).Replace(" ..", "..");
+
+            do
+            {
+                string oldCondition = condition;
+
+                condition = condition.Replace("  ", " ");
+
+                if (condition == oldCondition)
+                {
+                    break;
+                }
+            } while (true);
+
+            bool containsN = condition.Contains("n");
+            bool containsI = condition.Contains("i");
+            bool containsV = condition.Contains("v");
+            bool containsW = condition.Contains("w");
+            bool containsF = condition.Contains("f");
+            bool containsT = condition.Contains("t");
+
+            if (
+                containsN
+                ||
+                containsI
+                ||
+                containsV
+                ||
+                containsW
+                ||
+                containsF
+                ||
+                containsT
+               )
+            {
+                string newAdditionalLine = "double n = Math.Abs(quantity);       // absolute value of the source number (integer and decimals)";
+
+                if (!additionalLines.Contains(newAdditionalLine))
+                {
+                    additionalLines.Add(newAdditionalLine);
+                }
+
+                if (containsI)
+                {
+                    newAdditionalLine = "int    i = (int)Math.Floor(n);       // integer digits of n";
+
+                    if (!additionalLines.Contains(newAdditionalLine))
+                    {
+                        additionalLines.Add(newAdditionalLine);
+                    }
+                }
+
+                if (
+                    containsV
+                    ||
+                    containsW
+                    ||
+                    containsF
+                    ||
+                    containsT
+                   )
+                {
+                    newAdditionalLine = "int    v = 3;                        // number of visible fraction digits in n, with trailing zeros";
+
+                    if (!additionalLines.Contains(newAdditionalLine))
+                    {
+                        additionalLines.Add(newAdditionalLine);
+                        additionalLines.Add("int    f = ((int)(n * 1000)) % 1000; // visible fractional digits in n, with trailing zeros");
+                        additionalLines.Add("");
+                        additionalLines.Add("if (f == 0)");
+                        additionalLines.Add("{");
+                        additionalLines.Add("    v = 0;");
+                        additionalLines.Add("}");
+                        additionalLines.Add("else");
+                        additionalLines.Add("{");
+                        additionalLines.Add("    while ((f > 0) && (f % 10 == 0))");
+                        additionalLines.Add("    {");
+                        additionalLines.Add("        f /= 10;");
+                        additionalLines.Add("        --v;");
+                        additionalLines.Add("    }");
+                        additionalLines.Add("}");
+                    }
+
+                    if (
+                        containsW
+                        ||
+                        containsT
+                       )
+                    {
+                        if (containsW)
+                        {
+                            newAdditionalLine = "int    w = v;                        // number of visible fraction digits in n, without trailing zeros";
+
+                            if (!additionalLines.Contains(newAdditionalLine))
+                            {
+                                additionalLines.Add("");
+                                additionalLines.Add(newAdditionalLine);
+                            }
+                        }
+
+                        if (containsT)
+                        {
+                            newAdditionalLine = "int    t = f;                        // visible fractional digits in n, without trailing zeros";
+
+                            if (!additionalLines.Contains(newAdditionalLine))
+                            {
+                                additionalLines.Add("");
+                                additionalLines.Add(newAdditionalLine);
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (condition.Contains("n % 1000000"))
+            {
+                string newAdditionLine = "double n_mod_1000000 = n % 1000000;";
+
+                if (!additionalLines.Contains(newAdditionLine))
+                {
+                    additionalLines.Add(newAdditionLine);
+                }
+
+                condition = condition.Replace("n % 1000000", "n_mod_1000000");
+            }
+
+            if (condition.Contains("n % 100"))
+            {
+                string newAdditionLine = "double n_mod_100 = n % 100;";
+
+                if (!additionalLines.Contains(newAdditionLine))
+                {
+                    additionalLines.Add(newAdditionLine);
+                }
+
+                condition = condition.Replace("n % 100", "n_mod_100");
+            }
+
+            if (condition.Contains("n % 10"))
+            {
+                string newAdditionLine = "double n_mod_10 = n % 10;";
+
+                if (!additionalLines.Contains(newAdditionLine))
+                {
+                    additionalLines.Add(newAdditionLine);
+                }
+
+                condition = condition.Replace("n % 10", "n_mod_10");
+            }
+
+            if (condition.Contains("i % 100"))
+            {
+                string newAdditionLine = "int i_mod_100 = i % 100;";
+
+                if (!additionalLines.Contains(newAdditionLine))
+                {
+                    additionalLines.Add(newAdditionLine);
+                }
+
+                condition = condition.Replace("i % 100", "i_mod_100");
+            }
+
+            if (condition.Contains("i % 10"))
+            {
+                string newAdditionLine = "int i_mod_10 = i % 10;";
+
+                if (!additionalLines.Contains(newAdditionLine))
+                {
+                    additionalLines.Add(newAdditionLine);
+                }
+
+                condition = condition.Replace("i % 10", "i_mod_10");
+            }
+
+            if (condition.Contains("f % 100"))
+            {
+                string newAdditionLine = "int f_mod_100 = f % 100;";
+
+                if (!additionalLines.Contains(newAdditionLine))
+                {
+                    additionalLines.Add(newAdditionLine);
+                }
+
+                condition = condition.Replace("f % 100", "f_mod_100");
+            }
+
+            if (condition.Contains("f % 10"))
+            {
+                string newAdditionLine = "int f_mod_10 = f % 10;";
+
+                if (!additionalLines.Contains(newAdditionLine))
+                {
+                    additionalLines.Add(newAdditionLine);
+                }
+
+                condition = condition.Replace("f % 10", "f_mod_10");
+            }
+
+            if (condition.Contains("t % 100"))
+            {
+                string newAdditionLine = "int t_mod_100 = t % 100;";
+
+                if (!additionalLines.Contains(newAdditionLine))
+                {
+                    additionalLines.Add(newAdditionLine);
+                }
+
+                condition = condition.Replace("t % 100", "t_mod_100");
+            }
+
+            if (condition.Contains("t % 10"))
+            {
+                string newAdditionLine = "int t_mod_10 = t % 10;";
+
+                if (!additionalLines.Contains(newAdditionLine))
+                {
+                    additionalLines.Add(newAdditionLine);
+                }
+
+                condition = condition.Replace("t % 10", "t_mod_10");
+            }
+
+            List<string> conditionTokens = new List<string>(condition.Split(' '));
+
+            if (conditionTokens.Count == 0)
+            {
+                Debug.LogError("Impossible to transform condition \"" + condition + "\"");
+
+                return "false";
+            }
+
+            for (int i = 0; i < conditionTokens.Count; ++i)
+            {
+                if (
+                    conditionTokens[i].Contains(',')
+                    ||
+                    conditionTokens[i].Contains("..")
+                   )
+                {
+                    if (i < 2)
+                    {
+                        Debug.LogError("Impossible to transform condition \"" + condition + "\". Incorrect syntax");
+
+                        return "false";
+                    }
+
+                    string varName      = conditionTokens[i - 2];
+                    string operatorType = conditionTokens[i - 1];
+                    string rangeList    = conditionTokens[i];
+
+                    if (operatorType != "==" && operatorType != "!=")
+                    {
+                        Debug.LogError("Impossible to transform condition \"" + condition + "\". Incorrect operator \"" + operatorType + "\"");
+
+                        return "false";
+                    }
+
+                    string[] separator = new string[] { ".." };
+
+                    List<string[]> ranges = new List<string[]>();
+
+                    foreach (string rangeEnum in rangeList.Split(','))
+                    {
+                        ranges.Add(rangeEnum.Split(separator, StringSplitOptions.None));
+                    }
+
+                    string replacement = "";
+
+                    if (operatorType == "==")
+                    {
+                        for (int j = 0; j < ranges.Count; ++j)
+                        {
+                            if (j > 0)
+                            {
+                                replacement += " || ";
+                            }
+
+                            if (ranges[j].Length == 1)
+                            {
+                                replacement += varName + " == " + ranges[j][0];
+                            }
+                            else
+                            if (ranges[j].Length == 2)
+                            {
+                                replacement += "(" + varName + " >= " + ranges[j][0] + " && " + varName + " <= " + ranges[j][1] + ")";
+                            }
+                            else
+                            {
+                                Debug.LogError("Impossible to transform condition \"" + condition + "\". Incorrect range \"" + rangeList + "\"");
+
+                                return "false";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j < ranges.Count; ++j)
+                        {
+                            if (j > 0)
+                            {
+                                replacement += " && ";
+                            }
+
+                            if (ranges[j].Length == 1)
+                            {
+                                replacement += varName + " != " + ranges[j][0];
+                            }
+                            else
+                            if (ranges[j].Length == 2)
+                            {
+                                replacement += "(" + varName + " < " + ranges[j][0] + " || " + varName + " > " + ranges[j][1] + ")";
+                            }
+                            else
+                            {
+                                Debug.LogError("Impossible to transform condition \"" + condition + "\". Incorrect range \"" + rangeList + "\"");
+
+                                return "false";
+                            }
+                        }
+                     }
+
+                    if (ranges.Count > 1)
+                    {
+                        replacement = "(" + replacement + ")";
+                    }
+
+                    i -= 2;
+
+                    conditionTokens.RemoveAt(i);
+                    conditionTokens.RemoveAt(i);
+
+                    conditionTokens[i] = replacement;
+                }
+            }
+
+            string res = "";
+
+            for (int i = 0; i < conditionTokens.Count; ++i)
+            {
+                if (i > 0)
+                {
+                    res += " ";
+                }
+
+                res += conditionTokens[i];
+            }
+
+            return res;
         }
 #endif
 
@@ -668,7 +1183,7 @@ namespace UnityTranslation
 
                     for (int i = 0; i < foundDirs.Length; ++i)
                     {
-                        if (File.Exists(foundDirs[i].FullName + "/Translator.cs"))
+                        if (File.Exists(foundDirs[i].FullName + "/Translator.cs"))// TODO: AbstractTranslator
                         {
                             rFilePath = foundDirs[i].FullName + "/Generated/R.cs";
 
@@ -684,6 +1199,8 @@ namespace UnityTranslation
                     }
                 }
                 #endregion
+
+                // TODO: Sections
 
                 string tempStringsXmlFile = Application.temporaryCachePath + "/strings.xml";
 
