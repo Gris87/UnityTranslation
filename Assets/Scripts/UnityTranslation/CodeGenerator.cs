@@ -5,7 +5,7 @@
 #define I_AM_UNITY_TRANSLATION_DEVELOPER
 
 // Use this definition if you want to force code generation
-#define FORCE_CODE_GENERATION
+// #define FORCE_CODE_GENERATION
 
 
 
@@ -23,12 +23,22 @@ namespace UnityTranslation
 {
     public static class CodeGenerator
     {
+#if I_AM_UNITY_TRANSLATION_DEVELOPER
+        private static bool previouslyGeneratedLanguages          = false;
+        private static bool previouslyGeneratedPluralsRules       = false;
+#endif
+
+        private static bool previouslyGeneratedR                  = false;
+        private static bool previouslyGeneratedAvailableLanguages = false;
+
+
+
         /// <summary>
         /// Generates source code required for UnityTranslation
         /// </summary>
         public static void generate()
         {
-            // TODO: Check previously generated files
+            checkPreviouslyGeneratedFiles();
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
             generateLanguages();
@@ -42,6 +52,96 @@ namespace UnityTranslation
             // TODO: Generate Translator
         }
 
+        /// <summary>
+        /// Checks the previously generated files.
+        /// </summary>
+        private static void checkPreviouslyGeneratedFiles()
+        {
+            if (isApplicationRebuilded())
+            {
+#if I_AM_UNITY_TRANSLATION_DEVELOPER
+                previouslyGeneratedLanguages          = checkPreviouslyGeneratedFile("Language.cs");
+                previouslyGeneratedPluralsRules       = checkPreviouslyGeneratedFile("PluralsRules.cs");
+#endif
+
+                previouslyGeneratedR                  = checkPreviouslyGeneratedFile("R.cs");
+                previouslyGeneratedAvailableLanguages = checkPreviouslyGeneratedFile("AvailableLanguages.cs");
+            }
+        }
+
+        /// <summary>
+        /// Verifies that application rebuilded.
+        /// </summary>
+        /// <returns><c>true</c>, if application rebuilded, <c>false</c> otherwise.</returns>
+        private static bool isApplicationRebuilded()
+        {
+            bool res = false;
+
+            string binaryFile = Application.dataPath + "/../Library/ScriptAssemblies/Assembly-CSharp.dll";
+            string tempFile   = Application.temporaryCachePath + "/UnityTranslation/Assembly-CSharp.dll";
+
+            if (File.Exists(binaryFile))
+            {
+                byte[] newBinary = File.ReadAllBytes(binaryFile);
+
+                if (File.Exists(tempFile))
+                {
+                    byte[] oldBinary = File.ReadAllBytes(tempFile);
+
+                    res = !oldBinary.SequenceEqual(newBinary);
+                }
+                else
+                {
+                    res = true;
+                }
+
+                if (res)
+                {
+                    // Debug.Log("Application rebuilded");
+                    File.WriteAllBytes(tempFile, newBinary);
+                }
+            }
+
+            return res;
+        }
+
+        /// <summary>
+        /// Checks the previously generated file.
+        /// </summary>
+        /// <returns><c>true</c>, if file generated in previous build, <c>false</c> otherwise.</returns>
+        /// <param name="filename">Name of file.</param>
+        private static bool checkPreviouslyGeneratedFile(string filename)
+        {
+            bool res = false;
+
+            string generatedFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/" + filename;
+            string tempFile      = Application.temporaryCachePath + "/UnityTranslation/"         + filename;
+
+            if (File.Exists(generatedFile))
+            {
+                string newText = File.ReadAllText(generatedFile, Encoding.UTF8);
+
+                if (File.Exists(tempFile))
+                {
+                    string oldText = File.ReadAllText(tempFile, Encoding.UTF8);
+
+                    res = (oldText != newText);
+                }
+                else
+                {
+                    res = true;
+                }
+
+                if (res)
+                {
+                    // Debug.Log("File \"" + filename + "\" regenerated in previous build");
+                    File.WriteAllText(tempFile, newText, Encoding.UTF8);
+                }
+            }
+
+            return res;
+        }
+
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
         /// <summary>
         /// Generates Languages.cs file
@@ -49,7 +149,7 @@ namespace UnityTranslation
         private static void generateLanguages()
         {
             string cldrLanguagesFile = Application.dataPath           + "/../3rd_party/CLDR/json-full/main/en/languages.json";
-			string tempLanguagesFile = Application.temporaryCachePath + "/UnityTranslation/languages.json";
+            string tempLanguagesFile = Application.temporaryCachePath + "/UnityTranslation/languages.json";
 
             string targetFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/Language.cs";
 
@@ -362,7 +462,7 @@ namespace UnityTranslation
             }
 
             Debug.Log("Caching CLDR languages file in \"" + tempLanguagesFile + "\"");
-			Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
+            Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
             File.WriteAllBytes(tempLanguagesFile, cldrFileBytes);
             #endregion
         }
@@ -373,7 +473,7 @@ namespace UnityTranslation
         private static void generatePluralsRules()
         {
             string cldrPluralsFile = Application.dataPath           + "/../3rd_party/CLDR/json-full/supplemental/plurals.json";
-			string tempPluralsFile = Application.temporaryCachePath + "/UnityTranslation/plurals.json";
+            string tempPluralsFile = Application.temporaryCachePath + "/UnityTranslation/plurals.json";
 
             string targetFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/PluralsRules.cs";
 
@@ -391,6 +491,8 @@ namespace UnityTranslation
 
             #if !FORCE_CODE_GENERATION
             if (
+                !previouslyGeneratedLanguages
+                &&
                 File.Exists(targetFile)
                 &&
                 File.Exists(tempPluralsFile)
@@ -756,12 +858,10 @@ namespace UnityTranslation
             }
 
             Debug.Log("Caching CLDR plurals file in \"" + tempPluralsFile + "\"");
-			Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
+            Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
             File.WriteAllBytes(tempPluralsFile, cldrFileBytes);
             #endregion
         }
-
-
 
         /// <summary>
         /// Transforms the plurals condition in C# syntax.
@@ -1204,7 +1304,7 @@ namespace UnityTranslation
 
                 // TODO: Sections
 
-				string tempStringsXmlFile = Application.temporaryCachePath + "/UnityTranslation/values/strings.xml";
+                string tempStringsXmlFile = Application.temporaryCachePath + "/UnityTranslation/values/strings.xml";
 
                 string targetFile = rFilePath.Replace('\\', '/');
 
@@ -1213,6 +1313,10 @@ namespace UnityTranslation
                 #region Check that R.cs is up to date
                 #if !FORCE_CODE_GENERATION
                 if (
+#if I_AM_UNITY_TRANSLATION_DEVELOPER
+                    !previouslyGeneratedLanguages
+                    &&
+#endif
                     File.Exists(targetFile)
                     &&
                     File.Exists(tempStringsXmlFile)
@@ -1695,7 +1799,7 @@ namespace UnityTranslation
                 File.WriteAllText(targetFile, res, Encoding.UTF8);
 
                 Debug.Log("Caching strings.xml file in \"" + tempStringsXmlFile + "\"");
-				Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation/values");
+                Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation/values");
                 File.WriteAllBytes(tempStringsXmlFile, xmlFileBytes);
                 #endregion
             }
@@ -1800,13 +1904,17 @@ namespace UnityTranslation
             }
             #endregion
 
-			string tempValuesFolderFile = Application.temporaryCachePath + "/UnityTranslation/valuesFolders.txt";
+            string tempValuesFolderFile = Application.temporaryCachePath + "/UnityTranslation/valuesFolders.txt";
 
             string targetFile = Application.dataPath + "/Scripts/UnityTranslation/Generated/AvailableLanguages.cs";
 
             #region Check that AvailableLanguages.cs is up to date
             #if !FORCE_CODE_GENERATION
             if (
+#if I_AM_UNITY_TRANSLATION_DEVELOPER
+                !previouslyGeneratedLanguages
+                &&
+#endif
                 File.Exists(targetFile)
                 &&
                 File.Exists(tempValuesFolderFile)
@@ -1921,7 +2029,7 @@ namespace UnityTranslation
             File.WriteAllText(targetFile, res, Encoding.UTF8);
 
             Debug.Log("Caching valuesFolders.txt file in \"" + tempValuesFolderFile + "\"");
-			Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
+            Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
             File.WriteAllText(tempValuesFolderFile, valuesFoldersString);
             #endregion
         }
