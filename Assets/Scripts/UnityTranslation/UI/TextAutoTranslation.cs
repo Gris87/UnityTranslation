@@ -8,7 +8,7 @@ namespace UnityTranslation
     [RequireComponent(typeof(Text))]
     public class TextAutoTranslation : MonoBehaviour
     {
-        public R.strings id;
+        public R.strings id; // TODO: Generate this class for each R.strings
 
         private Text mText;
 
