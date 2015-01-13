@@ -49,7 +49,7 @@ namespace UnityTranslation
             generateStringsXml();
             generateR();
             generateAvailableLanguages();
-			generateTranslator();
+            generateTranslator();
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace UnityTranslation
 
                 /*previouslyGeneratedR                  =*/ checkPreviouslyGeneratedFile("R.cs");
                 /*previouslyGeneratedAvailableLanguages =*/ checkPreviouslyGeneratedFile("AvailableLanguages.cs");
-				/*previouslyGeneratedTranslator         =*/ checkPreviouslyGeneratedFile("Translator.cs");
+                /*previouslyGeneratedTranslator         =*/ checkPreviouslyGeneratedFile("Translator.cs");
             }
         }
 
@@ -99,7 +99,7 @@ namespace UnityTranslation
                 if (res)
                 {
                     // Debug.Log("Application rebuilded");
-					Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
+                    Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
                     File.WriteAllBytes(tempFile, newBinary);
                 }
             }
@@ -137,7 +137,7 @@ namespace UnityTranslation
                 if (res)
                 {
                     // Debug.Log("File \"" + filename + "\" regenerated in previous build");
-					Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
+                    Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
                     File.WriteAllText(tempFile, newText, Encoding.UTF8);
                 }
             }
@@ -347,7 +347,7 @@ namespace UnityTranslation
 
                 for (int i = 0; i < languageNames.Count; ++i)
                 {
-                    res += "        , \n" +
+                    res += "        ,\n" +
                            "        /// <summary>\n" +
                            "        /// " + languageNames[i] + ". Code: " + languageCodes[i] + "\n" +
                            "        /// </summary>\n" +
@@ -832,7 +832,14 @@ namespace UnityTranslation
                     {
                         for (int j = 0; j < additionalLines.Count; ++j)
                         {
-                            res += "            " + additionalLines[j] + "\n";
+                            if (additionalLines[j] == "")
+                            {
+                                res += "\n";
+                            }
+                            else
+                            {
+                                res += "            " + additionalLines[j] + "\n";
+                            }
                         }
 
                         res += "\n";
@@ -883,8 +890,6 @@ namespace UnityTranslation
 
             condition = condition.Replace("or",  " || ").Replace("and", " && ");
             condition = condition.Replace("%",   " % " ).Replace("=",   " == ").Replace("! ==",   " != ");
-            condition = condition.Replace(", ",  ","   ).Replace(" ,",  ",");
-            condition = condition.Replace(".. ", ".."  ).Replace(" ..", "..");
 
             do
             {
@@ -897,6 +902,11 @@ namespace UnityTranslation
                     break;
                 }
             } while (true);
+
+            condition = condition.Replace(", ",  "," ).Replace(" ,",  ",");
+            condition = condition.Replace(".. ", "..").Replace(" ..", "..");
+
+
 
             bool containsN = condition.Contains("n");
             bool containsI = condition.Contains("i");
@@ -1907,42 +1917,42 @@ namespace UnityTranslation
             }
             #endregion
 
-			string availableLanguagesFilePath = null;
-			
-			#region Search for AvailableLanguages.cs file
-			DirectoryInfo assetsFolder = new DirectoryInfo(Application.dataPath);
-			FileInfo[] foundFiles = assetsFolder.GetFiles("AvailableLanguages.cs", SearchOption.AllDirectories);
-			
-			if (foundFiles.Length > 0)
-			{
-				availableLanguagesFilePath = foundFiles[0].FullName;
-			}
-			else
-			{
-				DirectoryInfo[] foundDirs = assetsFolder.GetDirectories("UnityTranslation", SearchOption.AllDirectories);
-				
-				for (int i = 0; i < foundDirs.Length; ++i)
-				{
-					if (File.Exists(foundDirs[i].FullName + "/CodeGenerator.cs"))
-					{
-						availableLanguagesFilePath = foundDirs[i].FullName + "/Generated/AvailableLanguages.cs";
-						
-						break;
-					}
-				}
-				
-				if (availableLanguagesFilePath == null)
-				{
-					availableLanguagesFilePath = Application.dataPath + "/AvailableLanguages.cs";
-					
-					Debug.LogError("Unexpected behaviour for getting path to \"AvailableLanguages.cs\" file");
-				}
-			}
-			#endregion
+            string availableLanguagesFilePath = null;
+
+            #region Search for AvailableLanguages.cs file
+            DirectoryInfo assetsFolder = new DirectoryInfo(Application.dataPath);
+            FileInfo[] foundFiles = assetsFolder.GetFiles("AvailableLanguages.cs", SearchOption.AllDirectories);
+
+            if (foundFiles.Length > 0)
+            {
+                availableLanguagesFilePath = foundFiles[0].FullName;
+            }
+            else
+            {
+                DirectoryInfo[] foundDirs = assetsFolder.GetDirectories("UnityTranslation", SearchOption.AllDirectories);
+
+                for (int i = 0; i < foundDirs.Length; ++i)
+                {
+                    if (File.Exists(foundDirs[i].FullName + "/CodeGenerator.cs"))
+                    {
+                        availableLanguagesFilePath = foundDirs[i].FullName + "/Generated/AvailableLanguages.cs";
+
+                        break;
+                    }
+                }
+
+                if (availableLanguagesFilePath == null)
+                {
+                    availableLanguagesFilePath = Application.dataPath + "/AvailableLanguages.cs";
+
+                    Debug.LogError("Unexpected behaviour for getting path to \"AvailableLanguages.cs\" file");
+                }
+            }
+            #endregion
 
             string tempValuesFolderFile = Application.temporaryCachePath + "/UnityTranslation/valuesFolders.txt";
 
-			string targetFile = availableLanguagesFilePath.Replace('\\', '/');
+            string targetFile = availableLanguagesFilePath.Replace('\\', '/');
 
             #region Check that AvailableLanguages.cs is up to date
             #if !FORCE_CODE_GENERATION
@@ -2069,18 +2079,18 @@ namespace UnityTranslation
             File.WriteAllText(tempValuesFolderFile, valuesFoldersString);
             #endregion
         }
-    
-		/// <summary>
-		/// Generates Translator.cs file
-		/// </summary>
-		private static void generateTranslator()
-		{
-			// TODO: Implement generateTranslator
 
-			#region Generating Translator.cs file
-			Debug.Log("Generating \"Translator.cs\" file");
-			#endregion
-		}
-	}
+        /// <summary>
+        /// Generates Translator.cs file
+        /// </summary>
+        private static void generateTranslator()
+        {
+            // TODO: Implement generateTranslator
+
+            #region Generating Translator.cs file
+            Debug.Log("Generating \"Translator.cs\" file");
+            #endregion
+        }
+    }
 }
 #endif
