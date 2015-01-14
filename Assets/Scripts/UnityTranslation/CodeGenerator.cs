@@ -66,8 +66,8 @@ namespace UnityTranslation
 //        private static bool previouslyGeneratedPluralsRules        = false;
 #endif
 
-        private static bool previouslyGeneratedR                     = false;
 //        private static bool previouslyGeneratedAvailableLanguages  = false;
+//        private static bool previouslyGeneratedR                   = false;
 //        private static bool previouslyGeneratedTranslator          = false;
 //        private static bool previouslyGeneratedTextAutoTranslation = false;
 
@@ -86,10 +86,25 @@ namespace UnityTranslation
 #endif
 
             generateStringsXml();
-            generateR();
-            generateAvailableLanguages();
-            generateTranslator();
-			generateTextAutoTranslation();
+			generateAvailableLanguages();
+
+			bool generateFilesDependedOnR_cs = true;
+			List<string> sectionIds = generateR();
+
+			if (sectionIds == null)
+			{
+				generateFilesDependedOnR_cs = false;
+
+				sectionIds = new List<string>();
+
+				for (int i = 0; i < (int)R.sections.SectionID.Count; ++i)
+				{
+					sectionIds.Add(((R.sections.SectionID)i).ToString());
+				}
+			}
+
+			generateTranslator(sectionIds, generateFilesDependedOnR_cs);
+			generateTextAutoTranslation(sectionIds, generateFilesDependedOnR_cs);
         }
 
         /// <summary>
@@ -104,8 +119,8 @@ namespace UnityTranslation
 //                previouslyGeneratedPluralsRules        = checkPreviouslyGeneratedFile("PluralsRules.cs");
 #endif
 
-                previouslyGeneratedR                     = checkPreviouslyGeneratedFile("R.cs");
 //                previouslyGeneratedAvailableLanguages  = checkPreviouslyGeneratedFile("AvailableLanguages.cs");
+//                previouslyGeneratedR                   = checkPreviouslyGeneratedFile("R.cs");
 //                previouslyGeneratedTranslator          = checkPreviouslyGeneratedFile("Translator.cs");
 //	              previouslyGeneratedTextAutoTranslation = checkPreviouslyGeneratedFile("TextAutoTranslation.cs");
             }
@@ -1360,9 +1375,175 @@ namespace UnityTranslation
 		}
 		
 		/// <summary>
+		/// Generates AvailableLanguages.cs file
+		/// </summary>
+		private static void generateAvailableLanguages()
+		{
+			List<string> valuesFolders       = new List<string>();
+			string       valuesFoldersString = "";
+			
+			#region Getting list of languages in Assets/Resources/res
+			DirectoryInfo   resDir = new DirectoryInfo(Application.dataPath + "/Resources/res");
+			DirectoryInfo[] dirs   = resDir.GetDirectories();
+			
+			for (int i = 0; i < dirs.Length; ++i)
+			{
+				string dirName = dirs[i].Name;
+				
+				if (dirName.StartsWith("values-"))
+				{
+					string locale = dirName.Substring(7);
+					
+					valuesFolders.Add(locale);
+					valuesFoldersString += locale + "\n";
+				}
+				else
+				if (dirName != "values")
+				{
+					Debug.LogError("Unexpected folder name \"" + dirName + "\" in \"Assets/Resources/res\"");
+					
+					return;
+				}
+			}
+			#endregion            
+			
+			string tempValuesFolderFile = Application.temporaryCachePath + "/UnityTranslation/valuesFolders.txt";
+			
+			string targetFile = pathToGeneratedFile("AvailableLanguages.cs");
+			
+			#region Check that AvailableLanguages.cs is up to date
+#if !FORCE_CODE_GENERATION
+			if (
+#if I_AM_UNITY_TRANSLATION_DEVELOPER
+				!previouslyGeneratedLanguage
+				&&
+#endif
+				File.Exists(targetFile)
+				&&
+				File.Exists(tempValuesFolderFile)
+			   )
+			{
+				string tempFileText = File.ReadAllText(tempValuesFolderFile);
+				
+				if (valuesFoldersString == tempFileText)
+				{
+					return;
+				}
+			}
+#endif
+			#endregion
+			
+			#region Generating AvailableLanguages.cs file
+			Debug.Log("Generating \"AvailableLanguages.cs\" file");
+			
+			string[]                     languageCodes     = LanguageCode.codes;
+			Dictionary<Language, string> languageRealCodes = new Dictionary<Language, string>();
+			
+			for (int i = 0; i < valuesFolders.Count; ++i)
+			{
+				int index = -1;
+				
+				for (int j = 1; j < languageCodes.Length; ++j)
+				{
+					string originalLanguageCode = languageCodes[j];
+					string languageCode         = originalLanguageCode;
+					
+					int dashIndex = languageCode.IndexOf('-');
+					
+					if (dashIndex >= 0)
+					{
+						languageCode = languageCode.Insert(dashIndex + 1, "r");
+					}
+					
+					if (
+						valuesFolders[i].StartsWith(originalLanguageCode)
+						||
+						valuesFolders[i].StartsWith(languageCode)
+						)
+					{
+						if (
+							index < 0
+							||
+							languageCodes[j].Length > languageCodes[index].Length
+						   )
+						{
+							index = j;
+						}
+					}
+				}
+				
+				if (index < 0)
+				{
+					Debug.LogError("Unknown language code \"" + valuesFolders[i] + "\" found in \"Assets/Resources/res\"");
+					
+					return;
+				}
+				
+				languageRealCodes[(Language)index] = valuesFolders[i];
+			}
+			
+			int maxCodeLength     = 0;
+			int maxRealCodeLength = 0;
+			
+			foreach (Language language in languageRealCodes.Keys)
+			{
+				string languageCode     = language.ToString();
+				string languageRealCode = languageRealCodes[language];
+				
+				if (languageCode.Length > maxCodeLength)
+				{
+					maxCodeLength = languageCode.Length;
+				}
+				
+				if (languageRealCode.Length > maxRealCodeLength)
+				{
+					maxRealCodeLength = languageRealCode.Length;
+				}
+			}
+			
+			string res = "// This file generated according to the list of \"Assets/Resources/res/values-*\" folders.\n" +
+				         "using System.Collections.Generic;\n" +
+					     "\n" +
+						 "\n" +
+						 "\n" +
+						 "namespace UnityTranslation\n" +
+						 "{\n" +
+						 "    /// <summary>\n" +
+						 "    /// Container for all languages specified in \"Assets/Resources/res\"\n" +
+						 "    /// </summary>\n" +
+						 "    public static class AvailableLanguages\n" +
+						 "    {\n" +
+						 "        /// <summary>\n" +
+						 "        /// List of all languages specified in \"Assets/Resources/res\"\n" +
+						 "        /// </summary>\n" +
+						 "        public static readonly Dictionary<Language, string> list = new Dictionary<Language, string>\n" +
+						 "        {\n" +
+						 string.Format("              {{ Language.{0,-" + (maxCodeLength + 1) + "} {1,-" + (maxRealCodeLength + 2) + "} }} \n", "Default,", "\"\"");
+			
+			foreach (Language language in languageRealCodes.Keys)
+			{
+				res += string.Format("            , {{ Language.{0,-" + (maxCodeLength + 1) + "} {1,-" + (maxRealCodeLength + 2) + "} }} \n", language.ToString() + ",", "\"" + languageRealCodes[language] + "\"");
+			}
+			
+			res += "        };\n" +
+				   "    }\n" +
+				   "}\n";
+			
+			File.WriteAllText(targetFile, res, Encoding.UTF8);
+			#endregion
+			
+			#region Caching valuesFolders.txt file
+			Debug.Log("Caching valuesFolders.txt file in \"" + tempValuesFolderFile + "\"");
+			Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
+			File.WriteAllText(tempValuesFolderFile, valuesFoldersString);
+			#endregion
+		}
+		
+		/// <summary>
 		/// Generates R.cs file for all specified tokens
 		/// </summary>
-		private static void generateR()
+		/// <returns>List of sections ID if regenerated or null.</returns>
+		private static List<string> generateR()
 		{
 			string tempValuesPath = Application.temporaryCachePath + "/UnityTranslation/values";
 
@@ -1414,7 +1595,7 @@ namespace UnityTranslation
 
 					if (good)
 					{
-						return;
+						return null;
 					}
 				}
 			}
@@ -1536,7 +1717,7 @@ namespace UnityTranslation
 				{
 					Debug.LogError("Generated duplicate section ID \"" + sectionId + "\" for file name \"" + xmlFiles[i].Name + "\". Please try to rename xml file");
 
-					return;
+					return null;
 				}
 
 				sectionIds.Add(sectionId);
@@ -1550,7 +1731,7 @@ namespace UnityTranslation
 
 				if (sectionTokens == null)
 				{
-					return;
+					return null;
 				}
 
 				sections.Add(sectionTokens);
@@ -1647,6 +1828,8 @@ namespace UnityTranslation
 				xmlFiles[i].CopyTo(tempValuesPath + "/" + xmlFiles[i].Name, true);
 			}
 			#endregion
+
+			return sectionIds;
         }
 
 		/// <summary>
@@ -2130,189 +2313,27 @@ namespace UnityTranslation
             return res;
 		}
 
-        /// <summary>
-        /// Generates AvailableLanguages.cs file
-        /// </summary>
-        private static void generateAvailableLanguages()
-        {
-            List<string> valuesFolders       = new List<string>();
-            string       valuesFoldersString = "";
-
-            #region Getting list of languages in Assets/Resources/res
-			DirectoryInfo   resDir = new DirectoryInfo(Application.dataPath + "/Resources/res");
-            DirectoryInfo[] dirs   = resDir.GetDirectories();
-
-            for (int i = 0; i < dirs.Length; ++i)
-            {
-                string dirName = dirs[i].Name;
-
-                if (dirName.StartsWith("values-"))
-                {
-                    string locale = dirName.Substring(7);
-
-                    valuesFolders.Add(locale);
-                    valuesFoldersString += locale + "\n";
-                }
-                else
-                if (dirName != "values")
-                {
-                    Debug.LogError("Unexpected folder name \"" + dirName + "\" in \"Assets/Resources/res\"");
-
-                    return;
-                }
-            }
-            #endregion            
-
-            string tempValuesFolderFile = Application.temporaryCachePath + "/UnityTranslation/valuesFolders.txt";
-
-			string targetFile = pathToGeneratedFile("AvailableLanguages.cs");
-
-            #region Check that AvailableLanguages.cs is up to date
-#if !FORCE_CODE_GENERATION
-            if (
-#if I_AM_UNITY_TRANSLATION_DEVELOPER
-                !previouslyGeneratedLanguage
-                &&
-#endif
-                File.Exists(targetFile)
-                &&
-                File.Exists(tempValuesFolderFile)
-               )
-            {
-                string tempFileText = File.ReadAllText(tempValuesFolderFile);
-
-                if (valuesFoldersString == tempFileText)
-                {
-                    return;
-                }
-            }
-#endif
-            #endregion
-
-            #region Generating AvailableLanguages.cs file
-            Debug.Log("Generating \"AvailableLanguages.cs\" file");
-
-            string[]                     languageCodes     = LanguageCode.codes;
-            Dictionary<Language, string> languageRealCodes = new Dictionary<Language, string>();
-
-            for (int i = 0; i < valuesFolders.Count; ++i)
-            {
-                int index = -1;
-
-                for (int j = 1; j < languageCodes.Length; ++j)
-                {
-                    string originalLanguageCode = languageCodes[j];
-                    string languageCode         = originalLanguageCode;
-
-                    int dashIndex = languageCode.IndexOf('-');
-
-                    if (dashIndex >= 0)
-                    {
-                        languageCode = languageCode.Insert(dashIndex + 1, "r");
-                    }
-
-                    if (
-                        valuesFolders[i].StartsWith(originalLanguageCode)
-                        ||
-                        valuesFolders[i].StartsWith(languageCode)
-                       )
-                    {
-                        if (
-                            index < 0
-                            ||
-                            languageCodes[j].Length > languageCodes[index].Length
-                           )
-                        {
-                            index = j;
-                        }
-                    }
-                }
-
-                if (index < 0)
-                {
-                    Debug.LogError("Unknown language code \"" + valuesFolders[i] + "\" found in \"Assets/Resources/res\"");
-
-                    return;
-                }
-
-                languageRealCodes[(Language)index] = valuesFolders[i];
-            }
-
-            int maxCodeLength     = 0;
-            int maxRealCodeLength = 0;
-
-            foreach (Language language in languageRealCodes.Keys)
-            {
-                string languageCode     = language.ToString();
-                string languageRealCode = languageRealCodes[language];
-
-                if (languageCode.Length > maxCodeLength)
-                {
-                    maxCodeLength = languageCode.Length;
-                }
-
-                if (languageRealCode.Length > maxRealCodeLength)
-                {
-                    maxRealCodeLength = languageRealCode.Length;
-                }
-            }
-
-            string res = "// This file generated according to the list of \"Assets/Resources/res/values-*\" folders.\n" +
-                         "using System.Collections.Generic;\n" +
-                         "\n" +
-                         "\n" +
-                         "\n" +
-                         "namespace UnityTranslation\n" +
-                         "{\n" +
-                         "    /// <summary>\n" +
-                         "    /// Container for all languages specified in \"Assets/Resources/res\"\n" +
-                         "    /// </summary>\n" +
-                         "    public static class AvailableLanguages\n" +
-                         "    {\n" +
-                         "        /// <summary>\n" +
-                         "        /// List of all languages specified in \"Assets/Resources/res\"\n" +
-                         "        /// </summary>\n" +
-                         "        public static readonly Dictionary<Language, string> list = new Dictionary<Language, string>\n" +
-                         "        {\n" +
-                         string.Format("              {{ Language.{0,-" + (maxCodeLength + 1) + "} {1,-" + (maxRealCodeLength + 2) + "} }} \n", "Default,", "\"\"");
-
-            foreach (Language language in languageRealCodes.Keys)
-            {
-                res += string.Format("            , {{ Language.{0,-" + (maxCodeLength + 1) + "} {1,-" + (maxRealCodeLength + 2) + "} }} \n", language.ToString() + ",", "\"" + languageRealCodes[language] + "\"");
-            }
-
-            res += "        };\n" +
-                   "    }\n" +
-                   "}\n";
-
-            File.WriteAllText(targetFile, res, Encoding.UTF8);
-			#endregion
-
-			#region Caching valuesFolders.txt file
-            Debug.Log("Caching valuesFolders.txt file in \"" + tempValuesFolderFile + "\"");
-            Directory.CreateDirectory(Application.temporaryCachePath + "/UnityTranslation");
-            File.WriteAllText(tempValuesFolderFile, valuesFoldersString);
-            #endregion
-        }
-
-        /// <summary>
-        /// Generates Translator.cs file
-        /// </summary>
-        private static void generateTranslator()
+		/// <summary>
+		/// Generates Translator.cs file
+		/// </summary>
+		/// <param name="sectionIds">Sections identifiers.</param>
+		/// <param name="forceGeneration">If set to <c>true</c> force code generation.</param>
+        private static void generateTranslator(List<string> sectionIds, bool forceGeneration)
         {
 			string targetFile = pathToGeneratedFile("Translator.cs");
 			
 			#region Check that Translator.cs is up to date
-#if !FORCE_CODE_GENERATION
+#if FORCE_CODE_GENERATION
+			forceGeneration = true;
+#endif
 			if (
-				!previouslyGeneratedR
+				!forceGeneration
 				&&
 				File.Exists(targetFile)
 			   )
 			{
 				return;
 			}
-#endif
 			#endregion
 			
 			#region Generating Translator.cs file
@@ -2321,25 +2342,28 @@ namespace UnityTranslation
 			// TODO: Implement generateTranslator
 			#endregion
 		}
-		
+
 		/// <summary>
 		/// Generates TextAutoTranslation.cs file
 		/// </summary>
-		private static void generateTextAutoTranslation()
+		/// <param name="sectionIds">Sections identifiers.</param>
+		/// <param name="forceGeneration">If set to <c>true</c> force code generation.</param>
+		private static void generateTextAutoTranslation(List<string> sectionIds, bool forceGeneration)
 		{
 			string targetFile = pathToGeneratedFile("TextAutoTranslation.cs");
 			
 			#region Check that TextAutoTranslation.cs is up to date
-#if !FORCE_CODE_GENERATION
+#if FORCE_CODE_GENERATION
+			forceGeneration = true;
+#endif
 			if (
-				!previouslyGeneratedR
+				!forceGeneration
 				&&
 				File.Exists(targetFile)
-		       )
+			   )
 			{
 				return;
 			}
-#endif
 			#endregion
 			
 			#region Generating TextAutoTranslation.cs file
