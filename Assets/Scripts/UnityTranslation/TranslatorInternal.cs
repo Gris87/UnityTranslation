@@ -142,6 +142,7 @@ namespace UnityTranslation
 
                 mLoadedSections = new Dictionary<R.sections.SectionID, SectionTokens>();
 
+                #region Initialize default tokens
                 tokens    = new SectionTokens[(int)R.sections.SectionID.Count + 1];
                 tokens[0] = new SectionTokens();
 
@@ -152,8 +153,26 @@ namespace UnityTranslation
                 int pluralsCount                   = tokenIds[2].Count;
 
                 tokens[0].defaultLanguage = parseXmlTokens(xmlFile, "", tokenIds, stringCount, stringArrayCount, pluralsCount);
+                #endregion
 
-                // TODO: Set language according to system language
+                #region Set language according to system language
+                SystemLanguage systemLanguage = Application.systemLanguage;
+                Language selectLanguage;
+
+                if (systemLanguage == SystemLanguage.English)
+                {
+                    selectLanguage = Language.English;
+                }
+                else
+                {
+                    selectLanguage = LanguageSystemName.systemLanguageToLanguage(systemLanguage);
+                }
+
+                if (AvailableLanguages.list.ContainsKey(selectLanguage))
+                {
+                    language = selectLanguage;
+                }
+                #endregion
             }
 
             /// <summary>

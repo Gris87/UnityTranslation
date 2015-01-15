@@ -300,10 +300,12 @@ namespace UnityTranslation
             {
                 int maxCodeLength = 0;
                 int maxNameLength = 0;
+                int maxSystemNameLength = 0;
 
-                List<string> languageCodes = new List<string>();
-                List<string> languageEnums = new List<string>();
-                List<string> languageNames = new List<string>();
+                List<string> languageCodes           = new List<string>();
+                List<string> languageEnums           = new List<string>();
+                List<string> languageNames           = new List<string>();
+                List<string> languageSystemLanguages = new List<string>();
 
                 #region Parse JSON
                 bool good = true;
@@ -434,7 +436,50 @@ namespace UnityTranslation
                 }
                 #endregion
 
+                #region System languages
+                string[] systemLanguages = Enum.GetNames(typeof(SystemLanguage));
+
+                for (int i = 0; i < languageEnums.Count; ++i)
+                {
+                    int index = -1;
+
+                    for (int j = 0; j < systemLanguages.Length; ++j)
+                    {
+                        if (languageEnums[i].Contains(systemLanguages[j]))
+                        {
+                            if (
+                                index < 0
+                                ||
+                                systemLanguages[j].Length < systemLanguages[index].Length
+                               )
+                            {
+                                index = j;
+                            }
+                        }
+                    }
+
+                    string systemLanguage;
+
+                    if (index >= 0)
+                    {
+                        systemLanguage = systemLanguages[index];
+                    }
+                    else
+                    {
+                        systemLanguage = "English";
+                    }
+
+                    if (systemLanguage.Length > maxSystemNameLength)
+                    {
+                        maxSystemNameLength = systemLanguage.Length;
+                    }
+
+                    languageSystemLanguages.Add(systemLanguage);
+                }
+                #endregion
+
                 string res = "// This file generated from \"CLDR/json-full/main/en/languages.json\" file.\n" +
+                             "using UnityEngine;\n" +
                              "\n" +
                              "\n" +
                              "\n" +
@@ -550,6 +595,54 @@ namespace UnityTranslation
                        "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
                        "            {\n" +
                        "                if (names[i] == name)\n" +
+                       "                {\n" +
+                       "                    return (Language)i;\n" +
+                       "                }\n" +
+                       "            }\n" +
+                       "\n" +
+                       "            return Language.Count;\n" +
+                       "        }\n" +
+                       "    }\n" +
+                       "\n" +
+                       "    /// <summary>\n" +
+                       "    /// This class provides methods for converting SystemLanguage enum to Language enum and Language enum to SystemLanguage enum\n" +
+                       "    /// </summary>\n" +
+                       "    public static class LanguageSystemName\n" +
+                       "    {\n" +
+                       "        /// <summary>\n" +
+                       "        /// Array of SystemLanguage enum values for each Language enum value.\n" +
+                       "        /// </summary>\n" +
+                       "        public static readonly SystemLanguage[] systemLanguages = new SystemLanguage[]\n" +
+                       "        {\n" +
+                       string.Format("              SystemLanguage.{0,-" + maxSystemNameLength + "} // Default\n", "English");
+
+                for (int i = 0; i < languageSystemLanguages.Count; ++i)
+                {
+                    res += string.Format("            , SystemLanguage.{0,-" + maxSystemNameLength + "} // {1}\n", languageSystemLanguages[i], languageEnums[i]);
+                }
+
+                res += "        };\n" +
+                       "\n" +
+                       "        /// <summary>\n" +
+                       "        /// Converts Language enum value to SystemLanguage enum value\n" +
+                       "        /// </summary>\n" +
+                       "        /// <returns>SystemLanguage enum value.</returns>\n" +
+                       "        /// <param name=\"language\">Language enum value</param>\n" +
+                       "        public static SystemLanguage languageToSystemLanguage(Language language)\n" +
+                       "        {\n" +
+                       "            return systemLanguages[(int)language];\n" +
+                       "        }\n" +
+                       "\n" +
+                       "        /// <summary>\n" +
+                       "        /// Converts SystemLanguage enum value to Language enum value\n" +
+                       "        /// </summary>\n" +
+                       "        /// <returns>Language enum value.</returns>\n" +
+                       "        /// <param name=\"language\">SystemLanguage enum value</param>\n" +
+                       "        public static Language systemLanguageToLanguage(SystemLanguage language)\n" +
+                       "        {\n" +
+                       "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
+                       "            {\n" +
+                       "                if (systemLanguages[i] == language)\n" +
                        "                {\n" +
                        "                    return (Language)i;\n" +
                        "                }\n" +
