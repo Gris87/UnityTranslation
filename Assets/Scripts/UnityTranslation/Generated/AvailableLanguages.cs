@@ -15,10 +15,11 @@ namespace UnityTranslation
         /// </summary>
         public static readonly Dictionary<Language, string> list = new Dictionary<Language, string>
         {
-              { Language.Default,        ""       } 
-            , { Language.CanadianFrench, "fr-rCA" } 
-            , { Language.SwissFrench,    "fr-rCH" } 
-            , { Language.Russian,        "ru-rRU" } 
+              { Language.Default,        ""       }
+            , { Language.English,        "en"     }
+            , { Language.CanadianFrench, "fr-rCA" }
+            , { Language.SwissFrench,    "fr-rCH" }
+            , { Language.Russian,        "ru-rRU" }
         };
     }
 }
