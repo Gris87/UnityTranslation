@@ -7,9 +7,9 @@ using UnityEngine.UI;
 namespace UnityTranslation
 {
     [RequireComponent(typeof(Text))]
-    public class TextAutoTranslation : MonoBehaviour
+    public class TextAutoTranslationTestSection : MonoBehaviour
     {
-        public R.strings id;
+        public R.sections.TestSection.strings id;
 
         private Text mText;
 

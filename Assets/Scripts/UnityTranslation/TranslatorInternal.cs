@@ -1,5 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Xml;
 
 
 
@@ -14,9 +18,46 @@ namespace UnityTranslation
         /// <seealso cref="http://developer.android.com/guide/topics/resources/string-resource.html"/>
         public static class Translator
         {
-            private static Language   mLanguage              = Language.Default;
-            private static UnityEvent mLanguageChangedAction = null;
+			public class SectionLocaleTokens
+			{
+				public string[]   stringValues;
+				public string[][] stringArrayValues;
+				public string[][] pluralsValues;
+				
+				
+				
+				public SectionLocaleTokens(int stringCount, int stringArrayCount, int pluralsCount)
+				{
+					stringValues      = new string[stringCount];
+					stringArrayValues = new string[stringArrayCount][];
+					pluralsValues     = new string[pluralsCount][];
+				}
+			}
 
+			public class SectionTokens
+			{
+				public SectionLocaleTokens primary;
+				public SectionLocaleTokens secondary;
+				
+				
+				
+				public SectionTokens()
+				{
+					primary   = null;
+					secondary = null;
+				}
+			}
+
+
+
+			/// <summary>
+			/// Array of tokens for strings.xml and for each section.
+			/// </summary>
+			public static SectionTokens[] tokens;
+
+            private static Language                                        mLanguage              = Language.Default;
+            private static UnityEvent                                      mLanguageChangedAction = null;
+			private static Dictionary<R.sections.SectionID, SectionTokens> mLoadedSections        = null;
 
 
             #region Properties
@@ -39,12 +80,40 @@ namespace UnityTranslation
                 {
                     if (mLanguage != value)
                     {
-                        // TODO: TryGetValue
-                        if (AvailableLanguages.list.ContainsKey(value))
+						string locale;
+
+						if (AvailableLanguages.list.TryGetValue(value, out locale))
                         {
                             mLanguage = value;
 
-                            // TODO: Reload custom tokens
+							if (mLanguage == Language.Default)
+							{
+								tokens[0].secondary = null;
+
+								foreach (R.sections.SectionID section in mLoadedSections.Keys)
+								{
+									tokens[(int)section + 1].secondary = null;
+								}
+							}
+							else
+							{
+								string xmlFile       = "strings.xml";
+								int stringCount      = R.tokenIds[0][0].Count;
+								int stringArrayCount = R.tokenIds[0][1].Count;
+								int pluralsCount     = R.tokenIds[0][2].Count;
+								
+								tokens[0].secondary = parseXmlTokens(xmlFile, locale, stringCount, stringArrayCount, pluralsCount);
+
+								foreach (R.sections.SectionID section in mLoadedSections.Keys)
+								{
+									xmlFile          = R.sections.xmlFiles[(int)section];
+									stringCount      = R.tokenIds[(int)section + 1][0].Count;
+									stringArrayCount = R.tokenIds[(int)section + 1][1].Count;
+									pluralsCount     = R.tokenIds[(int)section + 1][2].Count;
+									
+									tokens[(int)section + 1].secondary = parseXmlTokens(xmlFile, locale, stringCount, stringArrayCount, pluralsCount);
+								}
+							}                           
 
                             mLanguageChangedAction.Invoke();
                         }
@@ -69,7 +138,17 @@ namespace UnityTranslation
 
                 mLanguageChangedAction = new UnityEvent();
 
-                // TODO: Load default tokens
+				mLoadedSections = new Dictionary<R.sections.SectionID, SectionTokens>();
+
+				tokens    = new SectionTokens[(int)R.sections.SectionID.Count + 1];
+				tokens[0] = new SectionTokens();
+
+				string xmlFile       = "strings.xml";
+				int stringCount      = R.tokenIds[0][0].Count;
+				int stringArrayCount = R.tokenIds[0][1].Count;
+				int pluralsCount     = R.tokenIds[0][2].Count;
+				
+				tokens[0].primary = parseXmlTokens(xmlFile, "", stringCount, stringArrayCount, pluralsCount);
             }
 
             /// <summary>
@@ -90,6 +169,315 @@ namespace UnityTranslation
             {
                 mLanguageChangedAction.RemoveListener(listener);
             }
-        }
-    }
+
+			/// <summary>
+			/// Load tokens for specified section.
+			/// </summary>
+			/// <param name="section">Section ID.</param>
+			/// <param name="showWarning">If set to <c>true</c> show warning about already loaded section.</param>
+			public static void LoadSection(R.sections.SectionID section, bool showWarning)
+			{
+				if (tokens[(int)section + 1] == null)
+				{
+					tokens[(int)section + 1] = new SectionTokens();
+
+					string xmlFile       = R.sections.xmlFiles[(int)section];
+					int stringCount      = R.tokenIds[(int)section + 1][0].Count;
+					int stringArrayCount = R.tokenIds[(int)section + 1][1].Count;
+					int pluralsCount     = R.tokenIds[(int)section + 1][2].Count;
+					
+					tokens[(int)section + 1].primary = parseXmlTokens(xmlFile, "", stringCount, stringArrayCount, pluralsCount);
+
+					if (mLanguage != Language.Default)
+					{
+						string locale = AvailableLanguages.list[mLanguage];
+						tokens[(int)section + 1].secondary = parseXmlTokens(xmlFile, locale, stringCount, stringArrayCount, pluralsCount);
+					}
+
+					mLoadedSections[section] = tokens[(int)section + 1];
+				}
+				else
+				{
+					if (showWarning)
+					{
+						Debug.LogWarning("Section \"" + section + "\" already loaded");
+					}
+				}
+			}
+
+			/// <summary>
+			/// Unload tokens for specified section.
+			/// </summary>
+			/// <param name="section">Section ID.</param>
+			public static void UnloadSection(R.sections.SectionID section)
+			{
+				if (tokens[(int)section + 1] != null)
+				{
+					tokens[(int)section + 1] = null;
+					mLoadedSections.Remove(section);
+				}
+				else
+				{
+					Debug.LogWarning("Section \"" + section + "\" already unloaded");
+				}
+			}
+
+			/// <summary>
+			/// Determines if specified section is loaded.
+			/// </summary>
+			/// <returns><c>true</c> if section is loaded; otherwise, <c>false</c>.</returns>
+			/// <param name="section">Section ID.</param>
+			public static bool IsSectionLoaded(R.sections.SectionID section)
+			{
+				return (tokens[(int)section + 1] != null);
+			}
+
+			/// <summary>
+			/// Parse xml file and return SectionLocaleTokens instance with all tokens.
+			/// </summary>
+			/// <returns>SectionLocaleTokens instance.</returns>
+			/// <param name="filename">Name of file.</param>
+			/// <param name="locale">Language code.</param>
+			/// <param name="stringCount">String count.</param>
+			/// <param name="stringArrayCount">String array count.</param>
+			/// <param name="pluralsCount">Plurals count.</param>
+			private static SectionLocaleTokens parseXmlTokens(string filename, string locale, int stringCount, int stringArrayCount, int pluralsCount)
+			{
+				SectionLocaleTokens res = null;
+
+				filename = filename.Remove(filename.Length - 4);
+
+				do
+				{
+					string xmlResPath = "res/values" + ((locale != "") ? ("-" + locale) : "") + "/" + filename;
+
+					TextAsset xmlFile = Resources.Load(xmlResPath, typeof(TextAsset)) as TextAsset;
+
+					if (xmlFile != null)
+					{
+						if (res == null)
+						{
+							res = new SectionLocaleTokens(stringCount, stringArrayCount, pluralsCount);
+						}
+
+						XmlTextReader reader = null;
+						
+						try
+						{
+							reader = new XmlTextReader(new MemoryStream(xmlFile.bytes, false));
+							reader.WhitespaceHandling = WhitespaceHandling.None;
+							
+							bool resourcesFound = false;
+
+							while (reader.Read())
+							{
+								if (reader.Name == "resources")
+								{
+									resourcesFound = true;
+
+									List<string> stringNames      = new List<string>();
+									List<string> stringArrayNames = new List<string>();
+									List<string> pluralsNames     = new List<string>();
+									
+									while (reader.Read())
+									{
+										if (reader.NodeType == XmlNodeType.Element)
+										{
+											if (reader.Name == "string")
+											{
+												string tokenName = reader.GetAttribute("name");
+												
+												if (Internal.Utils.checkTokenName(tokenName, reader.Name, stringNames))
+												{
+													stringNames.Add(tokenName);
+
+													// TODO: Uncomment it
+													// stringValues.Add(reader.ReadString());
+												}
+											}
+											else
+											if (reader.Name == "string-array")
+											{
+												string tokenName = reader.GetAttribute("name");
+												
+												if (Internal.Utils.checkTokenName(tokenName, reader.Name, stringArrayNames))
+												{
+													List<string> values = new List<string>();
+													
+													while (reader.Read())
+													{
+														if (reader.NodeType == XmlNodeType.Element)
+														{
+															if (reader.Name == "item")
+															{
+																values.Add(reader.ReadString());
+															}
+															else
+															{
+																Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <string-array> in \"Assets/Resources/" + xmlResPath + ".xml\"");
+															}
+														}
+														else
+														if (reader.NodeType == XmlNodeType.EndElement)
+														{
+															if (reader.Name == "string-array")
+															{
+																break;
+															}
+														}
+													}
+													
+													stringArrayNames.Add(tokenName);
+
+													// TODO: Uncomment it
+													// stringArrayValues.Add(values.ToArray());
+												}
+											}
+											else
+											if (reader.Name == "plurals")
+											{
+												string tokenName = reader.GetAttribute("name");
+												
+												if (Internal.Utils.checkTokenName(tokenName, reader.Name, pluralsNames))
+												{
+													Dictionary<PluralsQuantity, string> values = new Dictionary<PluralsQuantity, string>();
+																										
+													while (reader.Read())
+													{
+														if (reader.NodeType == XmlNodeType.Element)
+														{
+															if (reader.Name == "item")
+															{
+																PluralsQuantity quantity = PluralsQuantity.Count; // Nothing
+																
+																string quantityValue = reader.GetAttribute("quantity");
+																
+																if (quantityValue == null)
+																{
+																	Debug.LogError("Attribute \"quantity\" not found for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/" + xmlResPath + ".xml\"");
+																}
+																else
+																if (quantityValue == "")
+																{
+																	Debug.LogError("Attribute \"quantity\" empty for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/" + xmlResPath + ".xml\"");
+																}
+																else
+																if (quantityValue == "zero")
+																{
+																	quantity = PluralsQuantity.Zero;
+																}
+																else
+																if (quantityValue == "one")
+																{
+																	quantity = PluralsQuantity.One;
+																}
+																else
+																if (quantityValue == "two")
+																{
+																	quantity = PluralsQuantity.Two;
+																}
+																else
+																if (quantityValue == "few")
+																{
+																	quantity = PluralsQuantity.Few;
+																}
+																else
+																if (quantityValue == "many")
+																{
+																	quantity = PluralsQuantity.Many;
+																}
+																else
+																if (quantityValue == "other")
+																{
+																	quantity = PluralsQuantity.Other;
+																}
+																else
+																{
+																	Debug.LogError("Unknown attribute \"quantity\" value \"" + quantityValue + "\" for tag <item> in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/" + xmlResPath + ".xml\"");
+																}
+
+																if (quantity != PluralsQuantity.Count)
+																{
+																	if (!values.ContainsKey(quantity))
+																	{
+																		values[quantity] = reader.ReadString();
+																	}
+																	else
+																	{
+																		Debug.LogError("Duplicate <item> tag with attribute \"quantity\" value \"" + quantityValue + "\" in tag <plurals> with name \"" + tokenName + "\" in \"Assets/Resources/" + xmlResPath + ".xml\"");
+																	}
+																}
+															}
+															else
+															{
+																Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <plurals> in \"Assets/Resources/" + xmlResPath + ".xml\"");
+															}
+														}
+														else
+															if (reader.NodeType == XmlNodeType.EndElement)
+														{
+															if (reader.Name == "plurals")
+															{
+																break;
+															}
+														}
+													}
+													
+													pluralsNames.Add(tokenName);
+													
+													// TODO: Uncomment it
+													// pluralsValues.Add(values);
+												}
+											}
+											else
+											{
+												Debug.LogError("Unexpected tag <" + reader.Name + "> found in tag <resources> in \"Assets/Resources/" + xmlResPath + ".xml\"");
+											}
+										}
+									}
+									
+									break;
+								}
+							}
+							
+							if (!resourcesFound)
+							{
+								Debug.LogError("Tag <resources> not found in \"Assets/Resources/" + xmlResPath + ".xml\"");
+							}
+						}
+						catch (Exception e)
+						{
+							Debug.LogError("Exception occured while parsing \"Assets/Resources/" + xmlResPath + ".xml\"");
+							Debug.LogException(e);
+						}
+						finally
+						{
+							if (reader != null)
+							{
+								reader.Close();
+							}
+						}
+					}
+					
+					if (locale != "")
+					{
+						int index = locale.LastIndexOf('-');
+						
+						if (index < 0)
+						{
+							break;
+						}
+						
+						locale = locale.Remove(index);
+					}
+					else
+					{
+						break;
+					}
+				} while (true);
+				
+				return res;
+			}
+		}
+	}
 }

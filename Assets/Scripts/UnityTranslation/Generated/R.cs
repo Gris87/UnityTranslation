@@ -1,4 +1,5 @@
 ﻿// This file generated from xml files in "Assets/Resources/res/values".
+using System.Collections.Generic;
 
 
 
@@ -142,5 +143,49 @@ namespace UnityTranslation
                 }
             }
         }
+
+        /// <summary>
+        /// <para>Container for all token IDs in strings.xml (index 0) and in another sections</para>
+        /// <para>Each element of tokenIds is an array with 3 elements inside:</para>
+        /// <para>0: strings tokens</para>
+        /// <para>1: array tokens</para>
+        /// <para>2: plurals tokens</para>
+        /// </summary>
+        public static readonly Dictionary<string, int>[][] tokenIds = new Dictionary<string, int>[][]
+        {
+            new Dictionary<string, int>[] // Global
+            {
+                new Dictionary<string, int> // strings
+                {
+                      { "hello", (int)R.strings.hello }
+                }
+                ,
+                new Dictionary<string, int> // array
+                {
+                      { "fruits", (int)R.array.fruits }
+                }
+                ,
+                new Dictionary<string, int> // plurals
+                {
+                      { "files", (int)R.plurals.files }
+                }
+            }
+            ,
+            new Dictionary<string, int>[] // TestSection
+            {
+                new Dictionary<string, int> // strings
+                {
+                      { "name", (int)R.sections.TestSection.strings.name }
+                }
+                ,
+                new Dictionary<string, int> // array
+                {
+                }
+                ,
+                new Dictionary<string, int> // plurals
+                {
+                }
+            }
+        };
     }
 }
