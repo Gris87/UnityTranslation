@@ -2606,8 +2606,22 @@ namespace UnityTranslation
         /// <param name="forceGeneration">If set to <c>true</c> force code generation.</param>
         private static void generateTextAutoTranslation(List<string> sectionIds, bool forceGeneration)
         {
-            // TODO: Check that at least one of TextAutoTranslation*.cs changed
+            string tempUiPath = Application.temporaryCachePath + "/UnityTranslation/UI";
+
+            if (!Directory.Exists(tempUiPath))
+            {
+                Directory.CreateDirectory(tempUiPath);
+            }
+
             string targetFile = pathToGeneratedFile("TextAutoTranslation.cs");
+
+            DirectoryInfo targetDir = new DirectoryInfo(targetFile.Remove(targetFile.LastIndexOf('/')));
+            DirectoryInfo tempUiDir = new DirectoryInfo(tempUiPath);
+
+            FileInfo[] targetFiles = targetDir.GetFiles("TextAutoTranslation*.cs");
+            FileInfo[] tempFiles   = tempUiDir.GetFiles("TextAutoTranslation*.cs");
+
+
 
             #region Check that TextAutoTranslation.cs is up to date
 #if FORCE_CODE_GENERATION
@@ -2617,9 +2631,40 @@ namespace UnityTranslation
                 !forceGeneration
                 &&
                 File.Exists(targetFile)
+                &&
+                targetFiles.Length == tempFiles.Length
                )
             {
-                return;
+                bool good = true;
+
+                for (int i = 0; i < targetFiles.Length; ++i)
+                {
+                    if (targetFiles[i].Name != tempFiles[i].Name)
+                    {
+                        good = false;
+                        break;
+                    }
+                }
+
+                if (good)
+                {
+                    for (int i = 0; i < targetFiles.Length; ++i)
+                    {
+                        byte[] leftBytes  = File.ReadAllBytes(targetFiles[i].FullName);
+                        byte[] rightBytes = File.ReadAllBytes(tempFiles[i].FullName);
+
+                        if (!leftBytes.SequenceEqual(rightBytes))
+                        {
+                            good = false;
+                            break;
+                        }
+                    }
+
+                    if (good)
+                    {
+                        return;
+                    }
+                }
             }
             #endregion
 
@@ -2627,11 +2672,14 @@ namespace UnityTranslation
             targetFile = targetFile.Remove(targetFile.Length - 3);
 
             #region Remove all previously generated files
-            DirectoryInfo targetDir = new DirectoryInfo(targetFile.Remove(targetFile.LastIndexOf('/')));
-
-            foreach (FileInfo fileInfo in targetDir.GetFiles("TextAutoTranslation*.cs"))
+            for (int i = 0; i < targetFiles.Length; ++i)
             {
-                fileInfo.Delete();
+                targetFiles[i].Delete();
+            }
+
+            for (int i = 0; i < tempFiles.Length; ++i)
+            {
+                tempFiles[i].Delete();
             }
             #endregion
 
@@ -2680,6 +2728,7 @@ namespace UnityTranslation
                              "}\n";
 
                 File.WriteAllText(targetFile + postfix, res, Encoding.UTF8);
+                File.WriteAllText(tempUiPath + "/TextAutoTranslation" + postfix, res, Encoding.UTF8);
                 #endregion
             }
         }
