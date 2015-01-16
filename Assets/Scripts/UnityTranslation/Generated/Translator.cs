@@ -96,9 +96,18 @@ namespace UnityTranslation
         /// <param name="id">String resource ID.</param>
         public static string getString(R.strings id)
         {
-            // TODO: Implement UnityTranslation.getString()
-
-            return "";
+            if (
+                Internal.Translator.tokens[0].selectedLanguage != null
+                &&
+                Internal.Translator.tokens[0].selectedLanguage.stringValues[(int)id] != null
+               )
+            {
+                return Internal.Translator.tokens[0].selectedLanguage.stringValues[(int)id];
+            }
+            else
+            {
+                return Internal.Translator.tokens[0].defaultLanguage.stringValues[(int)id];
+            }
         }
 
         /// <summary>
@@ -119,9 +128,18 @@ namespace UnityTranslation
         /// <param name="id">String array resource ID.</param>
         public static string[] getStringArray(R.array id)
         {
-            // TODO: Implement UnityTranslation.getStringArray()
-
-            return null;
+            if (
+                Internal.Translator.tokens[0].selectedLanguage != null
+                &&
+                Internal.Translator.tokens[0].selectedLanguage.stringArrayValues[(int)id] != null
+               )
+            {
+                return Internal.Translator.tokens[0].selectedLanguage.stringArrayValues[(int)id];
+            }
+            else
+            {
+                return Internal.Translator.tokens[0].defaultLanguage.stringArrayValues[(int)id];
+            }
         }
 
         /// <summary>
@@ -130,9 +148,41 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.plurals id, int quantity)
+        public static string getQuantityString(R.plurals id, double quantity)
         {
-            // TODO: Implement UnityTranslation.getQuantityString()
+            string[]        pluralsValues;
+            PluralsQuantity pluralsQuantity;
+
+            if (
+                Internal.Translator.tokens[0].selectedLanguage != null
+                &&
+                Internal.Translator.tokens[0].selectedLanguage.pluralsValues[(int)id] != null
+               )
+            {
+                pluralsValues   = Internal.Translator.tokens[0].selectedLanguage.pluralsValues[(int)id];
+                pluralsQuantity = PluralsRules.pluralsFunctions[(int)Internal.Translator.language](quantity);
+            }
+            else
+            {
+                pluralsValues   = Internal.Translator.tokens[0].defaultLanguage.pluralsValues[(int)id];
+                pluralsQuantity = PluralsRules.pluralsFunctions[0](quantity);
+            }
+
+            for (int i = (int)pluralsQuantity ; i < (int)PluralsQuantity.Count; ++i)
+            {
+                if (pluralsValues[i] != null)
+                {
+                    return pluralsValues[i];
+                }
+            }
+
+            for (int i = (int)pluralsQuantity - 1 ; i >= 0; --i)
+            {
+                if (pluralsValues[i] != null)
+                {
+                    return pluralsValues[i];
+                }
+            }
 
             return "";
         }
@@ -144,7 +194,7 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.plurals id, int quantity, params object[] formatArgs)
+        public static string getQuantityString(R.plurals id, double quantity, params object[] formatArgs)
         {
             return string.Format(getQuantityString(id, quantity), formatArgs);
         }
@@ -156,9 +206,20 @@ namespace UnityTranslation
         /// <param name="id">String resource ID.</param>
         public static string getString(R.sections.TestSection.strings id)
         {
-            // TODO: Implement UnityTranslation.getString()
+            Internal.Translator.LoadSection(R.sections.SectionID.TestSection, false);
 
-            return "";
+            if (
+                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage != null
+                &&
+                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringValues[(int)id] != null
+               )
+            {
+                return Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringValues[(int)id];
+            }
+            else
+            {
+                return Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].defaultLanguage.stringValues[(int)id];
+            }
         }
 
         /// <summary>
@@ -179,9 +240,20 @@ namespace UnityTranslation
         /// <param name="id">String array resource ID.</param>
         public static string[] getStringArray(R.sections.TestSection.array id)
         {
-            // TODO: Implement UnityTranslation.getStringArray()
+            Internal.Translator.LoadSection(R.sections.SectionID.TestSection, false);
 
-            return null;
+            if (
+                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage != null
+                &&
+                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringArrayValues[(int)id] != null
+               )
+            {
+                return Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringArrayValues[(int)id];
+            }
+            else
+            {
+                return Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].defaultLanguage.stringArrayValues[(int)id];
+            }
         }
 
         /// <summary>
@@ -190,9 +262,43 @@ namespace UnityTranslation
         /// <returns>Localized string.</returns>
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
-        public static string getQuantityString(R.sections.TestSection.plurals id, int quantity)
+        public static string getQuantityString(R.sections.TestSection.plurals id, double quantity)
         {
-            // TODO: Implement UnityTranslation.getQuantityString()
+            Internal.Translator.LoadSection(R.sections.SectionID.TestSection, false);
+
+            string[]        pluralsValues;
+            PluralsQuantity pluralsQuantity;
+
+            if (
+                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage != null
+                &&
+                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.pluralsValues[(int)id] != null
+               )
+            {
+                pluralsValues   = Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.pluralsValues[(int)id];
+                pluralsQuantity = PluralsRules.pluralsFunctions[(int)Internal.Translator.language](quantity);
+            }
+            else
+            {
+                pluralsValues   = Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].defaultLanguage.pluralsValues[(int)id];
+                pluralsQuantity = PluralsRules.pluralsFunctions[0](quantity);
+            }
+
+            for (int i = (int)pluralsQuantity ; i < (int)PluralsQuantity.Count; ++i)
+            {
+                if (pluralsValues[i] != null)
+                {
+                    return pluralsValues[i];
+                }
+            }
+
+            for (int i = (int)pluralsQuantity - 1 ; i >= 0; --i)
+            {
+                if (pluralsValues[i] != null)
+                {
+                    return pluralsValues[i];
+                }
+            }
 
             return "";
         }
@@ -204,7 +310,7 @@ namespace UnityTranslation
         /// <param name="id">Plurals resource ID.</param>
         /// <param name="quantity">Quantity.</param>
         /// <param name="formatArgs">Format arguments.</param>
-        public static string getQuantityString(R.sections.TestSection.plurals id, int quantity, params object[] formatArgs)
+        public static string getQuantityString(R.sections.TestSection.plurals id, double quantity, params object[] formatArgs)
         {
             return string.Format(getQuantityString(id, quantity), formatArgs);
         }

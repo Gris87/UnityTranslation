@@ -156,17 +156,7 @@ namespace UnityTranslation
                 #endregion
 
                 #region Set language according to system language
-                SystemLanguage systemLanguage = Application.systemLanguage;
-                Language selectLanguage;
-
-                if (systemLanguage == SystemLanguage.English)
-                {
-                    selectLanguage = Language.English;
-                }
-                else
-                {
-                    selectLanguage = LanguageSystemName.systemLanguageToLanguage(systemLanguage);
-                }
+				Language selectLanguage = LanguageSystemName.systemLanguageToLanguage(Application.systemLanguage);
 
                 if (AvailableLanguages.list.ContainsKey(selectLanguage))
                 {

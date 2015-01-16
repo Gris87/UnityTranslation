@@ -60,7 +60,7 @@ namespace UnityTranslation
         }
 
 
-
+#if !FORCE_CODE_GENERATION
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
         private static bool changedGeneratedLanguage            = false;
         private static bool changedGeneratedPluralsRules        = false;
@@ -69,6 +69,7 @@ namespace UnityTranslation
         private static bool changedGeneratedAvailableLanguages  = false;
         private static bool changedGeneratedR                   = false;
         private static bool changedGeneratedTranslator          = false;
+#endif
 
 
 
@@ -77,7 +78,9 @@ namespace UnityTranslation
         /// </summary>
         public static void generate()
         {
+#if !FORCE_CODE_GENERATION
             checkPreviouslyGeneratedFiles();
+#endif
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
             generateLanguage();
@@ -147,6 +150,7 @@ namespace UnityTranslation
             return res.Replace('\\', '/');
         }
 
+#if !FORCE_CODE_GENERATION
         /// <summary>
         /// Checks the previously generated files.
         /// </summary>
@@ -167,6 +171,7 @@ namespace UnityTranslation
                 changedGeneratedTranslator          = checkPreviouslyGeneratedFile(generatedFolder, "Translator.cs");
             }
         }
+#endif
 
         /// <summary>
         /// Verifies that application rebuilded.
@@ -298,14 +303,16 @@ namespace UnityTranslation
 
             if (json.type == JSONObject.Type.OBJECT)
             {
-                int maxCodeLength = 0;
-                int maxNameLength = 0;
-                int maxSystemNameLength = 0;
+                int maxCodeLength         = 0;
+                int maxNameLength         = 0;
+                int maxSystemNameLength   = 0;
+				int maxLanguageNameLength = 0;
 
-                List<string> languageCodes           = new List<string>();
-                List<string> languageEnums           = new List<string>();
-                List<string> languageNames           = new List<string>();
-                List<string> languageSystemLanguages = new List<string>();
+                List<string> languageCodes               = new List<string>();
+                List<string> languageEnums               = new List<string>();
+                List<string> languageNames               = new List<string>();
+                List<string> languageToSystemLanguages   = new List<string>();
+				List<string> languageFromSystemLanguages = new List<string>();
 
                 #region Parse JSON
                 bool good = true;
@@ -474,8 +481,48 @@ namespace UnityTranslation
                         maxSystemNameLength = systemLanguage.Length;
                     }
 
-                    languageSystemLanguages.Add(systemLanguage);
+                    languageToSystemLanguages.Add(systemLanguage);
                 }
+
+				for (int i = 0; i < (int)SystemLanguage.Unknown; ++i)
+				{
+					string systemLanguage = ((SystemLanguage)i).ToString();
+
+					int index = -1;
+
+					for (int j = 0; j < languageEnums.Count; ++j)
+					{
+						if (languageEnums[j].Contains(systemLanguage))
+						{
+							if (
+								index < 0
+								||
+								languageEnums[j].Length < languageEnums[index].Length
+							   )
+							{
+								index = j;
+							}
+						}
+					}
+
+					string language;
+					
+					if (index >= 0)
+					{
+						language = languageEnums[index];
+					}
+					else
+					{
+						language = "Default";
+					}
+					
+					if (language.Length > maxLanguageNameLength)
+					{
+						maxLanguageNameLength = language.Length;
+					}
+
+					languageFromSystemLanguages.Add(language);
+				}
                 #endregion
 
                 string res = "// This file generated from \"CLDR/json-full/main/en/languages.json\" file.\n" +
@@ -616,13 +663,33 @@ namespace UnityTranslation
                        "        {\n" +
                        string.Format("              SystemLanguage.{0,-" + maxSystemNameLength + "} // Default\n", "English");
 
-                for (int i = 0; i < languageSystemLanguages.Count; ++i)
+                for (int i = 0; i < languageToSystemLanguages.Count; ++i)
                 {
-                    res += string.Format("            , SystemLanguage.{0,-" + maxSystemNameLength + "} // {1}\n", languageSystemLanguages[i], languageEnums[i]);
+                    res += string.Format("            , SystemLanguage.{0,-" + maxSystemNameLength + "} // {1}\n", languageToSystemLanguages[i], languageEnums[i]);
                 }
 
                 res += "        };\n" +
                        "\n" +
+					   "        /// <summary>\n" +
+					   "        /// Array of Language enum values for each SystemLanguage enum value.\n" +
+					   "        /// </summary>\n" +
+					   "        public static readonly Language[] languages = new Language[]\n" +
+					   "        {\n";
+				
+				for (int i = 0; i < languageFromSystemLanguages.Count; ++i)
+				{
+					if (i > 0)
+					{
+						res += string.Format("            , Language.{0,-" + maxLanguageNameLength + "} // {1}\n", languageFromSystemLanguages[i], "SystemLanguage." + ((SystemLanguage)i).ToString());
+					}
+					else
+					{
+						res += string.Format("              Language.{0,-" + maxLanguageNameLength + "} // {1}\n", languageFromSystemLanguages[i], "SystemLanguage." + ((SystemLanguage)i).ToString());
+					}
+				}
+				
+				res += "        };\n" +
+					   "\n" +
                        "        /// <summary>\n" +
                        "        /// Converts Language enum value to SystemLanguage enum value\n" +
                        "        /// </summary>\n" +
@@ -640,15 +707,7 @@ namespace UnityTranslation
                        "        /// <param name=\"language\">SystemLanguage enum value</param>\n" +
                        "        public static Language systemLanguageToLanguage(SystemLanguage language)\n" +
                        "        {\n" +
-                       "            for (int i = 0; i < (int)Language.Count; ++i)\n" +
-                       "            {\n" +
-                       "                if (systemLanguages[i] == language)\n" +
-                       "                {\n" +
-                       "                    return (Language)i;\n" +
-                       "                }\n" +
-                       "            }\n" +
-                       "\n" +
-                       "            return Language.Count;\n" +
+					   "            return languages[(int)language];\n" +
                        "        }\n" +
                        "    }\n" +
                        "}\n";
@@ -2498,8 +2557,10 @@ namespace UnityTranslation
 
             #region Check that Translator.cs is up to date
 #if FORCE_CODE_GENERATION
-            forceGeneration = true;
+            forceGeneration                 = true;
+			bool changedGeneratedTranslator = false;
 #endif
+
             if (
                 !forceGeneration
                 &&
@@ -2610,14 +2671,21 @@ namespace UnityTranslation
             for (int i = 0; i <= sectionIds.Count; ++i) // 0 - strings.xml, 1..Count - sections
             {
                 string prefix;
+				string tokensId;
+				string loadSectionCall;
 
                 if (i == 0)
                 {
-                    prefix = "R.";
+                    prefix          = "R.";
+					tokensId        = "0";
+					loadSectionCall = "";
                 }
                 else
                 {
-                    prefix = "R.sections." + sectionIds[i - 1] + ".";
+                    prefix          = "R.sections." + sectionIds[i - 1] + ".";
+					tokensId        = "(int)R.sections.SectionID." + sectionIds[i - 1] + " + 1";
+					loadSectionCall = "            Internal.Translator.LoadSection(R.sections.SectionID." + sectionIds[i - 1] + ", false);\n" +
+						              "\n";
 
                     res += "\n";
                 }
@@ -2628,10 +2696,20 @@ namespace UnityTranslation
                        "        /// <returns>Localized string.</returns>\n" +
                        "        /// <param name=\"id\">String resource ID.</param>\n" +
                        "        public static string getString(" + prefix + "strings id)\n" +
-                       "        {\n" +
-                       "            // TODO: Implement UnityTranslation.getString()\n" +
-                       "\n" +
-                       "            return \"\";\n" +
+					   "        {\n" +
+				       loadSectionCall + 
+					   "            if (\n" +
+					   "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage != null\n" +
+					   "                &&\n" +
+					   "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage.stringValues[(int)id] != null\n" +
+					   "               )\n" +
+					   "            {\n" +
+					   "                return Internal.Translator.tokens[" + tokensId + "].selectedLanguage.stringValues[(int)id];\n" +
+					   "            }\n" +
+					   "            else\n" +
+					   "            {\n" +
+					   "                return Internal.Translator.tokens[" + tokensId + "].defaultLanguage.stringValues[(int)id];\n" +
+					   "            }\n" +
                        "        }\n" +
                        "\n" +
                        "        /// <summary>\n" +
@@ -2651,11 +2729,21 @@ namespace UnityTranslation
                        "        /// <returns>Localized string array.</returns>\n" +
                        "        /// <param name=\"id\">String array resource ID.</param>\n" +
                        "        public static string[] getStringArray(" + prefix + "array id)\n" +
-                       "        {\n" +
-                       "            // TODO: Implement UnityTranslation.getStringArray()\n" +
-                       "\n" +
-                       "            return null;\n" +
-                       "        }\n" +
+					   "        {\n" +
+					   loadSectionCall + 
+					   "            if (\n" +
+					   "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage != null\n" +
+					   "                &&\n" +
+					   "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage.stringArrayValues[(int)id] != null\n" +
+					   "               )\n" +
+					   "            {\n" +
+					   "                return Internal.Translator.tokens[" + tokensId + "].selectedLanguage.stringArrayValues[(int)id];\n" +
+					   "            }\n" +
+					   "            else\n" +
+					   "            {\n" +
+					   "                return Internal.Translator.tokens[" + tokensId + "].defaultLanguage.stringArrayValues[(int)id];\n" +
+					   "            }\n" +
+					   "        }\n" +
                        "\n" +
                        "        /// <summary>\n" +
                        "        /// Return the string necessary for grammatically correct pluralization of the given resource ID for the given quantity.\n" +
@@ -2663,12 +2751,45 @@ namespace UnityTranslation
                        "        /// <returns>Localized string.</returns>\n" +
                        "        /// <param name=\"id\">Plurals resource ID.</param>\n" +
                        "        /// <param name=\"quantity\">Quantity.</param>\n" +
-                       "        public static string getQuantityString(" + prefix + "plurals id, int quantity)\n" +
-                       "        {\n" +
-                       "            // TODO: Implement UnityTranslation.getQuantityString()\n" +
+                       "        public static string getQuantityString(" + prefix + "plurals id, double quantity)\n" +
+					   "        {\n" +
+					   loadSectionCall + 
+					   "            string[]        pluralsValues;\n" +
+					   "            PluralsQuantity pluralsQuantity;\n" +
+					   "\n" +
+					   "            if (\n" +
+					   "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage != null\n" +
+					   "                &&\n" +
+					   "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage.pluralsValues[(int)id] != null\n" +
+					   "               )\n" +
+					   "            {\n" +
+					   "                pluralsValues   = Internal.Translator.tokens[" + tokensId + "].selectedLanguage.pluralsValues[(int)id];\n" +
+					   "                pluralsQuantity = PluralsRules.pluralsFunctions[(int)Internal.Translator.language](quantity);\n" +
+					   "            }\n" +
+					   "            else\n" +
+					   "            {\n" +
+					   "                pluralsValues   = Internal.Translator.tokens[" + tokensId + "].defaultLanguage.pluralsValues[(int)id];\n" +
+					   "                pluralsQuantity = PluralsRules.pluralsFunctions[0](quantity);\n" +
+					   "            }\n" +
+					   "\n" +
+					   "            for (int i = (int)pluralsQuantity ; i < (int)PluralsQuantity.Count; ++i)\n" +
+					   "            {\n" +
+					   "                if (pluralsValues[i] != null)\n" +
+					   "                {\n" +
+					   "                    return pluralsValues[i];\n" +
+					   "                }\n" +
+					   "            }\n" +
+					   "\n" +
+					   "            for (int i = (int)pluralsQuantity - 1 ; i >= 0; --i)\n" +
+					   "            {\n" +
+					   "                if (pluralsValues[i] != null)\n" +
+					   "                {\n" +
+					   "                    return pluralsValues[i];\n" +
+					   "                }\n" +
+					   "            }\n" +
                        "\n" +
-                       "            return \"\";\n" +
-                       "        }\n" +
+					   "            return \"\";\n" +
+					   "        }\n" +
                        "\n" +
                        "        /// <summary>\n" +
                        "        /// Formats the string necessary for grammatically correct pluralization of the given resource ID for the given quantity, using the given arguments.\n" +
@@ -2677,7 +2798,7 @@ namespace UnityTranslation
                        "        /// <param name=\"id\">Plurals resource ID.</param>\n" +
                        "        /// <param name=\"quantity\">Quantity.</param>\n" +
                        "        /// <param name=\"formatArgs\">Format arguments.</param>\n" +
-                       "        public static string getQuantityString(" + prefix + "plurals id, int quantity, params object[] formatArgs)\n" +
+                       "        public static string getQuantityString(" + prefix + "plurals id, double quantity, params object[] formatArgs)\n" +
                        "        {\n" +
                        "            return string.Format(getQuantityString(id, quantity), formatArgs);\n" +
                        "        }\n";
@@ -2795,7 +2916,7 @@ namespace UnityTranslation
                              "    public class TextAutoTranslation" + ((i == 0) ? "" : sectionIds[i - 1]) + " : MonoBehaviour\n" +
                              "    {\n" +
                              "        public " + ((i == 0) ? "R.strings" : "R.sections." + sectionIds[i - 1] + ".strings") + " id;\n" +
-                             "\n" +
+						     "\n" +
                              "        private Text mText;\n" +
                              "\n" +
                              "\n" +

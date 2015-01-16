@@ -5020,6 +5020,53 @@ namespace UnityTranslation
         };
 
         /// <summary>
+        /// Array of Language enum values for each SystemLanguage enum value.
+        /// </summary>
+        public static readonly Language[] languages = new Language[]
+        {
+              Language.Afrikaans     // SystemLanguage.Afrikaans
+            , Language.Arabic        // SystemLanguage.Arabic
+            , Language.Basque        // SystemLanguage.Basque
+            , Language.Belarusian    // SystemLanguage.Belarusian
+            , Language.Bulgarian     // SystemLanguage.Bulgarian
+            , Language.Catalan       // SystemLanguage.Catalan
+            , Language.Chinese       // SystemLanguage.Chinese
+            , Language.Czech         // SystemLanguage.Czech
+            , Language.Danish        // SystemLanguage.Danish
+            , Language.Dutch         // SystemLanguage.Dutch
+            , Language.English       // SystemLanguage.English
+            , Language.Estonian      // SystemLanguage.Estonian
+            , Language.Faroese       // SystemLanguage.Faroese
+            , Language.Finnish       // SystemLanguage.Finnish
+            , Language.French        // SystemLanguage.French
+            , Language.German        // SystemLanguage.German
+            , Language.Greek         // SystemLanguage.Greek
+            , Language.Hebrew        // SystemLanguage.Hebrew
+            , Language.Hungarian     // SystemLanguage.Hungarian
+            , Language.Icelandic     // SystemLanguage.Icelandic
+            , Language.Indonesian    // SystemLanguage.Indonesian
+            , Language.Italian       // SystemLanguage.Italian
+            , Language.Japanese      // SystemLanguage.Japanese
+            , Language.Korean        // SystemLanguage.Korean
+            , Language.Latvian       // SystemLanguage.Latvian
+            , Language.Lithuanian    // SystemLanguage.Lithuanian
+            , Language.Norwegian     // SystemLanguage.Norwegian
+            , Language.Polish        // SystemLanguage.Polish
+            , Language.Portuguese    // SystemLanguage.Portuguese
+            , Language.Romanian      // SystemLanguage.Romanian
+            , Language.Russian       // SystemLanguage.Russian
+            , Language.SerboCroatian // SystemLanguage.SerboCroatian
+            , Language.Slovak        // SystemLanguage.Slovak
+            , Language.Slovenian     // SystemLanguage.Slovenian
+            , Language.Spanish       // SystemLanguage.Spanish
+            , Language.Swedish       // SystemLanguage.Swedish
+            , Language.Thai          // SystemLanguage.Thai
+            , Language.Turkish       // SystemLanguage.Turkish
+            , Language.Ukrainian     // SystemLanguage.Ukrainian
+            , Language.Vietnamese    // SystemLanguage.Vietnamese
+        };
+
+        /// <summary>
         /// Converts Language enum value to SystemLanguage enum value
         /// </summary>
         /// <returns>SystemLanguage enum value.</returns>
@@ -5036,15 +5083,7 @@ namespace UnityTranslation
         /// <param name="language">SystemLanguage enum value</param>
         public static Language systemLanguageToLanguage(SystemLanguage language)
         {
-            for (int i = 0; i < (int)Language.Count; ++i)
-            {
-                if (systemLanguages[i] == language)
-                {
-                    return (Language)i;
-                }
-            }
-
-            return Language.Count;
+            return languages[(int)language];
         }
     }
 }
