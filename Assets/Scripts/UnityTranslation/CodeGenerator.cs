@@ -1850,7 +1850,7 @@ namespace UnityTranslation
                         }
                         else
                         {
-                            sectionId += Char.ToLower(ch);
+                            sectionId += ch;
                         }
                     }
                     else
@@ -1871,8 +1871,20 @@ namespace UnityTranslation
                     }
                 }
 
-                if (sectionId == "")
+                if (
+					sectionId == ""
+					||
+					sectionId == "Equals"
+					||
+					sectionId == "ReferenceEquals"
+					||
+					sectionId == "SectionID"
+					||
+					sectionId == "xmlFiles"
+				   )
                 {
+					goodSectionId = false;
+
                     sectionId = "Section" + i;
                 }
 
@@ -2161,7 +2173,7 @@ namespace UnityTranslation
 
                                     res.stringNames.Add(tokenName);
                                     res.stringComments.Add(lastComment);
-                                    res.stringValues.Add(reader.ReadString());
+                                    res.stringValues.Add(reader.ReadString()); // TODO: Handle text value
 
                                     lastComment = null;
                                 }
