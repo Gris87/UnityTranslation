@@ -2,7 +2,7 @@
 
 // Use this definition to generate "Language.cs" and "PluralsRules.cs" from CLDR.
 // Please become Unity Translation developer and commit your changes to https://github.com/Gris87/UnityTranslation
-#define I_AM_UNITY_TRANSLATION_DEVELOPER
+// #define I_AM_UNITY_TRANSLATION_DEVELOPER
 
 // Use this definition if you want to force code generation
 // #define FORCE_CODE_GENERATION
