@@ -3,6 +3,9 @@
 
     <!-- Greeting -->
     <string name="hello">Hello</string>
+    
+    <!-- Goodbye -->
+    <string name="goodbye">Goodbye</string>
 
     <!-- List of fruits -->
     <string-array name="fruits">
@@ -22,7 +25,7 @@
         <item quantity="one">{0} file</item>
         <!-- 2 files -->
         <item quantity="two">{0} files</item>
-        <!-- 5 files -->
+        <!-- 3 files -->
         <item quantity="few">{0} files</item>
         <!-- 26 files -->
         <item quantity="many">{0} files</item>

@@ -1579,10 +1579,10 @@ namespace UnityTranslation
             if (
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
                 !changedGeneratedLanguage
-                &&
-                !changedGeneratedAvailableLanguages
-                &&
+                &&                
 #endif
+				!changedGeneratedAvailableLanguages
+				&&
                 File.Exists(targetFile)
                 &&
                 File.Exists(tempValuesFolderFile)
@@ -2950,7 +2950,7 @@ namespace UnityTranslation
                              "        {\n" +
                              "            mText.text = Translator.getString(id);\n" +
                              "        }\n" +
-                             "   }\n" +
+                             "    }\n" +
                              "}\n";
 
                 File.WriteAllText(targetFile + postfix, res, Encoding.UTF8);

@@ -3,6 +3,9 @@
 
     <!-- Greeting -->
     <string name="hello">Здравствуйте</string>
+    
+    <!-- Goodbye -->
+    <string name="goodbye">Пока</string>
 
     <!-- List of fruits -->
     <string-array name="fruits">

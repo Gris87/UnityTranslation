@@ -311,7 +311,10 @@ namespace UnityTranslation
 
                                                     if (tokenIds[0].TryGetValue(tokenName, out index))
                                                     {
-                                                        res.stringValues[index] = reader.ReadString();
+														if (res.stringValues[index] == null)
+														{
+															res.stringValues[index] = reader.ReadString();
+														}                                                        
                                                     }
                                                     else
                                                     {
@@ -357,7 +360,10 @@ namespace UnityTranslation
 
                                                     if (tokenIds[1].TryGetValue(tokenName, out index))
                                                     {
-                                                        res.stringArrayValues[index] = values.ToArray();
+														if (res.stringArrayValues[index] == null)
+														{
+															res.stringArrayValues[index] = values.ToArray();
+														}
                                                     }
                                                     else
                                                     {
@@ -461,7 +467,10 @@ namespace UnityTranslation
 
                                                     if (tokenIds[2].TryGetValue(tokenName, out index))
                                                     {
-                                                        res.pluralsValues[index] = values;
+														if (res.pluralsValues[index] == null)
+														{
+															res.pluralsValues[index] = values;
+														}                                                        
                                                     }
                                                     else
                                                     {

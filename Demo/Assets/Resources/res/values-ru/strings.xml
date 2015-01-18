@@ -12,8 +12,8 @@
         <item quantity="one">{0} файл</item>
         <!-- 2 files -->
         <item quantity="two">{0} файла</item>
-        <!-- 5 files -->
-        <item quantity="few">{0} файлов</item>
+        <!-- 3 files -->
+        <item quantity="few">{0} файла</item>
         <!-- 26 files -->
         <item quantity="many">{0} файлов</item>
         <!-- 3219 files -->

@@ -32,5 +32,5 @@ namespace UnityTranslation
         {
             mText.text = Translator.getString(id);
         }
-   }
+    }
 }

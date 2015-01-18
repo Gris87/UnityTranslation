@@ -22,6 +22,13 @@ namespace UnityTranslation
             /// </summary>
             hello
             ,
+            /// <summary>
+            /// <para>Goodbye</para>
+            /// <para>Value:</para>
+            ///   <para>Goodbye</para>
+            /// </summary>
+            goodbye
+            ,
             Count // Should be last
         }
 
@@ -66,7 +73,7 @@ namespace UnityTranslation
             ///     <para>// 2 files</para>
             ///     <para>{0} files</para>
             ///   <para>- Few:</para>
-            ///     <para>// 5 files</para>
+            ///     <para>// 3 files</para>
             ///     <para>{0} files</para>
             ///   <para>- Many:</para>
             ///     <para>// 26 files</para>
@@ -157,7 +164,8 @@ namespace UnityTranslation
             {
                 new Dictionary<string, int> // strings
                 {
-                      { "hello", (int)R.strings.hello }
+                      { "hello"  , (int)R.strings.hello   }
+                   , { "goodbye", (int)R.strings.goodbye }
                 }
                 ,
                 new Dictionary<string, int> // array
