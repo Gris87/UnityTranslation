@@ -6,6 +6,9 @@ namespace UnityTranslation
 {
     namespace Internal
     {
+        /// <summary>
+        /// Class with utilities for UnityTranslation.
+        /// </summary>
         public static class Utils
         {
             /// <summary>
@@ -66,6 +69,45 @@ namespace UnityTranslation
                 }
 
                 return true;
+            }
+
+            public static string processTokenValue(string value)
+            {
+                string res = value;
+
+                int index = -1;
+
+                do
+                {
+                    index = res.IndexOf("\\u", index + 1);
+
+                    if (index < 0)
+                    {
+                        break;
+                    }
+
+                    if (index > res.Length - 6)
+                    {
+                        Debug.LogWarning("Incorrect unicode char in token value: " + value);
+
+                        break;
+                    }
+
+                    string charHex = res.Substring(index + 2, 4);
+
+                    int unicodeChar;
+
+                    if (int.TryParse(charHex, System.Globalization.NumberStyles.HexNumber, null, out unicodeChar))
+                    {
+                        res = res.Remove(index, 6).Insert(index, char.ConvertFromUtf32(unicodeChar));
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Incorrect unicode char in token value: " + value);
+                    }
+                } while(true);
+
+                return res;
             }
         }
     }

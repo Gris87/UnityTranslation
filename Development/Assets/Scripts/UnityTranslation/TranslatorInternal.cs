@@ -156,7 +156,7 @@ namespace UnityTranslation
                 #endregion
 
                 #region Set language according to system language
-				Language selectLanguage = LanguageSystemName.systemLanguageToLanguage(Application.systemLanguage);
+                Language selectLanguage = LanguageSystemName.systemLanguageToLanguage(Application.systemLanguage);
 
                 if (AvailableLanguages.list.ContainsKey(selectLanguage))
                 {
@@ -311,10 +311,10 @@ namespace UnityTranslation
 
                                                     if (tokenIds[0].TryGetValue(tokenName, out index))
                                                     {
-														if (res.stringValues[index] == null)
-														{
-															res.stringValues[index] = reader.ReadString();
-														}                                                        
+                                                        if (res.stringValues[index] == null)
+                                                        {
+                                                            res.stringValues[index] = Internal.Utils.processTokenValue(reader.ReadString());
+                                                        }
                                                     }
                                                     else
                                                     {
@@ -337,7 +337,7 @@ namespace UnityTranslation
                                                         {
                                                             if (reader.Name == "item")
                                                             {
-                                                                values.Add(reader.ReadString());
+                                                                values.Add(Internal.Utils.processTokenValue(reader.ReadString()));
                                                             }
                                                             else
                                                             {
@@ -360,10 +360,10 @@ namespace UnityTranslation
 
                                                     if (tokenIds[1].TryGetValue(tokenName, out index))
                                                     {
-														if (res.stringArrayValues[index] == null)
-														{
-															res.stringArrayValues[index] = values.ToArray();
-														}
+                                                        if (res.stringArrayValues[index] == null)
+                                                        {
+                                                            res.stringArrayValues[index] = values.ToArray();
+                                                        }
                                                     }
                                                     else
                                                     {
@@ -438,7 +438,7 @@ namespace UnityTranslation
                                                                 {
                                                                     if (values[(int)quantity] == null)
                                                                     {
-                                                                        values[(int)quantity] = reader.ReadString();
+                                                                        values[(int)quantity] = Internal.Utils.processTokenValue(reader.ReadString());
                                                                     }
                                                                     else
                                                                     {
@@ -467,10 +467,10 @@ namespace UnityTranslation
 
                                                     if (tokenIds[2].TryGetValue(tokenName, out index))
                                                     {
-														if (res.pluralsValues[index] == null)
-														{
-															res.pluralsValues[index] = values;
-														}                                                        
+                                                        if (res.pluralsValues[index] == null)
+                                                        {
+                                                            res.pluralsValues[index] = values;
+                                                        }
                                                     }
                                                     else
                                                     {

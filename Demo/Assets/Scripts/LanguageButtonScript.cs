@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityTranslation;
 
@@ -6,36 +6,36 @@ using UnityTranslation;
 
 public class LanguageButtonScript : MonoBehaviour
 {
-	private static LanguageButtonScript selectedButton = null;
+    private static LanguageButtonScript selectedButton = null;
 
-	public Language language;
+    public Language language;
 
 
 
-	// Use this for initialization
-	void Start()
-	{
-		if (language == Translator.language)
-		{
-			selectedButton = this;
+    // Use this for initialization
+    void Start()
+    {
+        if (language == Translator.language)
+        {
+            selectedButton = this;
 
-			transform.GetChild(0).GetComponent<Text>().color = Color.red;
-		}
+            transform.GetChild(0).GetComponent<Text>().color = Color.red;
+        }
 
-		GetComponent<Button>().onClick.AddListener(OnClick);
-	}
+        GetComponent<Button>().onClick.AddListener(OnClick);
+    }
 
-	public void OnClick()
-	{
-		Translator.language = language;
+    public void OnClick()
+    {
+        Translator.language = language;
 
-		if (selectedButton != null)
-		{
-			selectedButton.transform.GetChild(0).GetComponent<Text>().color = Color.black;
-		}
+        if (selectedButton != null)
+        {
+            selectedButton.transform.GetChild(0).GetComponent<Text>().color = Color.black;
+        }
 
-		selectedButton = this;
+        selectedButton = this;
 
-		transform.GetChild(0).GetComponent<Text>().color = Color.red;
-	} 
+        transform.GetChild(0).GetComponent<Text>().color = Color.red;
+    }
 }

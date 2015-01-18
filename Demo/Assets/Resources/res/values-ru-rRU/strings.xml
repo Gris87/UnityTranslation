@@ -3,7 +3,7 @@
 
     <!-- Greeting -->
     <string name="hello">Здравствуйте</string>
-    
+
     <!-- Goodbye -->
     <string name="goodbye">Пока</string>
 
@@ -15,6 +15,8 @@
         <item>Апельсин</item>
         <!-- This fruit is yellow -->
         <item>Банан</item>
+        <!-- This fruit is green -->
+        <item>&lt;i&gt;Киви&lt;/i&gt;\u047e</item>
     </string-array>
 
 </resources>
