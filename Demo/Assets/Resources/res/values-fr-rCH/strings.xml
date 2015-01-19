@@ -1,36 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Greeting -->
-    <string name="hello">Salut</string>
-
     <!-- Goodbye -->
-    <string name="goodbye">Au revoir</string>
-
-    <!-- List of fruits -->
-    <string-array name="fruits">
-        <!-- This fruit is red -->
-        <item>Pomme</item>
-        <!-- This fruit is orange -->
-        <item>Orange</item>
-        <!-- This fruit is yellow -->
-        <item>Banane</item>
-    </string-array>
-
-    <!-- Plurals for files -->
-    <plurals name="files">
-        <!-- 0 files -->
-        <item quantity="zero">pas de fichiers</item>
-        <!-- 1 file -->
-        <item quantity="one">{0} fichier</item>
-        <!-- 2 files -->
-        <item quantity="two">{0} fichiers</item>
-        <!-- 3 files -->
-        <item quantity="few">{0} fichiers</item>
-        <!-- 26 files -->
-        <item quantity="many">{0} fichiers</item>
-        <!-- 3219 files -->
-        <item quantity="other">{0} fichiers</item>
-    </plurals>
+    <string name="goodbye">Au revoir:D</string>
 
 </resources>

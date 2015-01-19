@@ -17,6 +17,7 @@ namespace UnityTranslation
         {
               { Language.Default,        ""       }
             , { Language.English,        "en"     }
+            , { Language.French,         "fr"     }
             , { Language.CanadianFrench, "fr-rCA" }
             , { Language.SwissFrench,    "fr-rCH" }
             , { Language.Russian,        "ru-rRU" }
