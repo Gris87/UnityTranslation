@@ -10,7 +10,7 @@ Main advantages:
 - Dynamically loadable/unloadable sections with tokens
 - Code generator that provide source code to user with the best performance
 
-Demo:              TODO
+Demo:              http://gris.ucoz.ru/UnityModules/UnityTranslate/Web/UnityTranslation.html
 Unity Asset Store: TODO
 
 Description:
@@ -130,10 +130,11 @@ e-mail: gris87@yandex.ru
 
 Links:
 
-Site:              TODO
+Site:              http://gris.ucoz.ru/index/unitytranslation/0-15
 Unity Asset Store: TODO
-GitHub:            TODO
+GitHub:            https://github.com/Gris87/UnityTranslation
 
 See also:
+
 Strings.xml file format: http://developer.android.com/guide/topics/resources/string-resource.html
 Plurals:                 http://developer.android.com/guide/topics/resources/string-resource.html#Plurals
