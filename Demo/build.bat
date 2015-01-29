@@ -45,5 +45,5 @@ echo Web
 %UNITY% -batchmode -projectPath %CD% -buildWebPlayer out\Web\%APP_NAME% -quit
 
 if [%1]==[] (
-pause
+    pause
 )
