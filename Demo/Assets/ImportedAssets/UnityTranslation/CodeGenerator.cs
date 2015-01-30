@@ -10,6 +10,7 @@
 
 
 using UnityEngine;
+using UnityTranslation;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +20,7 @@ using System.Xml;
 
 
 
-namespace UnityTranslation
+namespace UnityTranslationInternal
 {
     public static class CodeGenerator
     {
@@ -984,7 +985,7 @@ namespace UnityTranslation
                              "\n" +
                              "\n" +
                              "\n" +
-                             "namespace UnityTranslation\n" +
+                             "namespace UnityTranslationInternal\n" +
                              "{\n" +
                              "    /// <summary>\n" +
                              "    /// Container for all plurals rules for each language.\n" +
@@ -2166,14 +2167,14 @@ namespace UnityTranslation
                                 {
                                     string tokenName = reader.GetAttribute("name");
 
-                                    if (!Internal.Utils.checkTokenName(tokenName, reader.Name, res.stringNames))
+                                    if (!Utils.checkTokenName(tokenName, reader.Name, res.stringNames))
                                     {
                                         return null;
                                     }
 
                                     res.stringNames.Add(tokenName);
                                     res.stringComments.Add(lastComment);
-                                    res.stringValues.Add(Internal.Utils.processTokenValue(reader.ReadString()));
+                                    res.stringValues.Add(Utils.processTokenValue(reader.ReadString()));
 
                                     lastComment = null;
                                 }
@@ -2182,7 +2183,7 @@ namespace UnityTranslation
                                 {
                                     string tokenName = reader.GetAttribute("name");
 
-                                    if (!Internal.Utils.checkTokenName(tokenName, reader.Name, res.stringArrayNames))
+                                    if (!Utils.checkTokenName(tokenName, reader.Name, res.stringArrayNames))
                                     {
                                         return null;
                                     }
@@ -2204,7 +2205,7 @@ namespace UnityTranslation
                                             if (reader.Name == "item")
                                             {
                                                 valuesComments.Add(lastValueComment);
-                                                values.Add(Internal.Utils.processTokenValue(reader.ReadString()));
+                                                values.Add(Utils.processTokenValue(reader.ReadString()));
 
                                                 lastValueComment = null;
                                             }
@@ -2237,7 +2238,7 @@ namespace UnityTranslation
                                 {
                                     string tokenName = reader.GetAttribute("name");
 
-                                    if (!Internal.Utils.checkTokenName(tokenName, reader.Name, res.pluralsNames))
+                                    if (!Utils.checkTokenName(tokenName, reader.Name, res.pluralsNames))
                                     {
                                         return null;
                                     }
@@ -2315,7 +2316,7 @@ namespace UnityTranslation
                                                 if (!values.ContainsKey(quantity))
                                                 {
                                                     valuesComments[quantity] = lastValueComment;
-                                                    values[quantity]         = Internal.Utils.processTokenValue(reader.ReadString());
+                                                    values[quantity]         = Utils.processTokenValue(reader.ReadString());
                                                 }
                                                 else
                                                 {
@@ -2602,7 +2603,7 @@ namespace UnityTranslation
                          "    /// <seealso cref=\"http://developer.android.com/guide/topics/resources/string-resource.html\"/>\n" +
                          "    public static class Translator\n" +
                          "    {\n" +
-                         "        #region Trasparent access to Internal.Translator public members\n" +
+                         "        #region Trasparent access to UnityTranslationInternal.Translator public members\n" +
                          "\n" +
                          "        #region Properties\n" +
                          "\n" +
@@ -2617,12 +2618,12 @@ namespace UnityTranslation
                          "        {\n" +
                          "            get\n" +
                          "            {\n" +
-                         "                return Internal.Translator.language;\n" +
+                         "                return UnityTranslationInternal.Translator.language;\n" +
                          "            }\n" +
                          "\n" +
                          "            set\n" +
                          "            {\n" +
-                         "                Internal.Translator.language = value;\n" +
+                         "                UnityTranslationInternal.Translator.language = value;\n" +
                          "            }\n" +
                          "        }\n" +
                          "        #endregion\n" +
@@ -2637,7 +2638,7 @@ namespace UnityTranslation
                          "        /// <param name=\"listener\">Language changed listener.</param>\n" +
                          "        public static void addLanguageChangedListener(UnityAction listener)\n" +
                          "        {\n" +
-                         "            Internal.Translator.addLanguageChangedListener(listener);\n" +
+                         "            UnityTranslationInternal.Translator.addLanguageChangedListener(listener);\n" +
                          "        }\n" +
                          "\n" +
                          "        /// <summary>\n" +
@@ -2646,7 +2647,7 @@ namespace UnityTranslation
                          "        /// <param name=\"listener\">Language changed listener.</param>\n" +
                          "        public static void removeLanguageChangedListener(UnityAction listener)\n" +
                          "        {\n" +
-                         "            Internal.Translator.removeLanguageChangedListener(listener);\n" +
+                         "            UnityTranslationInternal.Translator.removeLanguageChangedListener(listener);\n" +
                          "        }\n" +
                          "\n" +
                          "        /// <summary>\n" +
@@ -2655,7 +2656,7 @@ namespace UnityTranslation
                          "        /// <param name=\"section\">Section ID.</param>\n" +
                          "        public static void LoadSection(R.sections.SectionID section)\n" +
                          "        {\n" +
-                         "            Internal.Translator.LoadSection(section, true);\n" +
+                         "            UnityTranslationInternal.Translator.LoadSection(section, true);\n" +
                          "        }\n" +
                          "\n" +
                          "        /// <summary>\n" +
@@ -2664,7 +2665,7 @@ namespace UnityTranslation
                          "        /// <param name=\"section\">Section ID.</param>\n" +
                          "        public static void UnloadSection(R.sections.SectionID section)\n" +
                          "        {\n" +
-                         "            Internal.Translator.UnloadSection(section);\n" +
+                         "            UnityTranslationInternal.Translator.UnloadSection(section);\n" +
                          "        }\n" +
                          "\n" +
                          "        /// <summary>\n" +
@@ -2674,7 +2675,7 @@ namespace UnityTranslation
                          "        /// <param name=\"section\">Section ID.</param>\n" +
                          "        public static bool IsSectionLoaded(R.sections.SectionID section)\n" +
                          "        {\n" +
-                         "            return Internal.Translator.IsSectionLoaded(section);\n" +
+                         "            return UnityTranslationInternal.Translator.IsSectionLoaded(section);\n" +
                          "        }\n" +
                          "        #endregion\n" +
                          "\n" +
@@ -2696,7 +2697,7 @@ namespace UnityTranslation
                 {
                     prefix          = "R.sections." + sectionIds[i - 1] + ".";
                     tokensId        = "(int)R.sections.SectionID." + sectionIds[i - 1] + " + 1";
-                    loadSectionCall = "            Internal.Translator.LoadSection(R.sections.SectionID." + sectionIds[i - 1] + ", false);\n" +
+                    loadSectionCall = "            UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID." + sectionIds[i - 1] + ", false);\n" +
                                       "\n";
 
                     res += "\n";
@@ -2711,16 +2712,16 @@ namespace UnityTranslation
                        "        {\n" +
                        loadSectionCall +
                        "            if (\n" +
-                       "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage != null\n" +
+                       "                UnityTranslationInternal.Translator.tokens[" + tokensId + "].selectedLanguage != null\n" +
                        "                &&\n" +
-                       "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage.stringValues[(int)id] != null\n" +
+                       "                UnityTranslationInternal.Translator.tokens[" + tokensId + "].selectedLanguage.stringValues[(int)id] != null\n" +
                        "               )\n" +
                        "            {\n" +
-                       "                return Internal.Translator.tokens[" + tokensId + "].selectedLanguage.stringValues[(int)id];\n" +
+                       "                return UnityTranslationInternal.Translator.tokens[" + tokensId + "].selectedLanguage.stringValues[(int)id];\n" +
                        "            }\n" +
                        "            else\n" +
                        "            {\n" +
-                       "                return Internal.Translator.tokens[" + tokensId + "].defaultLanguage.stringValues[(int)id];\n" +
+                       "                return UnityTranslationInternal.Translator.tokens[" + tokensId + "].defaultLanguage.stringValues[(int)id];\n" +
                        "            }\n" +
                        "        }\n" +
                        "\n" +
@@ -2744,16 +2745,16 @@ namespace UnityTranslation
                        "        {\n" +
                        loadSectionCall +
                        "            if (\n" +
-                       "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage != null\n" +
+                       "                UnityTranslationInternal.Translator.tokens[" + tokensId + "].selectedLanguage != null\n" +
                        "                &&\n" +
-                       "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage.stringArrayValues[(int)id] != null\n" +
+                       "                UnityTranslationInternal.Translator.tokens[" + tokensId + "].selectedLanguage.stringArrayValues[(int)id] != null\n" +
                        "               )\n" +
                        "            {\n" +
-                       "                return Internal.Translator.tokens[" + tokensId + "].selectedLanguage.stringArrayValues[(int)id];\n" +
+                       "                return UnityTranslationInternal.Translator.tokens[" + tokensId + "].selectedLanguage.stringArrayValues[(int)id];\n" +
                        "            }\n" +
                        "            else\n" +
                        "            {\n" +
-                       "                return Internal.Translator.tokens[" + tokensId + "].defaultLanguage.stringArrayValues[(int)id];\n" +
+                       "                return UnityTranslationInternal.Translator.tokens[" + tokensId + "].defaultLanguage.stringArrayValues[(int)id];\n" +
                        "            }\n" +
                        "        }\n" +
                        "\n" +
@@ -2766,25 +2767,25 @@ namespace UnityTranslation
                        "        public static string getQuantityString(" + prefix + "plurals id, double quantity)\n" +
                        "        {\n" +
                        loadSectionCall +
-                       "            string[]        pluralsValues;\n" +
-                       "            PluralsQuantity pluralsQuantity;\n" +
+                       "            string[]                                 pluralsValues;\n" +
+                       "            UnityTranslationInternal.PluralsQuantity pluralsQuantity;\n" +
                        "\n" +
                        "            if (\n" +
-                       "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage != null\n" +
+                       "                UnityTranslationInternal.Translator.tokens[" + tokensId + "].selectedLanguage != null\n" +
                        "                &&\n" +
-                       "                Internal.Translator.tokens[" + tokensId + "].selectedLanguage.pluralsValues[(int)id] != null\n" +
+                       "                UnityTranslationInternal.Translator.tokens[" + tokensId + "].selectedLanguage.pluralsValues[(int)id] != null\n" +
                        "               )\n" +
                        "            {\n" +
-                       "                pluralsValues   = Internal.Translator.tokens[" + tokensId + "].selectedLanguage.pluralsValues[(int)id];\n" +
-                       "                pluralsQuantity = PluralsRules.pluralsFunctions[(int)Internal.Translator.language](quantity);\n" +
+                       "                pluralsValues   = UnityTranslationInternal.Translator.tokens[" + tokensId + "].selectedLanguage.pluralsValues[(int)id];\n" +
+                       "                pluralsQuantity = UnityTranslationInternal.PluralsRules.pluralsFunctions[(int)UnityTranslationInternal.Translator.language](quantity);\n" +
                        "            }\n" +
                        "            else\n" +
                        "            {\n" +
-                       "                pluralsValues   = Internal.Translator.tokens[" + tokensId + "].defaultLanguage.pluralsValues[(int)id];\n" +
-                       "                pluralsQuantity = PluralsRules.pluralsFunctions[0](quantity);\n" +
+                       "                pluralsValues   = UnityTranslationInternal.Translator.tokens[" + tokensId + "].defaultLanguage.pluralsValues[(int)id];\n" +
+                       "                pluralsQuantity = UnityTranslationInternal.PluralsRules.pluralsFunctions[0](quantity);\n" +
                        "            }\n" +
                        "\n" +
-                       "            for (int i = (int)pluralsQuantity ; i < (int)PluralsQuantity.Count; ++i)\n" +
+                       "            for (int i = (int)pluralsQuantity ; i < (int)UnityTranslationInternal.PluralsQuantity.Count; ++i)\n" +
                        "            {\n" +
                        "                if (pluralsValues[i] != null)\n" +
                        "                {\n" +

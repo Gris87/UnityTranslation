@@ -1,4 +1,4 @@
-namespace UnityTranslation
+namespace UnityTranslationInternal
 {
     /// <summary>
     /// Plurals quantity. This enumeration contains list of available plurals quantities.

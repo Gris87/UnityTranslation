@@ -3,7 +3,7 @@ using System;
 
 
 
-namespace UnityTranslation
+namespace UnityTranslationInternal
 {
     /// <summary>
     /// Container for all plurals rules for each language.

@@ -12,7 +12,7 @@ namespace UnityTranslation
     /// <seealso cref="http://developer.android.com/guide/topics/resources/string-resource.html"/>
     public static class Translator
     {
-        #region Trasparent access to Internal.Translator public members
+        #region Trasparent access to UnityTranslationInternal.Translator public members
 
         #region Properties
 
@@ -27,12 +27,12 @@ namespace UnityTranslation
         {
             get
             {
-                return Internal.Translator.language;
+                return UnityTranslationInternal.Translator.language;
             }
 
             set
             {
-                Internal.Translator.language = value;
+                UnityTranslationInternal.Translator.language = value;
             }
         }
         #endregion
@@ -47,7 +47,7 @@ namespace UnityTranslation
         /// <param name="listener">Language changed listener.</param>
         public static void addLanguageChangedListener(UnityAction listener)
         {
-            Internal.Translator.addLanguageChangedListener(listener);
+            UnityTranslationInternal.Translator.addLanguageChangedListener(listener);
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace UnityTranslation
         /// <param name="listener">Language changed listener.</param>
         public static void removeLanguageChangedListener(UnityAction listener)
         {
-            Internal.Translator.removeLanguageChangedListener(listener);
+            UnityTranslationInternal.Translator.removeLanguageChangedListener(listener);
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace UnityTranslation
         /// <param name="section">Section ID.</param>
         public static void LoadSection(R.sections.SectionID section)
         {
-            Internal.Translator.LoadSection(section, true);
+            UnityTranslationInternal.Translator.LoadSection(section, true);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace UnityTranslation
         /// <param name="section">Section ID.</param>
         public static void UnloadSection(R.sections.SectionID section)
         {
-            Internal.Translator.UnloadSection(section);
+            UnityTranslationInternal.Translator.UnloadSection(section);
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace UnityTranslation
         /// <param name="section">Section ID.</param>
         public static bool IsSectionLoaded(R.sections.SectionID section)
         {
-            return Internal.Translator.IsSectionLoaded(section);
+            return UnityTranslationInternal.Translator.IsSectionLoaded(section);
         }
         #endregion
 
@@ -97,16 +97,16 @@ namespace UnityTranslation
         public static string getString(R.strings id)
         {
             if (
-                Internal.Translator.tokens[0].selectedLanguage != null
+                UnityTranslationInternal.Translator.tokens[0].selectedLanguage != null
                 &&
-                Internal.Translator.tokens[0].selectedLanguage.stringValues[(int)id] != null
+                UnityTranslationInternal.Translator.tokens[0].selectedLanguage.stringValues[(int)id] != null
                )
             {
-                return Internal.Translator.tokens[0].selectedLanguage.stringValues[(int)id];
+                return UnityTranslationInternal.Translator.tokens[0].selectedLanguage.stringValues[(int)id];
             }
             else
             {
-                return Internal.Translator.tokens[0].defaultLanguage.stringValues[(int)id];
+                return UnityTranslationInternal.Translator.tokens[0].defaultLanguage.stringValues[(int)id];
             }
         }
 
@@ -129,16 +129,16 @@ namespace UnityTranslation
         public static string[] getStringArray(R.array id)
         {
             if (
-                Internal.Translator.tokens[0].selectedLanguage != null
+                UnityTranslationInternal.Translator.tokens[0].selectedLanguage != null
                 &&
-                Internal.Translator.tokens[0].selectedLanguage.stringArrayValues[(int)id] != null
+                UnityTranslationInternal.Translator.tokens[0].selectedLanguage.stringArrayValues[(int)id] != null
                )
             {
-                return Internal.Translator.tokens[0].selectedLanguage.stringArrayValues[(int)id];
+                return UnityTranslationInternal.Translator.tokens[0].selectedLanguage.stringArrayValues[(int)id];
             }
             else
             {
-                return Internal.Translator.tokens[0].defaultLanguage.stringArrayValues[(int)id];
+                return UnityTranslationInternal.Translator.tokens[0].defaultLanguage.stringArrayValues[(int)id];
             }
         }
 
@@ -150,25 +150,25 @@ namespace UnityTranslation
         /// <param name="quantity">Quantity.</param>
         public static string getQuantityString(R.plurals id, double quantity)
         {
-            string[]        pluralsValues;
-            PluralsQuantity pluralsQuantity;
+            string[]                                 pluralsValues;
+            UnityTranslationInternal.PluralsQuantity pluralsQuantity;
 
             if (
-                Internal.Translator.tokens[0].selectedLanguage != null
+                UnityTranslationInternal.Translator.tokens[0].selectedLanguage != null
                 &&
-                Internal.Translator.tokens[0].selectedLanguage.pluralsValues[(int)id] != null
+                UnityTranslationInternal.Translator.tokens[0].selectedLanguage.pluralsValues[(int)id] != null
                )
             {
-                pluralsValues   = Internal.Translator.tokens[0].selectedLanguage.pluralsValues[(int)id];
-                pluralsQuantity = PluralsRules.pluralsFunctions[(int)Internal.Translator.language](quantity);
+                pluralsValues   = UnityTranslationInternal.Translator.tokens[0].selectedLanguage.pluralsValues[(int)id];
+                pluralsQuantity = UnityTranslationInternal.PluralsRules.pluralsFunctions[(int)UnityTranslationInternal.Translator.language](quantity);
             }
             else
             {
-                pluralsValues   = Internal.Translator.tokens[0].defaultLanguage.pluralsValues[(int)id];
-                pluralsQuantity = PluralsRules.pluralsFunctions[0](quantity);
+                pluralsValues   = UnityTranslationInternal.Translator.tokens[0].defaultLanguage.pluralsValues[(int)id];
+                pluralsQuantity = UnityTranslationInternal.PluralsRules.pluralsFunctions[0](quantity);
             }
 
-            for (int i = (int)pluralsQuantity ; i < (int)PluralsQuantity.Count; ++i)
+            for (int i = (int)pluralsQuantity ; i < (int)UnityTranslationInternal.PluralsQuantity.Count; ++i)
             {
                 if (pluralsValues[i] != null)
                 {
@@ -206,19 +206,19 @@ namespace UnityTranslation
         /// <param name="id">String resource ID.</param>
         public static string getString(R.sections.TestSection.strings id)
         {
-            Internal.Translator.LoadSection(R.sections.SectionID.TestSection, false);
+            UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.TestSection, false);
 
             if (
-                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage != null
+                UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage != null
                 &&
-                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringValues[(int)id] != null
+                UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringValues[(int)id] != null
                )
             {
-                return Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringValues[(int)id];
+                return UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringValues[(int)id];
             }
             else
             {
-                return Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].defaultLanguage.stringValues[(int)id];
+                return UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].defaultLanguage.stringValues[(int)id];
             }
         }
 
@@ -240,19 +240,19 @@ namespace UnityTranslation
         /// <param name="id">String array resource ID.</param>
         public static string[] getStringArray(R.sections.TestSection.array id)
         {
-            Internal.Translator.LoadSection(R.sections.SectionID.TestSection, false);
+            UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.TestSection, false);
 
             if (
-                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage != null
+                UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage != null
                 &&
-                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringArrayValues[(int)id] != null
+                UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringArrayValues[(int)id] != null
                )
             {
-                return Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringArrayValues[(int)id];
+                return UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.stringArrayValues[(int)id];
             }
             else
             {
-                return Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].defaultLanguage.stringArrayValues[(int)id];
+                return UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].defaultLanguage.stringArrayValues[(int)id];
             }
         }
 
@@ -264,27 +264,27 @@ namespace UnityTranslation
         /// <param name="quantity">Quantity.</param>
         public static string getQuantityString(R.sections.TestSection.plurals id, double quantity)
         {
-            Internal.Translator.LoadSection(R.sections.SectionID.TestSection, false);
+            UnityTranslationInternal.Translator.LoadSection(R.sections.SectionID.TestSection, false);
 
-            string[]        pluralsValues;
-            PluralsQuantity pluralsQuantity;
+            string[]                                 pluralsValues;
+            UnityTranslationInternal.PluralsQuantity pluralsQuantity;
 
             if (
-                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage != null
+                UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage != null
                 &&
-                Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.pluralsValues[(int)id] != null
+                UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.pluralsValues[(int)id] != null
                )
             {
-                pluralsValues   = Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.pluralsValues[(int)id];
-                pluralsQuantity = PluralsRules.pluralsFunctions[(int)Internal.Translator.language](quantity);
+                pluralsValues   = UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].selectedLanguage.pluralsValues[(int)id];
+                pluralsQuantity = UnityTranslationInternal.PluralsRules.pluralsFunctions[(int)UnityTranslationInternal.Translator.language](quantity);
             }
             else
             {
-                pluralsValues   = Internal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].defaultLanguage.pluralsValues[(int)id];
-                pluralsQuantity = PluralsRules.pluralsFunctions[0](quantity);
+                pluralsValues   = UnityTranslationInternal.Translator.tokens[(int)R.sections.SectionID.TestSection + 1].defaultLanguage.pluralsValues[(int)id];
+                pluralsQuantity = UnityTranslationInternal.PluralsRules.pluralsFunctions[0](quantity);
             }
 
-            for (int i = (int)pluralsQuantity ; i < (int)PluralsQuantity.Count; ++i)
+            for (int i = (int)pluralsQuantity ; i < (int)UnityTranslationInternal.PluralsQuantity.Count; ++i)
             {
                 if (pluralsValues[i] != null)
                 {
