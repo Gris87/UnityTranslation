@@ -22,6 +22,9 @@ namespace UnityTranslation
             /// </summary>
             app_name
             ,
+            /// <summary>
+            /// Total amount of strings.
+            /// </summary>
             Count // Should be last
         }
 
@@ -30,6 +33,9 @@ namespace UnityTranslation
         /// </summary>
         public enum array
         {
+            /// <summary>
+            /// Total amount of string-arrays.
+            /// </summary>
             Count // Should be last
         }
 
@@ -38,6 +44,9 @@ namespace UnityTranslation
         /// </summary>
         public enum plurals
         {
+            /// <summary>
+            /// Total amount of plurals.
+            /// </summary>
             Count // Should be last
         }
 
@@ -51,6 +60,9 @@ namespace UnityTranslation
             /// </summary>
             public enum SectionID
             {
+                /// <summary>
+                /// Total amount of sections.
+                /// </summary>
                 Count // Should be last
             }
 

@@ -8,6 +8,7 @@ if not exist %UNITY_PATH% (
     set UNITY_PATH="C:\Program Files (x86)\Unity"
 )
 
+set DLL_NAME=UnityTranslation.dll
 set MCS=%UNITY_PATH%\Editor\Data\MonoBleedingEdge\bin\mcs.bat
 set MDOC=%ORIGINAL_PATH%\mdoc-net-2010-01-04\mdoc
 set LIBS_DIR=%UNITY_PATH%\Editor\Data\Managed
@@ -27,13 +28,13 @@ cd ..\Development\Assets\Scripts\UnityTranslation
 
 rmdir /S /Q docs
 
-call %MCS% -lib:%LIBS_DIR% -lib:%EXT_LIBS_DIR% -r:UnityEngine -r:UnityEngine.UI /doc:doc.xml -target:library -out:lib.dll *.cs Generated\*.cs Generated\UI\*.cs
-call %MDOC% update --lib:%LIBS_DIR% --lib:%EXT_LIBS_DIR% -r:UnityEngine -r:UnityEngine.UI -i doc.xml -o doc_stubs lib.dll
+call %MCS% -lib:%LIBS_DIR% -lib:%EXT_LIBS_DIR% -r:UnityEngine -r:UnityEngine.UI /doc:doc.xml -target:library -out:%DLL_NAME% *.cs Generated\*.cs Generated\UI\*.cs
+call %MDOC% update --lib:%LIBS_DIR% --lib:%EXT_LIBS_DIR% -r:UnityEngine -r:UnityEngine.UI -i doc.xml -o doc_stubs %DLL_NAME%
 call %MDOC% export-html --template %XSLT_TEMPLATE% -o docs doc_stubs
 
 rmdir /S /Q doc_stubs
 del doc.xml
-del lib.dll
+del %DLL_NAME%
 
 rem ------------------------------------------------
 

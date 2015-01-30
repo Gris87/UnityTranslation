@@ -3080,6 +3080,9 @@ namespace UnityTranslation
         /// </summary>
         Zaza
         ,
+        /// <summary>
+        /// Total amount of languages.
+        /// </summary>
         Count // Should be last
     }
 

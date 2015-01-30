@@ -553,6 +553,9 @@ namespace UnityTranslationInternal
                 }
 
                 res += "        ,\n" +
+                       "        /// <summary>\n" +
+                       "        /// Total amount of languages.\n" +
+                       "        /// </summary>\n" +
                        "        Count // Should be last\n" +
                        "    }\n" +
                        "\n" +
@@ -990,8 +993,14 @@ namespace UnityTranslationInternal
                              "    /// <summary>\n" +
                              "    /// Container for all plurals rules for each language.\n" +
                              "    /// </summary>\n" +
+                             "    /// <returns>PluralsQuantity value</returns>\n" +
                              "    public static class PluralsRules\n" +
                              "    {\n" +
+                              "        /// <summary>\n" +
+                             "        /// Delegate function that returns PluralsQuantity related to provided quantity.\n" +
+                             "        /// </summary>\n" +
+                             "        /// <param name=\"quantity\">Quantity</param>\n" +
+                             "        /// <returns>PluralsQuantity value</returns>\n" +
                              "        public delegate PluralsQuantity PluralsFunction(double quantity);\n" +
                              "\n" +
                              "        /// <summary>\n" +
@@ -1955,7 +1964,10 @@ namespace UnityTranslationInternal
                        "                ,\n";
             }
 
-            res += "                Count // Should be last\n" +
+            res += "                /// <summary>\n" +
+                   "                /// Total amount of sections.\n" +
+                   "                /// </summary>\n" +
+                   "                Count // Should be last\n" +
                    "            }\n" +
                    "\n" +
                    "            /// <summary>\n" +
@@ -2436,7 +2448,10 @@ namespace UnityTranslationInternal
                        indent + "    ,\n";
             }
 
-            res += indent + "    Count // Should be last\n" +
+            res += indent + "    /// <summary>\n" +
+                   indent + "    /// Total amount of strings.\n" +
+                   indent + "    /// </summary>\n" +
+                   indent + "    Count // Should be last\n" +
                    indent + "}\n" +
                    "\n" +
                    indent + "/// <summary>\n" +
@@ -2489,7 +2504,10 @@ namespace UnityTranslationInternal
                        indent + "    ,\n";
             }
 
-            res += indent + "    Count // Should be last\n" +
+            res += indent + "    /// <summary>\n" +
+                   indent + "    /// Total amount of string-arrays.\n" +
+                   indent + "    /// </summary>\n" +
+                   indent + "    Count // Should be last\n" +
                    indent + "}\n" +
                    "\n" +
                    indent + "/// <summary>\n" +
@@ -2553,7 +2571,10 @@ namespace UnityTranslationInternal
                        indent + "    ,\n";
             }
 
-            res += indent + "    Count // Should be last\n" +
+            res += indent + "    /// <summary>\n" +
+                   indent + "    /// Total amount of plurals.\n" +
+                   indent + "    /// </summary>\n" +
+                   indent + "    Count // Should be last\n" +
                    indent + "}\n";
 
             return res;

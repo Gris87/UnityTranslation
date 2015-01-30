@@ -29,6 +29,9 @@ namespace UnityTranslation
             /// </summary>
             goodbye
             ,
+            /// <summary>
+            /// Total amount of strings.
+            /// </summary>
             Count // Should be last
         }
 
@@ -52,6 +55,9 @@ namespace UnityTranslation
             /// </summary>
             fruits
             ,
+            /// <summary>
+            /// Total amount of string-arrays.
+            /// </summary>
             Count // Should be last
         }
 
@@ -84,6 +90,9 @@ namespace UnityTranslation
             /// </summary>
             files
             ,
+            /// <summary>
+            /// Total amount of plurals.
+            /// </summary>
             Count // Should be last
         }
 
@@ -102,6 +111,9 @@ namespace UnityTranslation
                 /// </summary>
                 TestSection
                 ,
+                /// <summary>
+                /// Total amount of sections.
+                /// </summary>
                 Count // Should be last
             }
 
@@ -130,6 +142,9 @@ namespace UnityTranslation
                     /// </summary>
                     name
                     ,
+                    /// <summary>
+                    /// Total amount of strings.
+                    /// </summary>
                     Count // Should be last
                 }
 
@@ -138,6 +153,9 @@ namespace UnityTranslation
                 /// </summary>
                 public enum array
                 {
+                    /// <summary>
+                    /// Total amount of string-arrays.
+                    /// </summary>
                     Count // Should be last
                 }
 
@@ -146,6 +164,9 @@ namespace UnityTranslation
                 /// </summary>
                 public enum plurals
                 {
+                    /// <summary>
+                    /// Total amount of plurals.
+                    /// </summary>
                     Count // Should be last
                 }
             }
