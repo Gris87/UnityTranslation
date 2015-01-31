@@ -2,15 +2,13 @@
 
 set ORIGINAL_PATH=%CD%
 
-set DOXYFILE=%ORIGINAL_PATH%\ForDoxygen\Doxyfile
-
 rem ------------------------------------------------
 
-cd ..\Development\Assets\Scripts\UnityTranslation
+rmdir /S /Q ..\Development\Assets\Scripts\UnityTranslation\docs
 
-rmdir /S /Q docs
+cd ForDoxygen
 
-doxygen %DOXYFILE%
+doxygen
 
 rem ------------------------------------------------
 
