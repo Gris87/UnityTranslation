@@ -3,6 +3,7 @@ var searchData=
   ['iban',['Iban',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ab3abe0fc9c65c7485f3e468fac4f342b',1,'UnityTranslation']]],
   ['ibibio',['Ibibio',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ac27b415308fcf18228aa0acf9d616588',1,'UnityTranslation']]],
   ['icelandic',['Icelandic',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a4c545ca25c8a34a533be19e7a1c44a79',1,'UnityTranslation']]],
+  ['id',['id',['../class_unity_translation_1_1_text_auto_translation.html#af922759c26a5b77cb27ac0d029e177ca',1,'UnityTranslation::TextAutoTranslation']]],
   ['ido',['Ido',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ac5a448bee702572eecd8f5cb81576e85',1,'UnityTranslation']]],
   ['igbo',['Igbo',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ac555b579aa262e92dbdf0fed7f7638ee',1,'UnityTranslation']]],
   ['iloko',['Iloko',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a60314d501dc441fb6222dd9eed5aa068',1,'UnityTranslation']]],
@@ -15,5 +16,6 @@ var searchData=
   ['inuktitut',['Inuktitut',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a3be898f3f28c2fbaed9d525c453615b4',1,'UnityTranslation']]],
   ['inupiaq',['Inupiaq',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a8aeb37077d17be7976a94af8c2584723',1,'UnityTranslation']]],
   ['irish',['Irish',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a2cfce796f4703d560ae1c3a1b3fb7e74',1,'UnityTranslation']]],
+  ['issectionloaded',['IsSectionLoaded',['../class_unity_translation_1_1_translator.html#a03f5559850df00020c94d7ac3fc53295',1,'UnityTranslation.Translator.IsSectionLoaded()'],['../class_unity_translation_internal_1_1_translator.html#a67d3f296fdd58377df23a20bfaf2b865',1,'UnityTranslationInternal.Translator.IsSectionLoaded()']]],
   ['italian',['Italian',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a4be8e06d27bca7e1828f2fa9a49ca985',1,'UnityTranslation']]]
 ];

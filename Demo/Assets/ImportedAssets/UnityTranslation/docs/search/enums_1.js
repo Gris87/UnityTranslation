@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pluralsquantity',['PluralsQuantity',['../namespace_unity_translation_internal.html#a6d4919d41b76525f811bc6e69862d8b1',1,'UnityTranslationInternal']]]
+  ['language',['Language',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273',1,'UnityTranslation']]]
 ];

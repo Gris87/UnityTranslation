@@ -11,7 +11,7 @@ Main advantages:
 - Code generator that provide source code to user with the best performance
 
 Demo:              http://gris.ucoz.ru/UnityModules/UnityTranslate/Web/UnityTranslation.html
-Unity Asset Store: TODO
+Unity Asset Store: http://u3d.as/bex
 
 Description:
 
@@ -131,7 +131,7 @@ e-mail: gris87@yandex.ru
 Links:
 
 Site:              http://gris.ucoz.ru/index/unitytranslation/0-15
-Unity Asset Store: TODO
+Unity Asset Store: http://u3d.as/bex
 GitHub:            https://github.com/Gris87/UnityTranslation
 
 See also:

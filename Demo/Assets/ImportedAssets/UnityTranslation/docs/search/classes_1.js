@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['sectionlocaletokens',['SectionLocaleTokens',['../class_unity_translation_internal_1_1_translator_1_1_section_locale_tokens.html',1,'UnityTranslationInternal::Translator']]],
-  ['sectiontokens',['SectionTokens',['../class_unity_translation_internal_1_1_translator_1_1_section_tokens.html',1,'UnityTranslationInternal::Translator']]]
+  ['languagecode',['LanguageCode',['../class_unity_translation_1_1_language_code.html',1,'UnityTranslation']]],
+  ['languagename',['LanguageName',['../class_unity_translation_1_1_language_name.html',1,'UnityTranslation']]],
+  ['languagesystemname',['LanguageSystemName',['../class_unity_translation_1_1_language_system_name.html',1,'UnityTranslation']]]
 ];

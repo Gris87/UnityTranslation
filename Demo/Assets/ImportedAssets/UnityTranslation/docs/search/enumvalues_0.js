@@ -24,6 +24,7 @@ var searchData=
   ['ancientgreek',['AncientGreek',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273af750eba6a3978b363ea1ade6de550957',1,'UnityTranslation']]],
   ['angika',['Angika',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a9eb66d988651d1ee1b6d6ec6320b20ce',1,'UnityTranslation']]],
   ['aonaga',['AoNaga',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a327c0b861ad7b06eec817a2eb9d219f2',1,'UnityTranslation']]],
+  ['app_5fname',['app_name',['../class_unity_translation_1_1_r.html#a29c20c17cdcb27878b6fcea43d7867bea3f93a44198968888885b9f23cbca1e5d',1,'UnityTranslation::R']]],
   ['arabic',['Arabic',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a272ccb8592bafde0baf1dedce0fd3ac2',1,'UnityTranslation']]],
   ['aragonese',['Aragonese',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a9d73d9e6ed72ae2f0571565df39f734b',1,'UnityTranslation']]],
   ['aramaic',['Aramaic',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a3488be28b825466afe97f91a74c83962',1,'UnityTranslation']]],

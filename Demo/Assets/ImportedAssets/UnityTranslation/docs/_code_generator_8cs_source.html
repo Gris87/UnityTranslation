@@ -88,7 +88,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">CodeGenerator.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#if UNITY_EDITOR</span></div>
+<a href="_code_generator_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#if UNITY_EDITOR</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Use this definition to generate &quot;Language.cs&quot; and &quot;PluralsRules.cs&quot; from CLDR.</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// Please become Unity Translation developer and commit your changes to https://github.com/Gris87/UnityTranslation</span></div>
@@ -876,7 +876,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;                                    LanguageCode.codes[j].StartsWith(pluralsJson.keys[i] + <span class="stringliteral">&quot;-&quot;</span>)</div>
 <div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;                                   )</div>
 <div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;                                {</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;                                    languagesList.Add((Language)j);</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;                                    languagesList.Add((<a class="code" href="namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273">Language</a>)j);</div>
 <div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;                                }</div>
 <div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;                            }</div>
 <div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;</div>
@@ -1711,7 +1711,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01660"></a><span class="lineno"> 1660</span>&#160;            <span class="keywordtype">int</span> maxCodeLength     = 0;</div>
 <div class="line"><a name="l01661"></a><span class="lineno"> 1661</span>&#160;            <span class="keywordtype">int</span> maxRealCodeLength = 0;</div>
 <div class="line"><a name="l01662"></a><span class="lineno"> 1662</span>&#160;</div>
-<div class="line"><a name="l01663"></a><span class="lineno"> 1663</span>&#160;            <span class="keywordflow">foreach</span> (Language language <span class="keywordflow">in</span> languageRealCodes.Keys)</div>
+<div class="line"><a name="l01663"></a><span class="lineno"> 1663</span>&#160;            <span class="keywordflow">foreach</span> (<a class="code" href="namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273">Language</a> language <span class="keywordflow">in</span> languageRealCodes.Keys)</div>
 <div class="line"><a name="l01664"></a><span class="lineno"> 1664</span>&#160;            {</div>
 <div class="line"><a name="l01665"></a><span class="lineno"> 1665</span>&#160;                <span class="keywordtype">string</span> languageCode     = language.ToString();</div>
 <div class="line"><a name="l01666"></a><span class="lineno"> 1666</span>&#160;                <span class="keywordtype">string</span> languageRealCode = languageRealCodes[language];</div>
@@ -1746,7 +1746,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01695"></a><span class="lineno"> 1695</span>&#160;                         <span class="stringliteral">&quot;        {\n&quot;</span> +</div>
 <div class="line"><a name="l01696"></a><span class="lineno"> 1696</span>&#160;                         <span class="keywordtype">string</span>.Format(<span class="stringliteral">&quot;              {{ Language.{0,-&quot;</span> + (maxCodeLength + 1) + <span class="stringliteral">&quot;} {1,-&quot;</span> + (maxRealCodeLength + 2) + <span class="stringliteral">&quot;} }}\n&quot;</span>, <span class="stringliteral">&quot;Default,&quot;</span>, <span class="stringliteral">&quot;\&quot;\&quot;&quot;</span>);</div>
 <div class="line"><a name="l01697"></a><span class="lineno"> 1697</span>&#160;</div>
-<div class="line"><a name="l01698"></a><span class="lineno"> 1698</span>&#160;            <span class="keywordflow">foreach</span> (Language language <span class="keywordflow">in</span> languageRealCodes.Keys)</div>
+<div class="line"><a name="l01698"></a><span class="lineno"> 1698</span>&#160;            <span class="keywordflow">foreach</span> (<a class="code" href="namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273">Language</a> language <span class="keywordflow">in</span> languageRealCodes.Keys)</div>
 <div class="line"><a name="l01699"></a><span class="lineno"> 1699</span>&#160;            {</div>
 <div class="line"><a name="l01700"></a><span class="lineno"> 1700</span>&#160;                res += <span class="keywordtype">string</span>.Format(<span class="stringliteral">&quot;            , {{ Language.{0,-&quot;</span> + (maxCodeLength + 1) + <span class="stringliteral">&quot;} {1,-&quot;</span> + (maxRealCodeLength + 2) + <span class="stringliteral">&quot;} }}\n&quot;</span>, language.ToString() + <span class="stringliteral">&quot;,&quot;</span>, <span class="stringliteral">&quot;\&quot;&quot;</span> + languageRealCodes[language] + <span class="stringliteral">&quot;\&quot;&quot;</span>);</div>
 <div class="line"><a name="l01701"></a><span class="lineno"> 1701</span>&#160;            }</div>
@@ -3018,7 +3018,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <!-- HTML footer for doxygen 1.8.9.1-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jan 31 2015 20:28:49 for UnityTranslation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jan 31 2015 20:59:56 for UnityTranslation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

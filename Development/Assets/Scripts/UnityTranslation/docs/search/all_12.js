@@ -18,7 +18,9 @@ var searchData=
   ['saurashtra',['Saurashtra',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ac98fc98718b687b88bbcd8f87c1849f8',1,'UnityTranslation']]],
   ['scots',['Scots',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a6a4a43a9a92944ec739657304bebe783',1,'UnityTranslation']]],
   ['scottishgaelic',['ScottishGaelic',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ae99060211896b9714e81ac517de52da2',1,'UnityTranslation']]],
+  ['sectionid',['SectionID',['../class_unity_translation_1_1_r_1_1sections.html#a53d9c409e8e6504d4c4b27b16ae10347',1,'UnityTranslation::R::sections']]],
   ['sectionlocaletokens',['SectionLocaleTokens',['../class_unity_translation_internal_1_1_translator_1_1_section_locale_tokens.html',1,'UnityTranslationInternal::Translator']]],
+  ['sections',['sections',['../class_unity_translation_1_1_r_1_1sections.html',1,'UnityTranslation::R']]],
   ['sectiontokens',['SectionTokens',['../class_unity_translation_internal_1_1_translator_1_1_section_tokens.html',1,'UnityTranslationInternal::Translator']]],
   ['selayar',['Selayar',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a97a07c68f6bcdb1772aa33bb37cb4be4',1,'UnityTranslation']]],
   ['selkup',['Selkup',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273acfe96f716b9da7b8529c817959001360',1,'UnityTranslation']]],
@@ -56,6 +58,7 @@ var searchData=
   ['spanish',['Spanish',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273acb5480c32e71778852b08ae1e8712775',1,'UnityTranslation']]],
   ['sranantongo',['SrananTongo',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273aeecbd0ca832f1391ec9f2f7a9c7b509a',1,'UnityTranslation']]],
   ['standardmoroccantamazight',['StandardMoroccanTamazight',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a40f842709adcec1abc25d4b36723ac9e',1,'UnityTranslation']]],
+  ['strings',['strings',['../class_unity_translation_1_1_r.html#a29c20c17cdcb27878b6fcea43d7867be',1,'UnityTranslation::R']]],
   ['sukuma',['Sukuma',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a51908bfaf69629288dac176a8f4888c3',1,'UnityTranslation']]],
   ['sumerian',['Sumerian',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a3d32ac6142ceaaa2aed6b586d63908f9',1,'UnityTranslation']]],
   ['sundanese',['Sundanese',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a3f43ba0705bf771ea5d74a7a2e8b40c0',1,'UnityTranslation']]],
@@ -66,5 +69,7 @@ var searchData=
   ['swissfrench',['SwissFrench',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ae47a42cb7724fea642d6ec17912b0a7f',1,'UnityTranslation']]],
   ['swissgerman',['SwissGerman',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a3bcead55a401ed62dbe49e956130059e',1,'UnityTranslation']]],
   ['swisshighgerman',['SwissHighGerman',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a7f918a6962eae8c24c10fff5dd72ae03',1,'UnityTranslation']]],
-  ['syriac',['Syriac',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ab4cfc6bec96fcb54650455f269f39b71',1,'UnityTranslation']]]
+  ['syriac',['Syriac',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ab4cfc6bec96fcb54650455f269f39b71',1,'UnityTranslation']]],
+  ['systemlanguages',['systemLanguages',['../class_unity_translation_1_1_language_system_name.html#ae3ca4a0b1586e2881fc63f11d4f7d965',1,'UnityTranslation::LanguageSystemName']]],
+  ['systemlanguagetolanguage',['systemLanguageToLanguage',['../class_unity_translation_1_1_language_system_name.html#a9f7d8f1876a2efebe8029723cac5e1ab',1,'UnityTranslation::LanguageSystemName']]]
 ];

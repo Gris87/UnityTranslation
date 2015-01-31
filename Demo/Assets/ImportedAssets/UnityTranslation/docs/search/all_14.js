@@ -9,9 +9,12 @@ var searchData=
   ['unitytranslation',['UnityTranslation',['../namespace_unity_translation.html',1,'']]],
   ['unitytranslationinternal',['UnityTranslationInternal',['../namespace_unity_translation_internal.html',1,'']]],
   ['unknownlanguage',['UnknownLanguage',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273afcd9e5e3806909b1c52b1cbff6c06020',1,'UnityTranslation']]],
+  ['unloadsection',['UnloadSection',['../class_unity_translation_1_1_translator.html#a6950d8745c9564269162ccdfd0d7f8eb',1,'UnityTranslation.Translator.UnloadSection()'],['../class_unity_translation_internal_1_1_translator.html#adf150efbf6747ffef8a0a65430257738',1,'UnityTranslationInternal.Translator.UnloadSection()']]],
   ['uppersorbian',['UpperSorbian',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273af919ec7edd15ca948ec856882baa59e3',1,'UnityTranslation']]],
   ['urdu',['Urdu',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273af8aa4393427c2f2fd010f7adc5812517',1,'UnityTranslation']]],
   ['usenglish',['USEnglish',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a4a8848f9eb4c27af724a9da8dea3b255',1,'UnityTranslation']]],
+  ['utils',['Utils',['../class_unity_translation_internal_1_1_utils.html',1,'UnityTranslationInternal']]],
+  ['utils_2ecs',['Utils.cs',['../_utils_8cs.html',1,'']]],
   ['uyghur',['Uyghur',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273abfd53933a237c0a8fcaf96f998036ff6',1,'UnityTranslation']]],
   ['uzbek',['Uzbek',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273aca20f547f2f65dbf6d23b0395419dd43',1,'UnityTranslation']]]
 ];

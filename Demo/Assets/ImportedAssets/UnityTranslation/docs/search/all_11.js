@@ -1,8 +1,11 @@
 var searchData=
 [
+  ['r',['R',['../class_unity_translation_1_1_r.html',1,'UnityTranslation']]],
+  ['r_2ecs',['R.cs',['../_r_8cs.html',1,'']]],
   ['rajasthani',['Rajasthani',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ad6e2f38d52b96b3869c4f8c158faf1f8',1,'UnityTranslation']]],
   ['rapanui',['Rapanui',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ac5907c2d005f0349854c5bbd4f73fb85',1,'UnityTranslation']]],
   ['rarotongan',['Rarotongan',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a04e0f36815eadd0dab92bfaadd1536d1',1,'UnityTranslation']]],
+  ['removelanguagechangedlistener',['removeLanguageChangedListener',['../class_unity_translation_1_1_translator.html#ac713d0341abcb966d57512277376e545',1,'UnityTranslation.Translator.removeLanguageChangedListener()'],['../class_unity_translation_internal_1_1_translator.html#a58095543e5f186857cbd1923eef20914',1,'UnityTranslationInternal.Translator.removeLanguageChangedListener()']]],
   ['riffian',['Riffian',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a5eba1835566ba78a1a89eefa72d88e45',1,'UnityTranslation']]],
   ['romagnol',['Romagnol',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a8d282d6b38bfe4e45ea73e56e52afe74',1,'UnityTranslation']]],
   ['romanian',['Romanian',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273aefa7394ecaa7fc7076a9da13a77236b8',1,'UnityTranslation']]],

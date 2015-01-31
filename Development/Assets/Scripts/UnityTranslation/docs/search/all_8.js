@@ -15,5 +15,6 @@ var searchData=
   ['inuktitut',['Inuktitut',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a3be898f3f28c2fbaed9d525c453615b4',1,'UnityTranslation']]],
   ['inupiaq',['Inupiaq',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a8aeb37077d17be7976a94af8c2584723',1,'UnityTranslation']]],
   ['irish',['Irish',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a2cfce796f4703d560ae1c3a1b3fb7e74',1,'UnityTranslation']]],
+  ['issectionloaded',['IsSectionLoaded',['../class_unity_translation_1_1_translator.html#a03f5559850df00020c94d7ac3fc53295',1,'UnityTranslation.Translator.IsSectionLoaded()'],['../class_unity_translation_internal_1_1_translator.html#a67d3f296fdd58377df23a20bfaf2b865',1,'UnityTranslationInternal.Translator.IsSectionLoaded()']]],
   ['italian',['Italian',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a4be8e06d27bca7e1828f2fa9a49ca985',1,'UnityTranslation']]]
 ];
