@@ -4,7 +4,7 @@ set ORIGINAL_PATH=%CD%
 
 rem ------------------------------------------------
 
-rmdir /S /Q ..\Development\Assets\Scripts\UnityTranslation\docs
+rmdir /S /Q ..\Development\Assets\Scripts\UnityTranslation\.docs
 
 cd ForDoxygen
 
