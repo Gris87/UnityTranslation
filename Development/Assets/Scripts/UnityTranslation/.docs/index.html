@@ -83,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">UnityTranslation Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="namespace_unity_translation.html">UnityTranslation</a> is a localization system that looks the same as Android localization system.</p>
+<div class="textblock"><p><a class="el" href="namespace_unity_translation.html" title="The UnityTranslation namespace contains classes for localization strings. ">UnityTranslation</a> is a localization system that looks the same as Android localization system.</p>
 <p>Main advantages:</p><ul>
 <li>Based on CLDR 26.0.1</li>
 <li>Supporting 610 languages</li>
@@ -97,28 +97,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>All translatable tokens should be provided in Assets/Resources/res/values/strings.xml file Please follow link below for xml file format description: <a href="http://developer.android.com/guide/topics/resources/string-resource.html">http://developer.android.com/guide/topics/resources/string-resource.html</a></p>
 <p>If you want to add new language in your application just create the same xml file in Assets/Resources/res/values-CODE, where CODE is a language code with 2-3 letters length. Please check LanguageCode class in <a class="el" href="_language_8cs_source.html">Language.cs</a> file to get list of language codes.</p>
 <p>Run your application to recreate AvailableLanguages.file with the set of specified languages in Assets/Resources/res folder.</p>
-<p>!!!WARNING!!! Please note that code generator works only when you are using <a class="el" href="namespace_unity_translation.html">UnityTranslation</a> somewhere.</p>
+<p>!!!WARNING!!! Please note that code generator works only when you are using <a class="el" href="namespace_unity_translation.html" title="The UnityTranslation namespace contains classes for localization strings. ">UnityTranslation</a> somewhere.</p>
 <p>All set of tokens are stored in <a class="el" href="_r_8cs_source.html">R.cs</a> file.</p>
-<p>Example: using <a class="el" href="namespace_unity_translation.html">UnityTranslation</a>;</p>
+<p>Example: using <a class="el" href="namespace_unity_translation.html" title="The UnityTranslation namespace contains classes for localization strings. ">UnityTranslation</a>;</p>
 <p>string hello = Translator.getString(R.strings.hello_world);</p>
 <p>It is also possible to use string format arguments in localization. </p><pre class="fragment">using UnityTranslation;
 
 string hello = Translator.getString(R.strings.hello_my_dear, "friend"); // Where R.strings.hello_my_dear = "Hello, my dear {0}!"
 </pre><p>Plurals:</p>
 <p>Some languages has specific rules for localizable string according to provided quantity. To get more information about plurals please follow link below: <a href="http://developer.android.com/guide/topics/resources/string-resource.html#Plurals">http://developer.android.com/guide/topics/resources/string-resource.html#Plurals</a></p>
-<p>Example: using <a class="el" href="namespace_unity_translation.html">UnityTranslation</a>;</p>
+<p>Example: using <a class="el" href="namespace_unity_translation.html" title="The UnityTranslation namespace contains classes for localization strings. ">UnityTranslation</a>;</p>
 <p>int amountOfDogs = 3;</p>
 <p>string dogs = Translator.getQuantityString(R.plurals.dogs, amountOfDogs, amountOfDogs);</p>
 <p>Sections:</p>
 <p>Section is a set of tokens that might be loaded/unloaded in Runtime. You have to create xml file with some name in Assets/Resources/res/value folder. Code generator will try to convert xml file name to section ID. Please note that xml file name should be different from strings.xml. To use section tokens just provide token ID specified in R.sections.SECTION_NAME.</p>
-<p>Example: using <a class="el" href="namespace_unity_translation.html">UnityTranslation</a>;</p>
+<p>Example: using <a class="el" href="namespace_unity_translation.html" title="The UnityTranslation namespace contains classes for localization strings. ">UnityTranslation</a>;</p>
 <p>string[] fruits = Translator.getStringArray(R.sections.MySection.array.fruits);</p>
 <p>It will load section tokens automatically if it's not loaded yet. If you want to load/unload section manually you have to call Translator.LoadSection and Translator.UnloadSection methods.</p>
-<p>Example: using <a class="el" href="namespace_unity_translation.html">UnityTranslation</a>;</p>
+<p>Example: using <a class="el" href="namespace_unity_translation.html" title="The UnityTranslation namespace contains classes for localization strings. ">UnityTranslation</a>;</p>
 <p>Translator.LoadSection(R.sections.SectionID.MySection); Translator.UnloadSection(R.sections.SectionID.MySection);</p>
 <p>Language changed listeners:</p>
 <p>You can provide listener to handle language changed event in your application. Please do not forget to remove listener when it is not needed.</p>
-<p>Example: using <a class="el" href="namespace_unity_translation.html">UnityTranslation</a>;</p>
+<p>Example: using <a class="el" href="namespace_unity_translation.html" title="The UnityTranslation namespace contains classes for localization strings. ">UnityTranslation</a>;</p>
 <p>void Start() { mText = GetComponent&lt;Text&gt;();</p>
 <p>Translator.addLanguageChangedListener(OnLanguageChanged); }</p>
 <p>void OnDestroy() { Translator.removeLanguageChangedListener(OnLanguageChanged); }</p>
@@ -133,7 +133,7 @@ string hello = Translator.getString(R.strings.hello_my_dear, "friend"); // Where
 <!-- HTML footer for doxygen 1.8.9.1-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 1 2015 13:12:00 for UnityTranslation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 1 2015 14:28:31 for UnityTranslation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

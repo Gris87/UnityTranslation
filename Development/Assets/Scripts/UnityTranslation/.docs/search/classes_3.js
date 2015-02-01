@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pluralsrules',['PluralsRules',['../class_unity_translation_internal_1_1_plurals_rules.html',1,'UnityTranslationInternal']]]
+  ['r',['R',['../class_unity_translation_1_1_r.html',1,'UnityTranslation']]]
 ];

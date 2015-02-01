@@ -2,8 +2,6 @@ var searchData=
 [
   ['nama',['Nama',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ac6e88f1b17a25b34034b9574be4850d9',1,'UnityTranslation']]],
   ['names',['names',['../class_unity_translation_1_1_language_name.html#a330dd483c7a2c428a1eca1b1dea5cbc0',1,'UnityTranslation::LanguageName']]],
-  ['namespacedoc',['NamespaceDoc',['../class_unity_translation_internal_1_1_namespace_doc.html',1,'UnityTranslationInternal']]],
-  ['namespacedoc',['NamespaceDoc',['../class_unity_translation_1_1_namespace_doc.html',1,'UnityTranslation']]],
   ['nametolanguage',['nameToLanguage',['../class_unity_translation_1_1_language_name.html#a2570a90204d886e078ff9821594184cf',1,'UnityTranslation::LanguageName']]],
   ['nauru',['Nauru',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ad0c5ab6bebe308a495693e990a2947bc',1,'UnityTranslation']]],
   ['navajo',['Navajo',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a504405fb03fe7519a14a6d2ce11000fa',1,'UnityTranslation']]],

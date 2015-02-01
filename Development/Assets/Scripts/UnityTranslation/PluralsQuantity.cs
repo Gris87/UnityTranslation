@@ -2,8 +2,9 @@ namespace UnityTranslationInternal
 {
     /// <summary>
     /// Plurals quantity. This enumeration contains list of available plurals quantities.
+    ///
+    /// See also: <a UnityTranslationInternal="http://developer.android.com/guide/topics/resources/string-resource.html#Plurals">String Resources - Plurals</a>
     /// </summary>
-    /// <seealso cref="http://developer.android.com/guide/topics/resources/string-resource.html#Plurals"/>
     public enum PluralsQuantity
     {
         /// <summary>

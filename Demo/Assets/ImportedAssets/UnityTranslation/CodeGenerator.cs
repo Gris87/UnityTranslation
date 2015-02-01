@@ -2617,10 +2617,11 @@ namespace UnityTranslationInternal
                          "namespace UnityTranslation\n" +
                          "{\n" +
                          "    /// <summary>\n" +
-                          "    /// UnityTranslation Translator class that has methods for getting localized strings.\n" +
+                         "    /// UnityTranslation Translator class that has methods for getting localized strings.\n" +
                          "    /// Translator provide localization in the same way as in Android localization system.\n" +
+                         "    ///\n" +
+                         "    /// See also: <a UnityTranslationInternal=\"http://developer.android.com/guide/topics/resources/string-resource.html\">String Resources</a>\n" +
                          "    /// </summary>\n" +
-                         "    /// <seealso cref=\"http://developer.android.com/guide/topics/resources/string-resource.html\"/>\n" +
                          "    public static class Translator\n" +
                          "    {\n" +
                          "        #region Trasparent access to UnityTranslationInternal.Translator public members\n" +

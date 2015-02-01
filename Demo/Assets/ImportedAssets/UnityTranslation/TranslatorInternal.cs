@@ -13,8 +13,8 @@ namespace UnityTranslationInternal
     /// <summary>
     /// UnityTranslation internal Translator class that has methods for getting localized strings.
     /// Translator provide localization in the same way as in Android localization system.
-    /// </summary>
-    /// <seealso cref="http://developer.android.com/guide/topics/resources/string-resource.html"/>
+    ///
+    /// See also: <a UnityTranslationInternal="http://developer.android.com/guide/topics/resources/string-resource.html">String Resources</a>
     public static class Translator
     {
         /// <summary>
@@ -40,7 +40,7 @@ namespace UnityTranslationInternal
 
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="UnityTranslationInternal.Translator+SectionLocaleTokens"/> class.
+            /// Initializes a new instance of the <see cref="UnityTranslationInternal.Translator.SectionLocaleTokens"/> class.
             /// </summary>
             /// <param name="stringCount">String count.</param>
             /// <param name="stringArrayCount">String array count.</param>
@@ -71,7 +71,7 @@ namespace UnityTranslationInternal
 
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="UnityTranslationInternal.Translator+SectionTokens"/> class.
+            /// Initializes a new instance of the <see cref="UnityTranslationInternal.Translator.SectionTokens"/> class.
             /// </summary>
             public SectionTokens()
             {
