@@ -758,7 +758,7 @@ WARN_LOGFILE           =
 # spaces.
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = Descriptions.md \
+INPUT                  = ../../Readme.md \
                          ../../Development/Assets/Scripts/UnityTranslation
 
 # This tag can be used to specify the character encoding of the source files
@@ -895,7 +895,7 @@ FILTER_SOURCE_PATTERNS =
 # (index.html). This can be useful if you have a project on for instance GitHub
 # and want to reuse the introduction page also for the doxygen output.
 
-USE_MDFILE_AS_MAINPAGE = Descriptions.md
+USE_MDFILE_AS_MAINPAGE = ../../Readme.md
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing

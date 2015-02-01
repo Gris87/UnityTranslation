@@ -195,7 +195,7 @@ public void OnLanguageChanged()
 
 Please feal free to contact with me if you meet some errors.
 
-**e-mail:** [gris87\@yandex.ru][5]
+**e-mail:** [gris87@yandex.ru][5]
 
 [5]: <mailto:gris87@yandex.ru>
 
