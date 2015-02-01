@@ -8,8 +8,9 @@ namespace UnityTranslation
     /// <summary>
     /// UnityTranslation Translator class that has methods for getting localized strings.
     /// Translator provide localization in the same way as in Android localization system.
+    ///
+    /// See also: <a UnityTranslationInternal="http://developer.android.com/guide/topics/resources/string-resource.html">String Resources</a>
     /// </summary>
-    /// <seealso cref="http://developer.android.com/guide/topics/resources/string-resource.html"/>
     public static class Translator
     {
         #region Trasparent access to UnityTranslationInternal.Translator public members
