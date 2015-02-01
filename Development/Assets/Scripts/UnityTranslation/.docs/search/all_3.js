@@ -5,6 +5,7 @@ var searchData=
   ['dargwa',['Dargwa',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273adcade61f2126dfce3a649309eb835952',1,'UnityTranslation']]],
   ['dazaga',['Dazaga',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a1e70f600c0754b23f5253127223888a0',1,'UnityTranslation']]],
   ['default',['Default',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a7a1920d61156abc05a60135aefe8bc67',1,'UnityTranslation']]],
+  ['defaultlanguage',['defaultLanguage',['../class_unity_translation_internal_1_1_translator_1_1_section_tokens.html#af84ccd3896bd52c4090eb59ba58d8be1',1,'UnityTranslationInternal::Translator::SectionTokens']]],
   ['delaware',['Delaware',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273aba290ff950475708a10987cb31e6274c',1,'UnityTranslation']]],
   ['dinka',['Dinka',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a1e2dabe023493f20f397a39314123836',1,'UnityTranslation']]],
   ['divehi',['Divehi',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273aedabb821b5164ba3dbf7dc05eb5590b3',1,'UnityTranslation']]],

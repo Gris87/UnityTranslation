@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['systemlanguagetolanguage',['systemLanguageToLanguage',['../class_unity_translation_1_1_language_system_name.html#a9f7d8f1876a2efebe8029723cac5e1ab',1,'UnityTranslation::LanguageSystemName']]]
+  ['removelanguagechangedlistener',['removeLanguageChangedListener',['../class_unity_translation_1_1_translator.html#ac713d0341abcb966d57512277376e545',1,'UnityTranslation.Translator.removeLanguageChangedListener()'],['../class_unity_translation_internal_1_1_translator.html#a58095543e5f186857cbd1923eef20914',1,'UnityTranslationInternal.Translator.removeLanguageChangedListener()']]]
 ];

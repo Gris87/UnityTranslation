@@ -19,10 +19,12 @@ var searchData=
   ['pluralsfunctions',['pluralsFunctions',['../class_unity_translation_internal_1_1_plurals_rules.html#a5d6f211cdb84762ff1e3b125f743ceb9',1,'UnityTranslationInternal::PluralsRules']]],
   ['pluralsquantity',['PluralsQuantity',['../namespace_unity_translation_internal.html#a6d4919d41b76525f811bc6e69862d8b1',1,'UnityTranslationInternal']]],
   ['pluralsrules',['PluralsRules',['../class_unity_translation_internal_1_1_plurals_rules.html',1,'UnityTranslationInternal']]],
+  ['pluralsvalues',['pluralsValues',['../class_unity_translation_internal_1_1_translator_1_1_section_locale_tokens.html#a3f1bed3be28c56b070ee39fbd1577cb6',1,'UnityTranslationInternal::Translator::SectionLocaleTokens']]],
   ['pohnpeian',['Pohnpeian',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a90c552169d9c89f1bc706ac79a8f0492',1,'UnityTranslation']]],
   ['polish',['Polish',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ac730389bc8d99e59c867766babdd48b5',1,'UnityTranslation']]],
   ['pontic',['Pontic',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273acda9c477186524b541fff218e2a241d9',1,'UnityTranslation']]],
   ['portuguese',['Portuguese',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273a30e32c7c4cf434e9c75e60c14c442541',1,'UnityTranslation']]],
+  ['processtokenvalue',['processTokenValue',['../class_unity_translation_internal_1_1_utils.html#abbf0fe9977ccffecd5b8955207e8b786',1,'UnityTranslationInternal::Utils']]],
   ['prussian',['Prussian',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273adc7924907d7528696354a5ea4814bbcc',1,'UnityTranslation']]],
   ['punjabi',['Punjabi',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273abbc0294ce6177b932fad9c75af2b8563',1,'UnityTranslation']]],
   ['pushto',['Pushto',['../namespace_unity_translation.html#a58da4e04fd89ff820cedbb1c6b059273ad7ef8c5df269a972fed6943551a4f435',1,'UnityTranslation']]]

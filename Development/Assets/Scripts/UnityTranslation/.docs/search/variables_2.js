@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['names',['names',['../class_unity_translation_1_1_language_name.html#a330dd483c7a2c428a1eca1b1dea5cbc0',1,'UnityTranslation::LanguageName']]]
+  ['id',['id',['../class_unity_translation_1_1_text_auto_translation.html#af922759c26a5b77cb27ac0d029e177ca',1,'UnityTranslation::TextAutoTranslation']]]
 ];

@@ -993,14 +993,13 @@ namespace UnityTranslationInternal
                              "    /// <summary>\n" +
                              "    /// Container for all plurals rules for each language.\n" +
                              "    /// </summary>\n" +
-                             "    /// <returns>PluralsQuantity value</returns>\n" +
                              "    public static class PluralsRules\n" +
                              "    {\n" +
-                              "        /// <summary>\n" +
+                             "        /// <summary>\n" +
                              "        /// Delegate function that returns PluralsQuantity related to provided quantity.\n" +
                              "        /// </summary>\n" +
-                             "        /// <param name=\"quantity\">Quantity</param>\n" +
                              "        /// <returns>PluralsQuantity value</returns>\n" +
+                             "        /// <param name=\"quantity\">Quantity</param>\n" +
                              "        public delegate PluralsQuantity PluralsFunction(double quantity);\n" +
                              "\n" +
                              "        /// <summary>\n" +
@@ -2946,16 +2945,24 @@ namespace UnityTranslationInternal
                              "\n" +
                              "namespace UnityTranslation\n" +
                              "{\n" +
+                             "    /// <summary>\n" +
+                             "    /// Script for auto-translating Text component.\n" +
+                             "    /// </summary>\n" +
                              "    [RequireComponent(typeof(Text))]\n" +
                              "    public class TextAutoTranslation" + ((i == 0) ? "" : sectionIds[i - 1]) + " : MonoBehaviour\n" +
                              "    {\n" +
+                             "        /// <summary>\n" +
+                             "        /// Token identifier that used for localization.\n" +
+                             "        /// </summary>\n" +
                              "        public " + ((i == 0) ? "R.strings" : "R.sections." + sectionIds[i - 1] + ".strings") + " id;\n" +
                              "\n" +
                              "        private Text mText;\n" +
                              "\n" +
                              "\n" +
                              "\n" +
-                             "        // Use this for initialization\n" +
+                             "        /// <summary>\n" +
+                             "        /// Script starting callback.\n" +
+                             "        /// </summary>\n" +
                              "        void Start()\n" +
                              "        {\n" +
                              "            mText = GetComponent<Text>();\n" +
@@ -2963,11 +2970,17 @@ namespace UnityTranslationInternal
                              "            Translator.addLanguageChangedListener(OnLanguageChanged);\n" +
                              "        }\n" +
                              "\n" +
+                             "        /// <summary>\n" +
+                             "        /// Script destroying callback.\n" +
+                             "        /// </summary>\n" +
                              "        void OnDestroy()\n" +
                              "        {\n" +
                              "            Translator.removeLanguageChangedListener(OnLanguageChanged);\n" +
                              "        }\n" +
                              "\n" +
+                             "        /// <summary>\n" +
+                             "        /// Callback for language changed event.\n" +
+                             "        /// </summary>\n" +
                              "        public void OnLanguageChanged()\n" +
                              "        {\n" +
                              "            mText.text = Translator.getString(id);\n" +

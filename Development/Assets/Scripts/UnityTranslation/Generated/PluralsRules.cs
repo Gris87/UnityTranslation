@@ -8,14 +8,13 @@ namespace UnityTranslationInternal
     /// <summary>
     /// Container for all plurals rules for each language.
     /// </summary>
-    /// <returns>PluralsQuantity value</returns>
     public static class PluralsRules
     {
         /// <summary>
         /// Delegate function that returns PluralsQuantity related to provided quantity.
         /// </summary>
-        /// <param name="quantity">Quantity</param>
         /// <returns>PluralsQuantity value</returns>
+        /// <param name="quantity">Quantity</param>
         public delegate PluralsQuantity PluralsFunction(double quantity);
 
         /// <summary>

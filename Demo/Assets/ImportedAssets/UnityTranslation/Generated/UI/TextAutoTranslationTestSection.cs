@@ -6,16 +6,24 @@ using UnityEngine.UI;
 
 namespace UnityTranslation
 {
+    /// <summary>
+    /// Script for auto-translating Text component.
+    /// </summary>
     [RequireComponent(typeof(Text))]
     public class TextAutoTranslationTestSection : MonoBehaviour
     {
+        /// <summary>
+        /// Token identifier that used for localization.
+        /// </summary>
         public R.sections.TestSection.strings id;
 
         private Text mText;
 
 
 
-        // Use this for initialization
+        /// <summary>
+        /// Script starting callback.
+        /// </summary>
         void Start()
         {
             mText = GetComponent<Text>();
@@ -23,11 +31,17 @@ namespace UnityTranslation
             Translator.addLanguageChangedListener(OnLanguageChanged);
         }
 
+        /// <summary>
+        /// Script destroying callback.
+        /// </summary>
         void OnDestroy()
         {
             Translator.removeLanguageChangedListener(OnLanguageChanged);
         }
 
+        /// <summary>
+        /// Callback for language changed event.
+        /// </summary>
         public void OnLanguageChanged()
         {
             mText.text = Translator.getString(id);

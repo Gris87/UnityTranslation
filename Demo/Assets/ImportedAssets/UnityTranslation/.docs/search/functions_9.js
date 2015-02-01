@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['unloadsection',['UnloadSection',['../class_unity_translation_1_1_translator.html#a6950d8745c9564269162ccdfd0d7f8eb',1,'UnityTranslation.Translator.UnloadSection()'],['../class_unity_translation_internal_1_1_translator.html#adf150efbf6747ffef8a0a65430257738',1,'UnityTranslationInternal.Translator.UnloadSection()']]]
+  ['sectionlocaletokens',['SectionLocaleTokens',['../class_unity_translation_internal_1_1_translator_1_1_section_locale_tokens.html#a5b5a3289bef7c370a8f8203b16fc7583',1,'UnityTranslationInternal::Translator::SectionLocaleTokens']]],
+  ['sectiontokens',['SectionTokens',['../class_unity_translation_internal_1_1_translator_1_1_section_tokens.html#aadf202b1e4e158bfadfe127a16b2b014',1,'UnityTranslationInternal::Translator::SectionTokens']]],
+  ['systemlanguagetolanguage',['systemLanguageToLanguage',['../class_unity_translation_1_1_language_system_name.html#a9f7d8f1876a2efebe8029723cac5e1ab',1,'UnityTranslation::LanguageSystemName']]]
 ];

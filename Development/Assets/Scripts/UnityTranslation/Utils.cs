@@ -69,6 +69,11 @@ namespace UnityTranslationInternal
             return true;
         }
 
+        /// <summary>
+        /// Processes the token value and replaces \\u sentences with unicode chars.
+        /// </summary>
+        /// <returns>Processed token value.</returns>
+        /// <param name="value">Original token value.</param>
         public static string processTokenValue(string value)
         {
             string res = value;

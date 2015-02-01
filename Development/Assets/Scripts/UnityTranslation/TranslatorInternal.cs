@@ -14,17 +14,37 @@ namespace UnityTranslationInternal
     /// UnityTranslation internal Translator class that has methods for getting localized strings.
     /// Translator provide localization in the same way as in Android localization system.
     /// </summary>
-    /// <seealso href="http://developer.android.com/guide/topics/resources/string-resource.html"/>
+    /// <seealso cref="http://developer.android.com/guide/topics/resources/string-resource.html"/>
     public static class Translator
     {
+        /// <summary>
+        /// Group of localized strings that cached for a single language.
+        /// </summary>
         public class SectionLocaleTokens
         {
+            /// <summary>
+            /// Array of cached string values for a single language.
+            /// </summary>
             public string[]   stringValues;
+
+            /// <summary>
+            /// Array of cached string arrays for a single language.
+            /// </summary>
             public string[][] stringArrayValues;
+
+            /// <summary>
+            /// Array of cached plurals values for a single language.
+            /// </summary>
             public string[][] pluralsValues;
 
 
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="UnityTranslationInternal.Translator+SectionLocaleTokens"/> class.
+            /// </summary>
+            /// <param name="stringCount">String count.</param>
+            /// <param name="stringArrayCount">String array count.</param>
+            /// <param name="pluralsCount">Plurals count.</param>
             public SectionLocaleTokens(int stringCount, int stringArrayCount, int pluralsCount)
             {
                 stringValues      = new string[stringCount];
@@ -33,13 +53,26 @@ namespace UnityTranslationInternal
             }
         }
 
+        /// <summary>
+        /// Default strings and localized strings of selected language for a single section.
+        /// </summary>
         public class SectionTokens
         {
+            /// <summary>
+            /// Default language strings for a single section.
+            /// </summary>
             public SectionLocaleTokens defaultLanguage;
+
+            /// <summary>
+            /// Selected language strings for a single section.
+            /// </summary>
             public SectionLocaleTokens selectedLanguage;
 
 
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="UnityTranslationInternal.Translator+SectionTokens"/> class.
+            /// </summary>
             public SectionTokens()
             {
                 defaultLanguage  = null;

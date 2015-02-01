@@ -6,7 +6,6 @@ using System.Collections;
 
 public class RunScript : MonoBehaviour
 {
-
     // Use this for initialization
     void Start()
     {
