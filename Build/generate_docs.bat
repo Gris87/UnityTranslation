@@ -17,8 +17,11 @@ cd ..\..\Development\Assets\Scripts\UnityTranslation\.latex
 call make.bat
 
 cd ..
-move /Y .latex\refman.pdf .docs.pdf
+move /Y .latex\refman.pdf docs.pdf
 rmdir /S /Q .latex
+
+"C:\Program Files\7-Zip\7z" a -y docs.zip .docs
+rmdir /S /Q .docs
 
 rem ------------------------------------------------
 

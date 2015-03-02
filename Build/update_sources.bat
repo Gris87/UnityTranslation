@@ -9,7 +9,6 @@ cd ..\Demo\Assets\ImportedAssets\UnityTranslation
 del /F /Q *
 
 robocopy %ORIGINAL_PATH%\..\Development\Assets\Scripts\UnityTranslation\      .\ *
-robocopy %ORIGINAL_PATH%\..\Development\Assets\Scripts\UnityTranslation\.docs .docs /MIR
 
 rem ------------------------------------------------
 
