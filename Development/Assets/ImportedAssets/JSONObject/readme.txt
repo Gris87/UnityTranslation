@@ -81,7 +81,7 @@ accessData(j);
 void accessData(JSONObject obj){
     switch(obj.type){
         case JSONObject.Type.OBJECT:
-            for(int i = 0; i < obj.list.Count; i++){
+            for (int i = 0; i < obj.list.Count; i++){
                 string key = (string)obj.keys[i];
                 JSONObject j = (JSONObject)obj.list[i];
                 Debug.Log(key);

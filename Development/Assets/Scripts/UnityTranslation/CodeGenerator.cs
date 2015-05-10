@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Xml;
 
@@ -514,7 +515,14 @@ namespace UnityTranslationInternal
                     }
                     else
                     {
-                        language = "Default";
+                        if (systemLanguage.Contains("Chinese"))
+                        {
+                            language = "Chinese";
+                        }
+                        else
+                        {
+                            language = "Default";
+                        }
                     }
 
                     if (language.Length > maxLanguageNameLength)
@@ -2049,7 +2057,7 @@ namespace UnityTranslationInternal
                 {
                     if (j > 0)
                     {
-                        res += string.Format("                   , {{ {0,-" + (maxTokenNameLength + 2) + "}, {1,-" + (maxTokenNameLength + 15) + "} }}\n", "\"" + sections[i].stringNames[j] + "\"", "(int)" + prefix + "strings." + sections[i].stringNames[j]);
+                        res += string.Format("                    , {{ {0,-" + (maxTokenNameLength + 2) + "}, {1,-" + (maxTokenNameLength + 15) + "} }}\n", "\"" + sections[i].stringNames[j] + "\"", "(int)" + prefix + "strings." + sections[i].stringNames[j]);
                     }
                     else
                     {
@@ -2428,7 +2436,7 @@ namespace UnityTranslationInternal
                 {
                     for (int j = 0; j < commentLines.Length; ++j)
                     {
-                        res += indent + "    /// <para>" + commentLines[j] + "</para>\n";
+                        res += indent + "    /// <para>" + SecurityElement.Escape(commentLines[j]) + "</para>\n";
                     }
                 }
 
@@ -2438,7 +2446,7 @@ namespace UnityTranslationInternal
                 {
                     for (int j = 0; j < valueLines.Length; ++j)
                     {
-                        res += indent + "    ///   <para>" + valueLines[j] + "</para>\n";
+                        res += indent + "    ///   <para>" + SecurityElement.Escape(valueLines[j]) + "</para>\n";
                     }
                 }
 

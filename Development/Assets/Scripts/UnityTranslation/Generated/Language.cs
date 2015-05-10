@@ -5067,6 +5067,8 @@ namespace UnityTranslation
             , Language.Turkish       // SystemLanguage.Turkish
             , Language.Ukrainian     // SystemLanguage.Ukrainian
             , Language.Vietnamese    // SystemLanguage.Vietnamese
+            , Language.Chinese       // SystemLanguage.ChineseSimplified
+            , Language.Chinese       // SystemLanguage.ChineseTraditional
         };
 
         /// <summary>

@@ -33,7 +33,7 @@ public class JSONObject {
     public Type type = Type.NULL;
     public int Count {
         get {
-            if(list == null)
+            if (list == null)
                 return -1;
             return list.Count;
         }
@@ -134,13 +134,13 @@ public class JSONObject {
             result = releaseQueue.Dequeue();
 #if DEV
             //The following cases should NEVER HAPPEN (but they do...)
-            if(result == null)
+            if (result == null)
                 Debug.Log("wtf " + releaseQueue.Count);
-            else if(result.list != null)
+            else if (result.list != null)
                 Debug.Log("wtflist " + result.list.Count);
 #endif
         }
-        if(result != null)
+        if (result != null)
             return result;
 #endif
         return new JSONObject();
@@ -227,46 +227,46 @@ public class JSONObject {
         Parse(str, maxDepth, storeExcessLevels, strict);
     }
     void Parse(string str, int maxDepth = -2, bool storeExcessLevels = false, bool strict = false) {
-        if(!string.IsNullOrEmpty(str)) {
+        if (!string.IsNullOrEmpty(str)) {
             str = str.Trim(WHITESPACE);
-            if(strict) {
-                if(str[0] != '[' && str[0] != '{') {
+            if (strict) {
+                if (str[0] != '[' && str[0] != '{') {
                     type = Type.NULL;
                     Debug.LogWarning("Improper (strict) JSON formatting.  First character must be [ or {");
                     return;
                 }
             }
-            if(str.Length > 0) {
-                if(string.Compare(str, "true", true) == 0) {
+            if (str.Length > 0) {
+                if (string.Compare(str, "true", true) == 0) {
                     type = Type.BOOL;
                     b = true;
-                } else if(string.Compare(str, "false", true) == 0) {
+                } else if (string.Compare(str, "false", true) == 0) {
                     type = Type.BOOL;
                     b = false;
-                } else if(string.Compare(str, "null", true) == 0) {
+                } else if (string.Compare(str, "null", true) == 0) {
                     type = Type.NULL;
 #if USEFLOAT
-                } else if(str == INFINITY) {
+                } else if (str == INFINITY) {
                     type = Type.NUMBER;
                     n = float.PositiveInfinity;
-                } else if(str == NEGINFINITY) {
+                } else if (str == NEGINFINITY) {
                     type = Type.NUMBER;
                     n = float.NegativeInfinity;
-                } else if(str == NaN) {
+                } else if (str == NaN) {
                     type = Type.NUMBER;
                     n = float.NaN;
 #else
-                } else if(str == INFINITY) {
+                } else if (str == INFINITY) {
                     type = Type.NUMBER;
                     n = double.PositiveInfinity;
-                } else if(str == NEGINFINITY) {
+                } else if (str == NEGINFINITY) {
                     type = Type.NUMBER;
                     n = double.NegativeInfinity;
-                } else if(str == NaN) {
+                } else if (str == NaN) {
                     type = Type.NUMBER;
                     n = double.NaN;
 #endif
-                } else if(str[0] == '"') {
+                } else if (str[0] == '"') {
                     type = Type.STRING;
                     this.str = str.Substring(1, str.Length - 2);
                 } else {
@@ -310,45 +310,45 @@ public class JSONObject {
                     bool inProp = false;
                     int depth = 0;
                     while(++offset < str.Length) {
-                        if(System.Array.IndexOf(WHITESPACE, str[offset]) > -1)
+                        if (System.Array.IndexOf(WHITESPACE, str[offset]) > -1)
                             continue;
-                        if(str[offset] == '\\')
+                        if (str[offset] == '\\')
                             offset += 2;
-                        if(str[offset] == '"') {
-                            if(openQuote) {
-                                if(!inProp && depth == 0 && type == Type.OBJECT)
+                        if (str[offset] == '"') {
+                            if (openQuote) {
+                                if (!inProp && depth == 0 && type == Type.OBJECT)
                                     propName = str.Substring(tokenTmp + 1, offset - tokenTmp - 1);
                                 openQuote = false;
                             } else {
-                                if(depth == 0 && type == Type.OBJECT)
+                                if (depth == 0 && type == Type.OBJECT)
                                     tokenTmp = offset;
                                 openQuote = true;
                             }
                         }
-                        if(openQuote)
+                        if (openQuote)
                             continue;
-                        if(type == Type.OBJECT && depth == 0) {
-                            if(str[offset] == ':') {
+                        if (type == Type.OBJECT && depth == 0) {
+                            if (str[offset] == ':') {
                                 tokenTmp = offset + 1;
                                 inProp = true;
                             }
                         }
 
-                        if(str[offset] == '[' || str[offset] == '{') {
+                        if (str[offset] == '[' || str[offset] == '{') {
                             depth++;
-                        } else if(str[offset] == ']' || str[offset] == '}') {
+                        } else if (str[offset] == ']' || str[offset] == '}') {
                             depth--;
                         }
                         //if  (encounter a ',' at top level)  || a closing ]/}
-                        if((str[offset] == ',' && depth == 0) || depth < 0) {
+                        if ((str[offset] == ',' && depth == 0) || depth < 0) {
                             inProp = false;
                             string inner = str.Substring(tokenTmp, offset - tokenTmp).Trim(WHITESPACE);
-                            if(inner.Length > 0) {
-                                if(type == Type.OBJECT)
+                            if (inner.Length > 0) {
+                                if (type == Type.OBJECT)
                                     keys.Add(propName);
-                                if(maxDepth != -1)															//maxDepth of -1 is the end of the line
+                                if (maxDepth != -1)															//maxDepth of -1 is the end of the line
                                     list.Add(Create(inner, (maxDepth < -1) ? -2 : maxDepth - 1));
-                                else if(storeExcessLevels)
+                                else if (storeExcessLevels)
                                     list.Add(CreateBakedObject(inner));
 
                             }
@@ -383,10 +383,10 @@ public class JSONObject {
         Add(Create(content));
     }
     public void Add(JSONObject obj) {
-        if(obj) {		//Don't do anything if the object is null
-            if(type != Type.ARRAY) {
+        if (obj) {		//Don't do anything if the object is null
+            if (type != Type.ARRAY) {
                 type = Type.ARRAY;		//Congratulations, son, you're an ARRAY now
-                if(list == null)
+                if (list == null)
                     list = new List<JSONObject>();
             }
             list.Add(obj);
@@ -408,15 +408,15 @@ public class JSONObject {
         AddField(name, CreateStringObject(val));
     }
     public void AddField(string name, JSONObject obj) {
-        if(obj) {		//Don't do anything if the object is null
-            if(type != Type.OBJECT) {
-                if(keys == null)
+        if (obj) {		//Don't do anything if the object is null
+            if (type != Type.OBJECT) {
+                if (keys == null)
                     keys = new List<string>();
-                if(type == Type.ARRAY) {
-                    for(int i = 0; i < list.Count; i++)
+                if (type == Type.ARRAY) {
+                    for (int i = 0; i < list.Count; i++)
                         keys.Add(i + "");
                 } else
-                    if(list == null)
+                    if (list == null)
                         list = new List<JSONObject>();
                 type = Type.OBJECT;		//Congratulations, son, you're an OBJECT now
             }
@@ -428,14 +428,14 @@ public class JSONObject {
     public void SetField(string name, float val) { SetField(name, Create(val)); }
     public void SetField(string name, int val) { SetField(name, Create(val)); }
     public void SetField(string name, JSONObject obj) {
-        if(HasField(name)) {
+        if (HasField(name)) {
             list.Remove(this[name]);
             keys.Remove(name);
         }
         AddField(name, obj);
     }
     public void RemoveField(string name) {
-        if(keys.IndexOf(name) > -1) {
+        if (keys.IndexOf(name) > -1) {
             list.RemoveAt(keys.IndexOf(name));
             keys.Remove(name);
         }
@@ -443,94 +443,94 @@ public class JSONObject {
     public delegate void FieldNotFound(string name);
     public delegate void GetFieldResponse(JSONObject obj);
     public void GetField(ref bool field, string name, FieldNotFound fail = null) {
-        if(type == Type.OBJECT) {
+        if (type == Type.OBJECT) {
             int index = keys.IndexOf(name);
-            if(index >= 0) {
+            if (index >= 0) {
                 field = list[index].b;
                 return;
             }
         }
-        if(fail != null) fail.Invoke(name);
+        if (fail != null) fail.Invoke(name);
     }
 #if USEFLOAT
     public void GetField(ref float field, string name, FieldNotFound fail = null) {
 #else
     public void GetField(ref double field, string name, FieldNotFound fail = null) {
 #endif
-        if(type == Type.OBJECT) {
+        if (type == Type.OBJECT) {
             int index = keys.IndexOf(name);
-            if(index >= 0) {
+            if (index >= 0) {
                 field = list[index].n;
                 return;
             }
         }
-        if(fail != null) fail.Invoke(name);
+        if (fail != null) fail.Invoke(name);
     }
     public void GetField(ref int field, string name, FieldNotFound fail = null) {
-        if(type == Type.OBJECT) {
+        if (type == Type.OBJECT) {
             int index = keys.IndexOf(name);
-            if(index >= 0) {
+            if (index >= 0) {
                 field = (int)list[index].n;
                 return;
             }
         }
-        if(fail != null) fail.Invoke(name);
+        if (fail != null) fail.Invoke(name);
     }
     public void GetField(ref uint field, string name, FieldNotFound fail = null) {
-        if(type == Type.OBJECT) {
+        if (type == Type.OBJECT) {
             int index = keys.IndexOf(name);
-            if(index >= 0) {
+            if (index >= 0) {
                 field = (uint)list[index].n;
                 return;
             }
         }
-        if(fail != null) fail.Invoke(name);
+        if (fail != null) fail.Invoke(name);
     }
     public void GetField(ref string field, string name, FieldNotFound fail = null) {
-        if(type == Type.OBJECT) {
+        if (type == Type.OBJECT) {
             int index = keys.IndexOf(name);
-            if(index >= 0) {
+            if (index >= 0) {
                 field = list[index].str;
                 return;
             }
         }
-        if(fail != null) fail.Invoke(name);
+        if (fail != null) fail.Invoke(name);
     }
     public void GetField(string name, GetFieldResponse response, FieldNotFound fail = null) {
-        if(response != null && type == Type.OBJECT) {
+        if (response != null && type == Type.OBJECT) {
             int index = keys.IndexOf(name);
-            if(index >= 0) {
+            if (index >= 0) {
                 response.Invoke(list[index]);
                 return;
             }
         }
-        if(fail != null) fail.Invoke(name);
+        if (fail != null) fail.Invoke(name);
     }
     public JSONObject GetField(string name) {
-        if(type == Type.OBJECT)
-            for(int i = 0; i < keys.Count; i++)
-                if(keys[i] == name)
+        if (type == Type.OBJECT)
+            for (int i = 0; i < keys.Count; i++)
+                if (keys[i] == name)
                     return list[i];
         return null;
     }
     public bool HasFields(string[] names) {
-        for(int i = 0; i < names.Length; i++)
-            if(!keys.Contains(names[i]))
+        for (int i = 0; i < names.Length; i++)
+            if (!keys.Contains(names[i]))
                 return false;
         return true;
     }
     public bool HasField(string name) {
-        if(type == Type.OBJECT)
-            for(int i = 0; i < keys.Count; i++)
-                if(keys[i] == name)
+        if (type == Type.OBJECT)
+            for (int i = 0; i < keys.Count; i++)
+                if (keys[i] == name)
                     return true;
         return false;
     }
     public void Clear() {
         type = Type.NULL;
-        if(list != null)
+        if (list != null)
             list.Clear();
-        if(keys != null)
+        if (keys != null)
             keys.Clear();
         str = "";
         n = 0;
@@ -555,31 +555,31 @@ public class JSONObject {
     /// <param name="left">The left (base) object</param>
     /// <param name="right">The right (new) object</param>
     static void MergeRecur(JSONObject left, JSONObject right) {
-        if(left.type == Type.NULL)
+        if (left.type == Type.NULL)
             left.Absorb(right);
-        else if(left.type == Type.OBJECT && right.type == Type.OBJECT) {
-            for(int i = 0; i < right.list.Count; i++) {
+        else if (left.type == Type.OBJECT && right.type == Type.OBJECT) {
+            for (int i = 0; i < right.list.Count; i++) {
                 string key = right.keys[i];
-                if(right[i].isContainer) {
-                    if(left.HasField(key))
+                if (right[i].isContainer) {
+                    if (left.HasField(key))
                         MergeRecur(left[key], right[i]);
                     else
                         left.AddField(key, right[i]);
                 } else {
-                    if(left.HasField(key))
+                    if (left.HasField(key))
                         left.SetField(key, right[i]);
                     else
                         left.AddField(key, right[i]);
                 }
             }
-        } else if(left.type == Type.ARRAY && right.type == Type.ARRAY) {
-            if(right.Count > left.Count) {
+        } else if (left.type == Type.ARRAY && right.type == Type.ARRAY) {
+            if (right.Count > left.Count) {
                 Debug.LogError("Cannot merge arrays when right object has more elements");
                 return;
             }
-            for(int i = 0; i < right.list.Count; i++) {
-                if(left[i].type == right[i].type) {			//Only overwrite with the same type
-                    if(left[i].isContainer)
+            for (int i = 0; i < right.list.Count; i++) {
+                if (left[i].type == right[i].type) {			//Only overwrite with the same type
+                    if (left[i].isContainer)
                         MergeRecur(left[i], right[i]);
                     else {
                         left[i] = right[i];
@@ -589,15 +589,15 @@ public class JSONObject {
         }
     }
     public void Bake() {
-        if(type != Type.BAKED) {
+        if (type != Type.BAKED) {
             str = Print();
             type = Type.BAKED;
         }
     }
     public IEnumerable BakeAsync() {
-        if(type != Type.BAKED) {
+        if (type != Type.BAKED) {
             foreach(string s in PrintAsync()) {
-                if(s == null)
+                if (s == null)
                     yield return s;
                 else {
                     str = s;
@@ -627,11 +627,11 @@ public class JSONObject {
     static readonly Stopwatch printWatch = new Stopwatch();
     IEnumerable StringifyAsync(int depth, StringBuilder builder, bool pretty = false) {	//Convert the JSONObject into a string
         //Profiler.BeginSample("JSONprint");
-        if(depth++ > MAX_DEPTH) {
+        if (depth++ > MAX_DEPTH) {
             Debug.Log("reached max depth!");
             yield break;
         }
-        if(printWatch.Elapsed.TotalSeconds > maxFrameTime) {
+        if (printWatch.Elapsed.TotalSeconds > maxFrameTime) {
             printWatch.Reset();
             yield return null;
             printWatch.Start();
@@ -645,18 +645,18 @@ public class JSONObject {
                 break;
             case Type.NUMBER:
 #if USEFLOAT
-                if(float.IsInfinity(n))
+                if (float.IsInfinity(n))
                     builder.Append(INFINITY);
-                else if(float.IsNegativeInfinity(n))
+                else if (float.IsNegativeInfinity(n))
                     builder.Append(NEGINFINITY);
-                else if(float.IsNaN(n))
+                else if (float.IsNaN(n))
                     builder.Append(NaN);
 #else
-                if(double.IsInfinity(n))
+                if (double.IsInfinity(n))
                     builder.Append(INFINITY);
-                else if(double.IsNegativeInfinity(n))
+                else if (double.IsNegativeInfinity(n))
                     builder.Append(NEGINFINITY);
-                else if(double.IsNaN(n))
+                else if (double.IsNaN(n))
                     builder.Append(NaN);
 #endif
                 else
@@ -664,41 +664,41 @@ public class JSONObject {
                 break;
             case Type.OBJECT:
                 builder.Append("{");
-                if(list.Count > 0) {
-#if(PRETTY)	//for a bit more readability, comment the define above to disable system-wide
-                    if(pretty)
+                if (list.Count > 0) {
+#if (PRETTY)	//for a bit more readability, comment the define above to disable system-wide
+                    if (pretty)
                         builder.Append("\n");
 #endif
-                    for(int i = 0; i < list.Count; i++) {
+                    for (int i = 0; i < list.Count; i++) {
                         string key = keys[i];
                         JSONObject obj = list[i];
-                        if(obj) {
-#if(PRETTY)
-                            if(pretty)
-                                for(int j = 0; j < depth; j++)
+                        if (obj) {
+#if (PRETTY)
+                            if (pretty)
+                                for (int j = 0; j < depth; j++)
                                     builder.Append("\t"); //for a bit more readability
 #endif
                             builder.AppendFormat("\"{0}\":", key);
                             foreach(IEnumerable e in obj.StringifyAsync(depth, builder, pretty))
                                 yield return e;
                             builder.Append(",");
-#if(PRETTY)
-                            if(pretty)
+#if (PRETTY)
+                            if (pretty)
                                 builder.Append("\n");
 #endif
                         }
                     }
-#if(PRETTY)
-                    if(pretty)
+#if (PRETTY)
+                    if (pretty)
                         builder.Length -= 2;
                     else
 #endif
                     builder.Length--;
                 }
-#if(PRETTY)
-                if(pretty && list.Count > 0) {
+#if (PRETTY)
+                if (pretty && list.Count > 0) {
                     builder.Append("\n");
-                    for(int j = 0; j < depth - 1; j++)
+                    for (int j = 0; j < depth - 1; j++)
                         builder.Append("\t"); //for a bit more readability
                 }
 #endif
@@ -706,45 +706,45 @@ public class JSONObject {
                 break;
             case Type.ARRAY:
                 builder.Append("[");
-                if(list.Count > 0) {
-#if(PRETTY)
-                    if(pretty)
+                if (list.Count > 0) {
+#if (PRETTY)
+                    if (pretty)
                         builder.Append("\n"); //for a bit more readability
 #endif
-                    for(int i = 0; i < list.Count; i++) {
-                        if(list[i]) {
-#if(PRETTY)
-                            if(pretty)
-                                for(int j = 0; j < depth; j++)
+                    for (int i = 0; i < list.Count; i++) {
+                        if (list[i]) {
+#if (PRETTY)
+                            if (pretty)
+                                for (int j = 0; j < depth; j++)
                                     builder.Append("\t"); //for a bit more readability
 #endif
                             foreach(IEnumerable e in list[i].StringifyAsync(depth, builder, pretty))
                                 yield return e;
                             builder.Append(",");
-#if(PRETTY)
-                            if(pretty)
+#if (PRETTY)
+                            if (pretty)
                                 builder.Append("\n"); //for a bit more readability
 #endif
                         }
                     }
-#if(PRETTY)
-                    if(pretty)
+#if (PRETTY)
+                    if (pretty)
                         builder.Length -= 2;
                     else
 #endif
                         builder.Length--;
                 }
-#if(PRETTY)
-                if(pretty && list.Count > 0) {
+#if (PRETTY)
+                if (pretty && list.Count > 0) {
                     builder.Append("\n");
-                    for(int j = 0; j < depth - 1; j++)
+                    for (int j = 0; j < depth - 1; j++)
                         builder.Append("\t"); //for a bit more readability
                 }
 #endif
                 builder.Append("]");
                 break;
             case Type.BOOL:
-                if(b)
+                if (b)
                     builder.Append("true");
                 else
                     builder.Append("false");
@@ -764,7 +764,7 @@ public class JSONObject {
      */
     void Stringify(int depth, StringBuilder builder, bool pretty = false) {	//Convert the JSONObject into a string
         //Profiler.BeginSample("JSONprint");
-        if(depth++ > MAX_DEPTH) {
+        if (depth++ > MAX_DEPTH) {
             Debug.Log("reached max depth!");
             return;
         }
@@ -777,18 +777,18 @@ public class JSONObject {
                 break;
             case Type.NUMBER:
 #if USEFLOAT
-                if(float.IsInfinity(n))
+                if (float.IsInfinity(n))
                     builder.Append(INFINITY);
-                else if(float.IsNegativeInfinity(n))
+                else if (float.IsNegativeInfinity(n))
                     builder.Append(NEGINFINITY);
-                else if(float.IsNaN(n))
+                else if (float.IsNaN(n))
                     builder.Append(NaN);
 #else
-                if(double.IsInfinity(n))
+                if (double.IsInfinity(n))
                     builder.Append(INFINITY);
-                else if(double.IsNegativeInfinity(n))
+                else if (double.IsNegativeInfinity(n))
                     builder.Append(NEGINFINITY);
-                else if(double.IsNaN(n))
+                else if (double.IsNaN(n))
                     builder.Append(NaN);
 #endif
                 else
@@ -796,40 +796,40 @@ public class JSONObject {
                 break;
             case Type.OBJECT:
                 builder.Append("{");
-                if(list.Count > 0) {
-#if(PRETTY)	//for a bit more readability, comment the define above to disable system-wide
-                    if(pretty)
+                if (list.Count > 0) {
+#if (PRETTY)	//for a bit more readability, comment the define above to disable system-wide
+                    if (pretty)
                         builder.Append("\n");
 #endif
-                    for(int i = 0; i < list.Count; i++) {
+                    for (int i = 0; i < list.Count; i++) {
                         string key = keys[i];
                         JSONObject obj = list[i];
-                        if(obj) {
-#if(PRETTY)
-                            if(pretty)
-                                for(int j = 0; j < depth; j++)
+                        if (obj) {
+#if (PRETTY)
+                            if (pretty)
+                                for (int j = 0; j < depth; j++)
                                     builder.Append("\t"); //for a bit more readability
 #endif
                             builder.AppendFormat("\"{0}\":", key);
                             obj.Stringify(depth, builder, pretty);
                             builder.Append(",");
-#if(PRETTY)
-                            if(pretty)
+#if (PRETTY)
+                            if (pretty)
                                 builder.Append("\n");
 #endif
                         }
                     }
-#if(PRETTY)
-                    if(pretty)
+#if (PRETTY)
+                    if (pretty)
                         builder.Length -= 2;
                     else
 #endif
                         builder.Length--;
                 }
-#if(PRETTY)
-                if(pretty && list.Count > 0) {
+#if (PRETTY)
+                if (pretty && list.Count > 0) {
                     builder.Append("\n");
-                    for(int j = 0; j < depth - 1; j++)
+                    for (int j = 0; j < depth - 1; j++)
                         builder.Append("\t"); //for a bit more readability
                 }
 #endif
@@ -837,44 +837,44 @@ public class JSONObject {
                 break;
             case Type.ARRAY:
                 builder.Append("[");
-                if(list.Count > 0) {
-#if(PRETTY)
-                    if(pretty)
+                if (list.Count > 0) {
+#if (PRETTY)
+                    if (pretty)
                         builder.Append("\n"); //for a bit more readability
 #endif
-                    for(int i = 0; i < list.Count; i++) {
-                        if(list[i]) {
-#if(PRETTY)
-                            if(pretty)
-                                for(int j = 0; j < depth; j++)
+                    for (int i = 0; i < list.Count; i++) {
+                        if (list[i]) {
+#if (PRETTY)
+                            if (pretty)
+                                for (int j = 0; j < depth; j++)
                                     builder.Append("\t"); //for a bit more readability
 #endif
                             list[i].Stringify(depth, builder, pretty);
                             builder.Append(",");
-#if(PRETTY)
-                            if(pretty)
+#if (PRETTY)
+                            if (pretty)
                                 builder.Append("\n"); //for a bit more readability
 #endif
                         }
                     }
-#if(PRETTY)
-                    if(pretty)
+#if (PRETTY)
+                    if (pretty)
                         builder.Length -= 2;
                     else
 #endif
                         builder.Length--;
                 }
-#if(PRETTY)
-                if(pretty && list.Count > 0) {
+#if (PRETTY)
+                if (pretty && list.Count > 0) {
                     builder.Append("\n");
-                    for(int j = 0; j < depth - 1; j++)
+                    for (int j = 0; j < depth - 1; j++)
                         builder.Append("\t"); //for a bit more readability
                 }
 #endif
                 builder.Append("]");
                 break;
             case Type.BOOL:
-                if(b)
+                if (b)
                     builder.Append("true");
                 else
                     builder.Append("false");
@@ -888,12 +888,12 @@ public class JSONObject {
     #endregion
     public static implicit operator WWWForm(JSONObject obj) {
         WWWForm form = new WWWForm();
-        for(int i = 0; i < obj.list.Count; i++) {
+        for (int i = 0; i < obj.list.Count; i++) {
             string key = i + "";
-            if(obj.type == Type.OBJECT)
+            if (obj.type == Type.OBJECT)
                 key = obj.keys[i];
             string val = obj.list[i].ToString();
-            if(obj.list[i].type == Type.STRING)
+            if (obj.list[i].type == Type.STRING)
                 val = val.Replace("\"", "");
             form.AddField(key, val);
         }
@@ -901,11 +901,11 @@ public class JSONObject {
     }
     public JSONObject this[int index] {
         get {
-            if(list.Count > index) return list[index];
+            if (list.Count > index) return list[index];
             return null;
         }
         set {
-            if(list.Count > index)
+            if (list.Count > index)
                 list[index] = value;
         }
     }
@@ -924,9 +924,9 @@ public class JSONObject {
         return Print(pretty);
     }
     public Dictionary<string, string> ToDictionary() {
-        if(type == Type.OBJECT) {
+        if (type == Type.OBJECT) {
             Dictionary<string, string> result = new Dictionary<string, string>();
-            for(int i = 0; i < list.Count; i++) {
+            for (int i = 0; i < list.Count; i++) {
                 JSONObject val = list[i];
                 switch(val.type) {
                     case Type.STRING: result.Add(keys[i], val.str); break;
@@ -952,7 +952,7 @@ public class JSONObject {
     }
 
     ~JSONObject() {
-        if(pool && releaseQueue.Count < MAX_POOL_SIZE) {
+        if (pool && releaseQueue.Count < MAX_POOL_SIZE) {
             type = Type.NULL;
             list = null;
             keys = null;
