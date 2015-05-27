@@ -157,7 +157,7 @@ Translator.UnloadSection(R.sections.SectionID.MySection);
 
 You can provide listener to handle language changed event in your application.
 
-Please do not forget to remove listener when it is not needed.
+Please do not forget to remove listener when it's no longer needed.
 
  
 
@@ -169,6 +169,7 @@ using UnityTranslation;
 void Start()
 {
     mText = GetComponentText();
+    mText.text = Translator.getString(id);
 
     Translator.addLanguageChangedListener(OnLanguageChanged);
 }
@@ -183,13 +184,6 @@ public void OnLanguageChanged()
     mText.text = Translator.getString(id);
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
- 
-
->   **WARNING!!!**
->   
->   When you call addLanguageChangedListener it will automatically invoke
->   listener method!
 
  
 

@@ -186,7 +186,7 @@ namespace UnityTranslation
                 new Dictionary<string, int> // strings
                 {
                       { "hello"  , (int)R.strings.hello   }
-                   , { "goodbye", (int)R.strings.goodbye }
+                    , { "goodbye", (int)R.strings.goodbye }
                 }
                 ,
                 new Dictionary<string, int> // array
