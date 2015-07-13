@@ -64,7 +64,7 @@ public class GetLanguagesScript : MonoBehaviour
 
             #region Text Component
             Text text = languageButtonText.GetComponent<Text>();
-            text.text = LanguageName.languageToName(language);
+            text.text = LanguageName.LanguageToName(language);
             #endregion
             #endregion
         }

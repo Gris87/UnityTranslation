@@ -18,19 +18,19 @@ public class StringArrayScript : MonoBehaviour
         mText = GetComponent<Text>();
         OnLanguageChanged();
 
-        Translator.addLanguageChangedListener(OnLanguageChanged);
+        Translator.AddLanguageChangedListener(OnLanguageChanged);
     }
 
     void OnDestroy()
     {
-        Translator.removeLanguageChangedListener(OnLanguageChanged);
+        Translator.RemoveLanguageChangedListener(OnLanguageChanged);
     }
 
     public void OnLanguageChanged()
     {
         string res = "";
 
-        string[] value = Translator.getStringArray(id);
+        string[] value = Translator.GetStringArray(id);
 
         for (int i = 0; i < value.Length; ++i)
         {

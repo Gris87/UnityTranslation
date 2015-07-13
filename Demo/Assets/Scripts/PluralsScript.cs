@@ -17,19 +17,19 @@ public class PluralsScript : MonoBehaviour
     void Start()
     {
         mSlider = GetComponent<Slider>();
-        text.text = Translator.getQuantityString(id, mSlider.value, mSlider.value);
+        text.text = Translator.GetQuantityString(id, mSlider.value, mSlider.value);
 
-        Translator.addLanguageChangedListener(OnLanguageChanged);
+        Translator.AddLanguageChangedListener(OnLanguageChanged);
     }
 
     void OnDestroy()
     {
-        Translator.removeLanguageChangedListener(OnLanguageChanged);
+        Translator.RemoveLanguageChangedListener(OnLanguageChanged);
     }
 
     public void OnLanguageChanged()
     {
-        text.text = Translator.getQuantityString(id, mSlider.value, mSlider.value);
+		text.text = Translator.GetQuantityString(id, mSlider.value, mSlider.value);
     }
 
     public void OnValueChanged(float newValue)
