@@ -1,4 +1,4 @@
-﻿// This file generated from xml files in "Assets/Resources/res/values".
+// This file generated from xml files in "Assets/Resources/res/values".
 using UnityEngine;
 using UnityEngine.UI;
 

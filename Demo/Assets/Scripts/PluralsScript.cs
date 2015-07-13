@@ -17,7 +17,7 @@ public class PluralsScript : MonoBehaviour
     void Start()
     {
         mSlider = GetComponent<Slider>();
-		text.text = Translator.getQuantityString(id, mSlider.value, mSlider.value);
+        text.text = Translator.getQuantityString(id, mSlider.value, mSlider.value);
 
         Translator.addLanguageChangedListener(OnLanguageChanged);
     }

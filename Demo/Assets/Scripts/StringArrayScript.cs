@@ -16,7 +16,7 @@ public class StringArrayScript : MonoBehaviour
     void Start()
     {
         mText = GetComponent<Text>();
-		OnLanguageChanged();
+        OnLanguageChanged();
 
         Translator.addLanguageChangedListener(OnLanguageChanged);
     }

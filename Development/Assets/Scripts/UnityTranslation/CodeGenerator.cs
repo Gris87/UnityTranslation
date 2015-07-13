@@ -115,11 +115,11 @@ namespace UnityTranslationInternal
             }
 
 #if FORCE_CODE_GENERATION
-			generateTranslator(         sectionIds);
-			generateTextAutoTranslation(sectionIds);
+            generateTranslator(         sectionIds);
+            generateTextAutoTranslation(sectionIds);
 #else
-			generateTranslator(         sectionIds, changedCodeGenerator_cs || generateFilesDependedOnR_cs);
-			generateTextAutoTranslation(sectionIds, changedCodeGenerator_cs || generateFilesDependedOnR_cs);
+            generateTranslator(         sectionIds, changedCodeGenerator_cs || generateFilesDependedOnR_cs);
+            generateTextAutoTranslation(sectionIds, changedCodeGenerator_cs || generateFilesDependedOnR_cs);
 #endif
         }
 
@@ -174,19 +174,19 @@ namespace UnityTranslationInternal
             {
                 string generatedFolder = pathToGeneratedFile("CodeGenerator.cs");
 
-				generatedFolder = generatedFolder.Remove(generatedFolder.LastIndexOf('/'));
-				changedCodeGenerator_cs = checkPreviouslyGeneratedFile(generatedFolder, "CodeGenerator.cs");
+                generatedFolder = generatedFolder.Remove(generatedFolder.LastIndexOf('/'));
+                changedCodeGenerator_cs = checkPreviouslyGeneratedFile(generatedFolder, "CodeGenerator.cs");
 
                 generatedFolder += "/Generated";
 
 #if I_AM_UNITY_TRANSLATION_DEVELOPER
-				changedGeneratedLanguage           = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "Language.cs");
-				changedGeneratedPluralsRules       = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "PluralsRules.cs");
+                changedGeneratedLanguage           = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "Language.cs");
+                changedGeneratedPluralsRules       = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "PluralsRules.cs");
 #endif
 
-				changedGeneratedAvailableLanguages = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "AvailableLanguages.cs");
-				changedGeneratedR                  = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "R.cs");
-				changedGeneratedTranslator         = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "Translator.cs");
+                changedGeneratedAvailableLanguages = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "AvailableLanguages.cs");
+                changedGeneratedR                  = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "R.cs");
+                changedGeneratedTranslator         = changedCodeGenerator_cs || checkPreviouslyGeneratedFile(generatedFolder, "Translator.cs");
             }
         }
 #endif
@@ -2610,29 +2610,29 @@ namespace UnityTranslationInternal
         /// <param name="sectionIds">Sections identifiers.</param>
         private static void generateTranslator(List<string> sectionIds)
 #else
-		/// <summary>
-		/// Generates Translator.cs file
-		/// </summary>
-		/// <param name="sectionIds">Sections identifiers.</param>
-		/// <param name="forceGeneration">If set to <c>true</c> force code generation.</param>
-		private static void generateTranslator(List<string> sectionIds, bool forceGeneration)
+        /// <summary>
+        /// Generates Translator.cs file
+        /// </summary>
+        /// <param name="sectionIds">Sections identifiers.</param>
+        /// <param name="forceGeneration">If set to <c>true</c> force code generation.</param>
+        private static void generateTranslator(List<string> sectionIds, bool forceGeneration)
 #endif
         {
             string targetFile = pathToGeneratedFile("Translator.cs");
 
             #region Check that Translator.cs is up to date
 #if !FORCE_CODE_GENERATION
-			if (
-				!forceGeneration
-				&&
-				!changedGeneratedTranslator
-				&&
-				File.Exists(targetFile)
-			   )
-			{
-				return;
-			}
-#endif            
+            if (
+                !forceGeneration
+                &&
+                !changedGeneratedTranslator
+                &&
+                File.Exists(targetFile)
+               )
+            {
+                return;
+            }
+#endif
             #endregion
 
             #region Generating Translator.cs file
@@ -2883,12 +2883,12 @@ namespace UnityTranslationInternal
         /// <param name="sectionIds">Sections identifiers.</param>
         private static void generateTextAutoTranslation(List<string> sectionIds)
 #else
-		/// <summary>
-		/// Generates TextAutoTranslation.cs file
-		/// </summary>
-		/// <param name="sectionIds">Sections identifiers.</param>
-		/// <param name="forceGeneration">If set to <c>true</c> force code generation.</param>
-		private static void generateTextAutoTranslation(List<string> sectionIds, bool forceGeneration)
+        /// <summary>
+        /// Generates TextAutoTranslation.cs file
+        /// </summary>
+        /// <param name="sectionIds">Sections identifiers.</param>
+        /// <param name="forceGeneration">If set to <c>true</c> force code generation.</param>
+        private static void generateTextAutoTranslation(List<string> sectionIds, bool forceGeneration)
 #endif
         {
             string tempUiPath = Application.temporaryCachePath + "/UnityTranslation/UI";
@@ -2910,45 +2910,45 @@ namespace UnityTranslationInternal
 
             #region Check that TextAutoTranslation.cs is up to date
 #if !FORCE_CODE_GENERATION
-			if (
-				!forceGeneration
-				&&
-				File.Exists(targetFile)
-				&&
-				targetFiles.Length == tempFiles.Length
-			   )
-			{
-				bool good = true;
-				
-				for (int i = 0; i < targetFiles.Length; ++i)
-				{
-					if (targetFiles[i].Name != tempFiles[i].Name)
-					{
-						good = false;
-						break;
-					}
-				}
-				
-				if (good)
-				{
-					for (int i = 0; i < targetFiles.Length; ++i)
-					{
-						byte[] leftBytes  = File.ReadAllBytes(targetFiles[i].FullName);
-						byte[] rightBytes = File.ReadAllBytes(tempFiles[i].FullName);
-						
-						if (!leftBytes.SequenceEqual(rightBytes))
-						{
-							good = false;
-							break;
-						}
-					}
-					
-					if (good)
-					{
-						return;
-					}
-				}
-			}
+            if (
+                !forceGeneration
+                &&
+                File.Exists(targetFile)
+                &&
+                targetFiles.Length == tempFiles.Length
+               )
+            {
+                bool good = true;
+
+                for (int i = 0; i < targetFiles.Length; ++i)
+                {
+                    if (targetFiles[i].Name != tempFiles[i].Name)
+                    {
+                        good = false;
+                        break;
+                    }
+                }
+
+                if (good)
+                {
+                    for (int i = 0; i < targetFiles.Length; ++i)
+                    {
+                        byte[] leftBytes  = File.ReadAllBytes(targetFiles[i].FullName);
+                        byte[] rightBytes = File.ReadAllBytes(tempFiles[i].FullName);
+
+                        if (!leftBytes.SequenceEqual(rightBytes))
+                        {
+                            good = false;
+                            break;
+                        }
+                    }
+
+                    if (good)
+                    {
+                        return;
+                    }
+                }
+            }
 #endif
             #endregion
 
@@ -3003,7 +3003,7 @@ namespace UnityTranslationInternal
                              "        void Start()\n" +
                              "        {\n" +
                              "            mText = GetComponent<Text>();\n" +
-						     "            mText.text = Translator.getString(id);\n" +
+                             "            mText.text = Translator.getString(id);\n" +
                              "\n" +
                              "            Translator.addLanguageChangedListener(OnLanguageChanged);\n" +
                              "        }\n" +
